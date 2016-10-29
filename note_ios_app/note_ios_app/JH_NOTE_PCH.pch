@@ -1,0 +1,16 @@
+//
+//  JH_NOTE_PCH.pch
+//  note_ios_app
+//
+//  Created by 江弘 on 2016/10/29.
+//  Copyright © 2016年 江弘. All rights reserved.
+//
+
+#ifndef JH_NOTE_PCH_pch
+#define JH_NOTE_PCH_pch
+
+#import "Attribute.h"
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* JH_NOTE_PCH_pch */

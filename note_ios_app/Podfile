@@ -1,0 +1,7 @@
+platform :ios,'8.0'
+target 'note_ios_app' do
+pod 'Masonry'
+pod 'MJExtension'
+pod 'SDWebImage'
+pod 'MJRefresh'
+end
