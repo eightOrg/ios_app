@@ -10,6 +10,13 @@
 		204C8CB78E1D2155D0D10050 /* libPods-note_ios_app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8AC8B80F125B5155B5CDFB /* libPods-note_ios_app.a */; };
 		473231AC1DC47AFD00C890D0 /* ThemeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 473231AB1DC47AFD00C890D0 /* ThemeButton.m */; };
 		473231AF1DC47B1800C890D0 /* ThemeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 473231AE1DC47B1800C890D0 /* ThemeLabel.m */; };
+		478F69561DC8BBCC001E9569 /* JHSquareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 478F69551DC8BBCC001E9569 /* JHSquareVC.m */; };
+		478F69591DC8BBE2001E9569 /* JHNoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 478F69581DC8BBE2001E9569 /* JHNoteVC.m */; };
+		478F695C1DC8BBF3001E9569 /* JHFriendsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 478F695B1DC8BBF3001E9569 /* JHFriendsVC.m */; };
+		478F695F1DC8BC1E001E9569 /* JHChildFriendsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 478F695E1DC8BC1E001E9569 /* JHChildFriendsVC.m */; };
+		478F69621DC8BC32001E9569 /* JHChildMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 478F69611DC8BC32001E9569 /* JHChildMessageVC.m */; };
+		478F69661DC8BF4D001E9569 /* JHBaseRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 478F69651DC8BF4D001E9569 /* JHBaseRootVC.m */; };
+		478F69691DC8C0B3001E9569 /* JHSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 478F69681DC8C0B3001E9569 /* JHSlideView.m */; };
 		47B8301A1DC44AB500969523 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B830191DC44AB500969523 /* main.m */; };
 		47B8301D1DC44AB500969523 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B8301C1DC44AB500969523 /* AppDelegate.m */; };
 		47B830251DC44AB500969523 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47B830241DC44AB500969523 /* Assets.xcassets */; };
@@ -49,6 +56,23 @@
 		473231AB1DC47AFD00C890D0 /* ThemeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeButton.m; sourceTree = "<group>"; };
 		473231AD1DC47B1800C890D0 /* ThemeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeLabel.h; sourceTree = "<group>"; };
 		473231AE1DC47B1800C890D0 /* ThemeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeLabel.m; sourceTree = "<group>"; };
+		478F69531DC8AFDC001E9569 /* ThemeViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeViews.h; sourceTree = "<group>"; };
+		478F69541DC8BBCC001E9569 /* JHSquareVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHSquareVC.h; sourceTree = "<group>"; };
+		478F69551DC8BBCC001E9569 /* JHSquareVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHSquareVC.m; sourceTree = "<group>"; };
+		478F69571DC8BBE2001E9569 /* JHNoteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHNoteVC.h; sourceTree = "<group>"; };
+		478F69581DC8BBE2001E9569 /* JHNoteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHNoteVC.m; sourceTree = "<group>"; };
+		478F695A1DC8BBF3001E9569 /* JHFriendsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHFriendsVC.h; sourceTree = "<group>"; };
+		478F695B1DC8BBF3001E9569 /* JHFriendsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHFriendsVC.m; sourceTree = "<group>"; };
+		478F695D1DC8BC1E001E9569 /* JHChildFriendsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChildFriendsVC.h; sourceTree = "<group>"; };
+		478F695E1DC8BC1E001E9569 /* JHChildFriendsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChildFriendsVC.m; sourceTree = "<group>"; };
+		478F69601DC8BC32001E9569 /* JHChildMessageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChildMessageVC.h; sourceTree = "<group>"; };
+		478F69611DC8BC32001E9569 /* JHChildMessageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChildMessageVC.m; sourceTree = "<group>"; };
+		478F69631DC8BC5D001E9569 /* PodHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PodHeader.h; sourceTree = "<group>"; };
+		478F69641DC8BF4D001E9569 /* JHBaseRootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHBaseRootVC.h; sourceTree = "<group>"; };
+		478F69651DC8BF4D001E9569 /* JHBaseRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHBaseRootVC.m; sourceTree = "<group>"; };
+		478F69671DC8C0B3001E9569 /* JHSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHSlideView.h; sourceTree = "<group>"; };
+		478F69681DC8C0B3001E9569 /* JHSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHSlideView.m; sourceTree = "<group>"; };
+		478F696A1DC8D01C001E9569 /* Notification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		47B830151DC44AB500969523 /* note_ios_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = note_ios_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47B830191DC44AB500969523 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		47B8301B1DC44AB500969523 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
@@ -108,6 +132,9 @@
 			isa = PBXGroup;
 			children = (
 				473231A81DC46EA700C890D0 /* Attribute.h */,
+				478F69531DC8AFDC001E9569 /* ThemeViews.h */,
+				478F69631DC8BC5D001E9569 /* PodHeader.h */,
+				478F696A1DC8D01C001E9569 /* Notification.h */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -221,6 +248,10 @@
 				47B8305A1DC451AF00969523 /* JHBaseNav.m */,
 				47B8305C1DC451CA00969523 /* JHBaseViewController.h */,
 				47B8305D1DC451CA00969523 /* JHBaseViewController.m */,
+				478F69641DC8BF4D001E9569 /* JHBaseRootVC.h */,
+				478F69651DC8BF4D001E9569 /* JHBaseRootVC.m */,
+				478F69671DC8C0B3001E9569 /* JHSlideView.h */,
+				478F69681DC8C0B3001E9569 /* JHSlideView.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -277,6 +308,8 @@
 		47B830601DC4525000969523 /* Square */ = {
 			isa = PBXGroup;
 			children = (
+				478F69541DC8BBCC001E9569 /* JHSquareVC.h */,
+				478F69551DC8BBCC001E9569 /* JHSquareVC.m */,
 			);
 			path = Square;
 			sourceTree = "<group>";
@@ -284,6 +317,8 @@
 		47B830611DC4525000969523 /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				478F69571DC8BBE2001E9569 /* JHNoteVC.h */,
+				478F69581DC8BBE2001E9569 /* JHNoteVC.m */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -291,6 +326,12 @@
 		47B830621DC4525000969523 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				478F695A1DC8BBF3001E9569 /* JHFriendsVC.h */,
+				478F695B1DC8BBF3001E9569 /* JHFriendsVC.m */,
+				478F695D1DC8BC1E001E9569 /* JHChildFriendsVC.h */,
+				478F695E1DC8BC1E001E9569 /* JHChildFriendsVC.m */,
+				478F69601DC8BC32001E9569 /* JHChildMessageVC.h */,
+				478F69611DC8BC32001E9569 /* JHChildMessageVC.m */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -500,13 +541,20 @@
 			files = (
 				47B8301D1DC44AB500969523 /* AppDelegate.m in Sources */,
 				47B830681DC46BD800969523 /* JHRegisterVC.m in Sources */,
+				478F69691DC8C0B3001E9569 /* JHSlideView.m in Sources */,
 				47B830551DC4509E00969523 /* AppDelegate+StartApp.m in Sources */,
+				478F69661DC8BF4D001E9569 /* JHBaseRootVC.m in Sources */,
 				47B830651DC4529700969523 /* JHLoginVC.m in Sources */,
 				473231AC1DC47AFD00C890D0 /* ThemeButton.m in Sources */,
+				478F69621DC8BC32001E9569 /* JHChildMessageVC.m in Sources */,
 				47B830581DC4518B00969523 /* JHBaseTabBar.m in Sources */,
+				478F69561DC8BBCC001E9569 /* JHSquareVC.m in Sources */,
 				473231AF1DC47B1800C890D0 /* ThemeLabel.m in Sources */,
 				47B8305B1DC451AF00969523 /* JHBaseNav.m in Sources */,
+				478F695F1DC8BC1E001E9569 /* JHChildFriendsVC.m in Sources */,
 				47B8301A1DC44AB500969523 /* main.m in Sources */,
+				478F695C1DC8BBF3001E9569 /* JHFriendsVC.m in Sources */,
+				478F69591DC8BBE2001E9569 /* JHNoteVC.m in Sources */,
 				47B8305E1DC451CA00969523 /* JHBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

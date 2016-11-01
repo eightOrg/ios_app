@@ -9,6 +9,7 @@
 #import "AppDelegate+StartApp.h"
 #import "JHLoginVC.h"
 #import "JHBaseNav.h"
+#include "JHBaseRootVC.h"
 @implementation AppDelegate (StartApp)
 
 /**
@@ -28,10 +29,14 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     //判断用户是否保存登录
-    if (true) {
+    bool isLogin = false;
+    if (isLogin) {
         JHLoginVC *login = [[JHLoginVC alloc] init];
         JHBaseNav *nav = [[JHBaseNav alloc] initWithRootViewController:login];
         self.window.rootViewController = nav;
+    }else{
+        JHBaseRootVC *root = [[JHBaseRootVC alloc] init];
+        self.window.rootViewController = root;
     }
     
 }

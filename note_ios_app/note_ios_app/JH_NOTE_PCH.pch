@@ -10,6 +10,9 @@
 #define JH_NOTE_PCH_pch
 
 #import "Attribute.h"
+#import "ThemeViews.h"
+#import "PodHeader.h"
+#import "Notification.h"
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 

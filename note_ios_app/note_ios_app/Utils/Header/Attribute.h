@@ -10,6 +10,7 @@
 #define Attribute_h
 
 #define BaseColor [UIColor colorWithRed:28/255.f green:170/255.f blue:235/255.f alpha:1]
+#define BaseTextColor [UIColor whiteColor]
 
 
 #endif /* Attribute_h */
