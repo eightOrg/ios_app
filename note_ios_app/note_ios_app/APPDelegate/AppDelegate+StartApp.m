@@ -30,7 +30,7 @@
     [self.window makeKeyAndVisible];
     //判断用户是否保存登录
     bool isLogin = false;
-    if (isLogin) {
+    if (!isLogin) {
         JHLoginVC *login = [[JHLoginVC alloc] init];
         JHBaseNav *nav = [[JHBaseNav alloc] initWithRootViewController:login];
         self.window.rootViewController = nav;

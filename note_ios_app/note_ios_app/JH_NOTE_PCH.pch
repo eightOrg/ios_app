@@ -13,6 +13,8 @@
 #import "ThemeViews.h"
 #import "PodHeader.h"
 #import "Notification.h"
+#import "API.h"
+#import "Common.h"
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 

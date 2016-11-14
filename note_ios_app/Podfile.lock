@@ -1,23 +1,53 @@
 PODS:
+  - AFDownloadRequestOperation (2.0.1):
+    - AFNetworking (~> 2.0)
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
   - Masonry (1.0.1)
   - MJExtension (3.0.10)
   - MJRefresh (3.1.9)
   - SDWebImage (3.8.1):
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
+  - YTKNetwork (1.1.0):
+    - AFDownloadRequestOperation (~> 2.0)
+    - AFNetworking (~> 2.0)
 
 DEPENDENCIES:
   - Masonry
   - MJExtension
   - MJRefresh
   - SDWebImage
+  - YTKNetwork
 
 SPEC CHECKSUMS:
+  AFDownloadRequestOperation: 748a1643423e1ddb23f2178f778087d4f0ae8ac7
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
   MJRefresh: c5f1f1653e5a1b932c90f78074f2bc86f3f9bd5e
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  YTKNetwork: a41c1df80d4f3b9d05c19c514a2c604e7a6ac341
 
-PODFILE CHECKSUM: 800c95b5817c2a0f5e833ed5d415e09dc5b01b09
+PODFILE CHECKSUM: 341d118c991e164c096e7a39ad42e35440ff56fa
 
 COCOAPODS: 1.1.1
