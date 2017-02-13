@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="KGk-i7-Jjw" customClass="JHChatMessageCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p0.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Pmf-N5-2jK">
+                        <rect key="frame" x="10" y="10" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="BJI-Ad-0p1"/>
+                            <constraint firstAttribute="height" constant="50" id="QBE-Lu-SGe"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="25"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昵称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGQ-s7-Ffl">
+                        <rect key="frame" x="70" y="10" width="199" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="9hJ-SF-0ho"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最新信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MT3-uP-CJB">
+                        <rect key="frame" x="70" y="35" width="206" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="8kq-RX-7zB"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="99+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBB-CQ-E6m">
+                        <rect key="frame" x="286" y="40" width="24" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="18:18" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UpZ-WB-MXI">
+                        <rect key="frame" x="279" y="15" width="31" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="UpZ-WB-MXI" secondAttribute="trailingMargin" constant="10" id="5GA-EC-QJP"/>
+                    <constraint firstItem="UpZ-WB-MXI" firstAttribute="leading" secondItem="fGQ-s7-Ffl" secondAttribute="trailing" constant="10" id="6B9-nm-gWU"/>
+                    <constraint firstItem="Pmf-N5-2jK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="HWs-wA-THX"/>
+                    <constraint firstItem="GBB-CQ-E6m" firstAttribute="centerY" secondItem="MT3-uP-CJB" secondAttribute="centerY" id="KhK-di-R1s"/>
+                    <constraint firstAttribute="trailing" secondItem="GBB-CQ-E6m" secondAttribute="trailing" constant="10" id="U1x-Tp-ZQQ"/>
+                    <constraint firstItem="Pmf-N5-2jK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="VvP-wE-3Gu"/>
+                    <constraint firstItem="fGQ-s7-Ffl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="b0d-e5-f59"/>
+                    <constraint firstItem="MT3-uP-CJB" firstAttribute="top" secondItem="fGQ-s7-Ffl" secondAttribute="bottom" id="ecX-gk-5CI"/>
+                    <constraint firstItem="UpZ-WB-MXI" firstAttribute="centerY" secondItem="fGQ-s7-Ffl" secondAttribute="centerY" id="hef-m4-Zr9"/>
+                    <constraint firstItem="GBB-CQ-E6m" firstAttribute="leading" secondItem="MT3-uP-CJB" secondAttribute="trailing" constant="10" id="kiK-Mx-QZJ"/>
+                    <constraint firstItem="MT3-uP-CJB" firstAttribute="leading" secondItem="Pmf-N5-2jK" secondAttribute="trailing" constant="10" id="m3z-VW-98r"/>
+                    <constraint firstItem="fGQ-s7-Ffl" firstAttribute="leading" secondItem="Pmf-N5-2jK" secondAttribute="trailing" constant="10" id="rJT-SY-VVN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="imgPortrail" destination="Pmf-N5-2jK" id="SOh-rS-tvN"/>
+                <outlet property="labMessage" destination="MT3-uP-CJB" id="OWC-43-KbU"/>
+                <outlet property="labName" destination="fGQ-s7-Ffl" id="2mf-Nh-mSL"/>
+                <outlet property="labNumber" destination="GBB-CQ-E6m" id="M8d-a4-pL4"/>
+                <outlet property="labTime" destination="UpZ-WB-MXI" id="CpZ-cg-ar0"/>
+            </connections>
+            <point key="canvasLocation" x="32" y="73"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="p0.jpg" width="400" height="300"/>
+    </resources>
+</document>

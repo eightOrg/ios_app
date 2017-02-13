@@ -18,6 +18,7 @@
  @param resultBlock result
  */
 -(void)CF_LoadData:(void(^)(id result))resultBlock{
+#warning 测试数据用户列表
     NSArray *data = @[@{
                           @"groupName":@"蒋小红0",
                           @"groupDetail":@[

@@ -40,6 +40,11 @@
 		47D84DC41E516405009C6C2A /* JHChatFriendItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D84DC31E516405009C6C2A /* JHChatFriendItem.m */; };
 		47D84DC71E518011009C6C2A /* JHChatFriendGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D84DC61E518011009C6C2A /* JHChatFriendGroupView.m */; };
 		47D84DCA1E519FCE009C6C2A /* JH_DIYsearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D84DC91E519FCE009C6C2A /* JH_DIYsearchBar.m */; };
+		47D84DCE1E51AB18009C6C2A /* JHChatMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D84DCC1E51AB18009C6C2A /* JHChatMessageCell.m */; };
+		47D84DCF1E51AB18009C6C2A /* JHChatMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47D84DCD1E51AB18009C6C2A /* JHChatMessageCell.xib */; };
+		47D84DD21E51AB4E009C6C2A /* JHChatMessageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D84DD11E51AB4E009C6C2A /* JHChatMessageItem.m */; };
+		47D84DD51E51B25B009C6C2A /* JHChatMessageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D84DD41E51B25B009C6C2A /* JHChatMessageViewModel.m */; };
+		47D84DD81E51B2FC009C6C2A /* JHChatMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D84DD71E51B2FC009C6C2A /* JHChatMessageModel.m */; };
 		47F1FD9B1DD9EF060096A1AF /* JHBaseTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F1FD9A1DD9EF060096A1AF /* JHBaseTextField.m */; };
 		47F1FD9E1DD9F06B0096A1AF /* JHBaseSubmitButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F1FD9D1DD9F06B0096A1AF /* JHBaseSubmitButton.m */; };
 /* End PBXBuildFile section */
@@ -132,6 +137,15 @@
 		47D84DC61E518011009C6C2A /* JHChatFriendGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatFriendGroupView.m; sourceTree = "<group>"; };
 		47D84DC81E519FCE009C6C2A /* JH_DIYsearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_DIYsearchBar.h; sourceTree = "<group>"; };
 		47D84DC91E519FCE009C6C2A /* JH_DIYsearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_DIYsearchBar.m; sourceTree = "<group>"; };
+		47D84DCB1E51AB18009C6C2A /* JHChatMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatMessageCell.h; sourceTree = "<group>"; };
+		47D84DCC1E51AB18009C6C2A /* JHChatMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatMessageCell.m; sourceTree = "<group>"; };
+		47D84DCD1E51AB18009C6C2A /* JHChatMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JHChatMessageCell.xib; sourceTree = "<group>"; };
+		47D84DD01E51AB4E009C6C2A /* JHChatMessageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatMessageItem.h; sourceTree = "<group>"; };
+		47D84DD11E51AB4E009C6C2A /* JHChatMessageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatMessageItem.m; sourceTree = "<group>"; };
+		47D84DD31E51B25B009C6C2A /* JHChatMessageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatMessageViewModel.h; sourceTree = "<group>"; };
+		47D84DD41E51B25B009C6C2A /* JHChatMessageViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatMessageViewModel.m; sourceTree = "<group>"; };
+		47D84DD61E51B2FC009C6C2A /* JHChatMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatMessageModel.h; sourceTree = "<group>"; };
+		47D84DD71E51B2FC009C6C2A /* JHChatMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatMessageModel.m; sourceTree = "<group>"; };
 		47F1FD971DD9EA9A0096A1AF /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		47F1FD991DD9EF060096A1AF /* JHBaseTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHBaseTextField.h; sourceTree = "<group>"; };
 		47F1FD9A1DD9EF060096A1AF /* JHBaseTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHBaseTextField.m; sourceTree = "<group>"; };
@@ -404,6 +418,11 @@
 				47D84DC31E516405009C6C2A /* JHChatFriendItem.m */,
 				47D84DC51E518011009C6C2A /* JHChatFriendGroupView.h */,
 				47D84DC61E518011009C6C2A /* JHChatFriendGroupView.m */,
+				47D84DCB1E51AB18009C6C2A /* JHChatMessageCell.h */,
+				47D84DCC1E51AB18009C6C2A /* JHChatMessageCell.m */,
+				47D84DCD1E51AB18009C6C2A /* JHChatMessageCell.xib */,
+				47D84DD01E51AB4E009C6C2A /* JHChatMessageItem.h */,
+				47D84DD11E51AB4E009C6C2A /* JHChatMessageItem.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -415,6 +434,8 @@
 				47D84DB71E5146A8009C6C2A /* JHChatFriendSectionModel.m */,
 				47D84DB91E5146B6009C6C2A /* JHChatFriendRowModel.h */,
 				47D84DBA1E5146B6009C6C2A /* JHChatFriendRowModel.m */,
+				47D84DD61E51B2FC009C6C2A /* JHChatMessageModel.h */,
+				47D84DD71E51B2FC009C6C2A /* JHChatMessageModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -424,6 +445,8 @@
 			children = (
 				47D84DBF1E515523009C6C2A /* JHChatFriendViewModel.h */,
 				47D84DC01E515523009C6C2A /* JHChatFriendViewModel.m */,
+				47D84DD31E51B25B009C6C2A /* JHChatMessageViewModel.h */,
+				47D84DD41E51B25B009C6C2A /* JHChatMessageViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -578,6 +601,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47D84DCF1E51AB18009C6C2A /* JHChatMessageCell.xib in Resources */,
 				47B830281DC44AB500969523 /* LaunchScreen.storyboard in Resources */,
 				47D84DBE1E514A8C009C6C2A /* p0.jpg in Resources */,
 				47B830251DC44AB500969523 /* Assets.xcassets in Resources */,
@@ -665,15 +689,19 @@
 				478F69661DC8BF4D001E9569 /* JHBaseRootVC.m in Sources */,
 				47B830651DC4529700969523 /* JHLoginVC.m in Sources */,
 				47D84DBB1E5146B6009C6C2A /* JHChatFriendRowModel.m in Sources */,
+				47D84DD51E51B25B009C6C2A /* JHChatMessageViewModel.m in Sources */,
 				473231AC1DC47AFD00C890D0 /* ThemeButton.m in Sources */,
 				473651741DD3584C00397969 /* JH_UserLoginApi.m in Sources */,
+				47D84DCE1E51AB18009C6C2A /* JHChatMessageCell.m in Sources */,
 				478F69621DC8BC32001E9569 /* JHChildMessageVC.m in Sources */,
 				47B830581DC4518B00969523 /* JHBaseTabBar.m in Sources */,
+				47D84DD21E51AB4E009C6C2A /* JHChatMessageItem.m in Sources */,
 				478F69561DC8BBCC001E9569 /* JHSquareVC.m in Sources */,
 				473231AF1DC47B1800C890D0 /* ThemeLabel.m in Sources */,
 				47F1FD9E1DD9F06B0096A1AF /* JHBaseSubmitButton.m in Sources */,
 				47B8305B1DC451AF00969523 /* JHBaseNav.m in Sources */,
 				478F695F1DC8BC1E001E9569 /* JHChildFriendsVC.m in Sources */,
+				47D84DD81E51B2FC009C6C2A /* JHChatMessageModel.m in Sources */,
 				47B8301A1DC44AB500969523 /* main.m in Sources */,
 				47D84DC41E516405009C6C2A /* JHChatFriendItem.m in Sources */,
 				47D84DC11E515523009C6C2A /* JHChatFriendViewModel.m in Sources */,
