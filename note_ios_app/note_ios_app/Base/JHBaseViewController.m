@@ -16,8 +16,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // 设置CGRectZero从导航栏下开始计算
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
 }
+
+/**
+ 需求背景视图，用户解决table在没有底部视图的时候发生的偏移
+ */
+//-(void)_neadBaseImageView{
+//    //添加背景图
+//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.frame];
+//    imageView.userInteractionEnabled = YES;
+//    
+//    [self.view addSubview:imageView];
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -66,7 +66,7 @@
         make.height.mas_equalTo(@100);
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
-        make.top.equalTo(self.view).with.offset(JH_NavigationHeight+20);
+        make.top.equalTo(self.view).with.offset(20);
     }];
     //账号
     [_accountTextField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -122,7 +122,7 @@
     [self.view addSubview:registerButton];
     
     [loginButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).with.offset(100+JH_NavigationHeight+20+20);
+        make.top.equalTo(self.view).with.offset(100+20+20);
         make.left.equalTo(self.view).with.offset(20);
         make.right.equalTo(self.view).with.offset(-20);
         make.height.equalTo(@40);

@@ -18,6 +18,7 @@
 -(void)_startApplication{
     [self _setBaseColor];
     [self _selecetRootVC];
+    [self _setIQKeyboardManager];
 }
 /**
  选择启动试图
@@ -62,4 +63,14 @@
     
 }
 
+/**
+ 设置IQkeyBoard启动
+ */
+-(void)_setIQKeyboardManager{
+    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+    manager.enable                              = YES;
+    manager.shouldResignOnTouchOutside          = YES;
+    manager.enableAutoToolbar                   = YES;
+    manager.shouldToolbarUsesTextFieldTintColor = YES;
+}
 @end

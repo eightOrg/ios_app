@@ -8,7 +8,8 @@
 
 #ifndef Notification_h
 #define Notification_h
-
+//滑动
 #define JH_SlideViewShowNotification @"JH_SlideViewShowNotification"
-
+//好友页面展开刷新通知
+#define JH_ChatFriendFreshNotification @"JH_ChatFriendFreshNotification"
 #endif /* Notification_h */

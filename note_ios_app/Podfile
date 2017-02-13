@@ -5,4 +5,5 @@ pod 'MJExtension'
 pod 'SDWebImage'
 pod 'MJRefresh'
 pod 'YTKNetwork'
+pod 'IQKeyboardManager'
 end
