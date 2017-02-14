@@ -29,7 +29,7 @@
     
     
     
-    self.title = @"XXX";
+    self.title = @"好有名称";
     
     // 键盘上面的那个toolbar
     self.inputToolbar.contentView.textView.pasteDelegate = self;

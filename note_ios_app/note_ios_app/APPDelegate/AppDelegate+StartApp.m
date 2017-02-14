@@ -30,7 +30,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     //判断用户是否保存登录
-    bool isLogin = false;
+    bool isLogin = true;
     if (!isLogin) {
         JHLoginVC *login = [[JHLoginVC alloc] init];
         JHBaseNav *nav = [[JHBaseNav alloc] initWithRootViewController:login];
