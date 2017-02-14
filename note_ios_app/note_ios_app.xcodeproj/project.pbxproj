@@ -12,6 +12,13 @@
 		473231AF1DC47B1800C890D0 /* ThemeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 473231AE1DC47B1800C890D0 /* ThemeLabel.m */; };
 		473651711DD357A800397969 /* JHBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 473651701DD357A800397969 /* JHBaseRequest.m */; };
 		473651741DD3584C00397969 /* JH_UserLoginApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 473651731DD3584C00397969 /* JH_UserLoginApi.m */; };
+		474A32571E52A72F008FD632 /* JH_JSQBaseChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 474A32561E52A72F008FD632 /* JH_JSQBaseChatVC.m */; };
+		474A325A1E52A7B5008FD632 /* JH_JSQBaseChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 474A32591E52A7B5008FD632 /* JH_JSQBaseChatModel.m */; };
+		474A325D1E52A94E008FD632 /* jsq_messages_sample.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 474A325B1E52A94E008FD632 /* jsq_messages_sample.m4a */; };
+		474A325E1E52A94E008FD632 /* intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 474A325C1E52A94E008FD632 /* intro.mp4 */; };
+		474A32611E52A9F0008FD632 /* LPActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 474A32601E52A9F0008FD632 /* LPActionSheet.m */; };
+		474A32641E52DFDF008FD632 /* JH_ChatSendMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 474A32631E52DFDF008FD632 /* JH_ChatSendMessageView.m */; };
+		474A32671E52F552008FD632 /* UIView+UIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 474A32661E52F552008FD632 /* UIView+UIViewController.m */; };
 		478F69561DC8BBCC001E9569 /* JHSquareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 478F69551DC8BBCC001E9569 /* JHSquareVC.m */; };
 		478F69591DC8BBE2001E9569 /* JHNoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 478F69581DC8BBE2001E9569 /* JHNoteVC.m */; };
 		478F695C1DC8BBF3001E9569 /* JHFriendsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 478F695B1DC8BBF3001E9569 /* JHFriendsVC.m */; };
@@ -79,6 +86,18 @@
 		473651721DD3584C00397969 /* JH_UserLoginApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_UserLoginApi.h; sourceTree = "<group>"; };
 		473651731DD3584C00397969 /* JH_UserLoginApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_UserLoginApi.m; sourceTree = "<group>"; };
 		473651751DD35B0100397969 /* API.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
+		474A32551E52A72F008FD632 /* JH_JSQBaseChatVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_JSQBaseChatVC.h; sourceTree = "<group>"; };
+		474A32561E52A72F008FD632 /* JH_JSQBaseChatVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_JSQBaseChatVC.m; sourceTree = "<group>"; };
+		474A32581E52A7B5008FD632 /* JH_JSQBaseChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_JSQBaseChatModel.h; sourceTree = "<group>"; };
+		474A32591E52A7B5008FD632 /* JH_JSQBaseChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_JSQBaseChatModel.m; sourceTree = "<group>"; };
+		474A325B1E52A94E008FD632 /* jsq_messages_sample.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = jsq_messages_sample.m4a; sourceTree = "<group>"; };
+		474A325C1E52A94E008FD632 /* intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro.mp4; sourceTree = "<group>"; };
+		474A325F1E52A9F0008FD632 /* LPActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPActionSheet.h; sourceTree = "<group>"; };
+		474A32601E52A9F0008FD632 /* LPActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPActionSheet.m; sourceTree = "<group>"; };
+		474A32621E52DFDF008FD632 /* JH_ChatSendMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_ChatSendMessageView.h; sourceTree = "<group>"; };
+		474A32631E52DFDF008FD632 /* JH_ChatSendMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_ChatSendMessageView.m; sourceTree = "<group>"; };
+		474A32651E52F552008FD632 /* UIView+UIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIViewController.h"; sourceTree = "<group>"; };
+		474A32661E52F552008FD632 /* UIView+UIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UIViewController.m"; sourceTree = "<group>"; };
 		478F69531DC8AFDC001E9569 /* ThemeViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeViews.h; sourceTree = "<group>"; };
 		478F69541DC8BBCC001E9569 /* JHSquareVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHSquareVC.h; sourceTree = "<group>"; };
 		478F69551DC8BBCC001E9569 /* JHSquareVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHSquareVC.m; sourceTree = "<group>"; };
@@ -265,6 +284,8 @@
 		47B830181DC44AB500969523 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				474A325B1E52A94E008FD632 /* jsq_messages_sample.m4a */,
+				474A325C1E52A94E008FD632 /* intro.mp4 */,
 				47D84DBC1E514A80009C6C2A /* Image */,
 				47B830191DC44AB500969523 /* main.m */,
 			);
@@ -306,6 +327,8 @@
 		47B8304D1DC4504600969523 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				474A325F1E52A9F0008FD632 /* LPActionSheet.h */,
+				474A32601E52A9F0008FD632 /* LPActionSheet.m */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
@@ -331,6 +354,8 @@
 		47B8304F1DC4504600969523 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				474A32651E52F552008FD632 /* UIView+UIViewController.h */,
+				474A32661E52F552008FD632 /* UIView+UIViewController.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -404,6 +429,8 @@
 				478F695E1DC8BC1E001E9569 /* JHChildFriendsVC.m */,
 				478F69601DC8BC32001E9569 /* JHChildMessageVC.h */,
 				478F69611DC8BC32001E9569 /* JHChildMessageVC.m */,
+				474A32551E52A72F008FD632 /* JH_JSQBaseChatVC.h */,
+				474A32561E52A72F008FD632 /* JH_JSQBaseChatVC.m */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -423,6 +450,8 @@
 				47D84DCD1E51AB18009C6C2A /* JHChatMessageCell.xib */,
 				47D84DD01E51AB4E009C6C2A /* JHChatMessageItem.h */,
 				47D84DD11E51AB4E009C6C2A /* JHChatMessageItem.m */,
+				474A32621E52DFDF008FD632 /* JH_ChatSendMessageView.h */,
+				474A32631E52DFDF008FD632 /* JH_ChatSendMessageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -436,6 +465,8 @@
 				47D84DBA1E5146B6009C6C2A /* JHChatFriendRowModel.m */,
 				47D84DD61E51B2FC009C6C2A /* JHChatMessageModel.h */,
 				47D84DD71E51B2FC009C6C2A /* JHChatMessageModel.m */,
+				474A32581E52A7B5008FD632 /* JH_JSQBaseChatModel.h */,
+				474A32591E52A7B5008FD632 /* JH_JSQBaseChatModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -606,6 +637,8 @@
 				47D84DBE1E514A8C009C6C2A /* p0.jpg in Resources */,
 				47B830251DC44AB500969523 /* Assets.xcassets in Resources */,
 				47D84DB21E51464E009C6C2A /* JHChatFriendCell.xib in Resources */,
+				474A325D1E52A94E008FD632 /* jsq_messages_sample.m4a in Resources */,
+				474A325E1E52A94E008FD632 /* intro.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,6 +712,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47B8301D1DC44AB500969523 /* AppDelegate.m in Sources */,
+				474A32611E52A9F0008FD632 /* LPActionSheet.m in Sources */,
 				47D84DB11E51464E009C6C2A /* JHChatFriendCell.m in Sources */,
 				47B830681DC46BD800969523 /* JHRegisterVC.m in Sources */,
 				47F1FD9B1DD9EF060096A1AF /* JHBaseTextField.m in Sources */,
@@ -691,10 +725,12 @@
 				47D84DBB1E5146B6009C6C2A /* JHChatFriendRowModel.m in Sources */,
 				47D84DD51E51B25B009C6C2A /* JHChatMessageViewModel.m in Sources */,
 				473231AC1DC47AFD00C890D0 /* ThemeButton.m in Sources */,
+				474A32641E52DFDF008FD632 /* JH_ChatSendMessageView.m in Sources */,
 				473651741DD3584C00397969 /* JH_UserLoginApi.m in Sources */,
 				47D84DCE1E51AB18009C6C2A /* JHChatMessageCell.m in Sources */,
 				478F69621DC8BC32001E9569 /* JHChildMessageVC.m in Sources */,
 				47B830581DC4518B00969523 /* JHBaseTabBar.m in Sources */,
+				474A325A1E52A7B5008FD632 /* JH_JSQBaseChatModel.m in Sources */,
 				47D84DD21E51AB4E009C6C2A /* JHChatMessageItem.m in Sources */,
 				478F69561DC8BBCC001E9569 /* JHSquareVC.m in Sources */,
 				473231AF1DC47B1800C890D0 /* ThemeLabel.m in Sources */,
@@ -702,11 +738,13 @@
 				47B8305B1DC451AF00969523 /* JHBaseNav.m in Sources */,
 				478F695F1DC8BC1E001E9569 /* JHChildFriendsVC.m in Sources */,
 				47D84DD81E51B2FC009C6C2A /* JHChatMessageModel.m in Sources */,
+				474A32571E52A72F008FD632 /* JH_JSQBaseChatVC.m in Sources */,
 				47B8301A1DC44AB500969523 /* main.m in Sources */,
 				47D84DC41E516405009C6C2A /* JHChatFriendItem.m in Sources */,
 				47D84DC11E515523009C6C2A /* JHChatFriendViewModel.m in Sources */,
 				47D84DC71E518011009C6C2A /* JHChatFriendGroupView.m in Sources */,
 				478F695C1DC8BBF3001E9569 /* JHFriendsVC.m in Sources */,
+				474A32671E52F552008FD632 /* UIView+UIViewController.m in Sources */,
 				478F69591DC8BBE2001E9569 /* JHNoteVC.m in Sources */,
 				473651711DD357A800397969 /* JHBaseRequest.m in Sources */,
 				47B8305E1DC451CA00969523 /* JHBaseViewController.m in Sources */,

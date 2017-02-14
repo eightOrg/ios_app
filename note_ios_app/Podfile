@@ -6,4 +6,6 @@ pod 'SDWebImage'
 pod 'MJRefresh'
 pod 'YTKNetwork'
 pod 'IQKeyboardManager'
+pod 'JSQMessagesViewController'
+pod 'CocoaAsyncSocket'
 end

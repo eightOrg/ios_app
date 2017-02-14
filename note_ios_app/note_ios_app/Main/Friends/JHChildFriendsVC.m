@@ -9,6 +9,7 @@
 #import "JHChildFriendsVC.h"
 #import "JHChatFriendViewModel.h"
 #import "JH_DIYsearchBar.h"
+#import "JH_JSQBaseChatVC.h"
 @interface JHChildFriendsVC ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)JHChatFriendViewModel *viewModel;
@@ -84,4 +85,13 @@ static CGFloat headerHeight = 40;
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 1;
 }
+#pragma mark - 选中事件
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    JH_JSQBaseChatVC *chat = [[JH_JSQBaseChatVC alloc] init];
+    chat.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:chat animated:YES];
+    
+}
+
+
 @end

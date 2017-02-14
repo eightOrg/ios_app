@@ -10,4 +10,5 @@
 #define Common_h
 #import "JHBaseTextField.h"
 #import "JHBaseSubmitButton.h"
+#import "UIView+UIViewController.h"
 #endif /* Common_h */

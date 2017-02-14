@@ -70,7 +70,7 @@
     IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
     manager.enable                              = YES;
     manager.shouldResignOnTouchOutside          = YES;
-    manager.enableAutoToolbar                   = YES;
+    manager.enableAutoToolbar                   = NO;
     manager.shouldToolbarUsesTextFieldTintColor = YES;
 }
 @end
