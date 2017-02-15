@@ -14,9 +14,6 @@
     self = [super init];
     if (self) {
         
-        // 设置那里开关是否打开  是的话就是YES，初始化个空的
-        [self loadFakeMessages];
-        
         
         
         /**
@@ -86,6 +83,10 @@
     return self;
 }
 
+
+/**
+ 加载已有的信息
+ */
 - (void)loadFakeMessages
 {
     /**
@@ -93,19 +94,40 @@
      *
      *  You should have a mutable array or orderedSet, or something.
      */
-    self.messages = [[NSMutableArray alloc] initWithObjects:
-                     
-                     
-                     [[JSQMessage alloc] initWithSenderId:kJSQDemoAvatarIdSquires
-                                        senderDisplayName:kJSQDemoAvatarDisplayNameSquires
-                                                     date:[NSDate distantPast]
-                                                     text:NSLocalizedString(@"It even has data detectors. You can call me tonight. My cell number is 123-456-7890. My website is www.hexedbits.com.", nil)],
-                     
-                     [[JSQMessage alloc] initWithSenderId:kJSQDemoAvatarIdJobs
-                                        senderDisplayName:kJSQDemoAvatarDisplayNameJobs
-                                                     date:[NSDate date]
-                                                     text:NSLocalizedString(@"JSQMessagesViewController is nearly an exact replica of the iOS Messages App. And perhaps, better.", nil)],
-                     nil];
+    self.messages =[NSMutableArray array];
+//    self.messages = [[NSMutableArray alloc] initWithObjects:
+//
+//                     
+//                     [[JSQMessage alloc] initWithSenderId:kJSQDemoAvatarIdSquires
+//                                        senderDisplayName:kJSQDemoAvatarDisplayNameSquires
+//                                                     date:[NSDate distantPast]
+//                                                     text:NSLocalizedString(@"It even has data detectors. You can call me tonight. My cell number is 123-456-7890. My website is www.hexedbits.com.", nil)],
+//                     
+//                     [[JSQMessage alloc] initWithSenderId:kJSQDemoAvatarIdJobs
+//                                        senderDisplayName:kJSQDemoAvatarDisplayNameJobs
+//                                                     date:[NSDate date]
+//                                                     text:NSLocalizedString(@"JSQMessagesViewController is nearly an exact replica of the iOS Messages App. And perhaps, better.", nil)],
+//                     nil];
+   
+        M_UserInfo *user = self.baseMessages.recentMessage_user;
+        for (M_MessageList *message in user.user_message) {
+            switch (message.message_type) {
+                    //文字
+                case 0:
+                {
+                   JSQMessage *JSQ_Message = [[JSQMessage alloc] initWithSenderId:[NSString stringWithFormat:@"%lld",user.user_id]
+                                       senderDisplayName:user.user_name
+                                                    date:[NSDate dateWithTimeIntervalSince1970:message.message_time]
+                                                    text:NSLocalizedString(message.message_text, nil)];
+                    [self.messages addObject:JSQ_Message];
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+    }
+    
     
 //    // 新增phoen对象
 //    [self addPhotoMediaMessage];
@@ -196,4 +218,6 @@
                                                          media:videoItem];
     [self.messages addObject:videoMessage];
 }
+
+
 @end

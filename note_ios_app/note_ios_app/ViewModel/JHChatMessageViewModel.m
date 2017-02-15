@@ -7,6 +7,8 @@
 //
 
 #import "JHChatMessageViewModel.h"
+#import "JH_ChatMessageHelper.h"
+#import "NSString+ChangeTime.h"
 @interface JHChatMessageViewModel ()
 @property(nonatomic,strong)JHChatMessageCell *chatFriendCell;
 @property(nonatomic,strong)NSMutableArray *chatMessageData;
@@ -18,31 +20,29 @@
  @param resultBlock result
  */
 -(void)CF_LoadData:(void(^)(id result))resultBlock{
-#warning 测试数据用户列表
-    NSArray *data = @[@{
-                          @"name":@"蒋小红1",
-                          @"resentMessage":@"最新信息1",
-                          @"time":@"18:18",
-                          @"number":@"40",
-                          @"portrail":@"",
-                          },
-                      @{
-                          @"name":@"蒋小红2",
-                          @"resentMessage":@"最新信息2",
-                          @"time":@"18:18",
-                          @"number":@"40",
-                          @"portrail":@"",
-                          },
-                      @{
-                          @"name":@"蒋小红3",
-                          @"resentMessage":@"最新信息1",
-                          @"time":@"18:18",
-                          @"number":@"99+",
-                          @"portrail":@"",
-                          },
-                      ];
+    
+    NSMutableArray *list = [NSMutableArray array];
+    NSArray *data = [JH_ChatMessageHelper _searchData];
+    for (M_RecentMessage *recentMessage in data) {
+        M_UserInfo *user = recentMessage.recentMessage_user;
+        //将集合转成数组
+        NSArray *sortDesc = @[[[NSSortDescriptor alloc] initWithKey:@"message_time" ascending:YES]];
+        NSArray *sortSetArray = [user.user_message sortedArrayUsingDescriptors:sortDesc];
+        M_MessageList *lastMessage = [sortSetArray lastObject];
+        
+        NSDictionary *oneMessageDic = @{
+                                            @"name":user.user_name,
+                                            @"resentMessage":lastMessage.message_text,
+                                            @"time":[NSString changeTimeIntervalToMinute:@(recentMessage.recent_message_time)],
+                                            @"number":[[NSString alloc] initWithFormat:@"%lld",recentMessage.recent_message_num],
+                                            @"portrail":user.user_portrail==nil?@"p0.jpg":user.user_portrail,
+                                            };
+        [list addObject:oneMessageDic];
+
+    }
+    
     _chatMessageData = [[NSMutableArray alloc] init];
-    for (NSDictionary *group in data) {
+    for (NSDictionary *group in list) {
         //行数据model
         JHChatMessageModel *messageModel = [JHChatMessageModel mj_objectWithKeyValues:group];
         //添加model
@@ -67,7 +67,7 @@
  @return cell
  */
 -(JHChatMessageCell *)setUpTableViewCell:(NSIndexPath *)indexPath{
-    JHChatMessageModel *rowModel = _chatMessageData[indexPath.section];
+    JHChatMessageModel *rowModel = _chatMessageData[indexPath.row];
     JHChatMessageItem *item      = [[JHChatMessageItem alloc] init];
     //将model数据赋值给item
     item.name          = rowModel.name;

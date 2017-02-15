@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<M_MessageList *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSDecimalNumber *message_time;
+@property (nonatomic) int64_t message_time;
 @property (nonatomic) int64_t message_type;
 @property (nullable, nonatomic, copy) NSString *message_text;
 @property (nullable, nonatomic, copy) NSString *message_path;

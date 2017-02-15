@@ -28,11 +28,12 @@
 		478F69691DC8C0B3001E9569 /* JHSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 478F69681DC8C0B3001E9569 /* JHSlideView.m */; };
 		47A56B521E53FA2E00A86F34 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A56B511E53FA2E00A86F34 /* CoreData.framework */; };
 		47A56B551E53FAAA00A86F34 /* JH_ChatCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 47A56B531E53FAAA00A86F34 /* JH_ChatCoreData.xcdatamodeld */; };
-		47A56B871E54027500A86F34 /* M_UserInfo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A56B7D1E54027500A86F34 /* M_UserInfo+CoreDataProperties.m */; };
 		47A56B891E54027500A86F34 /* M_MessageList+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A56B811E54027500A86F34 /* M_MessageList+CoreDataProperties.m */; };
 		47A56B8B1E54027500A86F34 /* M_RecentMessage+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A56B851E54027500A86F34 /* M_RecentMessage+CoreDataProperties.m */; };
 		47A56B8E1E5404CE00A86F34 /* JH_ChatMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A56B8D1E5404CE00A86F34 /* JH_ChatMessageManager.m */; };
 		47A56B911E5407E000A86F34 /* JH_ChatMessageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A56B901E5407E000A86F34 /* JH_ChatMessageHelper.m */; };
+		47A56B971E542F9E00A86F34 /* M_UserInfo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A56B951E542F9E00A86F34 /* M_UserInfo+CoreDataProperties.m */; };
+		47AF3B131E5450BC0018DA66 /* NSString+ChangeTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 47AF3B121E5450BC0018DA66 /* NSString+ChangeTime.m */; };
 		47B8301A1DC44AB500969523 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B830191DC44AB500969523 /* main.m */; };
 		47B8301D1DC44AB500969523 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B8301C1DC44AB500969523 /* AppDelegate.m */; };
 		47B830251DC44AB500969523 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47B830241DC44AB500969523 /* Assets.xcassets */; };
@@ -127,10 +128,6 @@
 		478F696A1DC8D01C001E9569 /* Notification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		47A56B511E53FA2E00A86F34 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		47A56B541E53FAAA00A86F34 /* JH_ChatCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JH_ChatCoreData.xcdatamodel; sourceTree = "<group>"; };
-		47A56B7A1E54027500A86F34 /* M_UserInfo+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "M_UserInfo+CoreDataClass.h"; sourceTree = "<group>"; };
-		47A56B7B1E54027500A86F34 /* M_UserInfo+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "M_UserInfo+CoreDataClass.m"; sourceTree = "<group>"; };
-		47A56B7C1E54027500A86F34 /* M_UserInfo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "M_UserInfo+CoreDataProperties.h"; sourceTree = "<group>"; };
-		47A56B7D1E54027500A86F34 /* M_UserInfo+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "M_UserInfo+CoreDataProperties.m"; sourceTree = "<group>"; };
 		47A56B7E1E54027500A86F34 /* M_MessageList+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "M_MessageList+CoreDataClass.h"; sourceTree = "<group>"; };
 		47A56B7F1E54027500A86F34 /* M_MessageList+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "M_MessageList+CoreDataClass.m"; sourceTree = "<group>"; };
 		47A56B801E54027500A86F34 /* M_MessageList+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "M_MessageList+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -143,6 +140,12 @@
 		47A56B8D1E5404CE00A86F34 /* JH_ChatMessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_ChatMessageManager.m; sourceTree = "<group>"; };
 		47A56B8F1E5407E000A86F34 /* JH_ChatMessageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_ChatMessageHelper.h; sourceTree = "<group>"; };
 		47A56B901E5407E000A86F34 /* JH_ChatMessageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_ChatMessageHelper.m; sourceTree = "<group>"; };
+		47A56B921E542F9E00A86F34 /* M_UserInfo+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "M_UserInfo+CoreDataClass.h"; sourceTree = "<group>"; };
+		47A56B931E542F9E00A86F34 /* M_UserInfo+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "M_UserInfo+CoreDataClass.m"; sourceTree = "<group>"; };
+		47A56B941E542F9E00A86F34 /* M_UserInfo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "M_UserInfo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		47A56B951E542F9E00A86F34 /* M_UserInfo+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "M_UserInfo+CoreDataProperties.m"; sourceTree = "<group>"; };
+		47AF3B111E5450BC0018DA66 /* NSString+ChangeTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ChangeTime.h"; sourceTree = "<group>"; };
+		47AF3B121E5450BC0018DA66 /* NSString+ChangeTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ChangeTime.m"; sourceTree = "<group>"; };
 		47B830151DC44AB500969523 /* note_ios_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = note_ios_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47B830191DC44AB500969523 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		47B8301B1DC44AB500969523 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
@@ -274,10 +277,10 @@
 		47A56B1D1E53EB3000A86F34 /* CoreData&SQL */ = {
 			isa = PBXGroup;
 			children = (
-				47A56B7A1E54027500A86F34 /* M_UserInfo+CoreDataClass.h */,
-				47A56B7B1E54027500A86F34 /* M_UserInfo+CoreDataClass.m */,
-				47A56B7C1E54027500A86F34 /* M_UserInfo+CoreDataProperties.h */,
-				47A56B7D1E54027500A86F34 /* M_UserInfo+CoreDataProperties.m */,
+				47A56B921E542F9E00A86F34 /* M_UserInfo+CoreDataClass.h */,
+				47A56B931E542F9E00A86F34 /* M_UserInfo+CoreDataClass.m */,
+				47A56B941E542F9E00A86F34 /* M_UserInfo+CoreDataProperties.h */,
+				47A56B951E542F9E00A86F34 /* M_UserInfo+CoreDataProperties.m */,
 				47A56B7E1E54027500A86F34 /* M_MessageList+CoreDataClass.h */,
 				47A56B7F1E54027500A86F34 /* M_MessageList+CoreDataClass.m */,
 				47A56B801E54027500A86F34 /* M_MessageList+CoreDataProperties.h */,
@@ -416,6 +419,8 @@
 		47B8304F1DC4504600969523 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				47AF3B111E5450BC0018DA66 /* NSString+ChangeTime.h */,
+				47AF3B121E5450BC0018DA66 /* NSString+ChangeTime.m */,
 				474A32651E52F552008FD632 /* UIView+UIViewController.h */,
 				474A32661E52F552008FD632 /* UIView+UIViewController.m */,
 			);
@@ -819,14 +824,15 @@
 				473231AC1DC47AFD00C890D0 /* ThemeButton.m in Sources */,
 				47A56B911E5407E000A86F34 /* JH_ChatMessageHelper.m in Sources */,
 				474A32641E52DFDF008FD632 /* JH_ChatSendMessageView.m in Sources */,
+				47A56B971E542F9E00A86F34 /* M_UserInfo+CoreDataProperties.m in Sources */,
 				473651741DD3584C00397969 /* JH_UserLoginApi.m in Sources */,
 				47D84DCE1E51AB18009C6C2A /* JHChatMessageCell.m in Sources */,
 				478F69621DC8BC32001E9569 /* JHChildMessageVC.m in Sources */,
+				47AF3B131E5450BC0018DA66 /* NSString+ChangeTime.m in Sources */,
 				47B830581DC4518B00969523 /* JHBaseTabBar.m in Sources */,
 				474A325A1E52A7B5008FD632 /* JH_JSQBaseChatModel.m in Sources */,
 				47A56B8E1E5404CE00A86F34 /* JH_ChatMessageManager.m in Sources */,
 				47D84DD21E51AB4E009C6C2A /* JHChatMessageItem.m in Sources */,
-				47A56B871E54027500A86F34 /* M_UserInfo+CoreDataProperties.m in Sources */,
 				478F69561DC8BBCC001E9569 /* JHSquareVC.m in Sources */,
 				473231AF1DC47B1800C890D0 /* ThemeLabel.m in Sources */,
 				47EE67E91E535091008716E8 /* JH_ChatAudioView.m in Sources */,

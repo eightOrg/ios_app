@@ -18,7 +18,7 @@
 @dynamic user_id;
 @dynamic user_name;
 @dynamic user_portrail;
-@dynamic user_recentMessage;
 @dynamic user_message;
+@dynamic user_recentMessage;
 
 @end

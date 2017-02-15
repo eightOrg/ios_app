@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<M_RecentMessage *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSDecimalNumber *recent_message_time;
+@property (nonatomic) int64_t recent_message_time;
 @property (nonatomic) int64_t recent_message_num;
 @property (nullable, nonatomic, retain) M_UserInfo *recentMessage_user;
 

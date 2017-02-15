@@ -39,8 +39,8 @@
      */
     // 初始化fake消息模型
     self.chatData = [[JH_JSQBaseChatModel alloc] init];
-    
-    
+    self.chatData.baseMessages = self.baseMessages;
+    [self.chatData loadFakeMessages];
     // 注册custom按钮，允许自定义
     [JSQMessagesCollectionViewCell registerMenuAction:@selector(customAction:)];
     

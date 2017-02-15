@@ -14,6 +14,7 @@
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)JHChatMessageViewModel *viewModel;
 @property(nonatomic,strong)JH_DIYsearchBar *searchBar;
+@property(nonatomic,strong)NSArray *messageData;
 @end
 static CGFloat searchBarHeight = 40;
 static CGFloat rowBarHeight = 70;
@@ -28,7 +29,7 @@ static CGFloat headerHeight = 0.1;
     [super viewDidLoad];
     _viewModel = [[JHChatMessageViewModel alloc] init];
     [_viewModel CF_LoadData:^(id result) {
-        
+        _messageData = result;
         [self.view addSubview:self.tableView];
     }];
     
@@ -85,6 +86,7 @@ static CGFloat headerHeight = 0.1;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     JH_JSQBaseChatVC *chat = [[JH_JSQBaseChatVC alloc] init];
     chat.hidesBottomBarWhenPushed = YES;
+    chat.baseMessages = _messageData[indexPath.row];
     [self.navigationController pushViewController:chat animated:YES];
     
 }

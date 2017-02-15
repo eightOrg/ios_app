@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "JSQMessages.h"
-
+#import "JH_ChatMessageHelper.h"
 
 /**
  *  This is for demo/testing purposes only.
@@ -35,6 +35,7 @@ static NSString * const kJSQDemoAvatarIdWoz = @"309-41802-93823";
 /*
  *  这里放的都是JSQMessage对象 该对象有两个初始化方式 1.media or noMedia
  */
+@property (strong, nonatomic) M_RecentMessage *baseMessages; // 已存在的message
 
 @property (strong, nonatomic) NSMutableArray *messages; // message数组
 
@@ -45,6 +46,11 @@ static NSString * const kJSQDemoAvatarIdWoz = @"309-41802-93823";
 @property (strong, nonatomic) JSQMessagesBubbleImage *incomingBubbleImageData; // 收到的气泡颜色
 
 @property (strong, nonatomic) NSDictionary *users; // 用户名字信息
+
+/**
+ 加载初始数据
+ */
+- (void)loadFakeMessages;
 
 - (void)addPhotoMediaMessage;//!< 图片消息
 

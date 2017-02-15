@@ -3,13 +3,13 @@
     <entity name="M_MessageList" representedClassName="M_MessageList" syncable="YES" codeGenerationType="class">
         <attribute name="message_path" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="message_text" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="message_time" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="message_time" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="message_type" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="message_user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="M_UserInfo" inverseName="user_message" inverseEntity="M_UserInfo" syncable="YES"/>
     </entity>
     <entity name="M_RecentMessage" representedClassName="M_RecentMessage" syncable="YES" codeGenerationType="class">
         <attribute name="recent_message_num" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="recent_message_time" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="recent_message_time" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="recentMessage_user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="M_UserInfo" inverseName="user_recentMessage" inverseEntity="M_UserInfo" syncable="YES"/>
     </entity>
     <entity name="M_UserInfo" representedClassName="M_UserInfo" syncable="YES" codeGenerationType="class">
