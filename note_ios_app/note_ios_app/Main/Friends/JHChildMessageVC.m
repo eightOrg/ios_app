@@ -32,19 +32,21 @@ static CGFloat headerHeight = 0.1;
         _messageData = result;
         [self.view addSubview:self.tableView];
     }];
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(_freshAction) name:JH_ChatMessageFreshNotification object:nil];
 }
 
 /**
  刷新数据
- 
- @param noti NSNotification
  */
--(void)freshNotification:(NSNotification *)noti{
-    NSDictionary *userInfo = noti.userInfo;
-    NSNumber *section = userInfo[@"section"];
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:[section integerValue]] withRowAnimation:0];
+-(void)_freshAction{
+    
+    [_viewModel CF_LoadData:^(id result) {
+    _messageData = result;
+    [self.tableView reloadData];
+    }];
+    
 }
+
 #pragma mark - searchBar
 -(JH_DIYsearchBar *)searchBar{
     if (_searchBar==nil) {
@@ -90,6 +92,30 @@ static CGFloat headerHeight = 0.1;
     [self.navigationController pushViewController:chat animated:YES];
     
 }
-
-
+#pragma mark - 给这个列表添加删除事件
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return @"删除";
+}
+/**
+ 添加左划删除
+ */
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    M_RecentMessage *message = _messageData[indexPath.row];
+    // 从数据库中删除
+    [JH_ChatMessageHelper _deleteData:@[message]];
+    // 从文件中删除
+    //获取路径
+    NSString *path = [NSString stringWithFormat:@"%lld",message.recentMessage_user.user_id];
+    //删除文件夹
+    [JH_FileManager deleteDir:[NSString stringWithFormat:@"%@/%@",[JH_FileManager getDocumentPath],path]];
+    Dlog(@"%@",NSHomeDirectory());
+    // 从列表中删除
+    [self _freshAction];
+    
+}
 @end

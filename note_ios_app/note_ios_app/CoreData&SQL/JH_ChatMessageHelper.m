@@ -96,7 +96,16 @@
 }
 #pragma mark - 删除数据
 +(void)_deleteData:(NSArray *)objectResults{
-    
+    if (objectResults && objectResults.count > 0 ) {
+        
+        for (NSManagedObject *object in objectResults) {
+            
+            [kManagedObjectContext deleteObject:object];
+            
+        }
+        [[JH_ChatMessageManager sharedInstance] saveContext]; //删除之后 保存
+        
+    }
 }
 #pragma mark - 查询数据(暂时使用全部搜索)
 +(NSArray *)_searchData{

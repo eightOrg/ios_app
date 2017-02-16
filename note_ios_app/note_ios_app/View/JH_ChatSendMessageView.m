@@ -285,7 +285,7 @@
     NSInteger min = self.countNum/60;
     NSInteger sec = self.countNum - min * 60;
     
-    self.audioView.audioTimeLabel.text = [NSString stringWithFormat:@"%02d:%02d",min,sec];
+    self.audioView.audioTimeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld",min,sec];
 }
 
 

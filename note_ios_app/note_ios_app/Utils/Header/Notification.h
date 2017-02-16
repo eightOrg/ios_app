@@ -12,4 +12,6 @@
 #define JH_SlideViewShowNotification @"JH_SlideViewShowNotification"
 //好友页面展开刷新通知
 #define JH_ChatFriendFreshNotification @"JH_ChatFriendFreshNotification"
+//消息页面刷新的通知
+#define JH_ChatMessageFreshNotification @"JH_ChatMessageFreshNotification"
 #endif /* Notification_h */

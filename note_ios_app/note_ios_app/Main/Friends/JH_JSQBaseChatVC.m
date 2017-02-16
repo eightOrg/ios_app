@@ -314,6 +314,9 @@
     //插入数据库
     [self _setMessageDictionary:text isPath:NO isSelf:YES type:0];
     
+    //消息页面数据更新
+    [self sendNotificationForDataFresh];
+    
     [self finishSendingMessageAnimated:YES];
 }
 
@@ -610,6 +613,8 @@
     }
     //插入数据库
     [self _setMessageDictionary:textView.text isPath:NO isSelf:YES type:0];
+    //消息页面数据更新
+    [self sendNotificationForDataFresh];
     return YES;
 }
 
@@ -670,9 +675,17 @@
 
     //将图片地址存入数据库
     [self _setMessageDictionary:[NSString stringWithFormat:@"/%@/%@.png",userId,time] isPath:YES isSelf:isSelf type:type];
+    //消息页面数据更新
+    [self sendNotificationForDataFresh];
     
 }
 
+/**
+ 发送通知用于消息页面的数据更新
+ */
+-(void)sendNotificationForDataFresh{
+    [[NSNotificationCenter defaultCenter]postNotificationName:JH_ChatMessageFreshNotification object:nil];
+}
 
 
 @end
