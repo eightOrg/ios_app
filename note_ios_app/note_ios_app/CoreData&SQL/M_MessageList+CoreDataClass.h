@@ -2,7 +2,7 @@
 //  M_MessageList+CoreDataClass.h
 //  note_ios_app
 //
-//  Created by 江弘 on 2017/2/15.
+//  Created by 江弘 on 2017/2/16.
 //  Copyright © 2017年 江弘. All rights reserved.
 //  This file was automatically generated and should not be edited.
 //

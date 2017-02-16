@@ -37,6 +37,7 @@
                                             @"number":[[NSString alloc] initWithFormat:@"%lld",recentMessage.recent_message_num],
                                             @"portrail":user.user_portrail==nil?@"p0.jpg":user.user_portrail,
                                             };
+        
         [list addObject:oneMessageDic];
 
     }
@@ -50,7 +51,6 @@
     }
     resultBlock(data);
 }
-
 /**
  将行数放回给VC
  

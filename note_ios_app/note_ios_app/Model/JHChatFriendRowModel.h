@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface JHChatFriendRowModel : NSObject
-
+@property(nonatomic,copy)NSString *userId;//用户id
 @property(nonatomic,copy)NSString *name;//昵称
 @property(nonatomic,copy)NSString *portrait;//头像
 @property(nonatomic,copy)NSString *point;//好友度

@@ -18,17 +18,22 @@
  *  Do not actually do anything like this.
  */
 
-static NSString * const kJSQDemoAvatarDisplayNameSquires = @"Jesse Squires";
-static NSString * const kJSQDemoAvatarDisplayNameCook = @"Tim Cook";
-static NSString * const kJSQDemoAvatarDisplayNameJobs = @"Jobs";
-static NSString * const kJSQDemoAvatarDisplayNameWoz = @"Steve Wozniak";
+//static NSString * const kJSQDemoAvatarDisplayNameSquires = @"Jesse Squires";
+//static NSString * const kJSQDemoAvatarDisplayNameCook = @"Tim Cook";
+//static NSString * const kJSQDemoAvatarDisplayNameJobs = @"Jobs";
+//static NSString * const kJSQDemoAvatarDisplayNameWoz = @"Steve Wozniak";
+//
+//static NSString * const kJSQDemoAvatarIdSquires = @"053496-4509-289";
+//static NSString * const kJSQDemoAvatarIdCook = @"468-768355-23123";
+//static NSString * const kJSQDemoAvatarIdJobs = @"707-8956784-57";
+//static NSString * const kJSQDemoAvatarIdWoz = @"309-41802-93823";
 
-static NSString * const kJSQDemoAvatarIdSquires = @"053496-4509-289";
-static NSString * const kJSQDemoAvatarIdCook = @"468-768355-23123";
-static NSString * const kJSQDemoAvatarIdJobs = @"707-8956784-57";
-static NSString * const kJSQDemoAvatarIdWoz = @"309-41802-93823";
-
-
+typedef enum : NSUInteger {
+    MessageTypeText,
+    MessageTypePhoto,
+    MessageTypeAudio,
+    MessageTypeLocation
+} MessageType;
 
 @interface JH_JSQBaseChatModel : NSObject
 
@@ -52,14 +57,14 @@ static NSString * const kJSQDemoAvatarIdWoz = @"309-41802-93823";
  */
 - (void)loadFakeMessages;
 
-- (void)addPhotoMediaMessage;//!< 图片消息
-
-- (void)addLocationMediaMessageCompletion:(JSQLocationMediaItemCompletionBlock)completion; //!< 定位小心
-
-- (void)addVideoMediaMessage; //!< 视频 无底图
-
-- (void)addVideoMediaMessageWithThumbnail; //!< 视频带底图
-
-- (void)addAudioMediaMessage; //!< 音频
+//- (void)addPhotoMediaMessage;//!< 图片消息
+//
+//- (void)addLocationMediaMessageCompletion:(JSQLocationMediaItemCompletionBlock)completion; //!< 定位小心
+//
+//- (void)addVideoMediaMessage; //!< 视频 无底图
+//
+//- (void)addVideoMediaMessageWithThumbnail; //!< 视频带底图
+//
+//- (void)addAudioMediaMessage; //!< 音频
 
 @end

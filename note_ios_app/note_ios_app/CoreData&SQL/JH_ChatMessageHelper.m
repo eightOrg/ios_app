@@ -15,18 +15,19 @@
 #pragma mark - 添加数据
 +(void)_addNewData:(NSDictionary *)data{
     
-    //首先判断这个用户是否已经存在数据库，若存在则进行关联表的增加，而不是全部新增数据
+    //首先判断这个用户是否已经存在数据库，若存在则进行关联表的增加，而不是全部新增数据,且不为自己
     NSArray *baseData = [[self class]_searchData];
     for (M_RecentMessage *recentMessage in baseData) {
         //当存在和插入数据相同的id直接退出
-        if (recentMessage.recentMessage_user.user_id == [data[@"user"][@"id"] integerValue]) {
+        if (recentMessage.recentMessage_user.user_id == [data[@"user"][@"id"] longLongValue]) {
             for (NSDictionary *oneMessage in data[@"user"][@"messages"]) {
                 
                 M_MessageList *message = [NSEntityDescription insertNewObjectForEntityForName:JH_M_MessageList inManagedObjectContext:kManagedObjectContext];
-                message.message_time = [oneMessage[@"time"] integerValue];
-                message.message_type = [oneMessage[@"type"] integerValue];
+                message.message_time = [oneMessage[@"time"] longLongValue];
+                message.message_type = [oneMessage[@"type"] longLongValue];
                 message.message_text = oneMessage[@"text"];
                 message.message_path = oneMessage[@"path"];
+                message.message_isSelf = [oneMessage[@"isSelf"]isEqual:@1]?true:false;
                 [recentMessage.recentMessage_user addUser_messageObject:message];
             }
             //同步数据库
@@ -52,6 +53,7 @@
                         type
                         text
                         path
+                        isSelf
                         }
                     ]
             }
@@ -66,23 +68,24 @@
     NSArray *messages = data[@"user"][@"messages"];
     for (NSDictionary *oneMessage in messages) {
         M_MessageList *message = [NSEntityDescription insertNewObjectForEntityForName:JH_M_MessageList inManagedObjectContext:kManagedObjectContext];
-        message.message_time = [oneMessage[@"time"] integerValue];
-        message.message_type = [oneMessage[@"type"] integerValue];
+        message.message_time = [oneMessage[@"time"] longLongValue];
+        message.message_type = [oneMessage[@"type"] longLongValue];
         message.message_text = oneMessage[@"text"];
         message.message_path = oneMessage[@"path"];
+        message.message_isSelf = [oneMessage[@"isSelf"]isEqual:@1]?true:false;
         message.message_user = userInfo;
         [userInfo addUser_messageObject:message];
     }
     NSDictionary *oneUser = data[@"user"];
     //添加用户信息
-    userInfo.user_id       = [oneUser[@"id"] integerValue];
+    userInfo.user_id       = [oneUser[@"id"] longLongValue];
     userInfo.user_name     = oneUser[@"name"];
     userInfo.user_portrail = oneUser[@"portrail"];
     recentMessage.recentMessage_user = userInfo;
     userInfo.user_recentMessage = recentMessage;
     //添加最近消息列表
-    recentMessage.recent_message_time = [data[@"time"] integerValue];
-    recentMessage.recent_message_num  = [data[@"num"] integerValue];;
+    recentMessage.recent_message_time = [data[@"time"] longLongValue];
+    recentMessage.recent_message_num  = [data[@"num"] longLongValue];;
     recentMessage.recentMessage_user = userInfo;
     
     //同步数据库
