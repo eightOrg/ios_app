@@ -69,6 +69,18 @@
                     
                 }
                     break;
+                case MessageTypeAudio:
+                {
+                    //获取录音
+                    NSString *completePaht = [NSString stringWithFormat:@"%@/%@",[JH_FileManager getDocumentPath],message.message_path];
+                    NSData * audioData = [NSData dataWithContentsOfFile:completePaht];
+                    JSQAudioMediaItem *audioItem = [[JSQAudioMediaItem alloc] initWithData:audioData];
+                    JSQMessage *audioMessage = [[JSQMessage alloc]initWithSenderId:message.message_isSelf?selfUserId:[NSString stringWithFormat:@"%lld",user.user_id] senderDisplayName:user.user_name date:[NSDate dateWithTimeIntervalSince1970:message.message_time] media:audioItem];
+                    [self.messages addObject:audioMessage];
+
+                    
+                }
+                    break;
                 default:
                     break;
             }
@@ -148,17 +160,31 @@
     
 }
 
+
+//添加录音message
+- (void)addAudioMediaMessage:(NSString *)path isSelf:(BOOL )isSelf userId:(NSString *)userId userName:(NSString *)userName time:(NSString *)time type:(MessageType )type{
+    
+    NSString *completePaht = [NSString stringWithFormat:@"%@/%@",[JH_FileManager getDocumentPath],[NSString stringWithFormat:@"%@/%@.mp3",userId,time]];
+    NSData * audioData = [NSData dataWithContentsOfFile:completePaht];
+        JSQAudioMediaItem *audioItem = [[JSQAudioMediaItem alloc] initWithData:audioData];
+        JSQMessage *audioMessage = [[JSQMessage alloc]initWithSenderId:isSelf?[UserInfoManager getUserId]:userId
+                                                 senderDisplayName:isSelf?[UserInfoManager getUserName]: userName date:[NSDate dateWithTimeIntervalSince1970:[time longLongValue]] media:audioItem];
+    
+    //将录音地址存入数据库
+    [self _setMessageDictionary:[NSString stringWithFormat:@"/%@/%@.mp3",userId,time] isPath:YES isSelf:isSelf userId:userId userName:userName time:time  type:type];
+    
+    [self.messages addObject:audioMessage];
+}
 /**
  发送通知用于消息页面的数据更新
  */
 -(void)sendNotificationForDataFresh{
     [[NSNotificationCenter defaultCenter]postNotificationName:JH_ChatMessageFreshNotification object:nil];
 }
-
 // 语音
 //- (void)addAudioMediaMessage
 //{
-//    NSString * sample = [[NSBundle mainBundle] pathForResource:@"jsq_messages_sample" ofType:@"m4a"];
+//    NSString * sample = [[NSBundle mainBundle] pathForResource:@"jsq_messages_sample" ofType:@"caf"];
 //    NSData * audioData = [NSData dataWithContentsOfFile:sample];
 //    JSQAudioMediaItem *audioItem = [[JSQAudioMediaItem alloc] initWithData:audioData];
 //    JSQMessage *audioMessage = [JSQMessage messageWithSenderId:kJSQDemoAvatarIdSquires

@@ -15,8 +15,6 @@
 		473651741DD3584C00397969 /* JH_UserLoginApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 473651731DD3584C00397969 /* JH_UserLoginApi.m */; };
 		474A32571E52A72F008FD632 /* JH_JSQBaseChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 474A32561E52A72F008FD632 /* JH_JSQBaseChatVC.m */; };
 		474A325A1E52A7B5008FD632 /* JH_JSQBaseChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 474A32591E52A7B5008FD632 /* JH_JSQBaseChatModel.m */; };
-		474A325D1E52A94E008FD632 /* jsq_messages_sample.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 474A325B1E52A94E008FD632 /* jsq_messages_sample.m4a */; };
-		474A325E1E52A94E008FD632 /* intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 474A325C1E52A94E008FD632 /* intro.mp4 */; };
 		474A32611E52A9F0008FD632 /* LPActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 474A32601E52A9F0008FD632 /* LPActionSheet.m */; };
 		474A32641E52DFDF008FD632 /* JH_ChatSendMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 474A32631E52DFDF008FD632 /* JH_ChatSendMessageView.m */; };
 		474A32671E52F552008FD632 /* UIView+UIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 474A32661E52F552008FD632 /* UIView+UIViewController.m */; };
@@ -106,8 +104,6 @@
 		474A32561E52A72F008FD632 /* JH_JSQBaseChatVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_JSQBaseChatVC.m; sourceTree = "<group>"; };
 		474A32581E52A7B5008FD632 /* JH_JSQBaseChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_JSQBaseChatModel.h; sourceTree = "<group>"; };
 		474A32591E52A7B5008FD632 /* JH_JSQBaseChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_JSQBaseChatModel.m; sourceTree = "<group>"; };
-		474A325B1E52A94E008FD632 /* jsq_messages_sample.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = jsq_messages_sample.m4a; sourceTree = "<group>"; };
-		474A325C1E52A94E008FD632 /* intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro.mp4; sourceTree = "<group>"; };
 		474A325F1E52A9F0008FD632 /* LPActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPActionSheet.h; sourceTree = "<group>"; };
 		474A32601E52A9F0008FD632 /* LPActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPActionSheet.m; sourceTree = "<group>"; };
 		474A32621E52DFDF008FD632 /* JH_ChatSendMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_ChatSendMessageView.h; sourceTree = "<group>"; };
@@ -360,8 +356,6 @@
 		47B830181DC44AB500969523 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				474A325B1E52A94E008FD632 /* jsq_messages_sample.m4a */,
-				474A325C1E52A94E008FD632 /* intro.mp4 */,
 				47D84DBC1E514A80009C6C2A /* Image */,
 				47B830191DC44AB500969523 /* main.m */,
 			);
@@ -748,8 +742,6 @@
 				47D84DBE1E514A8C009C6C2A /* p0.jpg in Resources */,
 				47B830251DC44AB500969523 /* Assets.xcassets in Resources */,
 				47D84DB21E51464E009C6C2A /* JHChatFriendCell.xib in Resources */,
-				474A325D1E52A94E008FD632 /* jsq_messages_sample.m4a in Resources */,
-				474A325E1E52A94E008FD632 /* intro.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

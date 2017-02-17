@@ -9,7 +9,7 @@
 #import "JH_JSQBaseChatVC.h"
 #import <GCDAsyncSocket.h>
 #import "JH_ChatSendMessageView.h"
-@interface JH_JSQBaseChatVC ()<GCDAsyncSocketDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,JH_ChatCameraDelegate>
+@interface JH_JSQBaseChatVC ()<GCDAsyncSocketDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,JH_ChatCameraDelegate,JH_ChatAudioDelegate>
 @property (nonatomic,strong) GCDAsyncSocket *clientSocket;// 客户端链接的Socket
 
 @end
@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    Dlog(@"%@",NSHomeDirectory());
     //将好友名称作为导航栏标题
     self.title = self.baseMessages.recentMessage_user.user_name;
     
@@ -294,7 +294,7 @@
                       date:(NSDate *)date
 {
     
-    [self.chatData addTextMessage:text isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]] type:MessageTypeText];
+    [self.chatData addTextMessage:text isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:[NSString stringWithFormat:@"%.0f",[[NSDate date] timeIntervalSince1970]] type:MessageTypeText];
     
     [self finishSendingMessageAnimated:YES];
 }
@@ -305,12 +305,21 @@
 {
     [self.inputToolbar.contentView.textView resignFirstResponder];
     JH_ChatSendMessageView *media = [[JH_ChatSendMessageView alloc] initWithFrame:CGRectMake(0, JHSCREENHEIGHT-JHSCREENWIDTH/4, JHSCREENWIDTH, JHSCREENWIDTH/4)];
+    //传递userId
+    media.userId = [NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id];
     media.cameraDelegate = self;
+    media.audioDelegate = self;
     media.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:media];
    
 }
-
+#pragma mark - 录音文件处理
+-(void)stopRecord:(NSString *)recorderPath{
+    //插入录音数据，已存储在沙盒
+    [self.chatData addAudioMediaMessage:recorderPath isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:recorderPath type:MessageTypeAudio];
+    
+    [self finishSendingMessage];
+}
 #pragma mark -相册相关的处理
 -(void)setCamera:(UIImagePickerController *)picker{
     picker.delegate = self;
@@ -322,7 +331,7 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     //将图片插入数据库
-    [self.chatData addPhotoMediaMessage:image isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]] type:MessageTypePhoto];
+    [self.chatData addPhotoMediaMessage:image isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:[NSString stringWithFormat:@"%.0f",[[NSDate date] timeIntervalSince1970]] type:MessageTypePhoto];
     
     [self finishSendingMessage];
     
@@ -581,13 +590,13 @@
     if ([UIPasteboard generalPasteboard].image) {
         // If there's an image in the pasteboard, construct a media item with that image and `send` it.
         
-        [self.chatData addPhotoMediaMessage:[UIPasteboard generalPasteboard].image isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]] type:MessageTypePhoto];
+        [self.chatData addPhotoMediaMessage:[UIPasteboard generalPasteboard].image isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:[NSString stringWithFormat:@"%.0f",[[NSDate date] timeIntervalSince1970]] type:MessageTypePhoto];
         
         [self finishSendingMessage];
         return NO;
     }
     //插入数据库
-    [self.chatData addTextMessage:textView.text isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]] type:MessageTypeText];
+    [self.chatData addTextMessage:textView.text isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:[NSString stringWithFormat:@"%.0f",[[NSDate date] timeIntervalSince1970]] type:MessageTypeText];
     
     return YES;
 }

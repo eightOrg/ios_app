@@ -107,14 +107,15 @@ static CGFloat headerHeight = 0.1;
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     M_RecentMessage *message = _messageData[indexPath.row];
-    // 从数据库中删除
-    [JH_ChatMessageHelper _deleteData:@[message]];
+    
     // 从文件中删除
     //获取路径
     NSString *path = [NSString stringWithFormat:@"%lld",message.recentMessage_user.user_id];
     //删除文件夹
     [JH_FileManager deleteDir:[NSString stringWithFormat:@"%@/%@",[JH_FileManager getDocumentPath],path]];
     Dlog(@"%@",NSHomeDirectory());
+    // 从数据库中删除
+    [JH_ChatMessageHelper _deleteData:@[message]];
     // 从列表中删除
     [self _freshAction];
     

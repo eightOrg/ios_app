@@ -8,7 +8,7 @@
 
 #import "JH_ChatSendMessageView.h"
 #import "JH_ChatAudioView.h"
-#import <AVFoundation/AVFoundation.h>
+
 #import "lame.h"
 @interface JH_ChatSendMessageView()<AVAudioPlayerDelegate,AVAudioRecorderDelegate,UIGestureRecognizerDelegate>
 @property(nonatomic,strong)JH_ChatAudioView *audioView;
@@ -19,10 +19,6 @@
 @property (nonatomic,copy) NSString *mp3PathStr;
 @end
 
-#define kSandboxPathStr [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
-
-#define kMp3FileName @"myRecord.mp3"
-#define kCafFileName @"myRecord.caf"
 @implementation JH_ChatSendMessageView
 {
     UIWindow *_sheetWindow;
@@ -166,14 +162,45 @@
 -(void)longPressBeginShowView{
     {
         if (_audioView==nil) {
-            self.cafPathStr = [kSandboxPathStr stringByAppendingPathComponent:kCafFileName];
-            self.mp3PathStr =  [kSandboxPathStr stringByAppendingPathComponent:kMp3FileName];
+            //设置存储路径
+            self.cafPathStr = [NSString stringWithFormat:@"%.0f",[[NSDate date] timeIntervalSince1970]];
+            self.mp3PathStr = self.cafPathStr;
             _audioView = [[JH_ChatAudioView alloc] initWithFrame:CGRectMake(0, 0, JHSCREENWIDTH, 30)];
             _audioView.center = self.center;
             [_sheetWindow addSubview:_audioView];
         }
         
     }
+}
+
+/**
+ 获取录音文件的完整路径
+
+ @return NSString
+ */
+-(NSString *)getCafCompletePath{
+    //设置存储路径
+    NSString *douumentPath = [JH_FileManager getDocumentPath];
+    NSString *dirPath = self.userId;
+    [JH_FileManager creatDir:[NSString stringWithFormat:@"%@/%@",douumentPath,dirPath]];
+    //设置一个图片的存储路径
+    NSString *completePath = [douumentPath stringByAppendingString:[NSString stringWithFormat:@"/%@/%@.caf",dirPath,self.cafPathStr]];
+    return  completePath;
+    
+}
+/**
+ 获取mp3文件的完整路径
+ 
+ @return NSString
+ */
+-(NSString *)getMp3CompletePath{
+    //设置存储路径
+    NSString *douumentPath = [JH_FileManager getDocumentPath];
+    NSString *dirPath = self.userId;
+    [JH_FileManager creatDir:[NSString stringWithFormat:@"%@/%@",douumentPath,dirPath]];
+    //设置一个图片的存储路径
+    NSString *completePath = [douumentPath stringByAppendingString:[NSString stringWithFormat:@"/%@/%@.mp3",dirPath,self.mp3PathStr]];
+    return  completePath;
     
 }
 //开始录音
@@ -212,7 +239,7 @@
 -(AVAudioRecorder *)audioRecorder{
     if (!_audioRecorder) {
         //创建录音文件保存路径
-        NSURL *url=[NSURL URLWithString:self.cafPathStr];
+        NSURL *url=[NSURL URLWithString:[self getCafCompletePath]];
         //创建录音格式设置
         NSDictionary *setting=[self getAudioSetting];
         //创建录音机
@@ -259,7 +286,7 @@
         [self.audioRecorder stop];
     }
     NSLog(@"----------开始录音----------");
-    [self deleteOldRecordFile];  //如果不删掉，会在原文件基础上录制；虽然不会播放原来的声音，但是音频长度会是录制的最大长度。
+//    [self deleteOldRecordFile];  //如果不删掉，会在原文件基础上录制；虽然不会播放原来的声音，但是音频长度会是录制的最大长度。
     
     AVAudioSession *audioSession=[AVAudioSession sharedInstance];
     [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
@@ -285,7 +312,7 @@
     NSInteger min = self.countNum/60;
     NSInteger sec = self.countNum - min * 60;
     
-    self.audioView.audioTimeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld",min,sec];
+    self.audioView.audioTimeLabel.text = [NSString stringWithFormat:@"%02d:%02d",min,sec];
 }
 
 
@@ -296,29 +323,23 @@
     
     [self.audioRecorder stop];
     [self.timer1 invalidate];
+    //由于caf格式是_audioRecorder创建的时候必须的格式，然后caf无法在其他播放，所以改下文件格式到通用的mp3
     //转换音乐
     [self audio_PCMtoMP3];
+    //转换完成删除原始录音文件
+    [JH_FileManager deleteFile:[self getCafCompletePath]];
+    //代理实现位置
+    if ([self.audioDelegate respondsToSelector:@selector(stopRecord:)]) {
+        [self.audioDelegate stopRecord:self.mp3PathStr];
+    }
+    //让对象销毁
+    [_audioView removeFromSuperview];
+    _audioRecorder = nil;
+    _timer1 = nil;
+    
     
 }
 
-//删除旧文件
--(void)deleteOldRecordFile{
-    NSFileManager* fileManager=[NSFileManager defaultManager];
-    
-    BOOL blHave=[[NSFileManager defaultManager] fileExistsAtPath:self.cafPathStr];
-    if (!blHave) {
-        NSLog(@"不存在");
-        return ;
-    }else {
-        NSLog(@"存在");
-        BOOL blDele= [fileManager removeItemAtPath:self.cafPathStr error:nil];
-        if (blDele) {
-            NSLog(@"删除成功");
-        }else {
-            NSLog(@"删除失败");
-        }
-    }
-}
 #pragma mark - caf转mp3
 - (void)audio_PCMtoMP3
 {
@@ -326,9 +347,9 @@
     @try {
         int read, write;
         
-        FILE *pcm = fopen([self.cafPathStr cStringUsingEncoding:1], "rb");  //source 被转换的音频文件位置
+        FILE *pcm = fopen([[self getCafCompletePath] cStringUsingEncoding:1], "rb");  //source 被转换的音频文件位置
         fseek(pcm, 4*1024, SEEK_CUR);                                   //skip file header
-        FILE *mp3 = fopen([self.mp3PathStr cStringUsingEncoding:1], "wb");  //output 输出生成的Mp3文件位置
+        FILE *mp3 = fopen([[self getMp3CompletePath] cStringUsingEncoding:1], "wb");  //output 输出生成的Mp3文件位置
         
         const int PCM_SIZE = 8192;
         const int MP3_SIZE = 8192;
@@ -359,7 +380,7 @@
         NSLog(@"%@",[exception description]);
     }
     @finally {
-        NSLog(@"MP3生成成功: %@",self.mp3PathStr);
+        NSLog(@"MP3生成成功: %@",[self getMp3CompletePath]);
     }
     
 }
