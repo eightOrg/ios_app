@@ -31,14 +31,14 @@
  */
 - (void)loadFakeMessages
 {
-    /**
-     *  Load some fake messages for demo.
-     *
-     *  You should have a mutable array or orderedSet, or something.
-     */
-    self.messages =[NSMutableArray array];
    
+    self.messages =[NSMutableArray array];
+#warning 测试数据
+//    [self _setMessageDictionary:@"dfuinfuewbfiuhweuiq34178243278gegyuegwqi www.baidu.com" isPath:NO isSelf:NO userId:@"100" userName:@"测试用的人" time:@"1487303745" type:MessageTypeText];
+    
     M_UserInfo *user = self.baseMessages.recentMessage_user;
+
+    NSString *selfUserId = [UserInfoManager getUserId];
     //进行数据的排序
     NSArray *sortDesc = @[[[NSSortDescriptor alloc] initWithKey:@"message_time" ascending:YES]];
     NSArray *sortSetArray = [user.user_message sortedArrayUsingDescriptors:sortDesc];
@@ -47,41 +47,25 @@
                     //文字,区分开是否为自己发送的数据
                 case MessageTypeText:
                 {
-#warning 测试数据，假设自己用户是99
-                    if (message.message_isSelf) {
-                        JSQMessage *JSQ_Message = [[JSQMessage alloc] initWithSenderId:@"99"
+                        JSQMessage *JSQ_Message = [[JSQMessage alloc] initWithSenderId:message.message_isSelf?selfUserId:[NSString stringWithFormat:@"%lld",user.user_id]
                                                                      senderDisplayName:user.user_name
                                                                                   date:[NSDate dateWithTimeIntervalSince1970:message.message_time]
                                                                                   text:NSLocalizedString(message.message_text, nil)];
                         [self.messages addObject:JSQ_Message];
-                    }else{
-                        JSQMessage *JSQ_Message = [[JSQMessage alloc] initWithSenderId:[NSString stringWithFormat:@"%lld",user.user_id]
-                                                                     senderDisplayName:user.user_name
-                                                                                  date:[NSDate dateWithTimeIntervalSince1970:message.message_time]
-                                                                                  text:NSLocalizedString(message.message_text, nil)];
-                        [self.messages addObject:JSQ_Message];
-                    }
                    
                 }
                     break;
                 case MessageTypePhoto:
                 {
-#warning 测试数据，假设自己用户是99
                     //获取图片
                     NSString *documentPath = [JH_FileManager getDocumentPath];
                     NSString *imagePath = message.message_path;
 
                     UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@%@",documentPath,imagePath]];
-                    if (message.message_isSelf) {
+                    
                         JSQPhotoMediaItem *photoItem = [[JSQPhotoMediaItem alloc] initWithImage:image];
-                        JSQMessage *photoMessage = [[JSQMessage alloc]initWithSenderId:@"99" senderDisplayName:user.user_name date:[NSDate dateWithTimeIntervalSince1970:message.message_time] media:photoItem];
+                        JSQMessage *photoMessage = [[JSQMessage alloc]initWithSenderId:message.message_isSelf?selfUserId:[NSString stringWithFormat:@"%lld",user.user_id] senderDisplayName:user.user_name date:[NSDate dateWithTimeIntervalSince1970:message.message_time] media:photoItem];
                         [self.messages addObject:photoMessage];
-                        
-                    }else{
-                        JSQPhotoMediaItem *photoItem = [[JSQPhotoMediaItem alloc] initWithImage:image];
-                        JSQMessage *photoMessage = [[JSQMessage alloc]initWithSenderId:[NSString stringWithFormat:@"%lld",user.user_id] senderDisplayName:user.user_name date:[NSDate dateWithTimeIntervalSince1970:message.message_time] media:photoItem];
-                        [self.messages addObject:photoMessage];
-                    }
                     
                 }
                     break;
@@ -92,6 +76,83 @@
     
     
     
+}
+
+#pragma mark - 插入新数据
+#pragma mark - 构建信息Dictionary
+-(void)_setMessageDictionary:(NSString *)textOfPath isPath:(BOOL )isPath isSelf:(BOOL )isSelf userId:(NSString *)userId userName:(NSString *)userName time:(NSString *)time type:(MessageType )type{
+    NSDictionary *dic = @{
+                          @"time":time,
+                          @"num":@"0",
+                          @"user":@{
+                                  @"id":userId,
+                                  @"name":userName,
+                                  @"potrail":isSelf?@"":@"",
+                                  @"messages":@[
+                                          @{
+                                              @"time":time,
+                                              @"type":@(type),
+                                              @"text":isPath?@"":textOfPath,
+                                              @"path":isPath?textOfPath:@"",
+                                              @"isSelf":isSelf?@1:@0,
+                                              }
+                                          ]
+                                  }
+                          };
+    //插入数据库
+    [JH_ChatMessageHelper _addNewData:dic];
+    
+    //消息页面数据更新
+    [self sendNotificationForDataFresh];
+    
+}
+
+//添加文字信息
+- (void)addTextMessage:(NSString *)text isSelf:(BOOL )isSelf userId:(NSString *)userId userName:(NSString *)userName time:(NSString *)time type:(MessageType )type{
+    //添加本页面数据
+    JSQMessage *message = [[JSQMessage alloc] initWithSenderId:isSelf?[UserInfoManager getUserId]:userId
+                                             senderDisplayName:isSelf?[UserInfoManager getUserName]: userName
+                                                          date:[NSDate dateWithTimeIntervalSince1970:[time longLongValue]]
+                                                          text:text];
+    
+    [self.messages addObject:message];
+
+    //存储数据库
+    [self _setMessageDictionary:text isPath:NO isSelf:isSelf userId:userId userName:userName time:time type:MessageTypeText];
+}
+//添加图片message
+- (void)addPhotoMediaMessage:(UIImage *)image isSelf:(BOOL )isSelf userId:(NSString *)userId userName:(NSString *)userName time:(NSString *)time type:(MessageType )type{
+    
+    JSQPhotoMediaItem *photoItem = [[JSQPhotoMediaItem alloc] initWithImage:image];
+    
+    JSQMessage *photoMessage = [[JSQMessage alloc]initWithSenderId:isSelf?[UserInfoManager getUserId]:userId
+                                                 senderDisplayName:isSelf?[UserInfoManager getUserName]: userName date:[NSDate dateWithTimeIntervalSince1970:[time longLongValue]] media:photoItem];
+    [self.messages addObject:photoMessage];
+    //将图片存入本地
+    [self _writePhoto:image isSelf:isSelf userId:userId userName:userName time:time type:type];
+    
+}
+//存储图片，利用userId和时间戳构成一个图片地址
+-(void)_writePhoto :(UIImage *)image isSelf:(BOOL )isSelf userId:(NSString *)userId userName:(NSString *)userName time:(NSString *)time type:(MessageType )type{
+    
+    NSString *douumentPath = [JH_FileManager getDocumentPath];
+    NSString *dirPath = userId;
+    [JH_FileManager creatDir:[NSString stringWithFormat:@"%@/%@",douumentPath,dirPath]];
+    //设置一个图片的存储路径
+    NSString *imagePath = [douumentPath stringByAppendingString:[NSString stringWithFormat:@"/%@/%@.png",dirPath,time]];
+    //把图片直接保存到指定的路径（同时应该把图片的路径imagePath存起来，下次就可以直接用来取）
+    [UIImagePNGRepresentation(image) writeToFile:imagePath atomically:YES];
+    
+    //将图片地址存入数据库
+    [self _setMessageDictionary:[NSString stringWithFormat:@"/%@/%@.png",userId,time] isPath:YES isSelf:isSelf userId:userId userName:userName time:time  type:type];
+    
+}
+
+/**
+ 发送通知用于消息页面的数据更新
+ */
+-(void)sendNotificationForDataFresh{
+    [[NSNotificationCenter defaultCenter]postNotificationName:JH_ChatMessageFreshNotification object:nil];
 }
 
 // 语音

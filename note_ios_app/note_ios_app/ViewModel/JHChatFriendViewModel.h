@@ -49,4 +49,20 @@
  @return JHChatFriendGroupView
  */
 -(JHChatFriendGroupView *)_creatJHChatFriendGroupView:(NSInteger )section;
+
+/**
+ 获取当前位置的用户id
+
+ @param indexPath NSIndexPath
+ @return NSString
+ */
+-(NSString *)getUserId:(NSIndexPath *)indexPath;
+
+/**
+ 获取当前位置的用户name
+ 
+ @param indexPath NSIndexPath
+ @return NSString
+ */
+-(NSString *)getUserName:(NSIndexPath *)indexPath;
 @end

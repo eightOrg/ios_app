@@ -37,28 +37,7 @@
             return;
         }
     }
-    
-    
-    /*
-     建立字典结构{
-     time 
-     num
-     user:{
-            id
-            name
-            potrail
-            messages:[
-                        {
-                        time
-                        type
-                        text
-                        path
-                        isSelf
-                        }
-                    ]
-            }
-     }
-     **/
+    //新建一个用户
     
     M_RecentMessage *recentMessage = [NSEntityDescription insertNewObjectForEntityForName:JH_M_RecentMessage inManagedObjectContext:kManagedObjectContext];
     M_UserInfo *userInfo = [NSEntityDescription insertNewObjectForEntityForName:JH_M_UserInfo inManagedObjectContext:kManagedObjectContext];
@@ -130,14 +109,52 @@
         return objectResults;
         
 }
+#pragma mark - 查询单个用户历史信息数据(暂时使用全部搜索)
++(NSArray *)_searchDataByUserId:(NSString *)userId{
+    NSFetchRequest *request = [M_RecentMessage fetchRequest];
+    
+    //设置查询条件
+    //使用谓词NSPredicate  添加查询条件 相当于sqlite中的sql语句
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"recentMessage_user.user_id = %@",userId]];
+    
+    if (predicate) [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    
+    NSArray *objectResults = [kManagedObjectContext
+                              
+                              executeFetchRequest:request
+                              
+                              error:&error];
+    
+    return objectResults;
+}
+
 #pragma mark - 更新数据
 +(void)_updateData:(M_RecentMessage *)data{
     
 }
-#pragma mark - 建立表关联
-+(void)_relationWithTable{
+
+#pragma mark - 新建一个用户，用于数据传递，但不更新数据库
++(M_RecentMessage *)creatDefaultRecentMessageWithUserId :userId userName:userName{
     
+    M_RecentMessage *recentMessage = [NSEntityDescription insertNewObjectForEntityForName:JH_M_RecentMessage inManagedObjectContext:kManagedObjectContext];
+    M_UserInfo *userInfo = [NSEntityDescription insertNewObjectForEntityForName:JH_M_UserInfo inManagedObjectContext:kManagedObjectContext];
     
+    //添加消息列表
+
+    //添加用户信息
+    userInfo.user_id       = [userId longLongValue];
+    userInfo.user_name     = userName;
+//    userInfo.user_portrail = ;
+    recentMessage.recentMessage_user = userInfo;
+    userInfo.user_recentMessage = recentMessage;
+    //添加最近消息列表
+    recentMessage.recentMessage_user = userInfo;
+
+    return recentMessage;
 }
+
 
 @end

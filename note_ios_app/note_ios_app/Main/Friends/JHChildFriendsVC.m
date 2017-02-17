@@ -87,7 +87,21 @@ static CGFloat headerHeight = 40;
 }
 #pragma mark - 选中事件
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //查询最近数据
+    M_RecentMessage *message = [[JH_ChatMessageHelper _searchDataByUserId:[_viewModel getUserId:indexPath]]lastObject];
+    
     JH_JSQBaseChatVC *chat = [[JH_JSQBaseChatVC alloc] init];
+    
+    if (message==nil) {
+        //创建一个空数据
+       M_RecentMessage *defaultMessage = [JH_ChatMessageHelper creatDefaultRecentMessageWithUserId:[_viewModel getUserId:indexPath] userName:[_viewModel getUserName:indexPath]];
+        chat.baseMessages = defaultMessage;
+    }else{
+        chat.baseMessages = message;
+    }
+    
+    
     chat.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:chat animated:YES];
     

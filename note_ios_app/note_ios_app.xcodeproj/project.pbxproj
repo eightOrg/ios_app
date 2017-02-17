@@ -20,6 +20,7 @@
 		474A32611E52A9F0008FD632 /* LPActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 474A32601E52A9F0008FD632 /* LPActionSheet.m */; };
 		474A32641E52DFDF008FD632 /* JH_ChatSendMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 474A32631E52DFDF008FD632 /* JH_ChatSendMessageView.m */; };
 		474A32671E52F552008FD632 /* UIView+UIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 474A32661E52F552008FD632 /* UIView+UIViewController.m */; };
+		476BE2C51E56C9C900D41377 /* UserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 476BE2C41E56C9C900D41377 /* UserInfoManager.m */; };
 		478F69561DC8BBCC001E9569 /* JHSquareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 478F69551DC8BBCC001E9569 /* JHSquareVC.m */; };
 		478F69591DC8BBE2001E9569 /* JHNoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 478F69581DC8BBE2001E9569 /* JHNoteVC.m */; };
 		478F695C1DC8BBF3001E9569 /* JHFriendsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 478F695B1DC8BBF3001E9569 /* JHFriendsVC.m */; };
@@ -113,6 +114,8 @@
 		474A32631E52DFDF008FD632 /* JH_ChatSendMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_ChatSendMessageView.m; sourceTree = "<group>"; };
 		474A32651E52F552008FD632 /* UIView+UIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIViewController.h"; sourceTree = "<group>"; };
 		474A32661E52F552008FD632 /* UIView+UIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UIViewController.m"; sourceTree = "<group>"; };
+		476BE2C31E56C9C900D41377 /* UserInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoManager.h; sourceTree = "<group>"; };
+		476BE2C41E56C9C900D41377 /* UserInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoManager.m; sourceTree = "<group>"; };
 		478F69531DC8AFDC001E9569 /* ThemeViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeViews.h; sourceTree = "<group>"; };
 		478F69541DC8BBCC001E9569 /* JHSquareVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHSquareVC.h; sourceTree = "<group>"; };
 		478F69551DC8BBCC001E9569 /* JHSquareVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHSquareVC.m; sourceTree = "<group>"; };
@@ -386,6 +389,8 @@
 		47B8304B1DC4504600969523 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				476BE2C31E56C9C900D41377 /* UserInfoManager.h */,
+				476BE2C41E56C9C900D41377 /* UserInfoManager.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -819,6 +824,7 @@
 			files = (
 				47B8301D1DC44AB500969523 /* AppDelegate.m in Sources */,
 				474A32611E52A9F0008FD632 /* LPActionSheet.m in Sources */,
+				476BE2C51E56C9C900D41377 /* UserInfoManager.m in Sources */,
 				47D84DB11E51464E009C6C2A /* JHChatFriendCell.m in Sources */,
 				47B830681DC46BD800969523 /* JHRegisterVC.m in Sources */,
 				47F1FD9B1DD9EF060096A1AF /* JHBaseTextField.m in Sources */,

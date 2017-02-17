@@ -20,42 +20,52 @@
 -(void)CF_LoadData:(void(^)(id result))resultBlock{
 #warning 测试数据用户列表
     NSArray *data = @[@{
-                          @"groupName":@"蒋小红0",
+                          @"groupName":@"分组一",
                           @"groupDetail":@[
-                                  @{ @"name":@"用户1",
-                                     @"portrait":@"",
-                                     @"point":@"80"
-                                     },
-                                  @{ @"name":@"用户2",
-                                     @"portrait":@"",
-                                     @"point":@"100"
-                                     }
+                                  @{@"userId":@"100",
+                                    @"name":@"用户1-1",
+                                    @"portrait":@"",
+                                    @"point":@"80"
+                                    },
+                                  @{@"userId":@"101",
+                                    @"name":@"用户1-2",
+                                    @"portrait":@"",
+                                    @"point":@"100"
+                                    }
                                   ]
                           },
                       @{
-                          @"groupName":@"蒋小红1",
+                          @"groupName":@"分组二",
                           @"groupDetail":@[
-                                  @{ @"name":@"用户1",
-                                     @"portrait":@"",
-                                     @"point":@"80"
-                                     },
-                                  @{ @"name":@"用户2",
-                                     @"portrait":@"",
-                                     @"point":@"100"
-                                     }
+                                  @{
+                                      @"userId":@"102",
+                                      @"name":@"用户2-1",
+                                      @"portrait":@"",
+                                      @"point":@"70"
+                                      },
+                                  @{
+                                      @"userId":@"103",
+                                      @"name":@"用户2-2",
+                                      @"portrait":@"",
+                                      @"point":@"100"
+                                      }
                                   ]
                           },
                       @{
-                          @"groupName":@"蒋小红2",
+                          @"groupName":@"分组三",
                           @"groupDetail":@[
-                                  @{ @"name":@"用户1",
-                                     @"portrait":@"",
-                                     @"point":@"80"
-                                     },
-                                  @{ @"name":@"用户2",
-                                     @"portrait":@"",
-                                     @"point":@"100"
-                                     }
+                                  @{
+                                      @"userId":@"104",
+                                      @"name":@"用户3-1",
+                                      @"portrait":@"",
+                                      @"point":@"83"
+                                      },
+                                  @{
+                                      @"userId":@"105",
+                                      @"name":@"用户3-2",
+                                      @"portrait":@"",
+                                      @"point":@"99"
+                                      }
                                   ]
                           }
                       ];
@@ -149,5 +159,26 @@
     [[NSNotificationCenter defaultCenter]postNotificationName:JH_ChatFriendFreshNotification object:self userInfo:@{@"section":@(view.section)}];
     
 }
+/**
+ 获取当前位置的用户id
 
+ @param indexPath NSIndexPath
+ @return NSString
+ */
+-(NSString *)getUserId:(NSIndexPath *)indexPath{
+    JHChatFriendSectionModel *sectionModel = _chatFriendData[indexPath.section];
+    JHChatFriendRowModel *rowModel = sectionModel.rowModel[indexPath.row];
+    return rowModel.userId;
+}
+/**
+ 获取当前位置的用户name
+ 
+ @param indexPath NSIndexPath
+ @return NSString
+ */
+-(NSString *)getUserName:(NSIndexPath *)indexPath{
+    JHChatFriendSectionModel *sectionModel = _chatFriendData[indexPath.section];
+    JHChatFriendRowModel *rowModel = sectionModel.rowModel[indexPath.row];
+    return rowModel.name;
+}
 @end

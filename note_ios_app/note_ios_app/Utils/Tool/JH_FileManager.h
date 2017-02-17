@@ -9,6 +9,29 @@
 #import <Foundation/Foundation.h>
 
 @interface JH_FileManager : NSObject
+
+/**
+ 设置数据到用户plist文件中
+
+ @param key NSString
+ */
++(void)setObjectToUserDefault:(id)object ByKey:(NSString *)key;
+
+/**
+ 获取plist文件数据
+
+ @param key NSString
+ @return object
+ */
++(id)getObjectFromUserDefaultByKey:(NSString *)key;
+
+/**
+ 删除plist文件
+
+ @param key NSString
+ */
++(void)removeObjectFromUserDefaultByKey:(NSString *)key;
+
 //返回缓存根目录 "caches"
 +(NSString *)getCachesDirectory;
 

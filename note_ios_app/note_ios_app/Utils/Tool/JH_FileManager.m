@@ -9,6 +9,37 @@
 #import "JH_FileManager.h"
 
 @implementation JH_FileManager
+/**
+ 设置数据到用户plist文件中
+ 
+ @param key NSString
+ */
++(void)setObjectToUserDefault:(id)object ByKey:(NSString *)key{
+    [[NSUserDefaults standardUserDefaults]setObject:object forKey:key];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+/**
+ 获取plist文件数据
+ 
+ @param key NSString
+ @return object
+ */
++(id)getObjectFromUserDefaultByKey:(NSString *)key{
+    return [[NSUserDefaults standardUserDefaults]objectForKey:key]?[[NSUserDefaults standardUserDefaults]objectForKey:key]:@"";
+}
+
+/**
+ 删除plist文件
+ 
+ @param key NSString
+ */
++(void)removeObjectFromUserDefaultByKey:(NSString *)key{
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:key];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+}
+
 //返回缓存根目录 "caches"
 +(NSString *)getCachesDirectory
 {

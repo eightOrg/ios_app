@@ -9,7 +9,7 @@
 #import "JHBaseRootVC.h"
 #import "JHSlideView.h"
 #import "JHBaseTabBar.h"
-@interface JHBaseRootVC ()
+@interface JHBaseRootVC ()<UIGestureRecognizerDelegate>
 {
     JHSlideView *_slideView;
     UIView *_sheetWindows;
@@ -105,9 +105,22 @@
  */
 -(void)_addPanGesture{
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(_panAction:)];
+    pan.delegate = self;
     [self.view addGestureRecognizer:pan];
 }
+#pragma mark - 解决和tableView单元格左滑删除的手势冲突
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 
+{
+    
+//    NSLog(@"当前手势:%@; 另一个手势:%@", gestureRecognizer, otherGestureRecognizer);
+    if ([otherGestureRecognizer.view isKindOfClass:[UITableView class]]) {
+        
+        return NO;
+    }
+    return YES;
+    
+}
 /**
  移动动作的实现
  @param pan   获取移动的数量级

@@ -18,16 +18,6 @@
  *  Do not actually do anything like this.
  */
 
-//static NSString * const kJSQDemoAvatarDisplayNameSquires = @"Jesse Squires";
-//static NSString * const kJSQDemoAvatarDisplayNameCook = @"Tim Cook";
-//static NSString * const kJSQDemoAvatarDisplayNameJobs = @"Jobs";
-//static NSString * const kJSQDemoAvatarDisplayNameWoz = @"Steve Wozniak";
-//
-//static NSString * const kJSQDemoAvatarIdSquires = @"053496-4509-289";
-//static NSString * const kJSQDemoAvatarIdCook = @"468-768355-23123";
-//static NSString * const kJSQDemoAvatarIdJobs = @"707-8956784-57";
-//static NSString * const kJSQDemoAvatarIdWoz = @"309-41802-93823";
-
 typedef enum : NSUInteger {
     MessageTypeText,
     MessageTypePhoto,
@@ -56,6 +46,11 @@ typedef enum : NSUInteger {
  加载初始数据
  */
 - (void)loadFakeMessages;
+//添加图片信息
+- (void)addPhotoMediaMessage:(UIImage *)image isSelf:(BOOL )isSelf userId:(NSString *)userId userName:(NSString *)userName time:(NSString *)time type:(MessageType )type;
+//添加文字信息
+- (void)addTextMessage:(NSString *)text isSelf:(BOOL )isSelf userId:(NSString *)userId userName:(NSString *)userName time:(NSString *)time type:(MessageType )type;
+
 
 //- (void)addPhotoMediaMessage;//!< 图片消息
 //

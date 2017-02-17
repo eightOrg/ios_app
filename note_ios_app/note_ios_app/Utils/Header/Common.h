@@ -12,4 +12,5 @@
 #import "JHBaseSubmitButton.h"
 #import "UIView+UIViewController.h"
 #import "JH_FileManager.h"
+#import "UserInfoManager.h"
 #endif /* Common_h */

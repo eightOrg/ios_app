@@ -27,7 +27,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
     //将好友名称作为导航栏标题
     self.title = self.baseMessages.recentMessage_user.user_name;
     
@@ -40,10 +39,11 @@
     // 初始化fake消息模型
     self.chatData = [[JH_JSQBaseChatModel alloc] init];
     self.chatData.baseMessages = self.baseMessages;
-    //设置头像
-    [self _setPotrail];
+    
     //加载已有数据
     [self.chatData loadFakeMessages];
+    //设置头像
+    [self _setPotrail];
     // 注册custom按钮，允许自定义
     [JSQMessagesCollectionViewCell registerMenuAction:@selector(customAction:)];
     
@@ -293,29 +293,8 @@
          senderDisplayName:(NSString *)senderDisplayName
                       date:(NSDate *)date
 {
-   
-    // 套路三部曲 直接完成组装
     
-    // [JSQSystemSoundPlayer jsq_playMessageSentSound];
-//    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"SOCKET"]) {
-//        [self.clientSocket writeData:[text dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:0];
-//        [self.clientSocket readDataWithTimeout:-1 tag:0];
-//    }
-    // 发送数据到服务器
-    
-    
-    JSQMessage *message = [[JSQMessage alloc] initWithSenderId:senderId
-                                             senderDisplayName:senderDisplayName
-                                                          date:date
-                                                          text:text];
-    
-    [self.chatData.messages addObject:message];
-    
-    //插入数据库
-    [self _setMessageDictionary:text isPath:NO isSelf:YES type:0];
-    
-    //消息页面数据更新
-    [self sendNotificationForDataFresh];
+    [self.chatData addTextMessage:text isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]] type:MessageTypeText];
     
     [self finishSendingMessageAnimated:YES];
 }
@@ -343,7 +322,7 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     //将图片插入数据库
-    [self addPhotoMediaMessage:image isSelf:YES type:MessageTypePhoto];
+    [self.chatData addPhotoMediaMessage:image isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]] type:MessageTypePhoto];
     
     [self finishSendingMessage];
     
@@ -355,11 +334,11 @@
 #pragma mark - 此处需要获取本人的id信息
 // 发送的人ID
 - (NSString *)senderId {
-    return @"99";
+    return [UserInfoManager getUserId];
 }
 // 发送人名字
 - (NSString *)senderDisplayName {
-    return @"john";
+    return [UserInfoManager getUserName];
 }
 // 根据index返回需要加载的message对象
 - (id<JSQMessageData>)collectionView:(JSQMessagesCollectionView *)collectionView messageDataForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -601,20 +580,15 @@
 {
     if ([UIPasteboard generalPasteboard].image) {
         // If there's an image in the pasteboard, construct a media item with that image and `send` it.
-        JSQPhotoMediaItem *item = [[JSQPhotoMediaItem alloc] initWithImage:[UIPasteboard generalPasteboard].image];
-        JSQMessage *message = [[JSQMessage alloc] initWithSenderId:self.senderId
-                                                 senderDisplayName:self.senderDisplayName
-                                                              date:[NSDate date]
-                                                             media:item];
-        [self.chatData.messages addObject:message];
-//        self _setMessageDictionary:<#(NSString *)#> isPath:YES isSelf:YES type:0]
+        
+        [self.chatData addPhotoMediaMessage:[UIPasteboard generalPasteboard].image isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]] type:MessageTypePhoto];
+        
         [self finishSendingMessage];
         return NO;
     }
     //插入数据库
-    [self _setMessageDictionary:textView.text isPath:NO isSelf:YES type:0];
-    //消息页面数据更新
-    [self sendNotificationForDataFresh];
+    [self.chatData addTextMessage:textView.text isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]] type:MessageTypeText];
+    
     return YES;
 }
 
@@ -625,66 +599,6 @@
 - (void)messageView:(JSQMessagesCollectionView *)view didTapAccessoryButtonAtIndexPath:(NSIndexPath *)path
 {
     NSLog(@"Tapped accessory button!");
-}
-
-#pragma mark - 构建信息Dictionary
--(void)_setMessageDictionary:(NSString *)textOfPath isPath:(BOOL )isPath isSelf:(BOOL )isSelf type:(MessageType )type{
-    NSDictionary *dic = @{
-                          @"time":@([[NSDate date] timeIntervalSince1970]),
-                          @"num":@"0",
-                          @"user":@{
-                                  @"id":@(self.baseMessages.recentMessage_user.user_id),
-                                  @"name":isSelf?self.senderDisplayName:self.baseMessages.recentMessage_user.user_name,
-                                  @"potrail":isSelf?@"":@"",
-                                  @"messages":@[
-                                          @{
-                                              @"time":@([[NSDate date] timeIntervalSince1970]),
-                                              @"type":@(type),
-                                              @"text":isPath?@"":textOfPath,
-                                              @"path":isPath?textOfPath:@"",
-                                              @"isSelf":isSelf?@1:@0,
-                                              }
-                                          ]
-                                  }
-                          };
-    //插入数据库
-    [JH_ChatMessageHelper _addNewData:dic];
-
-}
-//// 图片message
-- (void)addPhotoMediaMessage:(UIImage *)image isSelf:(BOOL )isSelf type:(MessageType )type{
-    
-    JSQPhotoMediaItem *photoItem = [[JSQPhotoMediaItem alloc] initWithImage:image];
-    
-    JSQMessage *photoMessage = [[JSQMessage alloc]initWithSenderId:isSelf?self.senderId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] senderDisplayName:isSelf?self.senderDisplayName:self.baseMessages.recentMessage_user.user_name date:[NSDate date] media:photoItem];
-    [self.chatData.messages addObject:photoMessage];
-    //将图片存入本地
-    [self _writePhoto:image isSelf:isSelf :[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] :[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]] :type];
-    
-}
-//存储图片，利用userId和时间戳构成一个图片地址
--(void)_writePhoto :(UIImage *)image isSelf:(BOOL )isSelf :(NSString *)userId :(NSString *)time :(MessageType )type{
-    
-    NSString *douumentPath = [JH_FileManager getDocumentPath];
-    NSString *dirPath = userId;
-    [JH_FileManager creatDir:[NSString stringWithFormat:@"%@/%@",douumentPath,dirPath]];
-    //设置一个图片的存储路径
-    NSString *imagePath = [douumentPath stringByAppendingString:[NSString stringWithFormat:@"/%@/%@.png",dirPath,time]];
-    //把图片直接保存到指定的路径（同时应该把图片的路径imagePath存起来，下次就可以直接用来取）
-    [UIImagePNGRepresentation(image) writeToFile:imagePath atomically:YES];
-
-    //将图片地址存入数据库
-    [self _setMessageDictionary:[NSString stringWithFormat:@"/%@/%@.png",userId,time] isPath:YES isSelf:isSelf type:type];
-    //消息页面数据更新
-    [self sendNotificationForDataFresh];
-    
-}
-
-/**
- 发送通知用于消息页面的数据更新
- */
--(void)sendNotificationForDataFresh{
-    [[NSNotificationCenter defaultCenter]postNotificationName:JH_ChatMessageFreshNotification object:nil];
 }
 
 

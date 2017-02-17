@@ -50,9 +50,9 @@
  */
 -(void)_creatSegmentView{
     
-    UISegmentedControl *control = [[UISegmentedControl alloc] initWithItems:@[@"消息",@"好友"]];
+    UISegmentedControl *control = [[UISegmentedControl alloc] initWithItems:@[@" 消息 ",@" 好友 "]];
     [control setTintColor:BaseTextColor];
-    control.frame = CGRectMake(0, 0, 80, 25);
+    control.frame = CGRectMake(0, 0, 90, 30);
     self.navigationItem.titleView = control;
     control.selectedSegmentIndex = 0;
     [control addTarget:self action:@selector(segmentChangeAction:) forControlEvents:UIControlEventValueChanged];

@@ -27,6 +27,7 @@ static CGFloat headerHeight = 0.1;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     _viewModel = [[JHChatMessageViewModel alloc] init];
     [_viewModel CF_LoadData:^(id result) {
         _messageData = result;
