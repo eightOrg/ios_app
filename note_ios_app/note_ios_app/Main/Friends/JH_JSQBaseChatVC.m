@@ -318,6 +318,7 @@
     //插入录音数据，已存储在沙盒
     [self.chatData addAudioMediaMessage:recorderPath isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:recorderPath type:MessageTypeAudio];
     
+    
     [self finishSendingMessage];
 }
 #pragma mark -相册相关的处理
@@ -329,7 +330,10 @@
 }
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info;{
     [picker dismissViewControllerAnimated:YES completion:nil];
+    //获取原始图片
     UIImage *image = info[UIImagePickerControllerOriginalImage];
+    //开启编辑后
+//    UIImage *image = info[UIImagePickerControllerEditedImage];
     //将图片插入数据库
     [self.chatData addPhotoMediaMessage:image isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:[NSString stringWithFormat:@"%.0f",[[NSDate date] timeIntervalSince1970]] type:MessageTypePhoto];
     

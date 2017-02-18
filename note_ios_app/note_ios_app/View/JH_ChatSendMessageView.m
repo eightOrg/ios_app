@@ -12,6 +12,7 @@
 #import "lame.h"
 @interface JH_ChatSendMessageView()<AVAudioPlayerDelegate,AVAudioRecorderDelegate,UIGestureRecognizerDelegate>
 @property(nonatomic,strong)JH_ChatAudioView *audioView;
+@property(nonatomic,strong)UIView *audioButtonView;
 @property (nonatomic,strong) NSTimer *timer1;  //控制录音时长显示更新
 @property (nonatomic,assign) NSInteger countNum;//录音计时（秒）
 @property (nonatomic,strong) AVAudioRecorder *audioRecorder;//音频录音机
@@ -119,17 +120,7 @@
         label.frame = CGRectMake(width*2*(i), space*3, width*2,space);
         
         [self addSubview:label];
-        if ([imageNames[i]isEqualToString:@"录音"]) {
-            
-            //实例化长按手势监听
-            
-            UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleTableviewCellLongPressed:)];
-            
-            //代理
-            longPress.delegate = self;
-            longPress.minimumPressDuration = 0.5;
-            [button addGestureRecognizer:longPress];
-        }
+
     }
     
 }
@@ -142,6 +133,7 @@
 //    @"录音",@"相机",@"相册",@"位置"
     switch (btn.tag) {
         case 100:
+            [self _creatLongPressBaseView];
             return;
             break;
         case 101:
@@ -158,6 +150,62 @@
     }
     [self removeWindowAction];
 }
+
+/**
+ 用于长按录制的视图（长按按钮、关闭按钮）
+ */
+-(void)_creatLongPressBaseView{
+    //基础视图
+    _audioButtonView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    _audioButtonView.backgroundColor = [UIColor whiteColor];
+    [self addSubview:_audioButtonView];
+    
+    //长按按钮
+    UIButton *btnPress = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_audioButtonView addSubview:btnPress];
+    [btnPress setTitle:@"长按 说话" forState:0];
+    btnPress.showsTouchWhenHighlighted = YES;
+    [btnPress setTitleColor:[UIColor lightGrayColor] forState:0];
+    btnPress.frame = CGRectMake(20, 0, self.frame.size.width-self.frame.size.height, 50);
+    btnPress.center = CGPointMake(btnPress.center.x, self.frame.size.height/2);
+    btnPress.layer.cornerRadius = 5;
+    btnPress.layer.borderWidth = 1;
+    btnPress.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    
+    //实例化长按手势监听
+    
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleTableviewCellLongPressed:)];
+    
+    //代理
+    longPress.delegate = self;
+    longPress.minimumPressDuration = 0.5;
+    [btnPress addGestureRecognizer:longPress];
+
+    //关闭按钮
+    UIButton *btnClose = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    [btnClose setImage:JHUIIMAGE(@"关闭") forState:0];
+    btnClose.center = CGPointMake(self.frame.size.width-self.frame.size.height/2+10, self.frame.size.height/2);
+    [btnClose addTarget:self action:@selector(_closeAudioAction) forControlEvents:UIControlEventTouchUpInside];
+    [_audioButtonView addSubview:btnClose];
+    
+    
+}
+
+/**
+ 关闭录音长按按钮
+ */
+-(void)_closeAudioAction{
+    [UIView animateWithDuration:0.5 animations:^{
+    
+        _audioButtonView.alpha = 0;
+    } completion:^(BOOL finished) {
+        
+        [_audioButtonView removeFromSuperview];
+        _audioButtonView = nil;
+    }];
+    
+}
+
 //长按之后的事件
 -(void)longPressBeginShowView{
     {
@@ -168,6 +216,7 @@
             _audioView = [[JH_ChatAudioView alloc] initWithFrame:CGRectMake(0, 0, JHSCREENWIDTH, 30)];
             _audioView.center = self.center;
             [_sheetWindow addSubview:_audioView];
+            
         }
         
     }
@@ -277,6 +326,10 @@
     
     return recordSettings;
 }
+
+/**
+ 开始录音
+ */
 - (void)startRecordNotice{
     
     
@@ -316,6 +369,9 @@
 }
 
 
+/**
+ 录音停止
+ */
 - (void)stopRecordNotice
 {
     NSLog(@"----------结束录音----------");
@@ -332,10 +388,8 @@
     if ([self.audioDelegate respondsToSelector:@selector(stopRecord:)]) {
         [self.audioDelegate stopRecord:self.mp3PathStr];
     }
-    //让对象销毁
-    [_audioView removeFromSuperview];
-    _audioRecorder = nil;
-    _timer1 = nil;
+    //移除视图
+    [self removeWindowAction];
     
     
 }
@@ -385,11 +439,6 @@
     
 }
 
-
-
-//打开相册
-//使用相机
-//发送位置
 /**
  从相册中获取相片
  */
@@ -397,8 +446,11 @@
     
     //相册资源
     UIImagePickerControllerSourceType type = sourceType;
+    
     _picker = [[UIImagePickerController alloc] init];
-    _picker.allowsEditing = NO;
+    
+//    //开启编辑
+//    _picker.allowsEditing = YES;
     _picker.sourceType    = type;
     if ([self.cameraDelegate respondsToSelector:@selector(setCamera:)]) {
         [self.cameraDelegate setCamera:_picker];
