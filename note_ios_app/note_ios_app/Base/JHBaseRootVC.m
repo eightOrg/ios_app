@@ -43,7 +43,7 @@
 -(void)_slideViewShowAction{
     
     _sheetWindows.hidden = NO;
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:JH_UIViewAnimation animations:^{
         
         [self.view.subviews objectAtIndex:0].transform = CGAffineTransformMakeTranslation(Width, 0);
         //同步平移量
@@ -90,7 +90,7 @@
  点击遮罩视图
  */
 -(void)_tapAction{
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:JH_UIViewAnimation animations:^{
         
         [self.view.subviews objectAtIndex:0].transform = CGAffineTransformIdentity;
         //同步平移量
@@ -172,7 +172,7 @@
     //    当托拽手势结束时执行
     if (pan.state == UIGestureRecognizerStateEnded)
     {
-        [UIView animateWithDuration:0.2 animations:^{
+        [UIView animateWithDuration:JH_UIViewAnimation animations:^{
             //判断与屏幕一半的大小比较自动平移
             if ([self.view.subviews objectAtIndex:0].frame.origin.x >[UIScreen mainScreen].bounds.size.width*0.5) {
                 

@@ -83,7 +83,7 @@
  */
 -(void)_touchAction{
     //旋转按钮
-    [UIView animateWithDuration:0.2 animations:^{
+    [UIView animateWithDuration:JH_UIViewAnimation animations:^{
         if (self.isFold) {
            self.button.imageView.transform = CGAffineTransformMakeRotation(M_PI_2);
         }else{

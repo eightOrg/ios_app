@@ -16,11 +16,11 @@
 #import "API.h"
 #import "Common.h"
 //debug打印
-#ifdef DEBUG
-#define Dlog(fmt, ...) NSLog((@"[文件名:%s]\n""[函数名:%s]\n" "[行号:%d] \n" fmt),__FILE__,__FUNCTION__,__LINE__,##__VA_ARGS__);
-#else
-
-#define Dlog(...)
-#endif
+//#ifdef DEBUG
+//#define Dlog(fmt, ...) NSLog((@"[文件名:%s]\n""[函数名:%s]\n" "[行号:%d] \n" fmt),__FILE__,__FUNCTION__,__LINE__,##__VA_ARGS__);
+//#else
+//
+//#define Dlog(...)
+//#endif
 
 #endif /* JH_NOTE_PCH_pch */

@@ -149,7 +149,7 @@
 //    } failure:^(__kindof YTKBaseRequest *request) {
 //        
 //    }];
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:JH_UIViewAnimation animations:^{
         self.view.alpha = 0;
     } completion:^(BOOL finished) {
         

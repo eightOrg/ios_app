@@ -116,7 +116,7 @@ static CGFloat headerHeight = 0.1;
     NSString *path = [NSString stringWithFormat:@"%lld",message.recentMessage_user.user_id];
     //删除文件夹
     [JH_FileManager deleteDir:[NSString stringWithFormat:@"%@/%@",[JH_FileManager getDocumentPath],path]];
-    Dlog(@"%@",NSHomeDirectory());
+    NSLog(@"%@",NSHomeDirectory());
     // 从数据库中删除
     [JH_ChatMessageHelper _deleteData:@[message]];
     // 从列表中删除

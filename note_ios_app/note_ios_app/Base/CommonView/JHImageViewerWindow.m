@@ -8,7 +8,7 @@
 
 #import "JHImageViewerWindow.h"
 @interface JHImageViewerWindow ()<UIScrollViewDelegate>
-
+//存储图片原始大小
 @property (nonatomic,assign)CGSize imageSize;
 @property (nonatomic,strong)UIImageView *imageView;
 @property (nonatomic,strong)UIScrollView *scrollView;
@@ -18,9 +18,7 @@
  图片查看器公用window层，主体为scrollView上面加上imageView支持缩放，需要限定图片大小
  */
 @implementation JHImageViewerWindow
-{
-    CGSize _defaultSize;
-}
+
 
 /**
  init
@@ -31,6 +29,7 @@
     if (self) {
         [self _setAttributeWithImage:image];
         [self _setOneTapGesture];
+        [self _setDoubleTapGesture];
     }
     return self;
 }
@@ -45,13 +44,12 @@
     self.alpha = 0;
     
     _imageSize = CGSizeMake(image.size.width, image.size.height);
-    CGFloat scale = [self _changeSize:CGSizeMake(_imageSize.width, _imageSize.height)];
-    _defaultSize = CGSizeMake(_imageSize.width/scale, _imageSize.height/scale);
+    
     self.imageView.image = image;
     [self addSubview:self.scrollView];
     [self.scrollView addSubview:self.imageView];
     
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:JH_UIViewAnimation animations:^{
         self.alpha = 1;
     } completion:^(BOOL finished) {
         
@@ -65,16 +63,49 @@
     _tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_tapAction)];
     [self addGestureRecognizer:_tap];
 }
+/**
+ 设置双击事件
+ */
+-(void)_setDoubleTapGesture{
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_doubleTapAction)];
+    doubleTap.numberOfTapsRequired = 2;
+    //设置点击优先值
+    [_tap requireGestureRecognizerToFail:doubleTap];
+    [self addGestureRecognizer:doubleTap];
+}
 
+/**
+ 双击
+ */
+-(void)_doubleTapAction{
+    CGFloat currentZoom  = _scrollView.zoomScale;
+    [UIView animateWithDuration:JH_UIViewAnimation animations:^{
+        if (currentZoom==_scrollView.maximumZoomScale) {
+            [_scrollView setZoomScale:_scrollView.minimumZoomScale];
+        }else{
+            [_scrollView setZoomScale:_scrollView.maximumZoomScale];
+        }
+    }];
+    
+}
 -(UIScrollView *)scrollView{
     if (_scrollView==nil) {
         _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
-        _scrollView.contentSize = self.imageView.bounds.size;
         _scrollView.delegate = self;
         CGFloat scale = [self _changeSize:CGSizeMake(_imageSize.width, _imageSize.height)];
+        _scrollView.contentSize = CGSizeMake(JHSCREENWIDTH, JHSCREENHEIGHT);
+        //设置最高和最低的缩放倍数，也就是让一个边达到和屏幕相同到另外一个比例较大的边达到和屏幕项目的区间
+        if (_imageSize.width/_imageSize.height>JHSCREENWIDTH/JHSCREENHEIGHT) {
+            //按照图片的宽缩放
+            _scrollView.maximumZoomScale = JHSCREENHEIGHT/(_imageSize.height/scale)/scale;
+        }else{
+            //按照图片的高缩放
+            _scrollView.maximumZoomScale = JHSCREENWIDTH/(_imageSize.width/scale)/scale;
+        }
         
-        _scrollView.maximumZoomScale = scale>3?scale:3;
-        _scrollView.minimumZoomScale = 1.0;
+        _scrollView.minimumZoomScale = 1/scale;
+        [_scrollView setZoomScale:1/scale];
+        
     }
     return _scrollView;
 }
@@ -82,27 +113,41 @@
 -(UIImageView *)imageView{
     if (_imageView==nil) {
         //处理imageView初始大小
-        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0,_defaultSize.width, _defaultSize.height)];
+        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, _imageSize.width,_imageSize.height)];
         _imageView.userInteractionEnabled = YES;
-        _imageView.center = self.center;
+        _imageView.center = CGPointMake(JHSCREENWIDTH/2, JHSCREENHEIGHT/2);
+//        _imageView.contentMode = UIViewContentModeScaleAspectFit;
         
     }
     return _imageView;
 }
-#warning 暂时不用缩放，有bug
-//-(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
-//    return self.imageView;
-//}
-//
-///**
-// scrollView的缩放代理，此处动态改变
-//
-// @param scrollView _scrollView.contentSize跟随缩放比例，防止出现多余的位移
-// */
-//-(void)scrollViewDidZoom:(UIScrollView *)scrollView{
-////    _scrollView.contentSize = ;
-//    
-//}
+
+-(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
+    return self.imageView;
+}
+
+/**
+ scrollView的缩放代理，此处动态改变
+
+ @param scrollView _scrollView.contentSize跟随缩放比例，防止出现多余的位移
+ */
+-(void)scrollViewDidZoom:(UIScrollView *)scrollView{
+    UIImageView *imgView  = self.imageView;
+    scrollView.contentSize = CGSizeMake(imgView.frame.size.width, imgView.frame.size.height);
+    //默认为image大小，当存在小于等于某个边的，设置为这个边为contentSize
+    if (imgView.frame.size.width<=JHSCREENWIDTH) {
+        scrollView.contentSize = CGSizeMake(JHSCREENWIDTH, scrollView.contentSize.height);
+
+    }
+    if (imgView.frame.size.height<=JHSCREENHEIGHT) {
+        scrollView.contentSize = CGSizeMake(scrollView.contentSize.width, JHSCREENHEIGHT);
+
+    }
+    
+//    改变图片的中心点
+    _imageView.center = CGPointMake(scrollView.contentSize.width/2, scrollView.contentSize.height/2);
+}
+
 /**
  改变图像大小
 
@@ -126,7 +171,7 @@
  点击事件，关闭视图
  */
 -(void)_tapAction{
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:JH_UIViewAnimation animations:^{
         self.alpha = 0;
     } completion:^(BOOL finished) {
         

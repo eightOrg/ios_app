@@ -46,7 +46,7 @@
     window.hidden = NO;
     window.alpha = 0;
     _sheetWindow = window;
-    [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0.7 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:JH_UIViewAnimation delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0.7 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y-100, self.frame.size.width, self.frame.size.height);
         self.alpha = 1;
         _sheetWindow.frame = CGRectMake(0, -JHSCREENWIDTH/4, JHSCREENWIDTH, JHSCREENHEIGHT);
@@ -62,7 +62,7 @@
 -(void)removeWindowAction{
     
     
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:JH_UIViewAnimation animations:^{
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y+100, self.frame.size.width, self.frame.size.height);
         self.alpha = 0;
         _sheetWindow.frame = CGRectMake(0,0, JHSCREENWIDTH, JHSCREENHEIGHT);
@@ -195,7 +195,7 @@
  关闭录音长按按钮
  */
 -(void)_closeAudioAction{
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:JH_UIViewAnimation animations:^{
     
         _audioButtonView.alpha = 0;
     } completion:^(BOOL finished) {

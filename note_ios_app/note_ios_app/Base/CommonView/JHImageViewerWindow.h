@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 typedef void(^CertainBlock)(UIImage *) ;
-@interface JHImageViewerWindow : UIWindow
+@interface JHImageViewerWindow : UIView
 @property(nonatomic,copy)CertainBlock block;
 
 - (instancetype)initWithFrame:(CGRect)frame WithImage:(UIImage *)image;

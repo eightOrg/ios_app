@@ -18,4 +18,6 @@
 #define JHSCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 #define APPDELEGATE (AppDelegate *)[UIApplication sharedApplication].delegate
 #define WeakSelf __weak typeof(self) weakSelf = self;
+//默认动画时间
+#define JH_UIViewAnimation 0.3
 #endif /* Attribute_h */

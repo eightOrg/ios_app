@@ -70,7 +70,7 @@
     //同步数据库
     [[JH_ChatMessageManager sharedInstance] saveContext]; //插入 保存
     
-    Dlog(@"%@",NSHomeDirectory());
+    NSLog(@"%@",NSHomeDirectory());
     
 }
 #pragma mark - 删除数据

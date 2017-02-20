@@ -27,7 +27,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    Dlog(@"%@",NSHomeDirectory());
     //将好友名称作为导航栏标题
     self.title = self.baseMessages.recentMessage_user.user_name;
     
