@@ -10,6 +10,7 @@
 #import "JHChatMessageViewModel.h"
 #import "JH_DIYsearchBar.h"
 #import "JH_JSQBaseChatVC.h"
+
 @interface JHChildMessageVC ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)JHChatMessageViewModel *viewModel;
@@ -27,6 +28,7 @@ static CGFloat headerHeight = 0.1;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
     
     _viewModel = [[JHChatMessageViewModel alloc] init];
     [_viewModel CF_LoadData:^(id result) {
@@ -34,6 +36,7 @@ static CGFloat headerHeight = 0.1;
         [self.view addSubview:self.tableView];
     }];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(_freshAction) name:JH_ChatMessageFreshNotification object:nil];
+    
 }
 
 /**

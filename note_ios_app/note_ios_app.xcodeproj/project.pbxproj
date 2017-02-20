@@ -11,6 +11,7 @@
 		4720F7321E559D0C0011D677 /* JH_FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4720F7311E559D0C0011D677 /* JH_FileManager.m */; };
 		473231AC1DC47AFD00C890D0 /* ThemeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 473231AB1DC47AFD00C890D0 /* ThemeButton.m */; };
 		473231AF1DC47B1800C890D0 /* ThemeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 473231AE1DC47B1800C890D0 /* ThemeLabel.m */; };
+		473649381E5A862500CB2F0C /* JHImageViewerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 473649371E5A862500CB2F0C /* JHImageViewerWindow.m */; };
 		473651711DD357A800397969 /* JHBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 473651701DD357A800397969 /* JHBaseRequest.m */; };
 		473651741DD3584C00397969 /* JH_UserLoginApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 473651731DD3584C00397969 /* JH_UserLoginApi.m */; };
 		474A32571E52A72F008FD632 /* JH_JSQBaseChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 474A32561E52A72F008FD632 /* JH_JSQBaseChatVC.m */; };
@@ -95,6 +96,8 @@
 		473231AB1DC47AFD00C890D0 /* ThemeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeButton.m; sourceTree = "<group>"; };
 		473231AD1DC47B1800C890D0 /* ThemeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeLabel.h; sourceTree = "<group>"; };
 		473231AE1DC47B1800C890D0 /* ThemeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeLabel.m; sourceTree = "<group>"; };
+		473649361E5A862500CB2F0C /* JHImageViewerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHImageViewerWindow.h; sourceTree = "<group>"; };
+		473649371E5A862500CB2F0C /* JHImageViewerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHImageViewerWindow.m; sourceTree = "<group>"; };
 		4736516F1DD357A800397969 /* JHBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHBaseRequest.h; sourceTree = "<group>"; };
 		473651701DD357A800397969 /* JHBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHBaseRequest.m; sourceTree = "<group>"; };
 		473651721DD3584C00397969 /* JH_UserLoginApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_UserLoginApi.h; sourceTree = "<group>"; };
@@ -602,6 +605,8 @@
 				47F1FD9A1DD9EF060096A1AF /* JHBaseTextField.m */,
 				47F1FD9C1DD9F06B0096A1AF /* JHBaseSubmitButton.h */,
 				47F1FD9D1DD9F06B0096A1AF /* JHBaseSubmitButton.m */,
+				473649361E5A862500CB2F0C /* JHImageViewerWindow.h */,
+				473649371E5A862500CB2F0C /* JHImageViewerWindow.m */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -830,6 +835,7 @@
 				47D84DD51E51B25B009C6C2A /* JHChatMessageViewModel.m in Sources */,
 				473231AC1DC47AFD00C890D0 /* ThemeButton.m in Sources */,
 				47A56B911E5407E000A86F34 /* JH_ChatMessageHelper.m in Sources */,
+				473649381E5A862500CB2F0C /* JHImageViewerWindow.m in Sources */,
 				474A32641E52DFDF008FD632 /* JH_ChatSendMessageView.m in Sources */,
 				473651741DD3584C00397969 /* JH_UserLoginApi.m in Sources */,
 				47D84DCE1E51AB18009C6C2A /* JHChatMessageCell.m in Sources */,

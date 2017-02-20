@@ -9,6 +9,7 @@
 #import "JH_JSQBaseChatVC.h"
 #import <GCDAsyncSocket.h>
 #import "JH_ChatSendMessageView.h"
+#import "JHImageViewerWindow.h"
 @interface JH_JSQBaseChatVC ()<GCDAsyncSocketDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,JH_ChatCameraDelegate,JH_ChatAudioDelegate>
 @property (nonatomic,strong) GCDAsyncSocket *clientSocket;// 客户端链接的Socket
 
@@ -53,7 +54,7 @@
      */
     // 注册delelte按钮，允许被删除
 //    [JSQMessagesCollectionViewCell registerMenuAction:@selector(delete:)];
-    
+  
 
     
 }
@@ -329,15 +330,25 @@
     }];
 }
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info;{
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    //获取原始图片
     UIImage *image = info[UIImagePickerControllerOriginalImage];
-    //开启编辑后
-//    UIImage *image = info[UIImagePickerControllerEditedImage];
-    //将图片插入数据库
-    [self.chatData addPhotoMediaMessage:image isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:[NSString stringWithFormat:@"%.0f",[[NSDate date] timeIntervalSince1970]] type:MessageTypePhoto];
+    //增加图片选择确定的视图
+    JHImageViewerWindow *imageWindows = [[JHImageViewerWindow alloc] initWithFrame:CGRectMake(0, 0, JHSCREENWIDTH, JHSCREENHEIGHT) WithImage:image];
+    [imageWindows _setCancelAndCertainButton];
+    [picker.view addSubview:imageWindows];
     
-    [self finishSendingMessage];
+    [imageWindows setBlock:^(UIImage *img){
+        
+        [picker dismissViewControllerAnimated:YES completion:nil];
+        //获取原始图片
+        //开启编辑后
+        //    UIImage *image = info[UIImagePickerControllerEditedImage];
+        //将图片插入数据库
+        [self.chatData addPhotoMediaMessage:image isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:[NSString stringWithFormat:@"%.0f",[[NSDate date] timeIntervalSince1970]] type:MessageTypePhoto];
+        
+        [self finishSendingMessage];
+        
+    }];
+    
     
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker;
@@ -368,12 +379,6 @@
 // 聊天气泡，根据ID判断是发送的还是接受的
 - (id<JSQMessageBubbleImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView messageBubbleImageDataForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    /**
-     *  You may return nil here if you do not want bubbles.
-     *  In this case, you should set the background color of your collection view cell's textView.
-     *
-     *  Otherwise, return your previously created bubble image data objects.
-     */
     
     JSQMessage *message = [self.chatData.messages objectAtIndex:indexPath.item];
     
@@ -516,16 +521,7 @@
 - (CGFloat)collectionView:(JSQMessagesCollectionView *)collectionView
                    layout:(JSQMessagesCollectionViewFlowLayout *)collectionViewLayout heightForCellTopLabelAtIndexPath:(NSIndexPath *)indexPath
 {
-    /**
-     *  Each label in a cell has a `height` delegate method that corresponds to its text dataSource method
-     */
     
-    /**
-     *  This logic should be consistent with what you return from `attributedTextForCellTopLabelAtIndexPath:`
-     *  The other label height delegate methods should follow similarly
-     *
-     *  Show a timestamp for every 3rd message
-     */
     if (indexPath.item % 3 == 0) {
         return kJSQMessagesCollectionViewCellLabelHeightDefault;
     }
@@ -578,6 +574,17 @@
 - (void)collectionView:(JSQMessagesCollectionView *)collectionView didTapMessageBubbleAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"Tapped message bubble!");
+    //获取点击对象(当为图片的时候展示大图)
+    JSQMessage *jsqMessage = self.chatData.messages[indexPath.row];
+    if (jsqMessage.isMediaMessage) {
+        JSQMediaItem *item = (JSQMediaItem *)jsqMessage.media;
+        if ([item isKindOfClass:[JSQPhotoMediaItem class]]) {
+            JSQPhotoMediaItem *photoItem = (JSQPhotoMediaItem *)item;
+            JHImageViewerWindow *imageWindow = [[JHImageViewerWindow alloc] initWithFrame:CGRectMake(0, 0, JHSCREENWIDTH, JHSCREENHEIGHT) WithImage:photoItem.image];
+            [self.navigationController.view addSubview:imageWindow];
+        }
+    }
+    
 }
 
 // 点击cell边缘头部或者底部的 时间或者名字点击事件
