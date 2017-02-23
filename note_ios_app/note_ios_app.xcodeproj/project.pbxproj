@@ -19,6 +19,10 @@
 		474A32611E52A9F0008FD632 /* LPActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 474A32601E52A9F0008FD632 /* LPActionSheet.m */; };
 		474A32641E52DFDF008FD632 /* JH_ChatSendMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 474A32631E52DFDF008FD632 /* JH_ChatSendMessageView.m */; };
 		474A32671E52F552008FD632 /* UIView+UIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 474A32661E52F552008FD632 /* UIView+UIViewController.m */; };
+		4766FC411E5E950200F2221E /* JHMapLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4766FC3F1E5E950200F2221E /* JHMapLocationVC.m */; };
+		4766FC421E5E950200F2221E /* JHMapLocationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4766FC401E5E950200F2221E /* JHMapLocationVC.xib */; };
+		4766FC441E5EB2CF00F2221E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4766FC431E5EB2CF00F2221E /* MapKit.framework */; };
+		4766FC461E5EB2DA00F2221E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4766FC451E5EB2DA00F2221E /* CoreLocation.framework */; };
 		476BE2C51E56C9C900D41377 /* UserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 476BE2C41E56C9C900D41377 /* UserInfoManager.m */; };
 		478F69561DC8BBCC001E9569 /* JHSquareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 478F69551DC8BBCC001E9569 /* JHSquareVC.m */; };
 		478F69591DC8BBE2001E9569 /* JHNoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 478F69581DC8BBE2001E9569 /* JHNoteVC.m */; };
@@ -113,6 +117,11 @@
 		474A32631E52DFDF008FD632 /* JH_ChatSendMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_ChatSendMessageView.m; sourceTree = "<group>"; };
 		474A32651E52F552008FD632 /* UIView+UIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIViewController.h"; sourceTree = "<group>"; };
 		474A32661E52F552008FD632 /* UIView+UIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UIViewController.m"; sourceTree = "<group>"; };
+		4766FC3E1E5E950200F2221E /* JHMapLocationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHMapLocationVC.h; sourceTree = "<group>"; };
+		4766FC3F1E5E950200F2221E /* JHMapLocationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHMapLocationVC.m; sourceTree = "<group>"; };
+		4766FC401E5E950200F2221E /* JHMapLocationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JHMapLocationVC.xib; sourceTree = "<group>"; };
+		4766FC431E5EB2CF00F2221E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4766FC451E5EB2DA00F2221E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		476BE2C31E56C9C900D41377 /* UserInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoManager.h; sourceTree = "<group>"; };
 		476BE2C41E56C9C900D41377 /* UserInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoManager.m; sourceTree = "<group>"; };
 		478F69531DC8AFDC001E9569 /* ThemeViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeViews.h; sourceTree = "<group>"; };
@@ -217,6 +226,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4766FC461E5EB2DA00F2221E /* CoreLocation.framework in Frameworks */,
+				4766FC441E5EB2CF00F2221E /* MapKit.framework in Frameworks */,
 				47A56B521E53FA2E00A86F34 /* CoreData.framework in Frameworks */,
 				47EE67EF1E535F28008716E8 /* libmp3lame.a in Frameworks */,
 				47EE67EB1E535C02008716E8 /* AVFoundation.framework in Frameworks */,
@@ -510,6 +521,9 @@
 				478F69611DC8BC32001E9569 /* JHChildMessageVC.m */,
 				474A32551E52A72F008FD632 /* JH_JSQBaseChatVC.h */,
 				474A32561E52A72F008FD632 /* JH_JSQBaseChatVC.m */,
+				4766FC3E1E5E950200F2221E /* JHMapLocationVC.h */,
+				4766FC3F1E5E950200F2221E /* JHMapLocationVC.m */,
+				4766FC401E5E950200F2221E /* JHMapLocationVC.xib */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -623,6 +637,8 @@
 		6FCFEBCB6FE19F8F1A9F521D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4766FC451E5EB2DA00F2221E /* CoreLocation.framework */,
+				4766FC431E5EB2CF00F2221E /* MapKit.framework */,
 				47A56B511E53FA2E00A86F34 /* CoreData.framework */,
 				47EE67EA1E535C02008716E8 /* AVFoundation.framework */,
 				FA8AC8B80F125B5155B5CDFB /* libPods-note_ios_app.a */,
@@ -746,6 +762,7 @@
 				47B830281DC44AB500969523 /* LaunchScreen.storyboard in Resources */,
 				47D84DBE1E514A8C009C6C2A /* p0.jpg in Resources */,
 				47B830251DC44AB500969523 /* Assets.xcassets in Resources */,
+				4766FC421E5E950200F2221E /* JHMapLocationVC.xib in Resources */,
 				47D84DB21E51464E009C6C2A /* JHChatFriendCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -851,6 +868,7 @@
 				47F1FD9E1DD9F06B0096A1AF /* JHBaseSubmitButton.m in Sources */,
 				47B8305B1DC451AF00969523 /* JHBaseNav.m in Sources */,
 				478F695F1DC8BC1E001E9569 /* JHChildFriendsVC.m in Sources */,
+				4766FC411E5E950200F2221E /* JHMapLocationVC.m in Sources */,
 				47D84DD81E51B2FC009C6C2A /* JHChatMessageModel.m in Sources */,
 				47A56B551E53FAAA00A86F34 /* JH_ChatCoreData.xcdatamodeld in Sources */,
 				474A32571E52A72F008FD632 /* JH_JSQBaseChatVC.m in Sources */,

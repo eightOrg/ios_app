@@ -8,7 +8,8 @@
 
 #import "JH_ChatSendMessageView.h"
 #import "JH_ChatAudioView.h"
-
+#import "JHMapLocationVC.h"
+//音频格式转换
 #import "lame.h"
 @interface JH_ChatSendMessageView()<AVAudioPlayerDelegate,AVAudioRecorderDelegate,UIGestureRecognizerDelegate>
 @property(nonatomic,strong)JH_ChatAudioView *audioView;
@@ -143,7 +144,7 @@
             [self getOCRDatafromLibraryOrCamera:UIImagePickerControllerSourceTypePhotoLibrary];
             break;
         case 103:
-            
+            [self _presentLocationVC];
             break;
         default:
             break;
@@ -151,6 +152,24 @@
     [self removeWindowAction];
 }
 
+/**
+ 跳转到location获取页面
+ */
+-(void)_presentLocationVC{
+    JHMapLocationVC *location = [[JHMapLocationVC alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:location];
+    [self.viewController.navigationController presentViewController:nav animated:YES completion:^{
+        
+    }];
+    //block回调信息
+    [location setLocationBlock:^(double latitude,double longitude){
+        //代理实现位置
+        if ([self.locationDelegate respondsToSelector:@selector(setLocationWith:longtitude:)]) {
+            [self.locationDelegate setLocationWith:latitude longtitude:longitude];
+        }
+    }];
+    
+}
 /**
  用于长按录制的视图（长按按钮、关闭按钮）
  */

@@ -81,6 +81,22 @@
                     
                 }
                     break;
+                case MessageTypeLocation:
+                {
+                    //获取定位
+                    NSArray *locationArray = [message.message_text componentsSeparatedByString:@"/"];
+                    CLLocation *ferryBuildingInSF = [[CLLocation alloc] initWithLatitude:[[locationArray firstObject]doubleValue ] longitude:[[locationArray lastObject]doubleValue ]];
+                    //locationItem
+                    JSQLocationMediaItem *locationItem = [[JSQLocationMediaItem alloc] init];
+                    
+                    [locationItem setLocation:ferryBuildingInSF withCompletionHandler:^{
+                        
+                    }];
+                    JSQMessage *locationMessage = [[JSQMessage alloc ]initWithSenderId:message.message_isSelf?selfUserId:[NSString stringWithFormat:@"%lld",user.user_id] senderDisplayName:user.user_name date:[NSDate dateWithTimeIntervalSince1970:message.message_time] media:locationItem];
+                    
+                    [self.messages addObject:locationMessage];
+                }
+                    break;
                 default:
                     break;
             }
@@ -174,6 +190,24 @@
     [self _setMessageDictionary:[NSString stringWithFormat:@"/%@/%@.mp3",userId,time] isPath:YES isSelf:isSelf userId:userId userName:userName time:time  type:type];
     
     [self.messages addObject:audioMessage];
+}
+
+//添加定位信息(123/123)中间分隔为“/”
+- (void)addLocationMessage:(NSString *)locationString isSelf:(BOOL )isSelf userId:(NSString *)userId userName:(NSString *)userName time:(NSString *)time type:(MessageType )type completionBlock:(JSQLocationMediaItemCompletionBlock)completion{
+    //将locationString分解
+    NSArray *locationArray = [locationString componentsSeparatedByString:@"/"];
+    CLLocation *ferryBuildingInSF = [[CLLocation alloc] initWithLatitude:[[locationArray firstObject]doubleValue ] longitude:[[locationArray lastObject]doubleValue ]];
+    //locationItem
+    JSQLocationMediaItem *locationItem = [[JSQLocationMediaItem alloc] init];
+    
+    [locationItem setLocation:ferryBuildingInSF withCompletionHandler:completion];
+    
+    JSQMessage *locationMessage = [[JSQMessage alloc ]initWithSenderId:isSelf?[UserInfoManager getUserId]:userId senderDisplayName:isSelf?[UserInfoManager getUserName]: userName date:[NSDate dateWithTimeIntervalSince1970:[time longLongValue]] media:locationItem ];
+
+    [self.messages addObject:locationMessage];
+    //存储数据库
+    [self _setMessageDictionary:locationString isPath:NO isSelf:isSelf userId:userId userName:userName time:time type:MessageTypeLocation];
+   
 }
 /**
  发送通知用于消息页面的数据更新

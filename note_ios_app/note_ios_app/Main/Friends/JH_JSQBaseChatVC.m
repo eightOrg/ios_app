@@ -10,7 +10,7 @@
 #import <GCDAsyncSocket.h>
 #import "JH_ChatSendMessageView.h"
 #import "JHImageViewerWindow.h"
-@interface JH_JSQBaseChatVC ()<GCDAsyncSocketDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,JH_ChatCameraDelegate,JH_ChatAudioDelegate>
+@interface JH_JSQBaseChatVC ()<GCDAsyncSocketDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,JH_ChatCameraDelegate,JH_ChatAudioDelegate,JH_ChatLocationDelegate>
 @property (nonatomic,strong) GCDAsyncSocket *clientSocket;// 客户端链接的Socket
 
 @end
@@ -299,6 +299,22 @@
     [self finishSendingMessageAnimated:YES];
 }
 
+/**
+ 发送定位的代理
+ @param latitude 经度
+ @param longitude 纬度
+ */
+-(void)setLocationWith:(double)latitude longtitude:(double)longitude{
+    __weak UICollectionView *weakView = self.collectionView;
+    //组合locationString
+    NSString *locationString = [NSString stringWithFormat:@"%f/%f",latitude,longitude];
+    [self.chatData addLocationMessage:locationString isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:[NSString stringWithFormat:@"%.0f",[[NSDate date] timeIntervalSince1970]] type:MessageTypeLocation completionBlock:^{
+        //刷新视图
+        [weakView reloadData];
+    }];
+    [self finishSendingMessageAnimated:YES];
+    
+}
 
 // 点击左侧accessory按钮启动，打开附加信息页面
 - (void)didPressAccessoryButton:(UIButton *)sender
@@ -309,6 +325,7 @@
     media.userId = [NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id];
     media.cameraDelegate = self;
     media.audioDelegate = self;
+    media.locationDelegate = self;
     media.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:media];
    

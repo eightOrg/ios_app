@@ -15,10 +15,14 @@
 @protocol JH_ChatAudioDelegate <NSObject>
 -(void)stopRecord:(NSString *)recorderPath;
 @end
+@protocol JH_ChatLocationDelegate <NSObject>
+-(void)setLocationWith:(double)latitude longtitude:(double)longitude;
+@end
 @interface JH_ChatSendMessageView : UIView
 
 @property(nonatomic,copy)NSString *userId;
 @property(nonatomic,strong)UIImagePickerController *picker;
 @property(nonatomic,weak)id <JH_ChatCameraDelegate>cameraDelegate;
 @property(nonatomic,weak)id <JH_ChatAudioDelegate>audioDelegate;
+@property(nonatomic,weak)id <JH_ChatLocationDelegate>locationDelegate;
 @end

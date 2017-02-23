@@ -52,15 +52,6 @@ typedef enum : NSUInteger {
 - (void)addTextMessage:(NSString *)text isSelf:(BOOL )isSelf userId:(NSString *)userId userName:(NSString *)userName time:(NSString *)time type:(MessageType )type;
 //添加录音message
 - (void)addAudioMediaMessage:(NSString *)path isSelf:(BOOL )isSelf userId:(NSString *)userId userName:(NSString *)userName time:(NSString *)time type:(MessageType )type;
-
-//- (void)addPhotoMediaMessage;//!< 图片消息
-//
-//- (void)addLocationMediaMessageCompletion:(JSQLocationMediaItemCompletionBlock)completion; //!< 定位小心
-//
-//- (void)addVideoMediaMessage; //!< 视频 无底图
-//
-//- (void)addVideoMediaMessageWithThumbnail; //!< 视频带底图
-//
-//- (void)addAudioMediaMessage; //!< 音频
-
+//添加定位信息(123/123)中间分隔为“/”
+- (void)addLocationMessage:(NSString *)locationString isSelf:(BOOL )isSelf userId:(NSString *)userId userName:(NSString *)userName time:(NSString *)time type:(MessageType )type  completionBlock:(JSQLocationMediaItemCompletionBlock)completion;
 @end
