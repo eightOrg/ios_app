@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JHMapLocationVC">
             <connections>
+                <outlet property="annotationView" destination="Zy4-ay-IKA" id="z38-Yb-aLa"/>
                 <outlet property="labAddressDetail" destination="f49-FL-TJi" id="Yvy-Fq-BIS"/>
                 <outlet property="labAddressName" destination="sR7-AG-Twd" id="6ug-1a-SdM"/>
                 <outlet property="mapView" destination="xLA-q4-47B" id="Edo-Qy-Viq"/>

@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 typedef void(^LocationBlock)(double latitude, double longitude);
 
 @interface JHMapLocationVC : UIViewController
 
 @property(nonatomic,strong)LocationBlock locationBlock;
+
+#pragma mark - 开启导航功能
+@property(nonatomic,strong)CLLocation *userLocation;
 @end

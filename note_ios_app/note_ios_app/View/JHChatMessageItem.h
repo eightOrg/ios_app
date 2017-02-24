@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface JHChatMessageItem : NSObject
+@property(nonatomic,assign)NSInteger type;//消息类型
 @property(nonatomic,copy)NSString *name;//昵称
 @property(nonatomic,copy)NSString *portrail;//头像
 @property(nonatomic,copy)NSString *number;//未读信息数量

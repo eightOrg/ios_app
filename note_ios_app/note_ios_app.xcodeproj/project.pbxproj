@@ -48,6 +48,8 @@
 		47B8305E1DC451CA00969523 /* JHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B8305D1DC451CA00969523 /* JHBaseViewController.m */; };
 		47B830651DC4529700969523 /* JHLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B830641DC4529700969523 /* JHLoginVC.m */; };
 		47B830681DC46BD800969523 /* JHRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B830671DC46BD800969523 /* JHRegisterVC.m */; };
+		47BCDABC1E6019B6000C8E89 /* JHMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BCDABB1E6019B6000C8E89 /* JHMapAnnotation.m */; };
+		47BCDABF1E6025B6000C8E89 /* JH_CalculateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BCDABE1E6025B6000C8E89 /* JH_CalculateUtil.m */; };
 		47D84DB11E51464E009C6C2A /* JHChatFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D84DAF1E51464E009C6C2A /* JHChatFriendCell.m */; };
 		47D84DB21E51464E009C6C2A /* JHChatFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47D84DB01E51464E009C6C2A /* JHChatFriendCell.xib */; };
 		47D84DB81E5146A8009C6C2A /* JHChatFriendSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D84DB71E5146A8009C6C2A /* JHChatFriendSectionModel.m */; };
@@ -182,6 +184,10 @@
 		47B830641DC4529700969523 /* JHLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHLoginVC.m; sourceTree = "<group>"; };
 		47B830661DC46BD800969523 /* JHRegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHRegisterVC.h; sourceTree = "<group>"; };
 		47B830671DC46BD800969523 /* JHRegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHRegisterVC.m; sourceTree = "<group>"; };
+		47BCDABA1E6019B6000C8E89 /* JHMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHMapAnnotation.h; sourceTree = "<group>"; };
+		47BCDABB1E6019B6000C8E89 /* JHMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHMapAnnotation.m; sourceTree = "<group>"; };
+		47BCDABD1E6025B6000C8E89 /* JH_CalculateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_CalculateUtil.h; sourceTree = "<group>"; };
+		47BCDABE1E6025B6000C8E89 /* JH_CalculateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_CalculateUtil.m; sourceTree = "<group>"; };
 		47D84DAE1E51464E009C6C2A /* JHChatFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatFriendCell.h; sourceTree = "<group>"; };
 		47D84DAF1E51464E009C6C2A /* JHChatFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatFriendCell.m; sourceTree = "<group>"; };
 		47D84DB01E51464E009C6C2A /* JHChatFriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JHChatFriendCell.xib; sourceTree = "<group>"; };
@@ -257,6 +263,8 @@
 			children = (
 				4720F7301E559D0C0011D677 /* JH_FileManager.h */,
 				4720F7311E559D0C0011D677 /* JH_FileManager.m */,
+				47BCDABD1E6025B6000C8E89 /* JH_CalculateUtil.h */,
+				47BCDABE1E6025B6000C8E89 /* JH_CalculateUtil.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -597,6 +605,8 @@
 				47D84DD71E51B2FC009C6C2A /* JHChatMessageModel.m */,
 				474A32581E52A7B5008FD632 /* JH_JSQBaseChatModel.h */,
 				474A32591E52A7B5008FD632 /* JH_JSQBaseChatModel.m */,
+				47BCDABA1E6019B6000C8E89 /* JHMapAnnotation.h */,
+				47BCDABB1E6019B6000C8E89 /* JHMapAnnotation.m */,
 			);
 			name = Friend;
 			sourceTree = "<group>";
@@ -856,6 +866,7 @@
 				474A32641E52DFDF008FD632 /* JH_ChatSendMessageView.m in Sources */,
 				473651741DD3584C00397969 /* JH_UserLoginApi.m in Sources */,
 				47D84DCE1E51AB18009C6C2A /* JHChatMessageCell.m in Sources */,
+				47BCDABC1E6019B6000C8E89 /* JHMapAnnotation.m in Sources */,
 				478F69621DC8BC32001E9569 /* JHChildMessageVC.m in Sources */,
 				47AF3B131E5450BC0018DA66 /* NSString+ChangeTime.m in Sources */,
 				47B830581DC4518B00969523 /* JHBaseTabBar.m in Sources */,
@@ -877,6 +888,7 @@
 				47D84DC11E515523009C6C2A /* JHChatFriendViewModel.m in Sources */,
 				4720F7321E559D0C0011D677 /* JH_FileManager.m in Sources */,
 				47D84DC71E518011009C6C2A /* JHChatFriendGroupView.m in Sources */,
+				47BCDABF1E6025B6000C8E89 /* JH_CalculateUtil.m in Sources */,
 				478F695C1DC8BBF3001E9569 /* JHFriendsVC.m in Sources */,
 				474A32671E52F552008FD632 /* UIView+UIViewController.m in Sources */,
 				478F69591DC8BBE2001E9569 /* JHNoteVC.m in Sources */,

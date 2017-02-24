@@ -10,6 +10,7 @@
 #import <GCDAsyncSocket.h>
 #import "JH_ChatSendMessageView.h"
 #import "JHImageViewerWindow.h"
+#import "JHMapLocationVC.h"
 @interface JH_JSQBaseChatVC ()<GCDAsyncSocketDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,JH_ChatCameraDelegate,JH_ChatAudioDelegate,JH_ChatLocationDelegate>
 @property (nonatomic,strong) GCDAsyncSocket *clientSocket;// 客户端链接的Socket
 
@@ -600,15 +601,23 @@
 //点击信息
 - (void)collectionView:(JSQMessagesCollectionView *)collectionView didTapMessageBubbleAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Tapped message bubble!");
-    //获取点击对象(当为图片的时候展示大图)
+    
     JSQMessage *jsqMessage = self.chatData.messages[indexPath.row];
     if (jsqMessage.isMediaMessage) {
         JSQMediaItem *item = (JSQMediaItem *)jsqMessage.media;
+        //点击了图片
         if ([item isKindOfClass:[JSQPhotoMediaItem class]]) {
             JSQPhotoMediaItem *photoItem = (JSQPhotoMediaItem *)item;
             JHImageViewerWindow *imageWindow = [[JHImageViewerWindow alloc] initWithFrame:CGRectMake(0, 0, JHSCREENWIDTH, JHSCREENHEIGHT) WithImage:photoItem.image];
             [self.navigationController.view addSubview:imageWindow];
+        }
+        //点击了定位
+        if ([item isKindOfClass:[JSQLocationMediaItem class]]) {
+            JSQLocationMediaItem *locationItem = (JSQLocationMediaItem *)item;
+            JHMapLocationVC *location = [[JHMapLocationVC alloc]init];
+            location.userLocation = locationItem.location;
+            [self.navigationController pushViewController:location animated:YES];
+            
         }
     }
     

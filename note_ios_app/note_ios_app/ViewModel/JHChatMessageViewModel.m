@@ -36,6 +36,7 @@
                                             @"time":[NSString changeTimeIntervalToMinute:@(recentMessage.recent_message_time)],
                                             @"number":[[NSString alloc] initWithFormat:@"%lld",recentMessage.recent_message_num],
                                             @"portrail":user.user_portrail==nil?@"p0.jpg":user.user_portrail,
+                                            @"type":@(lastMessage.message_type),
                                             };
         
         [list addObject:oneMessageDic];
@@ -70,6 +71,7 @@
     JHChatMessageModel *rowModel = _chatMessageData[indexPath.row];
     JHChatMessageItem *item      = [[JHChatMessageItem alloc] init];
     //将model数据赋值给item
+    item.type          = rowModel.type;
     item.name          = rowModel.name;
     item.time          = rowModel.time;
     item.portrail      = rowModel.portrail;

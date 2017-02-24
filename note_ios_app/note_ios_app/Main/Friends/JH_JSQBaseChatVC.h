@@ -11,5 +11,6 @@
 @interface JH_JSQBaseChatVC : JSQMessagesViewController<JSQMessagesComposerTextViewPasteDelegate>
 @property (strong, nonatomic) JH_JSQBaseChatModel *chatData; //!< 消息模型
 @property (strong, nonatomic) M_RecentMessage *baseMessages; // 已存在的message
+@property (strong, nonatomic)UIImage *userImage;
 - (void)receiveMessagePressed:(UIBarButtonItem *)sender;
 @end
