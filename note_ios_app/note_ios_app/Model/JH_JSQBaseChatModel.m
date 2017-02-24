@@ -33,8 +33,6 @@
 {
    
     self.messages =[NSMutableArray array];
-#warning 测试数据
-//    [self _setMessageDictionary:@"dfuinfuewbfiuhweuiq34178243278gegyuegwqi www.baidu.com" isPath:NO isSelf:NO userId:@"100" userName:@"测试用的人" time:@"1487303745" type:MessageTypeText];
     
     M_UserInfo *user = self.baseMessages.recentMessage_user;
 
@@ -42,65 +40,75 @@
     //进行数据的排序
     NSArray *sortDesc = @[[[NSSortDescriptor alloc] initWithKey:@"message_time" ascending:YES]];
     NSArray *sortSetArray = [user.user_message sortedArrayUsingDescriptors:sortDesc];
-        for (M_MessageList *message in sortSetArray) {
-            switch (message.message_type) {
-                    //文字,区分开是否为自己发送的数据
-                case MessageTypeText:
-                {
-                        JSQMessage *JSQ_Message = [[JSQMessage alloc] initWithSenderId:message.message_isSelf?selfUserId:[NSString stringWithFormat:@"%lld",user.user_id]
-                                                                     senderDisplayName:user.user_name
-                                                                                  date:[NSDate dateWithTimeIntervalSince1970:message.message_time]
-                                                                                  text:NSLocalizedString(message.message_text, nil)];
-                        [self.messages addObject:JSQ_Message];
-                   
-                }
-                    break;
-                case MessageTypePhoto:
-                {
-                    //获取图片
-                    NSString *documentPath = [JH_FileManager getDocumentPath];
-                    NSString *imagePath = message.message_path;
-
-                    UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@%@",documentPath,imagePath]];
-                    
-                        JSQPhotoMediaItem *photoItem = [[JSQPhotoMediaItem alloc] initWithImage:image];
-                        JSQMessage *photoMessage = [[JSQMessage alloc]initWithSenderId:message.message_isSelf?selfUserId:[NSString stringWithFormat:@"%lld",user.user_id] senderDisplayName:user.user_name date:[NSDate dateWithTimeIntervalSince1970:message.message_time] media:photoItem];
-                        [self.messages addObject:photoMessage];
-                    
-                }
-                    break;
-                case MessageTypeAudio:
-                {
-                    //获取录音
-                    NSString *completePaht = [NSString stringWithFormat:@"%@/%@",[JH_FileManager getDocumentPath],message.message_path];
-                    NSData * audioData = [NSData dataWithContentsOfFile:completePaht];
-                    JSQAudioMediaItem *audioItem = [[JSQAudioMediaItem alloc] initWithData:audioData];
-                    JSQMessage *audioMessage = [[JSQMessage alloc]initWithSenderId:message.message_isSelf?selfUserId:[NSString stringWithFormat:@"%lld",user.user_id] senderDisplayName:user.user_name date:[NSDate dateWithTimeIntervalSince1970:message.message_time] media:audioItem];
-                    [self.messages addObject:audioMessage];
-
-                    
-                }
-                    break;
-                case MessageTypeLocation:
-                {
-                    //获取定位
-                    NSArray *locationArray = [message.message_text componentsSeparatedByString:@"/"];
-                    CLLocation *ferryBuildingInSF = [[CLLocation alloc] initWithLatitude:[[locationArray firstObject]doubleValue ] longitude:[[locationArray lastObject]doubleValue ]];
-                    //locationItem
-                    JSQLocationMediaItem *locationItem = [[JSQLocationMediaItem alloc] init];
-                    
-                    [locationItem setLocation:ferryBuildingInSF withCompletionHandler:^{
-                        
-                    }];
-                    JSQMessage *locationMessage = [[JSQMessage alloc ]initWithSenderId:message.message_isSelf?selfUserId:[NSString stringWithFormat:@"%lld",user.user_id] senderDisplayName:user.user_name date:[NSDate dateWithTimeIntervalSince1970:message.message_time] media:locationItem];
-                    
-                    [self.messages addObject:locationMessage];
-                }
-                    break;
-                default:
-                    break;
+    //遍历数组
+    [sortSetArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        M_MessageList *message = obj;
+        
+        switch (message.message_type) {
+                //文字,区分开是否为自己发送的数据
+            case MessageTypeText:
+            {
+                JSQMessage *JSQ_Message = [[JSQMessage alloc] initWithSenderId:message.message_isSelf?selfUserId:[NSString stringWithFormat:@"%lld",user.user_id]
+                                                             senderDisplayName:user.user_name
+                                                                          date:[NSDate dateWithTimeIntervalSince1970:message.message_time]
+                                                                          text:NSLocalizedString(message.message_text, nil)];
+                [self.messages addObject:JSQ_Message];
+                
             }
-    }
+                break;
+            case MessageTypePhoto:
+            {
+                //获取图片
+                NSString *documentPath = [JH_FileManager getDocumentPath];
+                NSString *imagePath = message.message_path;
+                
+                UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@%@",documentPath,imagePath]];
+                
+                JSQPhotoMediaItem *photoItem = [[JSQPhotoMediaItem alloc] initWithImage:image];
+                JSQMessage *photoMessage = [[JSQMessage alloc]initWithSenderId:message.message_isSelf?selfUserId:[NSString stringWithFormat:@"%lld",user.user_id] senderDisplayName:user.user_name date:[NSDate dateWithTimeIntervalSince1970:message.message_time] media:photoItem];
+                [self.messages addObject:photoMessage];
+                
+            }
+                break;
+            case MessageTypeAudio:
+            {
+                //获取录音
+                NSString *completePaht = [NSString stringWithFormat:@"%@/%@",[JH_FileManager getDocumentPath],message.message_path];
+                NSData * audioData = [NSData dataWithContentsOfFile:completePaht];
+                JSQAudioMediaItem *audioItem = [[JSQAudioMediaItem alloc] initWithData:audioData];
+                JSQMessage *audioMessage = [[JSQMessage alloc]initWithSenderId:message.message_isSelf?selfUserId:[NSString stringWithFormat:@"%lld",user.user_id] senderDisplayName:user.user_name date:[NSDate dateWithTimeIntervalSince1970:message.message_time] media:audioItem];
+                [self.messages addObject:audioMessage];
+                
+                
+            }
+                break;
+            case MessageTypeLocation:
+            {
+                //获取定位
+                NSArray *locationArray = [message.message_text componentsSeparatedByString:@"/"];
+                CLLocation *ferryBuildingInSF = [[CLLocation alloc] initWithLatitude:[[locationArray firstObject]doubleValue ] longitude:[[locationArray lastObject]doubleValue ]];
+                //locationItem
+                JSQLocationMediaItem *locationItem = [[JSQLocationMediaItem alloc] init];
+                
+                [locationItem setLocation:ferryBuildingInSF withCompletionHandler:^{
+                    //发送刷新的通知
+                    [[NSNotificationCenter defaultCenter]postNotificationName:JH_ChatNotification object:nil userInfo:@{@"itemIndex":@(idx)}];
+                }];
+                JSQMessage *locationMessage = [[JSQMessage alloc ]initWithSenderId:message.message_isSelf?selfUserId:[NSString stringWithFormat:@"%lld",user.user_id] senderDisplayName:user.user_name date:[NSDate dateWithTimeIntervalSince1970:message.message_time] media:locationItem];
+                
+                [self.messages addObject:locationMessage];
+            }
+                break;
+            default:
+                break;
+        }
+    }];
+    
+
+                //让当前线程（主线程）等待直到isLocation等于isLoad数组长度的时候，才将数据返回
+//                while (isLocation!=isLoad.count) {
+//                    [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+//                }
     
     
     

@@ -14,4 +14,6 @@
 #define JH_ChatFriendFreshNotification @"JH_ChatFriendFreshNotification"
 //消息页面刷新的通知
 #define JH_ChatMessageFreshNotification @"JH_ChatMessageFreshNotification"
+//聊天页面刷新数据
+#define JH_ChatNotification @"JH_ChatNotification"
 #endif /* Notification_h */

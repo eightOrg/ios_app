@@ -40,10 +40,13 @@
     self.chatData = [[JH_JSQBaseChatModel alloc] init];
     self.chatData.baseMessages = self.baseMessages;
     
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(_freshAction:) name:JH_ChatNotification object:nil];
     //加载已有数据
     [self.chatData loadFakeMessages];
-    //设置头像
+        //设置头像
     [self _setPotrail];
+    
+    
     // 注册custom按钮，允许自定义
     [JSQMessagesCollectionViewCell registerMenuAction:@selector(customAction:)];
     
@@ -54,9 +57,17 @@
     // 注册delelte按钮，允许被删除
 //    [JSQMessagesCollectionViewCell registerMenuAction:@selector(delete:)];
   
-
     
 }
+
+/**
+ 刷新数据
+ */
+-(void)_freshAction:(NSNotification *)notify{
+    [self.collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:[notify.userInfo[@"itemIndex"] integerValue] inSection:0]]];
+//    [self finishSendingMessage];
+}
+
 -(void)_setPotrail{
             JSQMessagesAvatarImage *myImage = [JSQMessagesAvatarImageFactory avatarImageWithImage:[UIImage imageNamed:@"p0.jpg"] diameter:kJSQMessagesCollectionViewAvatarSizeDefault];
             JSQMessagesAvatarImage *cookImage = [JSQMessagesAvatarImageFactory avatarImageWithImage:[UIImage imageNamed:@"p0.jpg"] diameter:kJSQMessagesCollectionViewAvatarSizeDefault];
