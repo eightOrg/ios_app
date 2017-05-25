@@ -22,11 +22,11 @@
 //  https://github.com/jessesquires/JSQMessagesViewController/issues/237
 //  ********************************
 
-"load_earlier_messages" = "加载更早信息";
+"load_earlier_messages" = "Load Earlier Messages";
 
-"send" = "发送";
+"send" = "Send";
 
-"new_message" = "输入信息";
+"new_message" = "New Message";
 
 "text_message_accessibility_label" = "%@: %@";
 

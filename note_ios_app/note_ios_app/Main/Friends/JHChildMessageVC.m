@@ -8,13 +8,13 @@
 
 #import "JHChildMessageVC.h"
 #import "JHChatMessageViewModel.h"
-#import "JH_DIYsearchBar.h"
+#import "JH_SearchView.h"
 #import "JH_JSQBaseChatVC.h"
 
 @interface JHChildMessageVC ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)JHChatMessageViewModel *viewModel;
-@property(nonatomic,strong)JH_DIYsearchBar *searchBar;
+@property(nonatomic,strong)JH_SearchView *searchBar;
 @property(nonatomic,strong)NSArray *messageData;
 @end
 static CGFloat searchBarHeight = 40;
@@ -52,10 +52,11 @@ static CGFloat headerHeight = 0.1;
 }
 
 #pragma mark - searchBar
--(JH_DIYsearchBar *)searchBar{
+-(JH_SearchView *)searchBar{
     if (_searchBar==nil) {
-        _searchBar = [[JH_DIYsearchBar alloc] initWithFrame:CGRectMake(0, 0, JHSCREENWIDTH, searchBarHeight)];
+        _searchBar = [[JH_SearchView alloc] initWithFrame:CGRectMake(0, 0, JHSCREENWIDTH, searchBarHeight)];
         _searchBar.placeholder = @"搜索";
+        _searchBar.backgroundColor = [UIColor whiteColor];
     }
     return _searchBar;
 }

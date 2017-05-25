@@ -11,12 +11,8 @@
 		4720F7321E559D0C0011D677 /* JH_FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4720F7311E559D0C0011D677 /* JH_FileManager.m */; };
 		473231AC1DC47AFD00C890D0 /* ThemeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 473231AB1DC47AFD00C890D0 /* ThemeButton.m */; };
 		473231AF1DC47B1800C890D0 /* ThemeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 473231AE1DC47B1800C890D0 /* ThemeLabel.m */; };
-		473649381E5A862500CB2F0C /* JHImageViewerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 473649371E5A862500CB2F0C /* JHImageViewerWindow.m */; };
-		473651711DD357A800397969 /* JHBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 473651701DD357A800397969 /* JHBaseRequest.m */; };
-		473651741DD3584C00397969 /* JH_UserLoginApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 473651731DD3584C00397969 /* JH_UserLoginApi.m */; };
 		474A32571E52A72F008FD632 /* JH_JSQBaseChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 474A32561E52A72F008FD632 /* JH_JSQBaseChatVC.m */; };
 		474A325A1E52A7B5008FD632 /* JH_JSQBaseChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 474A32591E52A7B5008FD632 /* JH_JSQBaseChatModel.m */; };
-		474A32611E52A9F0008FD632 /* LPActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 474A32601E52A9F0008FD632 /* LPActionSheet.m */; };
 		474A32641E52DFDF008FD632 /* JH_ChatSendMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 474A32631E52DFDF008FD632 /* JH_ChatSendMessageView.m */; };
 		474A32671E52F552008FD632 /* UIView+UIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 474A32661E52F552008FD632 /* UIView+UIViewController.m */; };
 		4766FC411E5E950200F2221E /* JHMapLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4766FC3F1E5E950200F2221E /* JHMapLocationVC.m */; };
@@ -58,7 +54,6 @@
 		47D84DC11E515523009C6C2A /* JHChatFriendViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D84DC01E515523009C6C2A /* JHChatFriendViewModel.m */; };
 		47D84DC41E516405009C6C2A /* JHChatFriendItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D84DC31E516405009C6C2A /* JHChatFriendItem.m */; };
 		47D84DC71E518011009C6C2A /* JHChatFriendGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D84DC61E518011009C6C2A /* JHChatFriendGroupView.m */; };
-		47D84DCA1E519FCE009C6C2A /* JH_DIYsearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D84DC91E519FCE009C6C2A /* JH_DIYsearchBar.m */; };
 		47D84DCE1E51AB18009C6C2A /* JHChatMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D84DCC1E51AB18009C6C2A /* JHChatMessageCell.m */; };
 		47D84DCF1E51AB18009C6C2A /* JHChatMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47D84DCD1E51AB18009C6C2A /* JHChatMessageCell.xib */; };
 		47D84DD21E51AB4E009C6C2A /* JHChatMessageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D84DD11E51AB4E009C6C2A /* JHChatMessageItem.m */; };
@@ -69,6 +64,16 @@
 		47EE67EF1E535F28008716E8 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47EE67EE1E535F28008716E8 /* libmp3lame.a */; };
 		47F1FD9B1DD9EF060096A1AF /* JHBaseTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F1FD9A1DD9EF060096A1AF /* JHBaseTextField.m */; };
 		47F1FD9E1DD9F06B0096A1AF /* JHBaseSubmitButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F1FD9D1DD9F06B0096A1AF /* JHBaseSubmitButton.m */; };
+		A933D9EA1ED6C174005584E2 /* JHActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9E91ED6C174005584E2 /* JHActionSheet.m */; };
+		A933D9ED1ED6C192005584E2 /* JH_SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9EC1ED6C192005584E2 /* JH_SearchView.m */; };
+		A933D9F01ED6C1F0005584E2 /* JHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9EF1ED6C1F0005584E2 /* JHWebViewController.m */; };
+		A933D9F31ED6C217005584E2 /* JH_NetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9F21ED6C217005584E2 /* JH_NetWorking.m */; };
+		A933D9F61ED6C250005584E2 /* JH_RuntimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9F51ED6C250005584E2 /* JH_RuntimeTool.m */; };
+		A933D9F91ED6C288005584E2 /* JHImageViewerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9F81ED6C288005584E2 /* JHImageViewerWindow.m */; };
+		A933D9FC1ED6C315005584E2 /* MBProgressHUD+MyInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9FB1ED6C315005584E2 /* MBProgressHUD+MyInterface.m */; };
+		A933D9FF1ED6C47C005584E2 /* UIImage+ChangeToSize.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9FE1ED6C47C005584E2 /* UIImage+ChangeToSize.m */; };
+		A933DA021ED6C4FC005584E2 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = A933DA011ED6C4FC005584E2 /* UIViewExt.m */; };
+		A933DA041ED6C541005584E2 /* p1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A933DA031ED6C541005584E2 /* p1.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,19 +107,11 @@
 		473231AB1DC47AFD00C890D0 /* ThemeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeButton.m; sourceTree = "<group>"; };
 		473231AD1DC47B1800C890D0 /* ThemeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeLabel.h; sourceTree = "<group>"; };
 		473231AE1DC47B1800C890D0 /* ThemeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeLabel.m; sourceTree = "<group>"; };
-		473649361E5A862500CB2F0C /* JHImageViewerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHImageViewerWindow.h; sourceTree = "<group>"; };
-		473649371E5A862500CB2F0C /* JHImageViewerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHImageViewerWindow.m; sourceTree = "<group>"; };
-		4736516F1DD357A800397969 /* JHBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHBaseRequest.h; sourceTree = "<group>"; };
-		473651701DD357A800397969 /* JHBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHBaseRequest.m; sourceTree = "<group>"; };
-		473651721DD3584C00397969 /* JH_UserLoginApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_UserLoginApi.h; sourceTree = "<group>"; };
-		473651731DD3584C00397969 /* JH_UserLoginApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_UserLoginApi.m; sourceTree = "<group>"; };
 		473651751DD35B0100397969 /* API.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		474A32551E52A72F008FD632 /* JH_JSQBaseChatVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_JSQBaseChatVC.h; sourceTree = "<group>"; };
 		474A32561E52A72F008FD632 /* JH_JSQBaseChatVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_JSQBaseChatVC.m; sourceTree = "<group>"; };
 		474A32581E52A7B5008FD632 /* JH_JSQBaseChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_JSQBaseChatModel.h; sourceTree = "<group>"; };
 		474A32591E52A7B5008FD632 /* JH_JSQBaseChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_JSQBaseChatModel.m; sourceTree = "<group>"; };
-		474A325F1E52A9F0008FD632 /* LPActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPActionSheet.h; sourceTree = "<group>"; };
-		474A32601E52A9F0008FD632 /* LPActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPActionSheet.m; sourceTree = "<group>"; };
 		474A32621E52DFDF008FD632 /* JH_ChatSendMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_ChatSendMessageView.h; sourceTree = "<group>"; };
 		474A32631E52DFDF008FD632 /* JH_ChatSendMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_ChatSendMessageView.m; sourceTree = "<group>"; };
 		474A32651E52F552008FD632 /* UIView+UIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIViewController.h"; sourceTree = "<group>"; };
@@ -202,8 +199,6 @@
 		47D84DC31E516405009C6C2A /* JHChatFriendItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatFriendItem.m; sourceTree = "<group>"; };
 		47D84DC51E518011009C6C2A /* JHChatFriendGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatFriendGroupView.h; sourceTree = "<group>"; };
 		47D84DC61E518011009C6C2A /* JHChatFriendGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatFriendGroupView.m; sourceTree = "<group>"; };
-		47D84DC81E519FCE009C6C2A /* JH_DIYsearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_DIYsearchBar.h; sourceTree = "<group>"; };
-		47D84DC91E519FCE009C6C2A /* JH_DIYsearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_DIYsearchBar.m; sourceTree = "<group>"; };
 		47D84DCB1E51AB18009C6C2A /* JHChatMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatMessageCell.h; sourceTree = "<group>"; };
 		47D84DCC1E51AB18009C6C2A /* JHChatMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatMessageCell.m; sourceTree = "<group>"; };
 		47D84DCD1E51AB18009C6C2A /* JHChatMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JHChatMessageCell.xib; sourceTree = "<group>"; };
@@ -223,6 +218,25 @@
 		47F1FD9A1DD9EF060096A1AF /* JHBaseTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHBaseTextField.m; sourceTree = "<group>"; };
 		47F1FD9C1DD9F06B0096A1AF /* JHBaseSubmitButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHBaseSubmitButton.h; sourceTree = "<group>"; };
 		47F1FD9D1DD9F06B0096A1AF /* JHBaseSubmitButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHBaseSubmitButton.m; sourceTree = "<group>"; };
+		A933D9E81ED6C174005584E2 /* JHActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHActionSheet.h; sourceTree = "<group>"; };
+		A933D9E91ED6C174005584E2 /* JHActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHActionSheet.m; sourceTree = "<group>"; };
+		A933D9EB1ED6C192005584E2 /* JH_SearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_SearchView.h; sourceTree = "<group>"; };
+		A933D9EC1ED6C192005584E2 /* JH_SearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_SearchView.m; sourceTree = "<group>"; };
+		A933D9EE1ED6C1F0005584E2 /* JHWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHWebViewController.h; sourceTree = "<group>"; };
+		A933D9EF1ED6C1F0005584E2 /* JHWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHWebViewController.m; sourceTree = "<group>"; };
+		A933D9F11ED6C217005584E2 /* JH_NetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_NetWorking.h; sourceTree = "<group>"; };
+		A933D9F21ED6C217005584E2 /* JH_NetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_NetWorking.m; sourceTree = "<group>"; };
+		A933D9F41ED6C250005584E2 /* JH_RuntimeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_RuntimeTool.h; sourceTree = "<group>"; };
+		A933D9F51ED6C250005584E2 /* JH_RuntimeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_RuntimeTool.m; sourceTree = "<group>"; };
+		A933D9F71ED6C288005584E2 /* JHImageViewerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHImageViewerWindow.h; sourceTree = "<group>"; };
+		A933D9F81ED6C288005584E2 /* JHImageViewerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHImageViewerWindow.m; sourceTree = "<group>"; };
+		A933D9FA1ED6C315005584E2 /* MBProgressHUD+MyInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MyInterface.h"; sourceTree = "<group>"; };
+		A933D9FB1ED6C315005584E2 /* MBProgressHUD+MyInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MyInterface.m"; sourceTree = "<group>"; };
+		A933D9FD1ED6C47C005584E2 /* UIImage+ChangeToSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ChangeToSize.h"; sourceTree = "<group>"; };
+		A933D9FE1ED6C47C005584E2 /* UIImage+ChangeToSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ChangeToSize.m"; sourceTree = "<group>"; };
+		A933DA001ED6C4FC005584E2 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
+		A933DA011ED6C4FC005584E2 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
+		A933DA031ED6C541005584E2 /* p1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = p1.jpg; path = "../../../../../../../zsxcWeb/iOS/掌上行车/Classes/Images/p1.jpg"; sourceTree = "<group>"; };
 		DBF618F96F45F01FD5E45D73 /* Pods-note_ios_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-note_ios_app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-note_ios_app/Pods-note_ios_app.debug.xcconfig"; sourceTree = "<group>"; };
 		FA8AC8B80F125B5155B5CDFB /* libPods-note_ios_app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-note_ios_app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -261,6 +275,8 @@
 		4720F72F1E559CFC0011D677 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				A933DA001ED6C4FC005584E2 /* UIViewExt.h */,
+				A933DA011ED6C4FC005584E2 /* UIViewExt.m */,
 				4720F7301E559D0C0011D677 /* JH_FileManager.h */,
 				4720F7311E559D0C0011D677 /* JH_FileManager.m */,
 				47BCDABD1E6025B6000C8E89 /* JH_CalculateUtil.h */,
@@ -296,10 +312,6 @@
 		4736516B1DD3571B00397969 /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
-				4736516F1DD357A800397969 /* JHBaseRequest.h */,
-				473651701DD357A800397969 /* JHBaseRequest.m */,
-				473651721DD3584C00397969 /* JH_UserLoginApi.h */,
-				473651731DD3584C00397969 /* JH_UserLoginApi.m */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -414,6 +426,7 @@
 		47B8304C1DC4504600969523 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				A933DA031ED6C541005584E2 /* p1.jpg */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -421,9 +434,9 @@
 		47B8304D1DC4504600969523 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				A933D9E81ED6C174005584E2 /* JHActionSheet.h */,
+				A933D9E91ED6C174005584E2 /* JHActionSheet.m */,
 				47EE67EC1E535F28008716E8 /* lame */,
-				474A325F1E52A9F0008FD632 /* LPActionSheet.h */,
-				474A32601E52A9F0008FD632 /* LPActionSheet.m */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
@@ -441,7 +454,9 @@
 				478F69651DC8BF4D001E9569 /* JHBaseRootVC.m */,
 				478F69671DC8C0B3001E9569 /* JHSlideView.h */,
 				478F69681DC8C0B3001E9569 /* JHSlideView.m */,
-				47F1FD981DD9EEBD0096A1AF /* CommonView */,
+				A933D9EE1ED6C1F0005584E2 /* JHWebViewController.h */,
+				A933D9EF1ED6C1F0005584E2 /* JHWebViewController.m */,
+				47F1FD981DD9EEBD0096A1AF /* CommonClass */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -449,6 +464,10 @@
 		47B8304F1DC4504600969523 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				A933D9FD1ED6C47C005584E2 /* UIImage+ChangeToSize.h */,
+				A933D9FE1ED6C47C005584E2 /* UIImage+ChangeToSize.m */,
+				A933D9FA1ED6C315005584E2 /* MBProgressHUD+MyInterface.h */,
+				A933D9FB1ED6C315005584E2 /* MBProgressHUD+MyInterface.m */,
 				47AF3B111E5450BC0018DA66 /* NSString+ChangeTime.h */,
 				47AF3B121E5450BC0018DA66 /* NSString+ChangeTime.m */,
 				474A32651E52F552008FD632 /* UIView+UIViewController.h */,
@@ -620,18 +639,23 @@
 			path = lame;
 			sourceTree = "<group>";
 		};
-		47F1FD981DD9EEBD0096A1AF /* CommonView */ = {
+		47F1FD981DD9EEBD0096A1AF /* CommonClass */ = {
 			isa = PBXGroup;
 			children = (
-				47D84DC81E519FCE009C6C2A /* JH_DIYsearchBar.h */,
-				47D84DC91E519FCE009C6C2A /* JH_DIYsearchBar.m */,
+				A933D9F41ED6C250005584E2 /* JH_RuntimeTool.h */,
+				A933D9F51ED6C250005584E2 /* JH_RuntimeTool.m */,
+				A933D9EB1ED6C192005584E2 /* JH_SearchView.h */,
+				A933D9EC1ED6C192005584E2 /* JH_SearchView.m */,
 				47F1FD991DD9EF060096A1AF /* JHBaseTextField.h */,
 				47F1FD9A1DD9EF060096A1AF /* JHBaseTextField.m */,
 				47F1FD9C1DD9F06B0096A1AF /* JHBaseSubmitButton.h */,
 				47F1FD9D1DD9F06B0096A1AF /* JHBaseSubmitButton.m */,
-				473649361E5A862500CB2F0C /* JHImageViewerWindow.h */,
-				473649371E5A862500CB2F0C /* JHImageViewerWindow.m */,
+				A933D9F11ED6C217005584E2 /* JH_NetWorking.h */,
+				A933D9F21ED6C217005584E2 /* JH_NetWorking.m */,
+				A933D9F71ED6C288005584E2 /* JHImageViewerWindow.h */,
+				A933D9F81ED6C288005584E2 /* JHImageViewerWindow.m */,
 			);
+			name = CommonClass;
 			path = CommonView;
 			sourceTree = "<group>";
 		};
@@ -773,6 +797,7 @@
 				47D84DBE1E514A8C009C6C2A /* p0.jpg in Resources */,
 				47B830251DC44AB500969523 /* Assets.xcassets in Resources */,
 				4766FC421E5E950200F2221E /* JHMapLocationVC.xib in Resources */,
+				A933DA041ED6C541005584E2 /* p1.jpg in Resources */,
 				47D84DB21E51464E009C6C2A /* JHChatFriendCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -806,7 +831,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		B332B52EBC681D7D4E3066DD /* [CP] Embed Pods Frameworks */ = {
@@ -847,14 +872,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				47B8301D1DC44AB500969523 /* AppDelegate.m in Sources */,
-				474A32611E52A9F0008FD632 /* LPActionSheet.m in Sources */,
 				476BE2C51E56C9C900D41377 /* UserInfoManager.m in Sources */,
 				47D84DB11E51464E009C6C2A /* JHChatFriendCell.m in Sources */,
+				A933D9F31ED6C217005584E2 /* JH_NetWorking.m in Sources */,
 				47B830681DC46BD800969523 /* JHRegisterVC.m in Sources */,
 				47F1FD9B1DD9EF060096A1AF /* JHBaseTextField.m in Sources */,
 				47D84DB81E5146A8009C6C2A /* JHChatFriendSectionModel.m in Sources */,
 				478F69691DC8C0B3001E9569 /* JHSlideView.m in Sources */,
-				47D84DCA1E519FCE009C6C2A /* JH_DIYsearchBar.m in Sources */,
 				47B830551DC4509E00969523 /* AppDelegate+StartApp.m in Sources */,
 				478F69661DC8BF4D001E9569 /* JHBaseRootVC.m in Sources */,
 				47B830651DC4529700969523 /* JHLoginVC.m in Sources */,
@@ -862,15 +886,15 @@
 				47D84DD51E51B25B009C6C2A /* JHChatMessageViewModel.m in Sources */,
 				473231AC1DC47AFD00C890D0 /* ThemeButton.m in Sources */,
 				47A56B911E5407E000A86F34 /* JH_ChatMessageHelper.m in Sources */,
-				473649381E5A862500CB2F0C /* JHImageViewerWindow.m in Sources */,
 				474A32641E52DFDF008FD632 /* JH_ChatSendMessageView.m in Sources */,
-				473651741DD3584C00397969 /* JH_UserLoginApi.m in Sources */,
 				47D84DCE1E51AB18009C6C2A /* JHChatMessageCell.m in Sources */,
 				47BCDABC1E6019B6000C8E89 /* JHMapAnnotation.m in Sources */,
 				478F69621DC8BC32001E9569 /* JHChildMessageVC.m in Sources */,
 				47AF3B131E5450BC0018DA66 /* NSString+ChangeTime.m in Sources */,
 				47B830581DC4518B00969523 /* JHBaseTabBar.m in Sources */,
+				A933D9F01ED6C1F0005584E2 /* JHWebViewController.m in Sources */,
 				474A325A1E52A7B5008FD632 /* JH_JSQBaseChatModel.m in Sources */,
+				A933D9FC1ED6C315005584E2 /* MBProgressHUD+MyInterface.m in Sources */,
 				47A56B8E1E5404CE00A86F34 /* JH_ChatMessageManager.m in Sources */,
 				47D84DD21E51AB4E009C6C2A /* JHChatMessageItem.m in Sources */,
 				478F69561DC8BBCC001E9569 /* JHSquareVC.m in Sources */,
@@ -878,9 +902,14 @@
 				47EE67E91E535091008716E8 /* JH_ChatAudioView.m in Sources */,
 				47F1FD9E1DD9F06B0096A1AF /* JHBaseSubmitButton.m in Sources */,
 				47B8305B1DC451AF00969523 /* JHBaseNav.m in Sources */,
+				A933D9F91ED6C288005584E2 /* JHImageViewerWindow.m in Sources */,
 				478F695F1DC8BC1E001E9569 /* JHChildFriendsVC.m in Sources */,
 				4766FC411E5E950200F2221E /* JHMapLocationVC.m in Sources */,
+				A933D9FF1ED6C47C005584E2 /* UIImage+ChangeToSize.m in Sources */,
 				47D84DD81E51B2FC009C6C2A /* JHChatMessageModel.m in Sources */,
+				A933D9ED1ED6C192005584E2 /* JH_SearchView.m in Sources */,
+				A933D9EA1ED6C174005584E2 /* JHActionSheet.m in Sources */,
+				A933D9F61ED6C250005584E2 /* JH_RuntimeTool.m in Sources */,
 				47A56B551E53FAAA00A86F34 /* JH_ChatCoreData.xcdatamodeld in Sources */,
 				474A32571E52A72F008FD632 /* JH_JSQBaseChatVC.m in Sources */,
 				47B8301A1DC44AB500969523 /* main.m in Sources */,
@@ -890,9 +919,9 @@
 				47D84DC71E518011009C6C2A /* JHChatFriendGroupView.m in Sources */,
 				47BCDABF1E6025B6000C8E89 /* JH_CalculateUtil.m in Sources */,
 				478F695C1DC8BBF3001E9569 /* JHFriendsVC.m in Sources */,
+				A933DA021ED6C4FC005584E2 /* UIViewExt.m in Sources */,
 				474A32671E52F552008FD632 /* UIView+UIViewController.m in Sources */,
 				478F69591DC8BBE2001E9569 /* JHNoteVC.m in Sources */,
-				473651711DD357A800397969 /* JHBaseRequest.m in Sources */,
 				47B8305E1DC451CA00969523 /* JHBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

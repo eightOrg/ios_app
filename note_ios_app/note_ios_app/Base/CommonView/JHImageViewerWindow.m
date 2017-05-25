@@ -7,12 +7,16 @@
 //
 
 #import "JHImageViewerWindow.h"
+#define JHSCREENWIDTH [UIScreen mainScreen].bounds.size.width
+#define JHSCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define JH_UIViewAnimation 0.3
 @interface JHImageViewerWindow ()<UIScrollViewDelegate>
 //存储图片原始大小
 @property (nonatomic,assign)CGSize imageSize;
 @property (nonatomic,strong)UIImageView *imageView;
 @property (nonatomic,strong)UIScrollView *scrollView;
 @property (nonatomic,strong)UITapGestureRecognizer *tap;
+@property (nonatomic,strong)UIView *navView;
 @end
 /**
  图片查看器公用window层，主体为scrollView上面加上imageView支持缩放，需要限定图片大小
@@ -28,12 +32,50 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self _setAttributeWithImage:image];
-        [self _setOneTapGesture];
+//        [self _setOneTapGesture];
+//        [self _setDoubleTapGesture];
+    }
+    return self;
+}
+/**
+ init
+ */
+- (instancetype)initWithFrame:(CGRect)frame WithImageUrl:(NSString *)imageUrl
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self _setAttributeWithImageUrl:imageUrl];
+//        [self _setOneTapGesture];
         [self _setDoubleTapGesture];
     }
     return self;
 }
-
+/**
+ 设置属性内容
+ */
+-(void)_setAttributeWithImageUrl:(NSString *)imageUrl{
+    self.backgroundColor = [UIColor blackColor];
+    
+    self.hidden = NO;
+    self.alpha = 0;
+    WeakSelf
+    [self addSubview:self.scrollView];
+    [self.scrollView addSubview:self.imageView];
+    [self.imageView sd_setShowActivityIndicatorView:YES];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"p1.jpg"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        
+        weakSelf.imageSize = CGSizeMake(image.size.width, image.size.height);
+        weakSelf.imageView.frame = CGRectMake(0, 0, _imageSize.width,_imageSize.height);
+        [weakSelf remakeScale];
+    }];
+    
+    [UIView animateWithDuration:JH_UIViewAnimation animations:^{
+        self.alpha = 1;
+    } completion:^(BOOL finished) {
+        
+        
+    }];
+}
 /**
  设置属性内容
  */
@@ -60,6 +102,7 @@
  设置单点事件
  */
 -(void)_setOneTapGesture{
+
     _tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_tapAction)];
     [self addGestureRecognizer:_tap];
 }
@@ -92,28 +135,35 @@
     if (_scrollView==nil) {
         _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
         _scrollView.delegate = self;
-        CGFloat scale = [self _changeSize:CGSizeMake(_imageSize.width, _imageSize.height)];
         _scrollView.contentSize = CGSizeMake(JHSCREENWIDTH, JHSCREENHEIGHT);
-        //设置最高和最低的缩放倍数，也就是让一个边达到和屏幕相同到另外一个比例较大的边达到和屏幕项目的区间
-        if (_imageSize.width/_imageSize.height>JHSCREENWIDTH/JHSCREENHEIGHT) {
-            //按照图片的宽缩放
-            _scrollView.maximumZoomScale = JHSCREENHEIGHT/(_imageSize.height/scale)/scale;
-        }else{
-            //按照图片的高缩放
-            _scrollView.maximumZoomScale = JHSCREENWIDTH/(_imageSize.width/scale)/scale;
-        }
-        
-        _scrollView.minimumZoomScale = 1/scale;
-        [_scrollView setZoomScale:1/scale];
+        [self remakeScale];
         
     }
     return _scrollView;
 }
-
+-(void)remakeScale{
+    CGFloat scale = [self _changeSize:CGSizeMake(_imageSize.width, _imageSize.height)]==0?1:[self _changeSize:CGSizeMake(_imageSize.width, _imageSize.height)];
+    //设置最高和最低的缩放倍数，也就是让一个边达到和屏幕相同到另外一个比例较大的边达到和屏幕项目的区间
+    if (_imageSize.width/_imageSize.height>JHSCREENWIDTH/JHSCREENHEIGHT) {
+        //按照图片的宽缩放
+        _scrollView.maximumZoomScale = JHSCREENHEIGHT/(_imageSize.height/scale)/scale;
+    }else{
+        //按照图片的高缩放
+        _scrollView.maximumZoomScale = JHSCREENWIDTH/(_imageSize.width/scale)/scale;
+    }
+    
+    _scrollView.minimumZoomScale = 1/scale;
+    [_scrollView setZoomScale:1/scale];
+}
 -(UIImageView *)imageView{
     if (_imageView==nil) {
         //处理imageView初始大小
-        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, _imageSize.width,_imageSize.height)];
+        if (_imageSize.width>0&&_imageSize.height>0) {
+            _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, _imageSize.width,_imageSize.height)];
+        }else{
+            
+            _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, JHSCREENWIDTH,JHSCREENHEIGHT)];
+        }
         _imageView.userInteractionEnabled = YES;
         _imageView.center = CGPointMake(JHSCREENWIDTH/2, JHSCREENHEIGHT/2);
 //        _imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -162,52 +212,60 @@
     CGFloat scale = 0.0;
     
     scale = width/JHSCREENWIDTH>height/JHSCREENHEIGHT?width/JHSCREENWIDTH:height/JHSCREENHEIGHT;
-    
+
     return  scale;
 //    return  CGSizeMake(width/scale, height/scale);
 }
 
-/**
- 点击事件，关闭视图
- */
--(void)_tapAction{
-    [UIView animateWithDuration:JH_UIViewAnimation animations:^{
-        self.alpha = 0;
-    } completion:^(BOOL finished) {
-        
-        [self removeFromSuperview];
-        
-    }];
-    
-}
 
 
 /**
  创建图片选择与取消的按钮
  */
 -(void)_setCancelAndCertainButton{
+    _navView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, JH_NavigationHeight)];
+    _navView.backgroundColor = [UIColor colorWithRed:57/255.0 green:58/255.0 blue:62/255.0 alpha:1];
+    [self addSubview:_navView];
     //取消按钮
     UIButton *cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 20, 50, 40)];
     [cancelButton setTitle:@"取消" forState:0];
     [cancelButton setTitleColor:[UIColor whiteColor] forState:0];
-    [cancelButton addTarget:self action:@selector(_tapAction) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:cancelButton];
+    [cancelButton addTarget:self action:@selector(_cancelAction) forControlEvents:UIControlEventTouchUpInside];
+    [_navView addSubview:cancelButton];
     //确定按钮
     UIButton *certainButton = [[UIButton alloc] initWithFrame:CGRectMake(self.bounds.size.width-50, 20, 50, 40)];
     [certainButton setTitle:@"确定" forState:0];
     [certainButton setTitleColor:[UIColor whiteColor] forState:0];
     [certainButton addTarget:self action:@selector(_certainAction) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:certainButton];
-    //取消tap
-    [self removeGestureRecognizer:_tap];
+    [_navView addSubview:certainButton];
     
+    [self _setOneTapGesture];
+    [self _setDoubleTapGesture];
 }
 
+-(void)_cancelAction{
+    [UIView animateWithDuration:JH_UIViewAnimation animations:^{
+        self.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self removeFromSuperview];
+    }];
+}
+/**
+ 点击事件，关闭视图
+ */
+-(void)_tapAction{
+    [UIView animateWithDuration:JH_UIViewAnimation animations:^{
+        _navView.top = _navView.top==0?-64:0;
+    } completion:^(BOOL finished) {
+        
+    }];
+    
+}
 /**
  确定按钮，将block数据返回，用于执行事件
  */
 -(void)_certainAction{
+    _block(self.imageView.image);
     [self removeFromSuperview];
-    _block([UIImage new]);
 }
 @end

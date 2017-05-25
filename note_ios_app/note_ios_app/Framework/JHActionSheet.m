@@ -1,12 +1,5 @@
-/*
- 作者：  刘鹏 <liupeng@zhishisoft.com>
- 文件：  LPActionSheet.m
- 版本：  1.0
- 地址：  https://github.com/wenxiangjiang/LPActionSheet
- 描述：
- */
 
-#import "LPActionSheet.h"
+#import "JHActionSheet.h"
 
 static const CGFloat kRowHeight = 48.0f;
 static const CGFloat kRowLineHeight = 0.5f;
@@ -15,10 +8,10 @@ static const CGFloat kTitleFontSize = 13.0f;
 static const CGFloat kButtonTitleFontSize = 18.0f;
 static const NSTimeInterval kAnimateDuration = 0.3f;
 
-@interface LPActionSheet ()
+@interface JHActionSheet ()
 
 /** block回调 */
-@property (copy, nonatomic) LPActionSheetBlock actionSheetBlock;
+@property (copy, nonatomic) JHActionSheetBlock actionSheetBlock;
 /** 背景图片 */
 @property (strong, nonatomic) UIView *backgroundView;
 /** 弹出视图 */
@@ -36,7 +29,7 @@ static const NSTimeInterval kAnimateDuration = 0.3f;
 
 @end
 
-@implementation LPActionSheet
+@implementation JHActionSheet
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -48,7 +41,7 @@ static const NSTimeInterval kAnimateDuration = 0.3f;
     return [self initWithTitle:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil handler:nil];
 }
 
-- (instancetype)initWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle destructiveButtonTitle:(NSString *)destructiveButtonTitle otherButtonTitles:(NSArray *)otherButtonTitles handler:(LPActionSheetBlock)actionSheetBlock
+- (instancetype)initWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle destructiveButtonTitle:(NSString *)destructiveButtonTitle otherButtonTitles:(NSArray *)otherButtonTitles handler:(JHActionSheetBlock)actionSheetBlock
 {
     self = [super initWithFrame:CGRectZero];
     if (self)
@@ -159,15 +152,15 @@ static const NSTimeInterval kAnimateDuration = 0.3f;
     return self;
 }
 
-+ (instancetype)actionSheetWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle destructiveButtonTitle:(NSString *)destructiveButtonTitle otherButtonTitles:(NSArray *)otherButtonTitles handler:(LPActionSheetBlock)actionSheetBlock
++ (instancetype)actionSheetWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle destructiveButtonTitle:(NSString *)destructiveButtonTitle otherButtonTitles:(NSArray *)otherButtonTitles handler:(JHActionSheetBlock)actionSheetBlock
 {
     return [[self alloc] initWithTitle:title cancelButtonTitle:cancelButtonTitle destructiveButtonTitle:destructiveButtonTitle otherButtonTitles:otherButtonTitles handler:actionSheetBlock];
 }
 
-+ (void)showActionSheetWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle destructiveButtonTitle:(NSString *)destructiveButtonTitle otherButtonTitles:(NSArray *)otherButtonTitles handler:(LPActionSheetBlock)actionSheetBlock
++ (void)showActionSheetWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle destructiveButtonTitle:(NSString *)destructiveButtonTitle otherButtonTitles:(NSArray *)otherButtonTitles handler:(JHActionSheetBlock)actionSheetBlock
 {
-    LPActionSheet *lpActionSheet = [self actionSheetWithTitle:title cancelButtonTitle:cancelButtonTitle destructiveButtonTitle:destructiveButtonTitle otherButtonTitles:otherButtonTitles handler:actionSheetBlock];
-    [lpActionSheet show];
+    JHActionSheet *JHActionSheet = [self actionSheetWithTitle:title cancelButtonTitle:cancelButtonTitle destructiveButtonTitle:destructiveButtonTitle otherButtonTitles:otherButtonTitles handler:actionSheetBlock];
+    [JHActionSheet show];
 }
 
 - (void)show
@@ -227,7 +220,7 @@ static const NSTimeInterval kAnimateDuration = 0.3f;
     {
         self.actionSheetBlock(self, button.tag);
     }
-    
+    [self _selectBtn:button.tag];
     [self dismiss];
 }
 
@@ -246,10 +239,21 @@ static const NSTimeInterval kAnimateDuration = 0.3f;
     return image;
 }
 
+/**
+ 选中按钮
+
+ @param index index
+ */
+-(void)_selectBtn:(NSInteger )index{
+    if ([self.JHdelegate respondsToSelector:@selector(JHActionSheetDidSelectIndex:)]) {
+        [self.JHdelegate JHActionSheetDidSelectIndex:index];
+    }
+}
+
 - (void)dealloc
 {
 #ifdef DEBUG
-    NSLog(@"LPActionSheet dealloc");
+    NSLog(@"JHActionSheet dealloc");
 #endif
 }
 

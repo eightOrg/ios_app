@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void(^CertainBlock)(UIImage *) ;
+#import <AssetsLibrary/AssetsLibrary.h>
+typedef void(^CertainBlock)(UIImage *img) ;
 @interface JHImageViewerWindow : UIView
 @property(nonatomic,copy)CertainBlock block;
 
 - (instancetype)initWithFrame:(CGRect)frame WithImage:(UIImage *)image;
+/**
+ init
+ */
+- (instancetype)initWithFrame:(CGRect)frame WithImageUrl:(NSString *)imageUrl;
 
 /**
  创建图片选择与取消的按钮

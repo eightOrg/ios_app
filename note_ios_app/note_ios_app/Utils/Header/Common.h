@@ -13,4 +13,8 @@
 #import "UIView+UIViewController.h"
 #import "JH_FileManager.h"
 #import "UserInfoManager.h"
+#import "MBProgressHUD+MyInterface.h"
+#import <UIKit/UIKit.h>
+#import "UIImage+ChangeToSize.h"
+#import "UIViewExt.h"
 #endif /* Common_h */

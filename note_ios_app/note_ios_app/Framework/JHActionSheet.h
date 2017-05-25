@@ -1,26 +1,30 @@
-/*
- 作者：  刘鹏 <liupeng@zhishisoft.com>
- 文件：  LPActionSheet.h
- 版本：  1.0 <更新于2016.08.12>
- 地址：  https://github.com/wenxiangjiang/LPActionSheet
- 描述：  仿照微信封装的ActionSheet控件,支持横竖屏切换,视图直接放置于keyWindow上
- */
 
 #import <UIKit/UIKit.h>
-@class LPActionSheet;
+@class JHActionSheet;
+@protocol JHActionSheetDelegate <NSObject>
+
+/**
+ 选中ActionSheet的某个按钮
+
+ @param index index
+ */
+-(void)JHActionSheetDidSelectIndex:(NSInteger )index;
+
+@end
 
 /**
  * block回调
  *
- * @param actionSheet LPActionSheet对象自身
+ * @param actionSheet JHActionSheet对象自身
  * @param index       被点击按钮标识,取消: 0, 删除: -1, 其他: 1.2.3...
  */
-typedef void(^LPActionSheetBlock)(LPActionSheet *actionSheet, NSInteger index);
+typedef void(^JHActionSheetBlock)(JHActionSheet *actionSheet, NSInteger index);
 
-@interface LPActionSheet : UIView
-
+@interface JHActionSheet : UIView
+//选中代理
+@property(nonatomic,weak)id<JHActionSheetDelegate>JHdelegate;
 /**
- * 创建LPActionSheet对象
+ * 创建JHActionSheet对象
  *
  * @param title                  提示文本
  * @param cancelButtonTitle      取消按钮文本
@@ -28,16 +32,16 @@ typedef void(^LPActionSheetBlock)(LPActionSheet *actionSheet, NSInteger index);
  * @param otherButtonTitles      其他按钮文本
  * @param actionSheetBlock                  block回调
  *
- * @return LPActionSheet对象
+ * @return JHActionSheet对象
  */
 - (instancetype)initWithTitle:(NSString *)title
             cancelButtonTitle:(NSString *)cancelButtonTitle
        destructiveButtonTitle:(NSString *)destructiveButtonTitle
             otherButtonTitles:(NSArray *)otherButtonTitles
-                      handler:(LPActionSheetBlock)actionSheetBlock NS_DESIGNATED_INITIALIZER;
+                      handler:(JHActionSheetBlock)actionSheetBlock NS_DESIGNATED_INITIALIZER;
 
 /**
- * 创建LPActionSheet对象(便利构造器)
+ * 创建JHActionSheet对象(便利构造器)
  *
  * @param title                  提示文本
  * @param cancelButtonTitle      取消按钮文本
@@ -45,29 +49,28 @@ typedef void(^LPActionSheetBlock)(LPActionSheet *actionSheet, NSInteger index);
  * @param otherButtonTitles      其他按钮文本
  * @param actionSheetBlock                  block回调
  *
- * @return LPActionSheet对象
+ * @return JHActionSheet对象
  */
 + (instancetype)actionSheetWithTitle:(NSString *)title
                    cancelButtonTitle:(NSString *)cancelButtonTitle
               destructiveButtonTitle:(NSString *)destructiveButtonTitle
                    otherButtonTitles:(NSArray *)otherButtonTitles
-                             handler:(LPActionSheetBlock)actionSheetBlock;
+                             handler:(JHActionSheetBlock)actionSheetBlock;
 
 /**
- * 弹出LPActionSheet视图
+ * 弹出JHActionSheet视图
  *
  * @param title                  提示文本
  * @param cancelButtonTitle      取消按钮文本
  * @param destructiveButtonTitle 删除按钮文本
  * @param otherButtonTitles      其他按钮文本
  * @param actionSheetBlock                  block回调
- *
  */
 + (void)showActionSheetWithTitle:(NSString *)title
                cancelButtonTitle:(NSString *)cancelButtonTitle
           destructiveButtonTitle:(NSString *)destructiveButtonTitle
                otherButtonTitles:(NSArray *)otherButtonTitles
-                         handler:(LPActionSheetBlock)actionSheetBlock;
+                         handler:(JHActionSheetBlock)actionSheetBlock;
 
 /**
  * 弹出视图
