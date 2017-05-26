@@ -11,7 +11,9 @@
 #import "JHNoteVC.h"
 #import "JHSquareVC.h"
 @interface JHBaseTabBar ()
-
+{
+    NSInteger _index;
+}
 @end
 
 @implementation JHBaseTabBar
@@ -67,7 +69,30 @@
     
     [self addChildViewController:navC];
 }
+/**
+ tabbar切换动画
+ */
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    NSInteger selectIndex = [tabBar.items indexOfObject:item];
+    if (selectIndex != _index) [self animationWithIndex:selectIndex];
+}
 
+- (void)animationWithIndex:(NSInteger) index {
+    NSMutableArray *tabbarbuttonArray = [NSMutableArray array];
+    for (UIView *tabBarButton in self.tabBar.subviews)
+        if ([tabBarButton isKindOfClass:NSClassFromString(@"UITabBarButton")])
+            [tabbarbuttonArray addObject:tabBarButton];
+    CABasicAnimation *pulse = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    pulse.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    pulse.duration = 0.08;
+    pulse.repeatCount = 1;
+    pulse.autoreverses = YES;
+    pulse.fromValue = [NSNumber numberWithFloat:0.7];
+    pulse.toValue = [NSNumber numberWithFloat:1.3];
+    [[tabbarbuttonArray[index] layer] addAnimation:pulse forKey:nil];
+    
+    _index = index;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

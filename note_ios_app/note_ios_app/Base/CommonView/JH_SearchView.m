@@ -21,6 +21,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor whiteColor];
         self.delegate = self;
         self.placeholder = placehold;
         //设置渲染颜色，让取消和搜索变颜色
@@ -39,7 +40,7 @@
     UITextField *searchField = [self valueForKey:@"searchField"];
     searchField.layer.cornerRadius = 5.0f;
     searchField.layer.borderColor = BaseColor.CGColor;
-    searchField.layer.borderWidth = 1;
+    searchField.layer.borderWidth = 0.5;
     searchField.layer.masksToBounds = YES;
     
     for (UIView *subview in self.subviews) {

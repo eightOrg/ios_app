@@ -46,9 +46,7 @@ static CGFloat headerHeight = 40;
 #pragma mark - searchBar
 -(JH_SearchView *)searchBar{
     if (_searchBar==nil) {
-        _searchBar = [[JH_SearchView alloc] initWithFrame:CGRectMake(0, 0, JHSCREENWIDTH, searchBarHeight)];
-        _searchBar.placeholder = @"搜索";
-        _searchBar.backgroundColor = [UIColor whiteColor];
+        _searchBar = [[JH_SearchView alloc] initWithFrame:CGRectMake(0, 0, JHSCREENWIDTH, searchBarHeight)withPlaceHold:@"搜索"];
     }
     return _searchBar;
 }

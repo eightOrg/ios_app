@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class JH_SearchView;
-@protocol JHDIYSearchBarFDelegate <NSObject>
+@protocol JHSearchBarDelegate <NSObject>
 
 /**
  当输入文字改变的代理
@@ -26,7 +26,7 @@
 @end
 
 @interface JH_SearchView : UISearchBar
-@property(nonatomic ,weak)id<JHDIYSearchBarFDelegate> JHdelegate;
+@property(nonatomic ,weak)id<JHSearchBarDelegate> JHdelegate;
 /**
  自定义搜索框
  */

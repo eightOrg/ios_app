@@ -11,7 +11,7 @@
 #import "JH_SearchView.h"
 #import "JH_JSQBaseChatVC.h"
 
-@interface JHChildMessageVC ()<UITableViewDelegate,UITableViewDataSource>
+@interface JHChildMessageVC ()<UITableViewDelegate,UITableViewDataSource,JHSearchBarDelegate>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)JHChatMessageViewModel *viewModel;
 @property(nonatomic,strong)JH_SearchView *searchBar;
@@ -54,9 +54,7 @@ static CGFloat headerHeight = 0.1;
 #pragma mark - searchBar
 -(JH_SearchView *)searchBar{
     if (_searchBar==nil) {
-        _searchBar = [[JH_SearchView alloc] initWithFrame:CGRectMake(0, 0, JHSCREENWIDTH, searchBarHeight)];
-        _searchBar.placeholder = @"搜索";
-        _searchBar.backgroundColor = [UIColor whiteColor];
+        _searchBar = [[JH_SearchView alloc] initWithFrame:CGRectMake(0, 0, JHSCREENWIDTH, searchBarHeight)withPlaceHold:@"搜索"];
     }
     return _searchBar;
 }
@@ -124,4 +122,22 @@ static CGFloat headerHeight = 0.1;
     [self _freshAction];
     
 }
+/**
+ 当输入文字改变的代理
+ 
+ @param searchbar JH_SearchView
+ */
+-(void)_searchTextDidChange:(JH_SearchView *)searchbar
+{
+
+}
+/**
+ 当点击搜索的代理
+ 
+ @param searchbar JH_SearchView
+ */
+-(void)_searchBarSearch:(JH_SearchView *)searchbar{
+    
+}
+
 @end
