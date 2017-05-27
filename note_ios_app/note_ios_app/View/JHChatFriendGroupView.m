@@ -90,11 +90,12 @@
             self.button.imageView.transform = CGAffineTransformIdentity;
         }
     } completion:^(BOOL finished) {
-        //代理限制
-        if ([self.delegate respondsToSelector:@selector(_setGroupFold:byIdentity:)]) {
-            [self.delegate _setGroupFold:self byIdentity:self.isFold];
-        }
+        
     }];
+    //代理限制
+    if ([self.delegate respondsToSelector:@selector(_setGroupFold:byIdentity:)]) {
+        [self.delegate _setGroupFold:self byIdentity:self.isFold];
+    }
     
 }
 

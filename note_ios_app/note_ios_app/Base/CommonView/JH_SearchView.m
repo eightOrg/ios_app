@@ -39,10 +39,10 @@
      */
     UITextField *searchField = [self valueForKey:@"searchField"];
     searchField.layer.cornerRadius = 5.0f;
-    searchField.layer.borderColor = BaseColor.CGColor;
-    searchField.layer.borderWidth = 0.5;
+//    searchField.layer.borderColor = BaseColor.CGColor;
+//    searchField.layer.borderWidth = 0.5;
     searchField.layer.masksToBounds = YES;
-    
+    searchField.backgroundColor = kBaseBGColor;
     for (UIView *subview in self.subviews) {
         if ([subview isKindOfClass:[UIView class]]) {
             for (UIView *nextView in subview.subviews) {

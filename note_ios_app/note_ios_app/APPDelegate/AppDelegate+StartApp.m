@@ -59,7 +59,8 @@
     //                                                         forBarMetrics:UIBarMetricsDefault];
     
     //设置输入框属性
-    
+    [[UISearchBar appearance]setTintColor:BaseColor];
+    [[UITextField appearance] setTintColor:BaseColor];
     
 }
 

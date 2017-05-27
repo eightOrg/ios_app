@@ -74,6 +74,11 @@
 		A933D9FF1ED6C47C005584E2 /* UIImage+ChangeToSize.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9FE1ED6C47C005584E2 /* UIImage+ChangeToSize.m */; };
 		A933DA021ED6C4FC005584E2 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = A933DA011ED6C4FC005584E2 /* UIViewExt.m */; };
 		A933DA041ED6C541005584E2 /* p1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A933DA031ED6C541005584E2 /* p1.jpg */; };
+		A98A3FCE1ED9147F005768B6 /* JH_ViewModelFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FCD1ED9147F005768B6 /* JH_ViewModelFactory.m */; };
+		A98A3FD91ED920EB005768B6 /* JHChatBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FD71ED920EB005768B6 /* JHChatBaseController.m */; };
+		A98A3FDD1ED9236D005768B6 /* JHChatBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FDC1ED9236D005768B6 /* JHChatBaseModel.m */; };
+		A98A3FE01ED924A0005768B6 /* JHChatBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FDF1ED924A0005768B6 /* JHChatBaseViewModel.m */; };
+		A98A3FE31ED924FD005768B6 /* JHChatBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FE21ED924FD005768B6 /* JHChatBaseCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -237,6 +242,16 @@
 		A933DA001ED6C4FC005584E2 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
 		A933DA011ED6C4FC005584E2 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
 		A933DA031ED6C541005584E2 /* p1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = p1.jpg; path = "../../../../../../../zsxcWeb/iOS/掌上行车/Classes/Images/p1.jpg"; sourceTree = "<group>"; };
+		A98A3FCC1ED9147F005768B6 /* JH_ViewModelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_ViewModelFactory.h; sourceTree = "<group>"; };
+		A98A3FCD1ED9147F005768B6 /* JH_ViewModelFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_ViewModelFactory.m; sourceTree = "<group>"; };
+		A98A3FD61ED920EB005768B6 /* JHChatBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseController.h; sourceTree = "<group>"; };
+		A98A3FD71ED920EB005768B6 /* JHChatBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseController.m; sourceTree = "<group>"; };
+		A98A3FDB1ED9236D005768B6 /* JHChatBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseModel.h; sourceTree = "<group>"; };
+		A98A3FDC1ED9236D005768B6 /* JHChatBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseModel.m; sourceTree = "<group>"; };
+		A98A3FDE1ED924A0005768B6 /* JHChatBaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseViewModel.h; sourceTree = "<group>"; };
+		A98A3FDF1ED924A0005768B6 /* JHChatBaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseViewModel.m; sourceTree = "<group>"; };
+		A98A3FE11ED924FD005768B6 /* JHChatBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseCell.h; sourceTree = "<group>"; };
+		A98A3FE21ED924FD005768B6 /* JHChatBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseCell.m; sourceTree = "<group>"; };
 		DBF618F96F45F01FD5E45D73 /* Pods-note_ios_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-note_ios_app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-note_ios_app/Pods-note_ios_app.debug.xcconfig"; sourceTree = "<group>"; };
 		FA8AC8B80F125B5155B5CDFB /* libPods-note_ios_app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-note_ios_app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -551,6 +566,8 @@
 				4766FC3E1E5E950200F2221E /* JHMapLocationVC.h */,
 				4766FC3F1E5E950200F2221E /* JHMapLocationVC.m */,
 				4766FC401E5E950200F2221E /* JHMapLocationVC.xib */,
+				A98A3FD61ED920EB005768B6 /* JHChatBaseController.h */,
+				A98A3FD71ED920EB005768B6 /* JHChatBaseController.m */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -574,10 +591,14 @@
 		47D84DAD1E5145F3009C6C2A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A98A3FCC1ED9147F005768B6 /* JH_ViewModelFactory.h */,
+				A98A3FCD1ED9147F005768B6 /* JH_ViewModelFactory.m */,
 				47D84DBF1E515523009C6C2A /* JHChatFriendViewModel.h */,
 				47D84DC01E515523009C6C2A /* JHChatFriendViewModel.m */,
 				47D84DD31E51B25B009C6C2A /* JHChatMessageViewModel.h */,
 				47D84DD41E51B25B009C6C2A /* JHChatMessageViewModel.m */,
+				A98A3FDE1ED924A0005768B6 /* JHChatBaseViewModel.h */,
+				A98A3FDF1ED924A0005768B6 /* JHChatBaseViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -609,6 +630,8 @@
 				474A32631E52DFDF008FD632 /* JH_ChatSendMessageView.m */,
 				47EE67E71E535091008716E8 /* JH_ChatAudioView.h */,
 				47EE67E81E535091008716E8 /* JH_ChatAudioView.m */,
+				A98A3FE11ED924FD005768B6 /* JHChatBaseCell.h */,
+				A98A3FE21ED924FD005768B6 /* JHChatBaseCell.m */,
 			);
 			name = Friend;
 			sourceTree = "<group>";
@@ -626,6 +649,8 @@
 				474A32591E52A7B5008FD632 /* JH_JSQBaseChatModel.m */,
 				47BCDABA1E6019B6000C8E89 /* JHMapAnnotation.h */,
 				47BCDABB1E6019B6000C8E89 /* JHMapAnnotation.m */,
+				A98A3FDB1ED9236D005768B6 /* JHChatBaseModel.h */,
+				A98A3FDC1ED9236D005768B6 /* JHChatBaseModel.m */,
 			);
 			name = Friend;
 			sourceTree = "<group>";
@@ -872,6 +897,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47B8301D1DC44AB500969523 /* AppDelegate.m in Sources */,
+				A98A3FE31ED924FD005768B6 /* JHChatBaseCell.m in Sources */,
 				476BE2C51E56C9C900D41377 /* UserInfoManager.m in Sources */,
 				47D84DB11E51464E009C6C2A /* JHChatFriendCell.m in Sources */,
 				A933D9F31ED6C217005584E2 /* JH_NetWorking.m in Sources */,
@@ -911,17 +937,21 @@
 				A933D9EA1ED6C174005584E2 /* JHActionSheet.m in Sources */,
 				A933D9F61ED6C250005584E2 /* JH_RuntimeTool.m in Sources */,
 				47A56B551E53FAAA00A86F34 /* JH_ChatCoreData.xcdatamodeld in Sources */,
+				A98A3FD91ED920EB005768B6 /* JHChatBaseController.m in Sources */,
 				474A32571E52A72F008FD632 /* JH_JSQBaseChatVC.m in Sources */,
 				47B8301A1DC44AB500969523 /* main.m in Sources */,
 				47D84DC41E516405009C6C2A /* JHChatFriendItem.m in Sources */,
+				A98A3FDD1ED9236D005768B6 /* JHChatBaseModel.m in Sources */,
 				47D84DC11E515523009C6C2A /* JHChatFriendViewModel.m in Sources */,
 				4720F7321E559D0C0011D677 /* JH_FileManager.m in Sources */,
 				47D84DC71E518011009C6C2A /* JHChatFriendGroupView.m in Sources */,
 				47BCDABF1E6025B6000C8E89 /* JH_CalculateUtil.m in Sources */,
+				A98A3FE01ED924A0005768B6 /* JHChatBaseViewModel.m in Sources */,
 				478F695C1DC8BBF3001E9569 /* JHFriendsVC.m in Sources */,
 				A933DA021ED6C4FC005584E2 /* UIViewExt.m in Sources */,
 				474A32671E52F552008FD632 /* UIView+UIViewController.m in Sources */,
 				478F69591DC8BBE2001E9569 /* JHNoteVC.m in Sources */,
+				A98A3FCE1ED9147F005768B6 /* JH_ViewModelFactory.m in Sources */,
 				47B8305E1DC451CA00969523 /* JHBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,7 +15,7 @@
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)JHChatMessageViewModel *viewModel;
 @property(nonatomic,strong)JH_SearchView *searchBar;
-@property(nonatomic,strong)NSArray *messageData;
+//@property(nonatomic,strong)NSArray *messageData;
 @end
 static CGFloat searchBarHeight = 40;
 static CGFloat rowBarHeight = 70;
@@ -31,10 +31,10 @@ static CGFloat headerHeight = 0.1;
    
     
     _viewModel = [[JHChatMessageViewModel alloc] init];
-    [_viewModel CF_LoadData:^(id result) {
-        _messageData = result;
-        [self.view addSubview:self.tableView];
-    }];
+
+    [self.view addSubview:self.tableView];
+    [self _freshAction];
+    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(_freshAction) name:JH_ChatMessageFreshNotification object:nil];
     
 }
@@ -43,10 +43,9 @@ static CGFloat headerHeight = 0.1;
  刷新数据
  */
 -(void)_freshAction{
-    
-    [_viewModel CF_LoadData:^(id result) {
-    _messageData = result;
-    [self.tableView reloadData];
+    [_viewModel JH_loadTableDataWithData:nil :^{
+        
+        [self.tableView reloadData];
     }];
     
 }
@@ -71,11 +70,11 @@ static CGFloat headerHeight = 0.1;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
-    return [_viewModel CF_numberOfRow];
+    return [_viewModel JH_numberOfRow:section];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-    return [_viewModel setUpTableViewCell:indexPath];
+    return [_viewModel JH_setUpTableViewCell:indexPath];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return headerHeight;
@@ -89,10 +88,7 @@ static CGFloat headerHeight = 0.1;
 }
 #pragma mark - 选中事件
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    JH_JSQBaseChatVC *chat = [[JH_JSQBaseChatVC alloc] init];
-    chat.hidesBottomBarWhenPushed = YES;
-    chat.baseMessages = _messageData[indexPath.row];
-    [self.navigationController pushViewController:chat animated:YES];
+    [_viewModel didSelectRowAndPush:indexPath vcName:nil dic:nil nav:self.navigationController];
     
 }
 #pragma mark - 给这个列表添加删除事件
@@ -108,7 +104,7 @@ static CGFloat headerHeight = 0.1;
  */
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    M_RecentMessage *message = _messageData[indexPath.row];
+    M_RecentMessage *message = _viewModel.chatMessageData[indexPath.row];
     
     // 从文件中删除
     //获取路径

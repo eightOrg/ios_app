@@ -11,6 +11,7 @@
 
 #define BaseColor [UIColor colorWithRed:28/255.f green:170/255.f blue:235/255.f alpha:1]
 #define BaseTextColor [UIColor whiteColor]
+#define kBaseBGColor [UIColor colorWithWhite:0.93 alpha:1]
 #define JH_NavigationHeight 64
 #define JH_ToolBarHeight 49
 #define JHUIIMAGE(imageName) [UIImage imageNamed:imageName]
@@ -20,4 +21,5 @@
 #define WeakSelf __weak typeof(self) weakSelf = self;
 //默认动画时间
 #define JH_UIViewAnimation 0.3
+
 #endif /* Attribute_h */

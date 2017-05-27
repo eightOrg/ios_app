@@ -9,7 +9,6 @@
 #import "JHChildFriendsVC.h"
 #import "JHChatFriendViewModel.h"
 #import "JH_SearchView.h"
-#import "JH_JSQBaseChatVC.h"
 @interface JHChildFriendsVC ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)JHChatFriendViewModel *viewModel;
@@ -26,10 +25,10 @@ static CGFloat headerHeight = 40;
 - (void)viewDidLoad {
     [super viewDidLoad];
     _viewModel = [[JHChatFriendViewModel alloc] init];
-    [_viewModel CF_LoadData:^(id result) {
-        
-        [self.view addSubview:self.tableView];
+    [_viewModel JH_loadTableDataWithData:nil :^{
+         [self.view addSubview:self.tableView];
     }];
+
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(freshNotification:) name:JH_ChatFriendFreshNotification object:nil];
 }
 
@@ -61,15 +60,15 @@ static CGFloat headerHeight = 40;
     return _tableView;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return [_viewModel CF_numberOfSection];
+    return [_viewModel JH_numberOfSection];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
-    return [_viewModel CF_numberOfRow:section];
+    return [_viewModel JH_numberOfRow:section];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-    return [_viewModel setUpTableViewCell:indexPath];
+    return [_viewModel JH_setUpTableViewCell:indexPath];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return headerHeight;
@@ -79,30 +78,14 @@ static CGFloat headerHeight = 40;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
-    return [_viewModel _creatJHChatFriendGroupView:section];
+    return [_viewModel JH_setUpTableSectionHeader:section];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 1;
 }
 #pragma mark - 选中事件
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    //查询最近数据
-    M_RecentMessage *message = [[JH_ChatMessageHelper _searchDataByUserId:[_viewModel getUserId:indexPath]]lastObject];
-    
-    JH_JSQBaseChatVC *chat = [[JH_JSQBaseChatVC alloc] init];
-    
-    if (message==nil) {
-        //创建一个空数据
-       M_RecentMessage *defaultMessage = [JH_ChatMessageHelper creatDefaultRecentMessageWithUserId:[_viewModel getUserId:indexPath] userName:[_viewModel getUserName:indexPath]];
-        chat.baseMessages = defaultMessage;
-    }else{
-        chat.baseMessages = message;
-    }
-    
-    
-    chat.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:chat animated:YES];
+    [_viewModel didSelectRowAndPush:indexPath vcName:nil dic:nil nav:self.navigationController];
     
 }
 
