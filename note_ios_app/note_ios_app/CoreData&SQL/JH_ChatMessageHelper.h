@@ -8,6 +8,26 @@
 
 #import <Foundation/Foundation.h>
 #import "JH_ChatMessageManager.h"
+/*
+ 消息类型
+ */
+typedef NS_OPTIONS(NSUInteger, MessageType) {
+    MessageTypeText=0,
+    MessageTypeVoice,
+    MessageTypeImage,
+    MessageTypeLocation
+    
+};
+
+
+/*
+ 消息发送方
+ */
+typedef NS_OPTIONS(NSUInteger, MessageSenderType) {
+    MessageSenderTypeReceived=0,
+    MessageSenderTypeSend
+    
+};
 @interface JH_ChatMessageHelper : NSObject
 #pragma mark - 添加数据
 +(void)_addNewData:(NSDictionary *)data;

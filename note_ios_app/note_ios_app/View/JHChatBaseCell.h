@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "JH_ChatMessageHelper.h"
+#import "JHChatBaseCellText.h"
+#import "JHChatBaseCellVoice.h"
+#import "JHChatBaseCellImage.h"
+#import "JHChatBaseCellLocation.h"
+
 @interface JHChatBaseCell : UITableViewCell
 //创建视图
-+(instancetype)cellWithTableView:(UITableView *)tableView messageModel:(M_MessageList *)model;
++(UITableViewCell *)cellWithTableView:(UITableView *)tableView messageModel:(M_MessageList *)model;
 //获取高度
 +(CGFloat)tableHeightWithModel:(M_MessageList *)model;
 @end

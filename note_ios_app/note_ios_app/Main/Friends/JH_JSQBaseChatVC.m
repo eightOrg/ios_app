@@ -345,7 +345,7 @@
 #pragma mark - 录音文件处理
 -(void)stopRecord:(NSString *)recorderPath{
     //插入录音数据，已存储在沙盒
-    [self.chatData addAudioMediaMessage:recorderPath isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:recorderPath type:MessageTypeAudio];
+    [self.chatData addAudioMediaMessage:recorderPath isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:recorderPath type:MessageTypeVoice];
     
     
     [self finishSendingMessage];
@@ -371,7 +371,7 @@
         //开启编辑后
         //    UIImage *image = info[UIImagePickerControllerEditedImage];
         //将图片插入数据库
-        [self.chatData addPhotoMediaMessage:image isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:[NSString stringWithFormat:@"%.0f",[[NSDate date] timeIntervalSince1970]] type:MessageTypePhoto];
+        [self.chatData addPhotoMediaMessage:image isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:[NSString stringWithFormat:@"%.0f",[[NSDate date] timeIntervalSince1970]] type:MessageTypeImage];
         
         [self finishSendingMessage];
         
@@ -637,7 +637,7 @@
     if ([UIPasteboard generalPasteboard].image) {
         // If there's an image in the pasteboard, construct a media item with that image and `send` it.
         
-        [self.chatData addPhotoMediaMessage:[UIPasteboard generalPasteboard].image isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:[NSString stringWithFormat:@"%.0f",[[NSDate date] timeIntervalSince1970]] type:MessageTypePhoto];
+        [self.chatData addPhotoMediaMessage:[UIPasteboard generalPasteboard].image isSelf:YES userId:[NSString stringWithFormat:@"%lld",self.baseMessages.recentMessage_user.user_id] userName:self.baseMessages.recentMessage_user.user_name time:[NSString stringWithFormat:@"%.0f",[[NSDate date] timeIntervalSince1970]] type:MessageTypeImage];
         
         [self finishSendingMessage];
         return NO;

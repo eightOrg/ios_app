@@ -18,13 +18,6 @@
  *  Do not actually do anything like this.
  */
 
-typedef enum : NSUInteger {
-    MessageTypeText,
-    MessageTypePhoto,
-    MessageTypeAudio,
-    MessageTypeLocation
-} MessageType;
-
 @interface JH_JSQBaseChatModel : NSObject
 
 /*

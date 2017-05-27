@@ -17,4 +17,5 @@
 #import <UIKit/UIKit.h>
 #import "UIImage+ChangeToSize.h"
 #import "UIViewExt.h"
+#import "NSString+ChangeTime.h"
 #endif /* Common_h */

@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) int64_t message_time;
 @property (nonatomic) int64_t message_type;
 @property (nonatomic) BOOL message_isSelf;
+@property (nonatomic) BOOL message_isShowTime;
 @property (nullable, nonatomic, retain) M_UserInfo *message_user;
 
 @end

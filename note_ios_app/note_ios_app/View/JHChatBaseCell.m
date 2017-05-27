@@ -17,23 +17,59 @@
 /**
  创建cell
  */
-+(instancetype)cellWithTableView:(UITableView *)tableView messageModel:(M_MessageList *)model{
++(UITableViewCell *)cellWithTableView:(UITableView *)tableView messageModel:(M_MessageList *)model{
     
-    static NSString *identifier = @"JHChatBaseCell";
     
-    JHChatBaseCell *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
     
-    if (cell == nil) {
-        cell= [[JHChatBaseCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
+    if (model.message_type == MessageTypeText) {
+        static NSString *identifier = @"JHChatBaseCellText";
+        JHChatBaseCellText *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
+        
+        if (cell == nil) {
+            cell= [[JHChatBaseCellText alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
+        }
+        return cell;
+    }else if (model.message_type == MessageTypeVoice) {
+        static NSString *identifier = @"JHChatBaseCellVoice";
+        JHChatBaseCellVoice *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
+        
+        if (cell == nil) {
+            cell= [[JHChatBaseCellVoice alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
+        }
+        return cell;
+    }else if (model.message_type == MessageTypeImage) {
+        static NSString *identifier = @"JHChatBaseCellImage";
+        JHChatBaseCellImage *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
+        
+        if (cell == nil) {
+            cell= [[JHChatBaseCellImage alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
+        }
+        return cell;
+    }else if (model.message_type == MessageTypeLocation){
+        static NSString *identifier = @"JHChatBaseCellLocation";
+        JHChatBaseCellLocation *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
+        
+        if (cell == nil) {
+            cell= [[JHChatBaseCellLocation alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
+        }
+        return cell;
     }
-    
-    return cell;
+
+    return nil;
 
 }
 +(CGFloat)tableHeightWithModel:(M_MessageList *)model{
     
-    
-    return 100;
+    if (model.message_type == MessageTypeText) {
+        return 40;
+    }else if (model.message_type == MessageTypeVoice) {
+        return 50;
+    }else if (model.message_type == MessageTypeImage) {
+        return 150;
+    }else if (model.message_type == MessageTypeLocation){
+        return 100;
+    }
+    return 50;
 }
 
 @end

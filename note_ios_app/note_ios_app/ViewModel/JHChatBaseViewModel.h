@@ -7,7 +7,7 @@
 //
 
 #import "JH_ViewModelFactory.h"
-#import "JHChatBaseModel.h"
+
 #import "JHChatBaseCell.h"
 #import "JH_ChatMessageHelper.h"
 @interface JHChatBaseViewModel : JH_ViewModelFactory

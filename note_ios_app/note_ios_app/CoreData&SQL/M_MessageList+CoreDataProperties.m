@@ -21,5 +21,6 @@
 @dynamic message_type;
 @dynamic message_isSelf;
 @dynamic message_user;
+@dynamic message_isShowTime;
 
 @end

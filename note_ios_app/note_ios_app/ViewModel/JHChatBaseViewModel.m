@@ -31,9 +31,10 @@
     return _messageList.count;
 }
 -(UITableViewCell *)JH_setUpTableViewCell:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath{
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     M_MessageList *message = _messageList[indexPath.row];
-    JHChatBaseCell *cell = [JHChatBaseCell cellWithTableView:tableView messageModel:message];
-    
+    UITableViewCell *cell = [JHChatBaseCell cellWithTableView:tableView messageModel:message];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 -(CGFloat)JH_heightForCell:(NSIndexPath *)indexPath{

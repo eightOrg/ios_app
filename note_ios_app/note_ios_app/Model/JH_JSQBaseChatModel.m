@@ -56,7 +56,7 @@
                 
             }
                 break;
-            case MessageTypePhoto:
+            case MessageTypeImage:
             {
                 //获取图片
                 NSString *documentPath = [JH_FileManager getDocumentPath];
@@ -70,7 +70,7 @@
                 
             }
                 break;
-            case MessageTypeAudio:
+            case MessageTypeVoice:
             {
                 //获取录音
                 NSString *completePaht = [NSString stringWithFormat:@"%@/%@",[JH_FileManager getDocumentPath],message.message_path];

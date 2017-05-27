@@ -9,27 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "JHChatMessageCell.h"
 #import "JHChatMessageModel.h"
-@interface JHChatMessageViewModel : NSObject
-/**
- 加载数据并给model和cell赋值
- 
- @param resultBlock result
- */
--(void)CF_LoadData:(void(^)(id result))resultBlock;
-
-/**
- 将行数放回给VC
- 
- @return 行数
- */
--(NSInteger)CF_numberOfRow;
-
-/**
- 直接放回cell给VC
- 
- @param indexPath indexPath
- @return cell
- */
--(JHChatMessageCell *)setUpTableViewCell:(NSIndexPath *)indexPath;
-
+#import "JH_ViewModelFactory.h"
+@interface JHChatMessageViewModel : JH_ViewModelFactory
+@property(nonatomic,strong)NSMutableArray *chatMessageData;
+@property(nonatomic,strong)NSArray *chatMessageModelList;
 @end

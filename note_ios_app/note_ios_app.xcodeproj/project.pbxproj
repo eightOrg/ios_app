@@ -74,9 +74,12 @@
 		A933D9FF1ED6C47C005584E2 /* UIImage+ChangeToSize.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9FE1ED6C47C005584E2 /* UIImage+ChangeToSize.m */; };
 		A933DA021ED6C4FC005584E2 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = A933DA011ED6C4FC005584E2 /* UIViewExt.m */; };
 		A933DA041ED6C541005584E2 /* p1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A933DA031ED6C541005584E2 /* p1.jpg */; };
+		A94FBEA21ED972DC00AA5763 /* JHChatBaseCellText.m in Sources */ = {isa = PBXBuildFile; fileRef = A94FBEA11ED972DC00AA5763 /* JHChatBaseCellText.m */; };
+		A94FBEA51ED9745000AA5763 /* JHChatBaseCellVoice.m in Sources */ = {isa = PBXBuildFile; fileRef = A94FBEA41ED9745000AA5763 /* JHChatBaseCellVoice.m */; };
+		A94FBEA81ED9745D00AA5763 /* JHChatBaseCellImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A94FBEA71ED9745D00AA5763 /* JHChatBaseCellImage.m */; };
+		A94FBEAB1ED9746C00AA5763 /* JHChatBaseCellLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = A94FBEAA1ED9746C00AA5763 /* JHChatBaseCellLocation.m */; };
 		A98A3FCE1ED9147F005768B6 /* JH_ViewModelFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FCD1ED9147F005768B6 /* JH_ViewModelFactory.m */; };
 		A98A3FD91ED920EB005768B6 /* JHChatBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FD71ED920EB005768B6 /* JHChatBaseController.m */; };
-		A98A3FDD1ED9236D005768B6 /* JHChatBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FDC1ED9236D005768B6 /* JHChatBaseModel.m */; };
 		A98A3FE01ED924A0005768B6 /* JHChatBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FDF1ED924A0005768B6 /* JHChatBaseViewModel.m */; };
 		A98A3FE31ED924FD005768B6 /* JHChatBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FE21ED924FD005768B6 /* JHChatBaseCell.m */; };
 /* End PBXBuildFile section */
@@ -242,12 +245,18 @@
 		A933DA001ED6C4FC005584E2 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
 		A933DA011ED6C4FC005584E2 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
 		A933DA031ED6C541005584E2 /* p1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = p1.jpg; path = "../../../../../../../zsxcWeb/iOS/掌上行车/Classes/Images/p1.jpg"; sourceTree = "<group>"; };
+		A94FBEA01ED972DC00AA5763 /* JHChatBaseCellText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseCellText.h; sourceTree = "<group>"; };
+		A94FBEA11ED972DC00AA5763 /* JHChatBaseCellText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseCellText.m; sourceTree = "<group>"; };
+		A94FBEA31ED9745000AA5763 /* JHChatBaseCellVoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseCellVoice.h; sourceTree = "<group>"; };
+		A94FBEA41ED9745000AA5763 /* JHChatBaseCellVoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseCellVoice.m; sourceTree = "<group>"; };
+		A94FBEA61ED9745D00AA5763 /* JHChatBaseCellImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseCellImage.h; sourceTree = "<group>"; };
+		A94FBEA71ED9745D00AA5763 /* JHChatBaseCellImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseCellImage.m; sourceTree = "<group>"; };
+		A94FBEA91ED9746C00AA5763 /* JHChatBaseCellLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseCellLocation.h; sourceTree = "<group>"; };
+		A94FBEAA1ED9746C00AA5763 /* JHChatBaseCellLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseCellLocation.m; sourceTree = "<group>"; };
 		A98A3FCC1ED9147F005768B6 /* JH_ViewModelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_ViewModelFactory.h; sourceTree = "<group>"; };
 		A98A3FCD1ED9147F005768B6 /* JH_ViewModelFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_ViewModelFactory.m; sourceTree = "<group>"; };
 		A98A3FD61ED920EB005768B6 /* JHChatBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseController.h; sourceTree = "<group>"; };
 		A98A3FD71ED920EB005768B6 /* JHChatBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseController.m; sourceTree = "<group>"; };
-		A98A3FDB1ED9236D005768B6 /* JHChatBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseModel.h; sourceTree = "<group>"; };
-		A98A3FDC1ED9236D005768B6 /* JHChatBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseModel.m; sourceTree = "<group>"; };
 		A98A3FDE1ED924A0005768B6 /* JHChatBaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseViewModel.h; sourceTree = "<group>"; };
 		A98A3FDF1ED924A0005768B6 /* JHChatBaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseViewModel.m; sourceTree = "<group>"; };
 		A98A3FE11ED924FD005768B6 /* JHChatBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseCell.h; sourceTree = "<group>"; };
@@ -632,6 +641,14 @@
 				47EE67E81E535091008716E8 /* JH_ChatAudioView.m */,
 				A98A3FE11ED924FD005768B6 /* JHChatBaseCell.h */,
 				A98A3FE21ED924FD005768B6 /* JHChatBaseCell.m */,
+				A94FBEA01ED972DC00AA5763 /* JHChatBaseCellText.h */,
+				A94FBEA11ED972DC00AA5763 /* JHChatBaseCellText.m */,
+				A94FBEA31ED9745000AA5763 /* JHChatBaseCellVoice.h */,
+				A94FBEA41ED9745000AA5763 /* JHChatBaseCellVoice.m */,
+				A94FBEA61ED9745D00AA5763 /* JHChatBaseCellImage.h */,
+				A94FBEA71ED9745D00AA5763 /* JHChatBaseCellImage.m */,
+				A94FBEA91ED9746C00AA5763 /* JHChatBaseCellLocation.h */,
+				A94FBEAA1ED9746C00AA5763 /* JHChatBaseCellLocation.m */,
 			);
 			name = Friend;
 			sourceTree = "<group>";
@@ -649,8 +666,6 @@
 				474A32591E52A7B5008FD632 /* JH_JSQBaseChatModel.m */,
 				47BCDABA1E6019B6000C8E89 /* JHMapAnnotation.h */,
 				47BCDABB1E6019B6000C8E89 /* JHMapAnnotation.m */,
-				A98A3FDB1ED9236D005768B6 /* JHChatBaseModel.h */,
-				A98A3FDC1ED9236D005768B6 /* JHChatBaseModel.m */,
 			);
 			name = Friend;
 			sourceTree = "<group>";
@@ -898,12 +913,14 @@
 			files = (
 				47B8301D1DC44AB500969523 /* AppDelegate.m in Sources */,
 				A98A3FE31ED924FD005768B6 /* JHChatBaseCell.m in Sources */,
+				A94FBEA81ED9745D00AA5763 /* JHChatBaseCellImage.m in Sources */,
 				476BE2C51E56C9C900D41377 /* UserInfoManager.m in Sources */,
 				47D84DB11E51464E009C6C2A /* JHChatFriendCell.m in Sources */,
 				A933D9F31ED6C217005584E2 /* JH_NetWorking.m in Sources */,
 				47B830681DC46BD800969523 /* JHRegisterVC.m in Sources */,
 				47F1FD9B1DD9EF060096A1AF /* JHBaseTextField.m in Sources */,
 				47D84DB81E5146A8009C6C2A /* JHChatFriendSectionModel.m in Sources */,
+				A94FBEAB1ED9746C00AA5763 /* JHChatBaseCellLocation.m in Sources */,
 				478F69691DC8C0B3001E9569 /* JHSlideView.m in Sources */,
 				47B830551DC4509E00969523 /* AppDelegate+StartApp.m in Sources */,
 				478F69661DC8BF4D001E9569 /* JHBaseRootVC.m in Sources */,
@@ -923,6 +940,7 @@
 				A933D9FC1ED6C315005584E2 /* MBProgressHUD+MyInterface.m in Sources */,
 				47A56B8E1E5404CE00A86F34 /* JH_ChatMessageManager.m in Sources */,
 				47D84DD21E51AB4E009C6C2A /* JHChatMessageItem.m in Sources */,
+				A94FBEA51ED9745000AA5763 /* JHChatBaseCellVoice.m in Sources */,
 				478F69561DC8BBCC001E9569 /* JHSquareVC.m in Sources */,
 				473231AF1DC47B1800C890D0 /* ThemeLabel.m in Sources */,
 				47EE67E91E535091008716E8 /* JH_ChatAudioView.m in Sources */,
@@ -931,6 +949,7 @@
 				A933D9F91ED6C288005584E2 /* JHImageViewerWindow.m in Sources */,
 				478F695F1DC8BC1E001E9569 /* JHChildFriendsVC.m in Sources */,
 				4766FC411E5E950200F2221E /* JHMapLocationVC.m in Sources */,
+				A94FBEA21ED972DC00AA5763 /* JHChatBaseCellText.m in Sources */,
 				A933D9FF1ED6C47C005584E2 /* UIImage+ChangeToSize.m in Sources */,
 				47D84DD81E51B2FC009C6C2A /* JHChatMessageModel.m in Sources */,
 				A933D9ED1ED6C192005584E2 /* JH_SearchView.m in Sources */,
@@ -941,7 +960,6 @@
 				474A32571E52A72F008FD632 /* JH_JSQBaseChatVC.m in Sources */,
 				47B8301A1DC44AB500969523 /* main.m in Sources */,
 				47D84DC41E516405009C6C2A /* JHChatFriendItem.m in Sources */,
-				A98A3FDD1ED9236D005768B6 /* JHChatBaseModel.m in Sources */,
 				47D84DC11E515523009C6C2A /* JHChatFriendViewModel.m in Sources */,
 				4720F7321E559D0C0011D677 /* JH_FileManager.m in Sources */,
 				47D84DC71E518011009C6C2A /* JHChatFriendGroupView.m in Sources */,
