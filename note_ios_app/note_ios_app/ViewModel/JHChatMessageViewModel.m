@@ -24,11 +24,11 @@
 
 -(void)JH_loadTableDataWithData:(NSDictionary *)data :(void (^)())resultBlock{
 //    NSDictionary *dic = @{
-//                          @"time":@"1495877496",
+//                          @"time":@"1495877666",
 //                          @"num":@"0",
 //                          @"user":@{
-//                                  @"id":@"1234567",
-//                                  @"name":@"jianghong1",
+//                                  @"id":@"123456",
+//                                  @"name":@"jianghong2",
 //                                  @"potrail":@"",
 //                                  @"messages":@[
 //                                          @{
@@ -36,7 +36,7 @@
 //                                              @"type":@(MessageTypeText),
 //                                              @"text":@"热门查询 身份证号码和真实姓名 身份证号码大全 老黄历 黄道吉日 2017年5月29日黄历 2017年5月30日黄历 2017年5月31日黄历 2017年6月1日黄历 2017年6月2日黄历 2017年6月3日黄历 2017年6月4日黄历 2017年6月黄历 北京天气 上海天气 香港天气 广州天气 深圳天气 台北天气 澳门天气 天津天气 沈阳天气 大连天气 南京天气 苏州天气 杭州天气 武汉天气 重庆天气 成都天气 无锡天气 宁波天气 合肥天气 厦门天气日常生活 身份证号码查询 汇率查询 手机号码归属地 邮编查询 天气预报 家常菜谱大全 PM2.5查询 区号查询 数字大写转换 2017年放假安排 升降旗时间 人民币存款利率表 常用电话号码",
 //                                              @"path":@"",
-//                                              @"isSelf":@1,
+//                                              @"isSelf":@0,
 //                                              }
 //                                          ]
 //                                  }
@@ -59,7 +59,7 @@
                                         @"resentMessage":lastMessage.message_text,
                                         @"time":[NSString changeTimeIntervalToMinute:@(recentMessage.recent_message_time)],
                                         @"number":[[NSString alloc] initWithFormat:@"%lld",recentMessage.recent_message_num],
-                                        @"portrail":user.user_portrail==nil?@"p1.jpg":user.user_portrail,
+                                        @"portrail":user.user_portrail==nil?@"p0.jpg":user.user_portrail,
                                         @"type":@(lastMessage.message_type),
                                         };
         

@@ -65,7 +65,7 @@
 +(CGFloat)tableHeightWithModel:(M_MessageList *)model{
     CGFloat masTop=10;
     
-    if (model.message_isShowTime) {
+    if (!model.message_isShowTime) {
         
         masTop=37;
         

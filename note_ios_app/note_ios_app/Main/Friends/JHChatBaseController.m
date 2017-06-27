@@ -7,7 +7,7 @@
 //
 
 #import "JHChatBaseController.h"
-
+#import "JHInputView.h"
 @interface JHChatBaseController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
 @end
@@ -25,6 +25,9 @@
     [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    JHInputView *inputView = [[JHInputView alloc] initWithFrame:CGRectMake(0, self.view.bottom-100-JH_NavigationHeight, self.view.frame.size.width, 100)];
+    [self.view addSubview:inputView];
+    
     [self _freshData];
 }
 #pragma mark - UI (creatSubView and layout)

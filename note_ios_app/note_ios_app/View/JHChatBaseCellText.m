@@ -69,7 +69,7 @@
         
         CGFloat maxWith=JHSCREENWIDTH-LEFT_WITH-RIGHT_WITH-14-12-4;
         
-        UIFont *textFont=[UIFont fontWithName:FONT_REGULAR size:16];
+        UIFont *textFont=[UIFont systemFontOfSize:14];
         
         
         NSDictionary *attributes = @{NSFontAttributeName: textFont};

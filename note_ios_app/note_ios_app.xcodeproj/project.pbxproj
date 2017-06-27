@@ -50,7 +50,6 @@
 		47D84DB21E51464E009C6C2A /* JHChatFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47D84DB01E51464E009C6C2A /* JHChatFriendCell.xib */; };
 		47D84DB81E5146A8009C6C2A /* JHChatFriendSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D84DB71E5146A8009C6C2A /* JHChatFriendSectionModel.m */; };
 		47D84DBB1E5146B6009C6C2A /* JHChatFriendRowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D84DBA1E5146B6009C6C2A /* JHChatFriendRowModel.m */; };
-		47D84DBE1E514A8C009C6C2A /* p0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 47D84DBD1E514A8C009C6C2A /* p0.jpg */; };
 		47D84DC11E515523009C6C2A /* JHChatFriendViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D84DC01E515523009C6C2A /* JHChatFriendViewModel.m */; };
 		47D84DC41E516405009C6C2A /* JHChatFriendItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D84DC31E516405009C6C2A /* JHChatFriendItem.m */; };
 		47D84DC71E518011009C6C2A /* JHChatFriendGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D84DC61E518011009C6C2A /* JHChatFriendGroupView.m */; };
@@ -77,6 +76,7 @@
 		A94FBEA51ED9745000AA5763 /* JHChatBaseCellVoice.m in Sources */ = {isa = PBXBuildFile; fileRef = A94FBEA41ED9745000AA5763 /* JHChatBaseCellVoice.m */; };
 		A94FBEA81ED9745D00AA5763 /* JHChatBaseCellImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A94FBEA71ED9745D00AA5763 /* JHChatBaseCellImage.m */; };
 		A94FBEAB1ED9746C00AA5763 /* JHChatBaseCellLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = A94FBEAA1ED9746C00AA5763 /* JHChatBaseCellLocation.m */; };
+		A982906C1F02464A00787735 /* JHInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A982906B1F02464A00787735 /* JHInputView.m */; };
 		A98A3FCE1ED9147F005768B6 /* JH_ViewModelFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FCD1ED9147F005768B6 /* JH_ViewModelFactory.m */; };
 		A98A3FD91ED920EB005768B6 /* JHChatBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FD71ED920EB005768B6 /* JHChatBaseController.m */; };
 		A98A3FE01ED924A0005768B6 /* JHChatBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FDF1ED924A0005768B6 /* JHChatBaseViewModel.m */; };
@@ -255,6 +255,8 @@
 		A94FBEA71ED9745D00AA5763 /* JHChatBaseCellImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseCellImage.m; sourceTree = "<group>"; };
 		A94FBEA91ED9746C00AA5763 /* JHChatBaseCellLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseCellLocation.h; sourceTree = "<group>"; };
 		A94FBEAA1ED9746C00AA5763 /* JHChatBaseCellLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseCellLocation.m; sourceTree = "<group>"; };
+		A982906A1F02464A00787735 /* JHInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHInputView.h; sourceTree = "<group>"; };
+		A982906B1F02464A00787735 /* JHInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHInputView.m; sourceTree = "<group>"; };
 		A98A3FCC1ED9147F005768B6 /* JH_ViewModelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_ViewModelFactory.h; sourceTree = "<group>"; };
 		A98A3FCD1ED9147F005768B6 /* JH_ViewModelFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_ViewModelFactory.m; sourceTree = "<group>"; };
 		A98A3FD61ED920EB005768B6 /* JHChatBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseController.h; sourceTree = "<group>"; };
@@ -647,6 +649,8 @@
 				A94FBEA71ED9745D00AA5763 /* JHChatBaseCellImage.m */,
 				A94FBEA91ED9746C00AA5763 /* JHChatBaseCellLocation.h */,
 				A94FBEAA1ED9746C00AA5763 /* JHChatBaseCellLocation.m */,
+				A982906A1F02464A00787735 /* JHInputView.h */,
+				A982906B1F02464A00787735 /* JHInputView.m */,
 			);
 			name = Friend;
 			sourceTree = "<group>";
@@ -843,7 +847,6 @@
 			files = (
 				47D84DCF1E51AB18009C6C2A /* JHChatMessageCell.xib in Resources */,
 				47B830281DC44AB500969523 /* LaunchScreen.storyboard in Resources */,
-				47D84DBE1E514A8C009C6C2A /* p0.jpg in Resources */,
 				47B830251DC44AB500969523 /* Assets.xcassets in Resources */,
 				4766FC421E5E950200F2221E /* JHMapLocationVC.xib in Resources */,
 				A998D2361F0242BE002608D2 /* p0.jpg in Resources */,
@@ -967,6 +970,7 @@
 				A933D9ED1ED6C192005584E2 /* JH_SearchView.m in Sources */,
 				A933D9EA1ED6C174005584E2 /* JHActionSheet.m in Sources */,
 				A933D9F61ED6C250005584E2 /* JH_RuntimeTool.m in Sources */,
+				A982906C1F02464A00787735 /* JHInputView.m in Sources */,
 				47A56B551E53FAAA00A86F34 /* JH_ChatCoreData.xcdatamodeld in Sources */,
 				A98A3FD91ED920EB005768B6 /* JHChatBaseController.m in Sources */,
 				474A32571E52A72F008FD632 /* JH_JSQBaseChatVC.m in Sources */,

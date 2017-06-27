@@ -62,7 +62,7 @@
     [self addSubview:self.scrollView];
     [self.scrollView addSubview:self.imageView];
     [self.imageView sd_setShowActivityIndicatorView:YES];
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"p1.jpg"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"p0.jpg"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         
         weakSelf.imageSize = CGSizeMake(image.size.width, image.size.height);
         weakSelf.imageView.frame = CGRectMake(0, 0, _imageSize.width,_imageSize.height);
