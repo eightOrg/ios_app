@@ -61,6 +61,7 @@
     if (_messageModel.message_isSelf==MessageSenderTypeReceived) {
         UIImageView *logoImage=[[UIImageView alloc] init];
         logoImage.frame=CGRectMake(10, masTop, 40, 40);
+        logoImage.image = [UIImage imageNamed:@"button_pic_r@2x"];
         //        [logoImage setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:DEF_ICON]];
         [self.contentView addSubview:logoImage];
         
@@ -98,6 +99,7 @@
         
         UIImageView *logoImage=[[UIImageView alloc] init];
         logoImage.frame=CGRectMake(JHSCREENWIDTH-10-40, masTop, 40, 40);
+        logoImage.image = [UIImage imageNamed:@"button_pic@2x"];
 //        [logoImage setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:DEF_ICON]];
         [self.contentView addSubview:logoImage];
         

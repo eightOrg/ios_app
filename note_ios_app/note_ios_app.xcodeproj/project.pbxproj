@@ -81,6 +81,10 @@
 		A98A3FD91ED920EB005768B6 /* JHChatBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FD71ED920EB005768B6 /* JHChatBaseController.m */; };
 		A98A3FE01ED924A0005768B6 /* JHChatBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FDF1ED924A0005768B6 /* JHChatBaseViewModel.m */; };
 		A98A3FE31ED924FD005768B6 /* JHChatBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FE21ED924FD005768B6 /* JHChatBaseCell.m */; };
+		A998D2301F0241BE002608D2 /* p1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A998D22F1F0241BE002608D2 /* p1.jpg */; };
+		A998D2321F0241F7002608D2 /* button_pic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A998D2311F0241F7002608D2 /* button_pic@2x.png */; };
+		A998D2341F024225002608D2 /* button_pic_r@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A998D2331F024225002608D2 /* button_pic_r@2x.png */; };
+		A998D2361F0242BE002608D2 /* p0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A998D2351F0242BE002608D2 /* p0.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -259,6 +263,10 @@
 		A98A3FDF1ED924A0005768B6 /* JHChatBaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseViewModel.m; sourceTree = "<group>"; };
 		A98A3FE11ED924FD005768B6 /* JHChatBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseCell.h; sourceTree = "<group>"; };
 		A98A3FE21ED924FD005768B6 /* JHChatBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseCell.m; sourceTree = "<group>"; };
+		A998D22F1F0241BE002608D2 /* p1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = p1.jpg; sourceTree = "<group>"; };
+		A998D2311F0241F7002608D2 /* button_pic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_pic@2x.png"; sourceTree = "<group>"; };
+		A998D2331F024225002608D2 /* button_pic_r@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_pic_r@2x.png"; sourceTree = "<group>"; };
+		A998D2351F0242BE002608D2 /* p0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = p0.jpg; sourceTree = "<group>"; };
 		DBF618F96F45F01FD5E45D73 /* Pods-note_ios_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-note_ios_app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-note_ios_app/Pods-note_ios_app.debug.xcconfig"; sourceTree = "<group>"; };
 		FA8AC8B80F125B5155B5CDFB /* libPods-note_ios_app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-note_ios_app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -387,9 +395,9 @@
 		47B830171DC44AB500969523 /* note_ios_app */ = {
 			isa = PBXGroup;
 			children = (
+				A998D22E1F0241B5002608D2 /* Image */,
 				4736516B1DD3571B00397969 /* NetWork */,
 				47B8304B1DC4504600969523 /* User */,
-				47B8304C1DC4504600969523 /* Image */,
 				47B8304D1DC4504600969523 /* Framework */,
 				47A56B1D1E53EB3000A86F34 /* CoreData&SQL */,
 				47B8304E1DC4504600969523 /* Base */,
@@ -443,13 +451,6 @@
 				476BE2C41E56C9C900D41377 /* UserInfoManager.m */,
 			);
 			path = User;
-			sourceTree = "<group>";
-		};
-		47B8304C1DC4504600969523 /* Image */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Image;
 			sourceTree = "<group>";
 		};
 		47B8304D1DC4504600969523 /* Framework */ = {
@@ -717,6 +718,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A998D22E1F0241B5002608D2 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				A998D22F1F0241BE002608D2 /* p1.jpg */,
+				A998D2311F0241F7002608D2 /* button_pic@2x.png */,
+				A998D2331F024225002608D2 /* button_pic_r@2x.png */,
+				A998D2351F0242BE002608D2 /* p0.jpg */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -834,6 +846,10 @@
 				47D84DBE1E514A8C009C6C2A /* p0.jpg in Resources */,
 				47B830251DC44AB500969523 /* Assets.xcassets in Resources */,
 				4766FC421E5E950200F2221E /* JHMapLocationVC.xib in Resources */,
+				A998D2361F0242BE002608D2 /* p0.jpg in Resources */,
+				A998D2321F0241F7002608D2 /* button_pic@2x.png in Resources */,
+				A998D2301F0241BE002608D2 /* p1.jpg in Resources */,
+				A998D2341F024225002608D2 /* button_pic_r@2x.png in Resources */,
 				47D84DB21E51464E009C6C2A /* JHChatFriendCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
