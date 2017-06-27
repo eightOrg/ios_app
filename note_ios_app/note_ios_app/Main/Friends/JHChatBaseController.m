@@ -22,12 +22,15 @@
         _viewModel = [[JHChatBaseViewModel alloc] init];
     }
     [self.view addSubview:self.tableView];
+    [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
     [self _freshData];
 }
 #pragma mark - UI (creatSubView and layout)
 -(UITableView *)tableView{
     if (_tableView==nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, JHSCREENWIDTH, JHSCREENHEIGHT) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.delegate   = self;
         _tableView.dataSource = self;
     }

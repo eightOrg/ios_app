@@ -73,7 +73,6 @@
 		A933D9FC1ED6C315005584E2 /* MBProgressHUD+MyInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9FB1ED6C315005584E2 /* MBProgressHUD+MyInterface.m */; };
 		A933D9FF1ED6C47C005584E2 /* UIImage+ChangeToSize.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9FE1ED6C47C005584E2 /* UIImage+ChangeToSize.m */; };
 		A933DA021ED6C4FC005584E2 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = A933DA011ED6C4FC005584E2 /* UIViewExt.m */; };
-		A933DA041ED6C541005584E2 /* p1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A933DA031ED6C541005584E2 /* p1.jpg */; };
 		A94FBEA21ED972DC00AA5763 /* JHChatBaseCellText.m in Sources */ = {isa = PBXBuildFile; fileRef = A94FBEA11ED972DC00AA5763 /* JHChatBaseCellText.m */; };
 		A94FBEA51ED9745000AA5763 /* JHChatBaseCellVoice.m in Sources */ = {isa = PBXBuildFile; fileRef = A94FBEA41ED9745000AA5763 /* JHChatBaseCellVoice.m */; };
 		A94FBEA81ED9745D00AA5763 /* JHChatBaseCellImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A94FBEA71ED9745D00AA5763 /* JHChatBaseCellImage.m */; };
@@ -244,7 +243,6 @@
 		A933D9FE1ED6C47C005584E2 /* UIImage+ChangeToSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ChangeToSize.m"; sourceTree = "<group>"; };
 		A933DA001ED6C4FC005584E2 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
 		A933DA011ED6C4FC005584E2 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
-		A933DA031ED6C541005584E2 /* p1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = p1.jpg; path = "../../../../../../../zsxcWeb/iOS/掌上行车/Classes/Images/p1.jpg"; sourceTree = "<group>"; };
 		A94FBEA01ED972DC00AA5763 /* JHChatBaseCellText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseCellText.h; sourceTree = "<group>"; };
 		A94FBEA11ED972DC00AA5763 /* JHChatBaseCellText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseCellText.m; sourceTree = "<group>"; };
 		A94FBEA31ED9745000AA5763 /* JHChatBaseCellVoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseCellVoice.h; sourceTree = "<group>"; };
@@ -450,7 +448,6 @@
 		47B8304C1DC4504600969523 /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				A933DA031ED6C541005584E2 /* p1.jpg */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -837,7 +834,6 @@
 				47D84DBE1E514A8C009C6C2A /* p0.jpg in Resources */,
 				47B830251DC44AB500969523 /* Assets.xcassets in Resources */,
 				4766FC421E5E950200F2221E /* JHMapLocationVC.xib in Resources */,
-				A933DA041ED6C541005584E2 /* p1.jpg in Resources */,
 				47D84DB21E51464E009C6C2A /* JHChatFriendCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

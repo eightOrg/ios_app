@@ -14,7 +14,7 @@
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self =  [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.contentView.backgroundColor = [UIColor redColor];
+//        self.contentView.backgroundColor = [UIColor redColor];
     }
     return self;
 }
@@ -29,12 +29,12 @@
     // 是发送还是接受
     CGFloat masTop=10;
     
-    if (_messageModel.message_isShowTime) {
+    if (!_messageModel.message_isShowTime) {
         
         masTop=37;
         
         UILabel *timeLabel=[[UILabel alloc] init];
-        timeLabel.font=[UIFont fontWithName:FONT_REGULAR size:10];
+        timeLabel.font=[UIFont systemFontOfSize:10];
         timeLabel.backgroundColor=COLOR_cecece;
         timeLabel.textColor=COLOR_ffffff;
         timeLabel.text= [NSString changeTimeIntervalToMinute:@(_messageModel.message_time)];
@@ -102,7 +102,7 @@
         [self.contentView addSubview:logoImage];
         
         CGFloat maxWith=JHSCREENWIDTH-LEFT_WITH-RIGHT_WITH-14-12-4;
-        UIFont *textFont=[UIFont fontWithName:FONT_REGULAR size:16];
+        UIFont *textFont=[UIFont systemFontOfSize:14];
         NSDictionary *attributes = @{NSFontAttributeName: textFont};
         CGRect rect = [_messageModel.message_text boundingRectWithSize:CGSizeMake(maxWith, MAXFLOAT)
                        
