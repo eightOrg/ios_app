@@ -9,7 +9,7 @@
 #import "JHChatBaseController.h"
 #import "JHInputView.h"
 #import <IQKeyboardManager.h>
-@interface JHChatBaseController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
+@interface JHChatBaseController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,JH_ChatSendDelegate>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)JHInputView *inputView;
 @end
@@ -30,6 +30,7 @@ const static CGFloat inputViewHeight=90;
         make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(0, 0, inputViewHeight, 0));
     }];
     _inputView = [[JHInputView alloc] initWithFrame:CGRectMake(0, self.view.bottom-inputViewHeight-JH_NavigationHeight, self.view.frame.size.width, inputViewHeight)];
+    _inputView.sendDelegate = self;
     [self.view addSubview:_inputView];
     
     [self _freshData];
@@ -92,6 +93,17 @@ const static CGFloat inputViewHeight=90;
     
 }
 
+/**
+ 发送文字信息
+ */
+-(void)JHsendMessageWithText:(NSString *)text{
+    NSString *userId = [NSString stringWithFormat:@"%lld",self.viewModel.recentMessage.recentMessage_user.user_id];
+    NSString *userName = self.viewModel.recentMessage.recentMessage_user.user_name;
+    NSDate *now = [NSDate date];
+    NSString *time = [NSString stringWithFormat:@"%f",[now timeIntervalSince1970]];
+    [self.viewModel addTextMessage:text isSelf:YES userId:userId userName:userName time:time type:MessageTypeText];
+    [self.tableView reloadData];
+}
 #pragma mark - utilMethod
 /**
  *  当键盘改变了frame(位置和尺寸)的时候调用

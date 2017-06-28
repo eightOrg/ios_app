@@ -13,4 +13,6 @@
 @interface JHChatBaseViewModel : JH_ViewModelFactory
 @property(nonatomic,strong)M_RecentMessage *recentMessage;
 @property(nonatomic,strong)NSMutableArray *messageList;
+//添加文字信息
+- (void)addTextMessage:(NSString *)text isSelf:(BOOL )isSelf userId:(NSString *)userId userName:(NSString *)userName time:(NSString *)time type:(MessageType )type;
 @end

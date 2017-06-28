@@ -73,6 +73,7 @@
     if (!_textView) {
         _textView = ({
             UITextView *text = [UITextView new];
+            text.delegate = self;
             text.layer.cornerRadius = 5;
             text;
         });
@@ -86,8 +87,9 @@
             [button setTitle:@"发送" forState:0];
             button.titleLabel.font = [UIFont systemFontOfSize:15];
             [button setTitleColor:[UIColor whiteColor] forState:0];
-            [button setBackgroundColor:BaseColor];
+            [button setBackgroundColor:[UIColor lightGrayColor]];
             button.layer.cornerRadius = 5;
+            [button addTarget:self action:@selector(_sendAction) forControlEvents:UIControlEventTouchUpInside];
              button;
         });
     }
@@ -95,7 +97,37 @@
 }
 
 #pragma mark - delegate
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    return YES;
+}
+- (void)textViewDidChange:(UITextView *)textView{
+    if (textView.text.length==0) {
+        [self.sendButton setBackgroundColor:[UIColor lightGrayColor]];
+    }else{
+        [self.sendButton setBackgroundColor:BaseColor];
+    }
+}
+
 #pragma mark - utilMethod
+
+/**
+ 发送
+ */
+-(void)_sendAction{
+    if (self.textView.text.length==0) {
+        return;
+    }else{
+        if ([self.sendDelegate respondsToSelector:@selector(JHsendMessageWithText:)]) {
+            [self.sendDelegate JHsendMessageWithText:self.textView.text];
+        }
+        
+    }
+}
+
 -(NSArray *)buttonImages{
     return @[
              @"录音",

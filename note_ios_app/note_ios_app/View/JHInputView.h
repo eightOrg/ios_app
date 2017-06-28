@@ -7,12 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+//用于调出系统相册和相机的代理
+@protocol JH_ChatSendDelegate <NSObject>
+-(void)JHsendMessageWithText:(NSString *)text;
+@end
 
-@interface JHInputView : UIView
+@interface JHInputView : UIView<UITextViewDelegate>
 //输入框
 @property(nonatomic,strong)UITextView *textView;
 //发送按钮
 @property(nonatomic,strong)UIButton *sendButton;
 //四个按钮
 @property(nonatomic,strong)UIView *buttonView;
+
+@property(nonatomic,weak)id <JH_ChatSendDelegate>sendDelegate;
 @end
