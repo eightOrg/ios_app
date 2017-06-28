@@ -31,8 +31,9 @@
     return _messageList.count;
 }
 -(UITableViewCell *)JH_setUpTableViewCell:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath{
-    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
     M_MessageList *message = _messageList[indexPath.row];
+
     UITableViewCell *cell = [JHChatBaseCell cellWithTableView:tableView messageModel:message];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

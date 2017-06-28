@@ -31,6 +31,9 @@
         if (cell == nil) {
             cell= [[JHChatBaseCellText alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
         }
+        for (UIView *view in cell.contentView.subviews) {
+            [view removeFromSuperview];
+        }
         cell.messageModel = model;
         return cell;
     }else if (model.message_type == MessageTypeVoice) {
@@ -40,6 +43,9 @@
         if (cell == nil) {
             cell= [[JHChatBaseCellVoice alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
         }
+        for (UIView *view in cell.contentView.subviews) {
+            [view removeFromSuperview];
+        }
         return cell;
     }else if (model.message_type == MessageTypeImage) {
         static NSString *identifier = @"JHChatBaseCellImage";
@@ -48,6 +54,9 @@
         if (cell == nil) {
             cell= [[JHChatBaseCellImage alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
         }
+        for (UIView *view in cell.contentView.subviews) {
+            [view removeFromSuperview];
+        }
         return cell;
     }else if (model.message_type == MessageTypeLocation){
         static NSString *identifier = @"JHChatBaseCellLocation";
@@ -55,6 +64,9 @@
         
         if (cell == nil) {
             cell= [[JHChatBaseCellLocation alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
+        }
+        for (UIView *view in cell.contentView.subviews) {
+            [view removeFromSuperview];
         }
         return cell;
     }
