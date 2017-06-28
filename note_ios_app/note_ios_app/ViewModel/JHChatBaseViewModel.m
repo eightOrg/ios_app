@@ -81,7 +81,7 @@
     
     NSArray *messages = dic[@"user"][@"messages"];
     //插入页面数据
-    M_MessageList *newMessage = [M_MessageList mj_objectWithKeyValues:[messages firstObject]];
+    M_MessageList *newMessage = [JH_ChatMessageHelper _addNewMessageForUser:nil withData:messages[0]];
     [_messageList addObject:newMessage];
     //消息页面数据更新
     [self sendNotificationForDataFresh];

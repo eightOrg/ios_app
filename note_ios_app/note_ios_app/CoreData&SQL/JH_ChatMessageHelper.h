@@ -31,6 +31,10 @@ typedef NS_OPTIONS(NSUInteger, MessageSenderType) {
 @interface JH_ChatMessageHelper : NSObject
 #pragma mark - 添加数据
 +(void)_addNewData:(NSDictionary *)data;
+/**
+ 创建一条信息
+ */
++(M_MessageList *)_addNewMessageForUser:(NSString *)user withData:(NSDictionary *)oneMessage;
 #pragma mark - 删除数据
 +(void)_deleteData:(NSArray *)objectResults;
 #pragma mark - 查询数据(暂时使用全部搜索)

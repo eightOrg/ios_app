@@ -97,12 +97,15 @@ const static CGFloat inputViewHeight=90;
  发送文字信息
  */
 -(void)JHsendMessageWithText:(NSString *)text{
+
     NSString *userId = [NSString stringWithFormat:@"%lld",self.viewModel.recentMessage.recentMessage_user.user_id];
     NSString *userName = self.viewModel.recentMessage.recentMessage_user.user_name;
     NSDate *now = [NSDate date];
     NSString *time = [NSString stringWithFormat:@"%f",[now timeIntervalSince1970]];
     [self.viewModel addTextMessage:text isSelf:YES userId:userId userName:userName time:time type:MessageTypeText];
-    [self.tableView reloadData];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.viewModel.messageList.count-1 inSection:0]] withRowAnimation:0];
+    [self.view endEditing:YES];
+//    [self.view resignFirstResponder];
 }
 #pragma mark - utilMethod
 /**
@@ -146,7 +149,7 @@ const static CGFloat inputViewHeight=90;
     [_viewModel JH_loadTableDataWithData:nil completionHandle:^(id result) {
         
         [weakSelf.tableView reloadData];
-        
+        [weakSelf scrollTableViewToBottom];
     } errorHandle:^(NSError *error) {
         
     }];

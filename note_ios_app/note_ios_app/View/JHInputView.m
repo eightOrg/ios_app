@@ -123,6 +123,7 @@
     }else{
         if ([self.sendDelegate respondsToSelector:@selector(JHsendMessageWithText:)]) {
             [self.sendDelegate JHsendMessageWithText:self.textView.text];
+            self.textView.text = @"";
         }
         
     }

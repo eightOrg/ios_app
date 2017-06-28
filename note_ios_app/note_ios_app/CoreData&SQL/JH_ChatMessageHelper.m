@@ -73,6 +73,19 @@
     NSLog(@"%@",NSHomeDirectory());
     
 }
+/**
+ 创建一条信息
+ */
++(M_MessageList *)_addNewMessageForUser:(NSString *)user withData:(NSDictionary *)oneMessage{
+    M_MessageList *message = [NSEntityDescription insertNewObjectForEntityForName:JH_M_MessageList inManagedObjectContext:kManagedObjectContext];
+    message.message_time = [oneMessage[@"time"] longLongValue];
+    message.message_type = [oneMessage[@"type"] longLongValue];
+    message.message_text = oneMessage[@"text"];
+    message.message_path = oneMessage[@"path"];
+    message.message_isSelf = [oneMessage[@"isSelf"]isEqual:@(MessageSenderTypeSend)]?true:false;
+    
+    return message;
+}
 #pragma mark - 删除数据
 +(void)_deleteData:(NSArray *)objectResults{
     if (objectResults && objectResults.count > 0 ) {
