@@ -126,6 +126,37 @@
         return objectResults;
         
 }
+
+/**
+ 限定数量查询数据
+
+ @param limit 限定数量
+ */
++(NSArray *)_searchDataWithLimit:(NSInteger)limit{
+    /**
+     数据查询数据（全部）
+     */
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:JH_M_RecentMessage
+                                   
+                                              inManagedObjectContext:kManagedObjectContext];
+    
+    //限定查询数量
+    [request setFetchLimit:limit];
+    
+    [request setEntity:entity];
+    
+    NSError *error = nil;
+    
+    NSArray *objectResults = [kManagedObjectContext
+                              
+                              executeFetchRequest:request
+                              
+                              error:&error];
+    return objectResults;
+    
+}
 #pragma mark - 查询单个用户历史信息数据(暂时使用全部搜索)
 +(NSArray *)_searchDataByUserId:(NSString *)userId{
     NSFetchRequest *request = [M_RecentMessage fetchRequest];

@@ -39,6 +39,12 @@ typedef NS_OPTIONS(NSUInteger, MessageSenderType) {
 +(void)_deleteData:(NSArray *)objectResults;
 #pragma mark - 查询数据(暂时使用全部搜索)
 +(NSArray *)_searchData;
+/**
+ 限定数量查询数据
+ 
+ @param limit 限定数量
+ */
++(NSArray *)_searchDataWithLimit:(NSInteger)limit;
 #pragma mark - 更新数据
 +(void)_updateData:(M_RecentMessage *)data;
 
