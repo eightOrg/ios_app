@@ -101,7 +101,7 @@ const static CGFloat inputViewHeight=90;
     NSString *userId = [NSString stringWithFormat:@"%lld",self.viewModel.recentMessage.recentMessage_user.user_id];
     NSString *userName = self.viewModel.recentMessage.recentMessage_user.user_name;
     NSDate *now = [NSDate date];
-    NSString *time = [NSString stringWithFormat:@"%f",[now timeIntervalSince1970]];
+    NSString *time = [NSString stringWithFormat:@"%ld",(long)[now timeIntervalSince1970]];
     [self.viewModel addTextMessage:text isSelf:YES userId:userId userName:userName time:time type:MessageTypeText];
     [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.viewModel.messageList.count-1 inSection:0]] withRowAnimation:0];
     [self.view endEditing:YES];

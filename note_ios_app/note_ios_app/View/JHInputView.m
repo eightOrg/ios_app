@@ -73,6 +73,7 @@
     if (!_textView) {
         _textView = ({
             UITextView *text = [UITextView new];
+            text.font = [UIFont systemFontOfSize:16];
             text.delegate = self;
             text.layer.cornerRadius = 5;
             text;

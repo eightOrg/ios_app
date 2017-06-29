@@ -104,7 +104,7 @@ static CGFloat headerHeight = 0.1;
  */
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    M_RecentMessage *message = _viewModel.chatMessageData[indexPath.row];
+    M_RecentMessage *message = _viewModel.chatMessageModelList[indexPath.row];
     
     // 从文件中删除
     //获取路径

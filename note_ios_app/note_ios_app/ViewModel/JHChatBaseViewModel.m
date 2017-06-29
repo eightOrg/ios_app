@@ -71,6 +71,7 @@
                                               @"text":isPath?@"":textOfPath,
                                               @"path":isPath?textOfPath:@"",
                                               @"isSelf":isSelf?@1:@0,
+                                              @"isShowTime":@1,
                                               }
                                           ]
                                   }

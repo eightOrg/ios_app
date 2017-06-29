@@ -28,7 +28,10 @@
                 message.message_text = oneMessage[@"text"];
                 message.message_path = oneMessage[@"path"];
                 message.message_isSelf = [oneMessage[@"isSelf"]isEqual:@(MessageSenderTypeSend)]?true:false;
+                message.message_isShowTime = [oneMessage[@"isShowTime"]isEqual:@(1)]?true:false;
                 [recentMessage.recentMessage_user addUser_messageObject:message];
+                recentMessage.recent_message_num = [data[@"num"] longLongValue];
+                recentMessage.recent_message_time = [data[@"time"] longLongValue];
             }
             //同步数据库
             [[JH_ChatMessageManager sharedInstance] saveContext]; //插入 保存
@@ -52,6 +55,7 @@
         message.message_text = oneMessage[@"text"];
         message.message_path = oneMessage[@"path"];
         message.message_isSelf = [oneMessage[@"isSelf"]isEqual:@(MessageSenderTypeSend)]?true:false;
+        message.message_isShowTime = [oneMessage[@"isShowTime"]isEqual:@(1)]?true:false;
         message.message_user = userInfo;
         [userInfo addUser_messageObject:message];
     }
@@ -83,7 +87,7 @@
     message.message_text = oneMessage[@"text"];
     message.message_path = oneMessage[@"path"];
     message.message_isSelf = [oneMessage[@"isSelf"]isEqual:@(MessageSenderTypeSend)]?true:false;
-    
+    message.message_isShowTime = [oneMessage[@"isShowTime"]isEqual:@(1)]?true:false;
     return message;
 }
 #pragma mark - 删除数据
