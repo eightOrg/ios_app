@@ -7,7 +7,7 @@
 //
 
 #import "JHInputView.h"
-
+#import "JHMapLocationVC.h"
 @implementation JHInputView
 
 #pragma mark - system (systemMethod override)
@@ -35,7 +35,8 @@
         NSString *imageName = [self buttonImages][i];
         
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(space*(i+1)+(buttonViewHeight-buttonInset*2)*i, buttonInset, buttonViewHeight-buttonInset*2, buttonViewHeight-buttonInset*2)];
-        
+        button.tag = i;
+        [button addTarget:self action:@selector(_additionButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [_buttonView addSubview:button];
         [button setImage:[UIImage imageNamed:imageName] forState:0];
     }
@@ -114,6 +115,44 @@
 }
 
 #pragma mark - utilMethod
+
+/**
+ 四个附加信息
+ */
+-(void)_additionButtonAction:(UIButton *)btn{
+    //录音，相册，拍照，定位
+    switch (btn.tag) {
+        case 0:
+            
+            break;
+        case 1:
+            
+            break;
+        case 2:
+            
+            break;
+        case 3:
+        {
+            JHMapLocationVC *location = [[JHMapLocationVC alloc] init];
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:location];
+            [self.viewController.navigationController presentViewController:nav animated:YES completion:^{
+                
+            }];
+            WeakSelf
+            [location setLocationBlock:^(double latitude, double longitude){
+                if ([weakSelf.sendDelegate respondsToSelector:@selector(JHsendMessageWithLocationWithLatitude:withlongitude:)]) {
+                    [weakSelf.sendDelegate JHsendMessageWithLocationWithLatitude:latitude withlongitude:longitude];
+                }
+            }];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+}
 
 /**
  发送

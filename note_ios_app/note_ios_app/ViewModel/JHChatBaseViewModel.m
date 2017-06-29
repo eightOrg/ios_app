@@ -42,9 +42,10 @@
     CGFloat height = [JHChatBaseCell tableHeightWithModel:_messageList[indexPath.row]];
     return height;
 }
--(void)disSelectRowWithIndexPath:(NSIndexPath *)indexPath WithHandle:(void (^)())completionBlock{
+-(void)disSelectRowWithIndexPath:(NSIndexPath *)indexPath WithHandle:(void (^)(id result))completionBlock{
+    M_MessageList *message = _messageList[indexPath.row];
     
-    completionBlock();
+    completionBlock(@(message.message_type));
 }
 #pragma mark - 数据处理
 /**
@@ -92,5 +93,16 @@
 - (void)addTextMessage:(NSString *)text isSelf:(BOOL )isSelf userId:(NSString *)userId userName:(NSString *)userName time:(NSString *)time type:(MessageType )type{
     //存储数据库
     [self _setMessageDictionary:text isPath:NO isSelf:isSelf userId:userId userName:userName time:time type:MessageTypeText];
+}
+//添加定位信息(123/123)中间分隔为“/”
+- (void)addLocationMessage:(NSString *)locationString isSelf:(BOOL )isSelf userId:(NSString *)userId userName:(NSString *)userName time:(NSString *)time type:(MessageType )type completionBlock:(void (^)())completion{
+    //将locationString分解
+//    NSArray *locationArray = [locationString componentsSeparatedByString:@"/"];
+//    
+    //存储数据库
+    [self _setMessageDictionary:locationString isPath:NO isSelf:isSelf userId:userId userName:userName time:time type:MessageTypeLocation];
+    
+    completion();
+    
 }
 @end

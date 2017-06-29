@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "note_ios_app/ViewModel/JHChatBaseViewModel.m"
-            timestampString = "520401403.337621"
+            timestampString = "520417634.135203"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "-_setMessageDictionary:isPath:isSelf:userId:userName:time:type:"
             landmarkType = "7">
          </BreakpointContent>

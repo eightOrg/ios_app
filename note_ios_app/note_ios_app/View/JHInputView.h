@@ -10,6 +10,7 @@
 //用于调出系统相册和相机的代理
 @protocol JH_ChatSendDelegate <NSObject>
 -(void)JHsendMessageWithText:(NSString *)text;
+-(void)JHsendMessageWithLocationWithLatitude:(double)latitude withlongitude:(double)longitude;
 @end
 
 @interface JHInputView : UIView<UITextViewDelegate>

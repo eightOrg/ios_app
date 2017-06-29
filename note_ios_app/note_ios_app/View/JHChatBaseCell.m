@@ -68,6 +68,7 @@
         for (UIView *view in cell.contentView.subviews) {
             [view removeFromSuperview];
         }
+        cell.messageModel = model;
         return cell;
     }
     
@@ -77,7 +78,7 @@
 +(CGFloat)tableHeightWithModel:(M_MessageList *)model{
     CGFloat masTop=10;
     
-    if (!model.message_isShowTime) {
+    if (model.message_isShowTime) {
         
         masTop=37;
         
@@ -113,7 +114,7 @@
     }else if (model.message_type == MessageTypeImage) {
         return 150;
     }else if (model.message_type == MessageTypeLocation){
-        return 100;
+        return JHSCREENWIDTH/2*2/3+26+masTop+20;
     }
     return 50;
 }

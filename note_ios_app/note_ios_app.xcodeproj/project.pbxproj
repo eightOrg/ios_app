@@ -85,6 +85,9 @@
 		A998D2321F0241F7002608D2 /* button_pic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A998D2311F0241F7002608D2 /* button_pic@2x.png */; };
 		A998D2341F024225002608D2 /* button_pic_r@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A998D2331F024225002608D2 /* button_pic_r@2x.png */; };
 		A998D2361F0242BE002608D2 /* p0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A998D2351F0242BE002608D2 /* p0.jpg */; };
+		A99CBD951F04DCF6009B3964 /* JH_PrivateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A99CBD941F04DCF6009B3964 /* JH_PrivateHelper.m */; };
+		A99CBD981F04DDDF009B3964 /* JH_CommonInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = A99CBD971F04DDDF009B3964 /* JH_CommonInterface.m */; };
+		A99CBD9B1F04DE4E009B3964 /* JHAlertControllerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A99CBD9A1F04DE4E009B3964 /* JHAlertControllerTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -269,6 +272,12 @@
 		A998D2311F0241F7002608D2 /* button_pic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_pic@2x.png"; sourceTree = "<group>"; };
 		A998D2331F024225002608D2 /* button_pic_r@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_pic_r@2x.png"; sourceTree = "<group>"; };
 		A998D2351F0242BE002608D2 /* p0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = p0.jpg; sourceTree = "<group>"; };
+		A99CBD931F04DCF6009B3964 /* JH_PrivateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_PrivateHelper.h; sourceTree = "<group>"; };
+		A99CBD941F04DCF6009B3964 /* JH_PrivateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_PrivateHelper.m; sourceTree = "<group>"; };
+		A99CBD961F04DDDF009B3964 /* JH_CommonInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_CommonInterface.h; sourceTree = "<group>"; };
+		A99CBD971F04DDDF009B3964 /* JH_CommonInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_CommonInterface.m; sourceTree = "<group>"; };
+		A99CBD991F04DE4E009B3964 /* JHAlertControllerTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHAlertControllerTool.h; sourceTree = "<group>"; };
+		A99CBD9A1F04DE4E009B3964 /* JHAlertControllerTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHAlertControllerTool.m; sourceTree = "<group>"; };
 		DBF618F96F45F01FD5E45D73 /* Pods-note_ios_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-note_ios_app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-note_ios_app/Pods-note_ios_app.debug.xcconfig"; sourceTree = "<group>"; };
 		FA8AC8B80F125B5155B5CDFB /* libPods-note_ios_app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-note_ios_app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -307,12 +316,18 @@
 		4720F72F1E559CFC0011D677 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				A99CBD961F04DDDF009B3964 /* JH_CommonInterface.h */,
+				A99CBD971F04DDDF009B3964 /* JH_CommonInterface.m */,
 				A933DA001ED6C4FC005584E2 /* UIViewExt.h */,
 				A933DA011ED6C4FC005584E2 /* UIViewExt.m */,
 				4720F7301E559D0C0011D677 /* JH_FileManager.h */,
 				4720F7311E559D0C0011D677 /* JH_FileManager.m */,
 				47BCDABD1E6025B6000C8E89 /* JH_CalculateUtil.h */,
 				47BCDABE1E6025B6000C8E89 /* JH_CalculateUtil.m */,
+				A99CBD931F04DCF6009B3964 /* JH_PrivateHelper.h */,
+				A99CBD941F04DCF6009B3964 /* JH_PrivateHelper.m */,
+				A99CBD991F04DE4E009B3964 /* JHAlertControllerTool.h */,
+				A99CBD9A1F04DE4E009B3964 /* JHAlertControllerTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -977,7 +992,9 @@
 				47B8301A1DC44AB500969523 /* main.m in Sources */,
 				47D84DC41E516405009C6C2A /* JHChatFriendItem.m in Sources */,
 				47D84DC11E515523009C6C2A /* JHChatFriendViewModel.m in Sources */,
+				A99CBD951F04DCF6009B3964 /* JH_PrivateHelper.m in Sources */,
 				4720F7321E559D0C0011D677 /* JH_FileManager.m in Sources */,
+				A99CBD981F04DDDF009B3964 /* JH_CommonInterface.m in Sources */,
 				47D84DC71E518011009C6C2A /* JHChatFriendGroupView.m in Sources */,
 				47BCDABF1E6025B6000C8E89 /* JH_CalculateUtil.m in Sources */,
 				A98A3FE01ED924A0005768B6 /* JHChatBaseViewModel.m in Sources */,
@@ -986,6 +1003,7 @@
 				474A32671E52F552008FD632 /* UIView+UIViewController.m in Sources */,
 				478F69591DC8BBE2001E9569 /* JHNoteVC.m in Sources */,
 				A98A3FCE1ED9147F005768B6 /* JH_ViewModelFactory.m in Sources */,
+				A99CBD9B1F04DE4E009B3964 /* JHAlertControllerTool.m in Sources */,
 				47B8305E1DC451CA00969523 /* JHBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

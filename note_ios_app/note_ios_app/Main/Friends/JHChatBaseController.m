@@ -8,6 +8,7 @@
 
 #import "JHChatBaseController.h"
 #import "JHInputView.h"
+#import "JHMapLocationVC.h"
 #import <IQKeyboardManager.h>
 @interface JHChatBaseController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,JH_ChatSendDelegate>
 @property(nonatomic,strong)UITableView *tableView;
@@ -81,7 +82,20 @@ const static CGFloat inputViewHeight=90;
  选中
  */
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [_viewModel disSelectRowWithIndexPath:indexPath WithHandle:^{
+    WeakSelf
+    [_viewModel disSelectRowWithIndexPath:indexPath WithHandle:^(id result){
+        M_MessageList *message = weakSelf.viewModel.messageList[indexPath.row];
+        if ([result isEqual:@(MessageTypeLocation)]) {
+            NSArray *locationArr = [message.message_text componentsSeparatedByString:@"/"];
+            
+            CLLocation *location = [[CLLocation alloc] initWithLatitude:[locationArr[0] doubleValue] longitude:[locationArr[1] doubleValue]];
+            JHMapLocationVC *locationVC = [[JHMapLocationVC alloc] init];
+            locationVC.userLocation = location;
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:locationVC];
+            [weakSelf.navigationController presentViewController:nav animated:YES completion:^{
+                
+            }];
+        }
         
     }];
     
@@ -106,6 +120,23 @@ const static CGFloat inputViewHeight=90;
     [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.viewModel.messageList.count-1 inSection:0]] withRowAnimation:0];
     [self.view endEditing:YES];
 //    [self.view resignFirstResponder];
+}
+/**
+ 发送定位
+ */
+-(void)JHsendMessageWithLocationWithLatitude:(double)latitude withlongitude:(double)longitude{
+    NSString *userId = [NSString stringWithFormat:@"%lld",self.viewModel.recentMessage.recentMessage_user.user_id];
+    NSString *userName = self.viewModel.recentMessage.recentMessage_user.user_name;
+    NSDate *now = [NSDate date];
+    NSString *time = [NSString stringWithFormat:@"%ld",(long)[now timeIntervalSince1970]];
+    NSString *locationStr = [NSString stringWithFormat:@"%f/%f",latitude,longitude];
+    WeakSelf
+    [self.viewModel addLocationMessage:locationStr isSelf:YES userId:userId userName:userName time:time type:MessageTypeLocation completionBlock:^{
+        
+        [weakSelf.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.viewModel.messageList.count-1 inSection:0]] withRowAnimation:0];
+    }];
+    [self.view endEditing:YES];
+    [self scrollTableViewToBottom];
 }
 #pragma mark - utilMethod
 /**

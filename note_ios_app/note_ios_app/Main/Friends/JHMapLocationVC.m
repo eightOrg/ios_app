@@ -38,6 +38,7 @@
 -(void)_setNavigationItem{
     if (self.userLocation) {
         self.title = @"路线";
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:0 target:self action:@selector(_cancelAction)];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"导航" style:0 target:self action:@selector(_navigationAction)];
         return;
     }
@@ -175,8 +176,7 @@
     [_geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         CLPlacemark *placemark= [placemarks firstObject];
         _labAddressName.text = placemark.name;
-        _labAddressDetail.text = placemark.thoroughfare?placemark.thoroughfare:@"";
-        NSLog(@"详细信息:%@",placemark.addressDictionary);
+        _labAddressDetail.text = [placemark.addressDictionary[@"FormattedAddressLines"]firstObject ];
         
     }];
 }
