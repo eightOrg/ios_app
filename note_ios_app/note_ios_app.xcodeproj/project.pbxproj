@@ -77,6 +77,9 @@
 		A982906C1F02464A00787735 /* JHInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A982906B1F02464A00787735 /* JHInputView.m */; };
 		A98A1D941F05E985009E9A06 /* JHImageViewerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A1D931F05E985009E9A06 /* JHImageViewerWindow.m */; };
 		A98A1D971F05E99D009E9A06 /* JH_RuntimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A1D961F05E99D009E9A06 /* JH_RuntimeTool.m */; };
+		A98A1D9B1F063F27009E9A06 /* 正在录音.png in Resources */ = {isa = PBXBuildFile; fileRef = A98A1D981F063F27009E9A06 /* 正在录音.png */; };
+		A98A1D9C1F063F27009E9A06 /* 暂停录音.png in Resources */ = {isa = PBXBuildFile; fileRef = A98A1D991F063F27009E9A06 /* 暂停录音.png */; };
+		A98A1D9D1F063F27009E9A06 /* 点击录音.png in Resources */ = {isa = PBXBuildFile; fileRef = A98A1D9A1F063F27009E9A06 /* 点击录音.png */; };
 		A98A3FCE1ED9147F005768B6 /* JH_ViewModelFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FCD1ED9147F005768B6 /* JH_ViewModelFactory.m */; };
 		A98A3FD91ED920EB005768B6 /* JHChatBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FD71ED920EB005768B6 /* JHChatBaseController.m */; };
 		A98A3FE01ED924A0005768B6 /* JHChatBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FDF1ED924A0005768B6 /* JHChatBaseViewModel.m */; };
@@ -260,6 +263,9 @@
 		A98A1D931F05E985009E9A06 /* JHImageViewerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHImageViewerWindow.m; sourceTree = "<group>"; };
 		A98A1D951F05E99D009E9A06 /* JH_RuntimeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_RuntimeTool.h; sourceTree = "<group>"; };
 		A98A1D961F05E99D009E9A06 /* JH_RuntimeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_RuntimeTool.m; sourceTree = "<group>"; };
+		A98A1D981F063F27009E9A06 /* 正在录音.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "正在录音.png"; sourceTree = "<group>"; };
+		A98A1D991F063F27009E9A06 /* 暂停录音.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "暂停录音.png"; sourceTree = "<group>"; };
+		A98A1D9A1F063F27009E9A06 /* 点击录音.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "点击录音.png"; sourceTree = "<group>"; };
 		A98A3FCC1ED9147F005768B6 /* JH_ViewModelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_ViewModelFactory.h; sourceTree = "<group>"; };
 		A98A3FCD1ED9147F005768B6 /* JH_ViewModelFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_ViewModelFactory.m; sourceTree = "<group>"; };
 		A98A3FD61ED920EB005768B6 /* JHChatBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseController.h; sourceTree = "<group>"; };
@@ -740,6 +746,9 @@
 		A998D22E1F0241B5002608D2 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				A98A1D981F063F27009E9A06 /* 正在录音.png */,
+				A98A1D991F063F27009E9A06 /* 暂停录音.png */,
+				A98A1D9A1F063F27009E9A06 /* 点击录音.png */,
 				A998D22F1F0241BE002608D2 /* p1.jpg */,
 				A998D2311F0241F7002608D2 /* button_pic@2x.png */,
 				A998D2331F024225002608D2 /* button_pic_r@2x.png */,
@@ -864,11 +873,14 @@
 				47B830281DC44AB500969523 /* LaunchScreen.storyboard in Resources */,
 				47B830251DC44AB500969523 /* Assets.xcassets in Resources */,
 				4766FC421E5E950200F2221E /* JHMapLocationVC.xib in Resources */,
+				A98A1D9B1F063F27009E9A06 /* 正在录音.png in Resources */,
 				A998D2361F0242BE002608D2 /* p0.jpg in Resources */,
 				A998D2321F0241F7002608D2 /* button_pic@2x.png in Resources */,
 				A998D2301F0241BE002608D2 /* p1.jpg in Resources */,
+				A98A1D9C1F063F27009E9A06 /* 暂停录音.png in Resources */,
 				A998D2341F024225002608D2 /* button_pic_r@2x.png in Resources */,
 				47D84DB21E51464E009C6C2A /* JHChatFriendCell.xib in Resources */,
+				A98A1D9D1F063F27009E9A06 /* 点击录音.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
