@@ -81,5 +81,49 @@
     }
     return window;
 }
-
+#define MAX_IMAGE_WH JHSCREENWIDTH/2
+/*
+ 判断图片长度&宽度
+ 
+ */
++(CGSize)imageShowSize:(UIImage *)image{
+    
+    CGFloat imageWith=image.size.width;
+    CGFloat imageHeight=image.size.height;
+    
+    //宽度大于高度
+    if (imageWith>=imageHeight) {
+        // 宽度超过标准宽度
+        /*
+         if (imageWith>MAX_IMAGE_WH) {
+         
+         }else{
+         
+         }
+         */
+        
+        
+        return CGSizeMake(MAX_IMAGE_WH, imageHeight*MAX_IMAGE_WH/imageWith);
+        
+        
+    }else{
+        /*
+         if (imageHeight>MAX_IMAGE_WH) {
+         
+         }else{
+         
+         }
+         */
+        
+        
+        return CGSizeMake(imageWith*MAX_IMAGE_WH/imageHeight, MAX_IMAGE_WH);
+        
+    }
+    
+    
+    
+    
+    
+    return CGSizeZero;
+}
 @end

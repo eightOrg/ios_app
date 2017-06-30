@@ -11,6 +11,7 @@
 @implementation JHChatBaseCell
 #define LEFT_WITH (JHSCREENWIDTH>750?55:52.5)
 #define RIGHT_WITH (JHSCREENWIDTH>750?89:73)
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     
@@ -113,7 +114,15 @@
     }else if (model.message_type == MessageTypeVoice) {
         return 50;
     }else if (model.message_type == MessageTypeImage) {
-        return JHSCREENWIDTH/2+26+masTop+20;
+        //根据路径获取图片
+        //获取图片
+        NSString *documentPath = [JH_FileManager getDocumentPath];
+        NSString *imagePath = model.message_path;
+        
+        UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@%@",documentPath,imagePath]];
+        CGSize imageSize = [JH_CommonInterface imageShowSize:image];
+        return imageSize.height+26+masTop+20;
+        
     }else if (model.message_type == MessageTypeLocation){
         return JHSCREENWIDTH/2*2/3+26+masTop+20;
     }

@@ -54,7 +54,6 @@
     
     UIImageView *contextBack=[[UIImageView alloc] init];
     contextBack.userInteractionEnabled=YES;
-    CGRect rect =  CGRectMake(0, 0, JHSCREENWIDTH/2,JHSCREENWIDTH/2);
     //根据路径获取图片
     //获取图片
     NSString *documentPath = [JH_FileManager getDocumentPath];
@@ -68,34 +67,36 @@
         logoImage.image = [UIImage imageNamed:@"button_pic_r@2x"];
         //        [logoImage setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:DEF_ICON]];
         [self.contentView addSubview:logoImage];
-        contextBack.frame=CGRectMake(LEFT_WITH, masTop, rect.size.width+26, rect.size.height+26);
-        contextBack.image=[[UIImage imageNamed:@"wechatback1"] stretchableImageWithLeftCapWidth:10 topCapHeight:25];
-//        [self.contentView addSubview:contextBack];
         
-        //地图图片
-        UIImageView *mapImage = [[UIImageView alloc] initWithFrame:contextBack.frame];
-        mapImage.image = image;
-        mapImage.contentMode = UIViewContentModeScaleAspectFit;;
-        [self.contentView addSubview:mapImage];
+        CGSize imageSize=[JH_CommonInterface imageShowSize:image];
+        
+        
+        UIImageView *imageViewMask = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"wechatback1"] stretchableImageWithLeftCapWidth:10 topCapHeight:25]];
+        imageViewMask.frame = CGRectMake(0, 0, imageSize.width, imageSize.height);
+        
+        
+        
+        contextBack.frame=CGRectMake(LEFT_WITH, masTop, imageSize.width, imageSize.height);
+        contextBack.image=image;
+        contextBack.layer.mask = imageViewMask.layer;
+        [self.contentView addSubview:contextBack];
         
     }else if (_messageModel.message_isSelf==MessageSenderTypeSend) {
-        
         UIImageView *logoImage=[[UIImageView alloc] init];
         logoImage.frame=CGRectMake(JHSCREENWIDTH-10-40, masTop, 40, 40);
         logoImage.image = [UIImage imageNamed:@"button_pic@2x"];
         //        [logoImage setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:DEF_ICON]];
         [self.contentView addSubview:logoImage];
+        CGSize imageSize=[JH_CommonInterface imageShowSize:image];
         
-        contextBack.frame=CGRectMake(JHSCREENWIDTH-(rect.size.width+26)-LEFT_WITH, masTop, rect.size.width+26, rect.size.height+26);
-        contextBack.image=[[UIImage imageNamed:@"wechatback2"] stretchableImageWithLeftCapWidth:10 topCapHeight:25];
-//        [self.contentView addSubview:contextBack];
+        UIImageView *imageViewMask = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"wechatback2"] stretchableImageWithLeftCapWidth:10 topCapHeight:25]];
+        imageViewMask.frame = CGRectMake(0, 0, imageSize.width, imageSize.height);
         
-
-        //地图图片
-        UIImageView *mapImage = [[UIImageView alloc] initWithFrame:contextBack.frame];
-        mapImage.contentMode = UIViewContentModeScaleAspectFit;
-        mapImage.image = image;
-        [self.contentView addSubview:mapImage];
+        contextBack.frame=CGRectMake(JHSCREENWIDTH-LEFT_WITH-imageSize.width, masTop, imageSize.width, imageSize.height);
+        contextBack.image=image;
+        contextBack.layer.mask = imageViewMask.layer;
+        [self.contentView addSubview:contextBack];
     }
 }
+
 @end

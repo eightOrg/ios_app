@@ -23,6 +23,10 @@
  */
 +(UIViewController *)viewController :(UIResponder *)response;
 
-
+/*
+ 判断图片长度&宽度
+ 
+ */
++(CGSize)imageShowSize:(UIImage *)image;
 
 @end

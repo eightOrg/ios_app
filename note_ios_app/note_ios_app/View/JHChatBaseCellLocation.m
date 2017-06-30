@@ -63,16 +63,22 @@
         logoImage.image = [UIImage imageNamed:@"button_pic_r@2x"];
         //        [logoImage setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:DEF_ICON]];
         [self.contentView addSubview:logoImage];
-        contextBack.frame=CGRectMake(LEFT_WITH, masTop, rect.size.width+26, rect.size.height+26);
-        contextBack.image=[[UIImage imageNamed:@"wechatback1"] stretchableImageWithLeftCapWidth:10 topCapHeight:25];
-//        [self.contentView addSubview:contextBack];
        
         //地图图片
-        UIImageView *mapImage = [[UIImageView alloc] initWithFrame:contextBack.frame];
+        UIImageView *imageViewMask = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"wechatback1"] stretchableImageWithLeftCapWidth:10 topCapHeight:25]];
+        imageViewMask.frame = CGRectMake(0, 0, rect.size.width, rect.size.height);
+        //插入图标
+        UIImageView *pointView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 40)];
+        pointView.image = [UIImage imageNamed:@"map_location"];
+        pointView.center = imageViewMask.center;
+        [contextBack addSubview:pointView];
+        
         [self creatMapSnapshot:_messageModel.message_text withCompletionBlock:^(UIImage *image) {
-            mapImage.image = image;
+            contextBack.image = image;
         }];
-        [self.contentView addSubview:mapImage];
+        contextBack.frame=CGRectMake(LEFT_WITH, masTop, rect.size.width, rect.size.height);
+        contextBack.layer.mask = imageViewMask.layer;
+        [self.contentView addSubview:contextBack];
         
     }else if (_messageModel.message_isSelf==MessageSenderTypeSend) {
         
@@ -81,17 +87,24 @@
         logoImage.image = [UIImage imageNamed:@"button_pic@2x"];
         //        [logoImage setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:DEF_ICON]];
         [self.contentView addSubview:logoImage];
-        
-        contextBack.frame=CGRectMake(JHSCREENWIDTH-(rect.size.width+26)-LEFT_WITH, masTop, rect.size.width+26, rect.size.height+26);
-        contextBack.image=[[UIImage imageNamed:@"wechatback2"] stretchableImageWithLeftCapWidth:10 topCapHeight:25];
-//        [self.contentView addSubview:contextBack];
-        
+       
         //地图图片
-        UIImageView *mapImage = [[UIImageView alloc] initWithFrame:contextBack.frame];
         [self creatMapSnapshot:_messageModel.message_text withCompletionBlock:^(UIImage *image) {
-            mapImage.image = image;
+            contextBack.image=image;
         }];
-        [self.contentView addSubview:mapImage];
+        UIImageView *imageViewMask = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"wechatback2"] stretchableImageWithLeftCapWidth:10 topCapHeight:25]];
+        imageViewMask.frame = CGRectMake(0, 0, rect.size.width, rect.size.height);
+        
+        //插入图标
+        UIImageView *pointView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 40)];
+        pointView.image = [UIImage imageNamed:@"map_location"];
+        pointView.center = imageViewMask.center;
+        [contextBack addSubview:pointView];
+        
+        contextBack.frame=CGRectMake(JHSCREENWIDTH-LEFT_WITH-rect.size.width, masTop, rect.size.width, rect.size.height);
+        
+        contextBack.layer.mask = imageViewMask.layer;
+        [self.contentView addSubview:contextBack];
     }
 }
 
