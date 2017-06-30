@@ -62,7 +62,7 @@
     [self addSubview:self.scrollView];
     [self.scrollView addSubview:self.imageView];
     [self.imageView sd_setShowActivityIndicatorView:YES];
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"p0.jpg"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"p1.jpg"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         
         weakSelf.imageSize = CGSizeMake(image.size.width, image.size.height);
         weakSelf.imageView.frame = CGRectMake(0, 0, _imageSize.width,_imageSize.height);
@@ -97,6 +97,14 @@
         
         
     }];
+}
+/**
+ 设置单点消失事件
+ */
+-(void)_setOneTapDismissGesture{
+
+    _tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_cancelAction)];
+    [self addGestureRecognizer:_tap];
 }
 /**
  设置单点事件
@@ -230,7 +238,7 @@
     UIButton *cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 20, 50, 40)];
     [cancelButton setTitle:@"取消" forState:0];
     [cancelButton setTitleColor:[UIColor whiteColor] forState:0];
-    [cancelButton addTarget:self action:@selector(_cancelAction) forControlEvents:UIControlEventTouchUpInside];
+    [cancelButton addTarget:self action:@selector(_tapAction) forControlEvents:UIControlEventTouchUpInside];
     [_navView addSubview:cancelButton];
     //确定按钮
     UIButton *certainButton = [[UIButton alloc] initWithFrame:CGRectMake(self.bounds.size.width-50, 20, 50, 40)];

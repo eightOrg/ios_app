@@ -9,8 +9,6 @@
 #import "JHChatBaseCellLocation.h"
 #import <MapKit/MapKit.h>
 //#import <CoreLocation/CoreLocation.h>
-#define LEFT_WITH (JHSCREENWIDTH>750?55:52.5)
-#define RIGHT_WITH (JHSCREENWIDTH>750?89:73)
 @implementation JHChatBaseCellLocation
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -67,7 +65,7 @@
         [self.contentView addSubview:logoImage];
         contextBack.frame=CGRectMake(LEFT_WITH, masTop, rect.size.width+26, rect.size.height+26);
         contextBack.image=[[UIImage imageNamed:@"wechatback1"] stretchableImageWithLeftCapWidth:10 topCapHeight:25];
-        [self.contentView addSubview:contextBack];
+//        [self.contentView addSubview:contextBack];
        
         //地图图片
         UIImageView *mapImage = [[UIImageView alloc] initWithFrame:contextBack.frame];
@@ -86,11 +84,8 @@
         
         contextBack.frame=CGRectMake(JHSCREENWIDTH-(rect.size.width+26)-LEFT_WITH, masTop, rect.size.width+26, rect.size.height+26);
         contextBack.image=[[UIImage imageNamed:@"wechatback2"] stretchableImageWithLeftCapWidth:10 topCapHeight:25];
-        [self.contentView addSubview:contextBack];
+//        [self.contentView addSubview:contextBack];
         
-        [self creatMapSnapshot:_messageModel.message_text withCompletionBlock:^(UIImage *image) {
-            
-        }];
         //地图图片
         UIImageView *mapImage = [[UIImageView alloc] initWithFrame:contextBack.frame];
         [self creatMapSnapshot:_messageModel.message_text withCompletionBlock:^(UIImage *image) {

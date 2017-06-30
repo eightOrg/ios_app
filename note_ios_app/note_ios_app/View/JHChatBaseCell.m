@@ -57,6 +57,7 @@
         for (UIView *view in cell.contentView.subviews) {
             [view removeFromSuperview];
         }
+        cell.messageModel = model;
         return cell;
     }else if (model.message_type == MessageTypeLocation){
         static NSString *identifier = @"JHChatBaseCellLocation";
@@ -112,7 +113,7 @@
     }else if (model.message_type == MessageTypeVoice) {
         return 50;
     }else if (model.message_type == MessageTypeImage) {
-        return 150;
+        return JHSCREENWIDTH/2+26+masTop+20;
     }else if (model.message_type == MessageTypeLocation){
         return JHSCREENWIDTH/2*2/3+26+masTop+20;
     }

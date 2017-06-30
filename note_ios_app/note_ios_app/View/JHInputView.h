@@ -11,6 +11,7 @@
 @protocol JH_ChatSendDelegate <NSObject>
 -(void)JHsendMessageWithText:(NSString *)text;
 -(void)JHsendMessageWithLocationWithLatitude:(double)latitude withlongitude:(double)longitude;
+-(void)JHsendMessageWithImage:(UIImagePickerController *)picker;
 @end
 
 @interface JHInputView : UIView<UITextViewDelegate>

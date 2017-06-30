@@ -126,10 +126,10 @@
             
             break;
         case 1:
-            
+            [self _openLibrary];
             break;
         case 2:
-            
+            [self _openCamaro];
             break;
         case 3:
         {
@@ -169,6 +169,36 @@
     }
 }
 
+/**
+ 打开相机
+ */
+-(void)_openCamaro{
+    [self _getImageDatafromLibraryOrCamera:UIImagePickerControllerSourceTypeCamera];
+}
+/**
+ 打开相册
+ */
+-(void)_openLibrary{
+    [self _getImageDatafromLibraryOrCamera:UIImagePickerControllerSourceTypePhotoLibrary];
+}
+
+/**
+ 从相册中获取相片
+ */
+-(void)_getImageDatafromLibraryOrCamera:(UIImagePickerControllerSourceType )sourceType{
+    
+    //相册资源
+    UIImagePickerControllerSourceType type = sourceType;
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    //    //开启编辑
+    //    _picker.allowsEditing = YES;
+    picker.sourceType    = type;
+    if ([self.sendDelegate respondsToSelector:@selector(JHsendMessageWithImage:)]) {
+        [self.sendDelegate JHsendMessageWithImage:picker];
+    }
+    
+}
 -(NSArray *)buttonImages{
     return @[
              @"录音",

@@ -7,8 +7,7 @@
 //
 
 #import "JHChatBaseCellText.h"
-#define LEFT_WITH (JHSCREENWIDTH>750?55:52.5)
-#define RIGHT_WITH (JHSCREENWIDTH>750?89:73)
+
 @implementation JHChatBaseCellText
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{

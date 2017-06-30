@@ -22,4 +22,13 @@ typedef void(^CertainBlock)(UIImage *img) ;
  创建图片选择与取消的按钮
  */
 -(void)_setCancelAndCertainButton;
+/**
+ 设置单点消失事件
+ */
+
+-(void)_setOneTapDismissGesture;
+/**
+ 设置双击事件
+ */
+-(void)_setDoubleTapGesture;
 @end

@@ -67,8 +67,6 @@
 		A933D9ED1ED6C192005584E2 /* JH_SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9EC1ED6C192005584E2 /* JH_SearchView.m */; };
 		A933D9F01ED6C1F0005584E2 /* JHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9EF1ED6C1F0005584E2 /* JHWebViewController.m */; };
 		A933D9F31ED6C217005584E2 /* JH_NetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9F21ED6C217005584E2 /* JH_NetWorking.m */; };
-		A933D9F61ED6C250005584E2 /* JH_RuntimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9F51ED6C250005584E2 /* JH_RuntimeTool.m */; };
-		A933D9F91ED6C288005584E2 /* JHImageViewerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9F81ED6C288005584E2 /* JHImageViewerWindow.m */; };
 		A933D9FC1ED6C315005584E2 /* MBProgressHUD+MyInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9FB1ED6C315005584E2 /* MBProgressHUD+MyInterface.m */; };
 		A933D9FF1ED6C47C005584E2 /* UIImage+ChangeToSize.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9FE1ED6C47C005584E2 /* UIImage+ChangeToSize.m */; };
 		A933DA021ED6C4FC005584E2 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = A933DA011ED6C4FC005584E2 /* UIViewExt.m */; };
@@ -77,6 +75,8 @@
 		A94FBEA81ED9745D00AA5763 /* JHChatBaseCellImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A94FBEA71ED9745D00AA5763 /* JHChatBaseCellImage.m */; };
 		A94FBEAB1ED9746C00AA5763 /* JHChatBaseCellLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = A94FBEAA1ED9746C00AA5763 /* JHChatBaseCellLocation.m */; };
 		A982906C1F02464A00787735 /* JHInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A982906B1F02464A00787735 /* JHInputView.m */; };
+		A98A1D941F05E985009E9A06 /* JHImageViewerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A1D931F05E985009E9A06 /* JHImageViewerWindow.m */; };
+		A98A1D971F05E99D009E9A06 /* JH_RuntimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A1D961F05E99D009E9A06 /* JH_RuntimeTool.m */; };
 		A98A3FCE1ED9147F005768B6 /* JH_ViewModelFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FCD1ED9147F005768B6 /* JH_ViewModelFactory.m */; };
 		A98A3FD91ED920EB005768B6 /* JHChatBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FD71ED920EB005768B6 /* JHChatBaseController.m */; };
 		A98A3FE01ED924A0005768B6 /* JHChatBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FDF1ED924A0005768B6 /* JHChatBaseViewModel.m */; };
@@ -240,10 +240,6 @@
 		A933D9EF1ED6C1F0005584E2 /* JHWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHWebViewController.m; sourceTree = "<group>"; };
 		A933D9F11ED6C217005584E2 /* JH_NetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_NetWorking.h; sourceTree = "<group>"; };
 		A933D9F21ED6C217005584E2 /* JH_NetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_NetWorking.m; sourceTree = "<group>"; };
-		A933D9F41ED6C250005584E2 /* JH_RuntimeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_RuntimeTool.h; sourceTree = "<group>"; };
-		A933D9F51ED6C250005584E2 /* JH_RuntimeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_RuntimeTool.m; sourceTree = "<group>"; };
-		A933D9F71ED6C288005584E2 /* JHImageViewerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHImageViewerWindow.h; sourceTree = "<group>"; };
-		A933D9F81ED6C288005584E2 /* JHImageViewerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHImageViewerWindow.m; sourceTree = "<group>"; };
 		A933D9FA1ED6C315005584E2 /* MBProgressHUD+MyInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MyInterface.h"; sourceTree = "<group>"; };
 		A933D9FB1ED6C315005584E2 /* MBProgressHUD+MyInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MyInterface.m"; sourceTree = "<group>"; };
 		A933D9FD1ED6C47C005584E2 /* UIImage+ChangeToSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ChangeToSize.h"; sourceTree = "<group>"; };
@@ -260,6 +256,10 @@
 		A94FBEAA1ED9746C00AA5763 /* JHChatBaseCellLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseCellLocation.m; sourceTree = "<group>"; };
 		A982906A1F02464A00787735 /* JHInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHInputView.h; sourceTree = "<group>"; };
 		A982906B1F02464A00787735 /* JHInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHInputView.m; sourceTree = "<group>"; };
+		A98A1D921F05E985009E9A06 /* JHImageViewerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHImageViewerWindow.h; sourceTree = "<group>"; };
+		A98A1D931F05E985009E9A06 /* JHImageViewerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHImageViewerWindow.m; sourceTree = "<group>"; };
+		A98A1D951F05E99D009E9A06 /* JH_RuntimeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_RuntimeTool.h; sourceTree = "<group>"; };
+		A98A1D961F05E99D009E9A06 /* JH_RuntimeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_RuntimeTool.m; sourceTree = "<group>"; };
 		A98A3FCC1ED9147F005768B6 /* JH_ViewModelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_ViewModelFactory.h; sourceTree = "<group>"; };
 		A98A3FCD1ED9147F005768B6 /* JH_ViewModelFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_ViewModelFactory.m; sourceTree = "<group>"; };
 		A98A3FD61ED920EB005768B6 /* JHChatBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseController.h; sourceTree = "<group>"; };
@@ -699,8 +699,10 @@
 		47F1FD981DD9EEBD0096A1AF /* CommonClass */ = {
 			isa = PBXGroup;
 			children = (
-				A933D9F41ED6C250005584E2 /* JH_RuntimeTool.h */,
-				A933D9F51ED6C250005584E2 /* JH_RuntimeTool.m */,
+				A98A1D951F05E99D009E9A06 /* JH_RuntimeTool.h */,
+				A98A1D961F05E99D009E9A06 /* JH_RuntimeTool.m */,
+				A98A1D921F05E985009E9A06 /* JHImageViewerWindow.h */,
+				A98A1D931F05E985009E9A06 /* JHImageViewerWindow.m */,
 				A933D9EB1ED6C192005584E2 /* JH_SearchView.h */,
 				A933D9EC1ED6C192005584E2 /* JH_SearchView.m */,
 				47F1FD991DD9EF060096A1AF /* JHBaseTextField.h */,
@@ -709,8 +711,6 @@
 				47F1FD9D1DD9F06B0096A1AF /* JHBaseSubmitButton.m */,
 				A933D9F11ED6C217005584E2 /* JH_NetWorking.h */,
 				A933D9F21ED6C217005584E2 /* JH_NetWorking.m */,
-				A933D9F71ED6C288005584E2 /* JHImageViewerWindow.h */,
-				A933D9F81ED6C288005584E2 /* JHImageViewerWindow.m */,
 			);
 			name = CommonClass;
 			path = CommonView;
@@ -956,6 +956,7 @@
 				478F69661DC8BF4D001E9569 /* JHBaseRootVC.m in Sources */,
 				47B830651DC4529700969523 /* JHLoginVC.m in Sources */,
 				47D84DBB1E5146B6009C6C2A /* JHChatFriendRowModel.m in Sources */,
+				A98A1D941F05E985009E9A06 /* JHImageViewerWindow.m in Sources */,
 				47D84DD51E51B25B009C6C2A /* JHChatMessageViewModel.m in Sources */,
 				473231AC1DC47AFD00C890D0 /* ThemeButton.m in Sources */,
 				47A56B911E5407E000A86F34 /* JH_ChatMessageHelper.m in Sources */,
@@ -970,13 +971,13 @@
 				A933D9FC1ED6C315005584E2 /* MBProgressHUD+MyInterface.m in Sources */,
 				47A56B8E1E5404CE00A86F34 /* JH_ChatMessageManager.m in Sources */,
 				47D84DD21E51AB4E009C6C2A /* JHChatMessageItem.m in Sources */,
+				A98A1D971F05E99D009E9A06 /* JH_RuntimeTool.m in Sources */,
 				A94FBEA51ED9745000AA5763 /* JHChatBaseCellVoice.m in Sources */,
 				478F69561DC8BBCC001E9569 /* JHSquareVC.m in Sources */,
 				473231AF1DC47B1800C890D0 /* ThemeLabel.m in Sources */,
 				47EE67E91E535091008716E8 /* JH_ChatAudioView.m in Sources */,
 				47F1FD9E1DD9F06B0096A1AF /* JHBaseSubmitButton.m in Sources */,
 				47B8305B1DC451AF00969523 /* JHBaseNav.m in Sources */,
-				A933D9F91ED6C288005584E2 /* JHImageViewerWindow.m in Sources */,
 				478F695F1DC8BC1E001E9569 /* JHChildFriendsVC.m in Sources */,
 				4766FC411E5E950200F2221E /* JHMapLocationVC.m in Sources */,
 				A94FBEA21ED972DC00AA5763 /* JHChatBaseCellText.m in Sources */,
@@ -984,7 +985,6 @@
 				47D84DD81E51B2FC009C6C2A /* JHChatMessageModel.m in Sources */,
 				A933D9ED1ED6C192005584E2 /* JH_SearchView.m in Sources */,
 				A933D9EA1ED6C174005584E2 /* JHActionSheet.m in Sources */,
-				A933D9F61ED6C250005584E2 /* JH_RuntimeTool.m in Sources */,
 				A982906C1F02464A00787735 /* JHInputView.m in Sources */,
 				47A56B551E53FAAA00A86F34 /* JH_ChatCoreData.xcdatamodeld in Sources */,
 				A98A3FD91ED920EB005768B6 /* JHChatBaseController.m in Sources */,

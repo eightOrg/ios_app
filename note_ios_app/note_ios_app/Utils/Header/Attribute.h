@@ -65,5 +65,7 @@ dispatch_async(dispatch_get_main_queue(), block);\
 #define COLOR_c00000 HEXRGB(0xc00000)
 //默认动画时间
 #define JH_UIViewAnimation 0.3
+#define LEFT_WITH (JHSCREENWIDTH>750?55:52.5)
+#define RIGHT_WITH (JHSCREENWIDTH>750?89:73)
 
 #endif /* Attribute_h */
