@@ -80,6 +80,8 @@
 		A98A1D9B1F063F27009E9A06 /* 正在录音.png in Resources */ = {isa = PBXBuildFile; fileRef = A98A1D981F063F27009E9A06 /* 正在录音.png */; };
 		A98A1D9C1F063F27009E9A06 /* 暂停录音.png in Resources */ = {isa = PBXBuildFile; fileRef = A98A1D991F063F27009E9A06 /* 暂停录音.png */; };
 		A98A1D9D1F063F27009E9A06 /* 点击录音.png in Resources */ = {isa = PBXBuildFile; fileRef = A98A1D9A1F063F27009E9A06 /* 点击录音.png */; };
+		A98A1DA01F06476E009E9A06 /* JHChatVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A1D9F1F06476E009E9A06 /* JHChatVoiceView.m */; };
+		A98A1DA21F06477A009E9A06 /* JHChatVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98A1DA11F06477A009E9A06 /* JHChatVoiceView.xib */; };
 		A98A3FCE1ED9147F005768B6 /* JH_ViewModelFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FCD1ED9147F005768B6 /* JH_ViewModelFactory.m */; };
 		A98A3FD91ED920EB005768B6 /* JHChatBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FD71ED920EB005768B6 /* JHChatBaseController.m */; };
 		A98A3FE01ED924A0005768B6 /* JHChatBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FDF1ED924A0005768B6 /* JHChatBaseViewModel.m */; };
@@ -266,6 +268,9 @@
 		A98A1D981F063F27009E9A06 /* 正在录音.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "正在录音.png"; sourceTree = "<group>"; };
 		A98A1D991F063F27009E9A06 /* 暂停录音.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "暂停录音.png"; sourceTree = "<group>"; };
 		A98A1D9A1F063F27009E9A06 /* 点击录音.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "点击录音.png"; sourceTree = "<group>"; };
+		A98A1D9E1F06476E009E9A06 /* JHChatVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatVoiceView.h; sourceTree = "<group>"; };
+		A98A1D9F1F06476E009E9A06 /* JHChatVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatVoiceView.m; sourceTree = "<group>"; };
+		A98A1DA11F06477A009E9A06 /* JHChatVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JHChatVoiceView.xib; sourceTree = "<group>"; };
 		A98A3FCC1ED9147F005768B6 /* JH_ViewModelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_ViewModelFactory.h; sourceTree = "<group>"; };
 		A98A3FCD1ED9147F005768B6 /* JH_ViewModelFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_ViewModelFactory.m; sourceTree = "<group>"; };
 		A98A3FD61ED920EB005768B6 /* JHChatBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseController.h; sourceTree = "<group>"; };
@@ -672,6 +677,9 @@
 				A94FBEAA1ED9746C00AA5763 /* JHChatBaseCellLocation.m */,
 				A982906A1F02464A00787735 /* JHInputView.h */,
 				A982906B1F02464A00787735 /* JHInputView.m */,
+				A98A1D9E1F06476E009E9A06 /* JHChatVoiceView.h */,
+				A98A1D9F1F06476E009E9A06 /* JHChatVoiceView.m */,
+				A98A1DA11F06477A009E9A06 /* JHChatVoiceView.xib */,
 			);
 			name = Friend;
 			sourceTree = "<group>";
@@ -879,6 +887,7 @@
 				A998D2301F0241BE002608D2 /* p1.jpg in Resources */,
 				A98A1D9C1F063F27009E9A06 /* 暂停录音.png in Resources */,
 				A998D2341F024225002608D2 /* button_pic_r@2x.png in Resources */,
+				A98A1DA21F06477A009E9A06 /* JHChatVoiceView.xib in Resources */,
 				47D84DB21E51464E009C6C2A /* JHChatFriendCell.xib in Resources */,
 				A98A1D9D1F063F27009E9A06 /* 点击录音.png in Resources */,
 			);
@@ -976,6 +985,7 @@
 				47D84DCE1E51AB18009C6C2A /* JHChatMessageCell.m in Sources */,
 				47BCDABC1E6019B6000C8E89 /* JHMapAnnotation.m in Sources */,
 				478F69621DC8BC32001E9569 /* JHChildMessageVC.m in Sources */,
+				A98A1DA01F06476E009E9A06 /* JHChatVoiceView.m in Sources */,
 				47AF3B131E5450BC0018DA66 /* NSString+ChangeTime.m in Sources */,
 				47B830581DC4518B00969523 /* JHBaseTabBar.m in Sources */,
 				A933D9F01ED6C1F0005584E2 /* JHWebViewController.m in Sources */,
