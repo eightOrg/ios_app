@@ -8,6 +8,15 @@
 
 #import "JHInputView.h"
 #import "JHMapLocationVC.h"
+#import "JHChatVoiceBaseView.h"
+#import <AVFoundation/AVFoundation.h>
+//音频格式转换
+#import "lame.h"
+@interface JHInputView()<AVAudioPlayerDelegate,AVAudioRecorderDelegate>
+@property (nonatomic,strong) AVAudioRecorder *audioRecorder;//音频录音机
+@property (nonatomic,copy) NSString *cafPathStr;
+@property (nonatomic,copy) NSString *mp3PathStr;
+@end
 @implementation JHInputView
 
 #pragma mark - system (systemMethod override)
@@ -123,7 +132,7 @@
     //录音，相册，拍照，定位
     switch (btn.tag) {
         case 0:
-            
+            [self _showRecordView];
             break;
         case 1:
             [self _openLibrary];
@@ -154,6 +163,35 @@
     
 }
 
+/**
+ 创建录音视图
+ */
+-(void)_showRecordView{
+    UIView *selfView = self.viewController.view;
+    [selfView endEditing:YES];
+    JHChatVoiceBaseView *voice = [[JHChatVoiceBaseView alloc] initWithFrame:selfView.bounds];
+    [selfView addSubview:voice];
+    WeakSelf
+    [voice setBlock:^(RecordStatus status){
+        switch (status) {
+            case RecordStatusCancel:
+                [weakSelf stopRecordNoticeWithCancel:YES];
+                break;
+            case RecordStatusStart:
+                [weakSelf startRecordNotice];
+                break;
+            case RecordStatusStop:
+                [weakSelf stopRecordNoticeWithCancel:NO];
+                break;
+            case RecordStatusSend:
+                [weakSelf _sendAudio];
+                break;
+            default:
+                break;
+        }
+    }];
+    
+}
 /**
  发送
  */
@@ -199,6 +237,197 @@
     }
     
 }
+
+/**
+ 发送录音
+ */
+-(void)_sendAudio{
+    //发送录音文件
+    if ([self.sendDelegate respondsToSelector:@selector(JHsendMessageWithAudioDir:)]) {
+        [self.sendDelegate JHsendMessageWithAudioDir:self.mp3PathStr];
+    }
+}
+/**
+ 获取录音文件的完整路径
+ 
+ @return NSString
+ */
+-(NSString *)getCafCompletePath{
+    //设置存储路径
+    NSString *douumentPath = [JH_FileManager getDocumentPath];
+    NSString *dirPath = self.userId;
+    [JH_FileManager creatDir:[NSString stringWithFormat:@"%@/%@",douumentPath,dirPath]];
+    //设置一个图片的存储路径
+    NSString *completePath = [douumentPath stringByAppendingString:[NSString stringWithFormat:@"/%@/%@.caf",dirPath,self.cafPathStr]];
+    return  completePath;
+    
+}
+/**
+ 获取mp3文件的完整路径
+ 
+ @return NSString
+ */
+-(NSString *)getMp3CompletePath{
+    //设置存储路径
+    NSString *douumentPath = [JH_FileManager getDocumentPath];
+    NSString *dirPath = self.userId;
+    [JH_FileManager creatDir:[NSString stringWithFormat:@"%@/%@",douumentPath,dirPath]];
+    //设置一个图片的存储路径
+    NSString *completePath = [douumentPath stringByAppendingString:[NSString stringWithFormat:@"/%@/%@.mp3",dirPath,self.mp3PathStr]];
+    return  completePath;
+    
+}
+
+
+#pragma mark - 录音方法
+/**
+ *  获得录音机对象
+ *
+ *  @return 录音机对象
+ */
+-(AVAudioRecorder *)audioRecorder{
+    if (!_audioRecorder) {
+        //创建录音文件保存路径
+        NSURL *url=[NSURL URLWithString:[self getCafCompletePath]];
+        //创建录音格式设置
+        NSDictionary *setting=[self getAudioSetting];
+        //创建录音机
+        NSError *error=nil;
+        
+        _audioRecorder=[[AVAudioRecorder alloc]initWithURL:url settings:setting error:&error];
+        _audioRecorder.delegate=self;
+        _audioRecorder.meteringEnabled=YES;//如果要监控声波则必须设置为YES
+        if (error) {
+            NSLog(@"创建录音机对象时发生错误，错误信息：%@",error.localizedDescription);
+            return nil;
+        }
+    }
+    return _audioRecorder;
+}
+/**
+ *  取得录音文件设置
+ *
+ *  @return 录音设置
+ */
+-(NSDictionary *)getAudioSetting{
+    //LinearPCM 是iOS的一种无损编码格式,但是体积较为庞大
+    //录音设置
+    NSMutableDictionary *recordSettings = [[NSMutableDictionary alloc] init];
+    //录音格式 无法使用
+    [recordSettings setValue :[NSNumber numberWithInt:kAudioFormatLinearPCM] forKey: AVFormatIDKey];
+    //采样率
+    [recordSettings setValue :[NSNumber numberWithFloat:11025.0] forKey: AVSampleRateKey];//44100.0
+    //通道数
+    [recordSettings setValue :[NSNumber numberWithInt:2] forKey: AVNumberOfChannelsKey];
+    //线性采样位数
+    //[recordSettings setValue :[NSNumber numberWithInt:16] forKey: AVLinearPCMBitDepthKey];
+    //音频质量,采样质量
+    [recordSettings setValue:[NSNumber numberWithInt:AVAudioQualityMin] forKey:AVEncoderAudioQualityKey];
+    
+    return recordSettings;
+}
+
+/**
+ 开始录音
+ */
+- (void)startRecordNotice{
+    
+    self.cafPathStr = [NSString stringWithFormat:@"%.0f",[[NSDate date] timeIntervalSince1970]];
+    self.mp3PathStr = self.cafPathStr;
+    //    [self stopMusicWithUrl:[NSURL URLWithString:self.cafPathStr]];
+    
+    if ([self.audioRecorder isRecording]) {
+        [self.audioRecorder stop];
+    }
+    NSLog(@"----------开始录音----------");
+    //    [self deleteOldRecordFile];  //如果不删掉，会在原文件基础上录制；虽然不会播放原来的声音，但是音频长度会是录制的最大长度。
+    
+    AVAudioSession *audioSession=[AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    
+    
+    if (![self.audioRecorder isRecording]) {//0--停止、暂停，1-录制中
+        
+        [self.audioRecorder record];//首次使用应用时如果调用record方法会询问用户是否允许使用麦克风
+    
+    }
+}
+
+
+
+/**
+ 录音停止
+ */
+- (void)stopRecordNoticeWithCancel:(BOOL)isCancel;
+{
+    NSLog(@"----------结束录音----------");
+    [self.audioRecorder stop];
+    if (isCancel) {
+        //删除原始录音文件
+        [JH_FileManager deleteFile:[self getCafCompletePath]];
+        //删除Mp3文件
+        [JH_FileManager deleteFile:[self getMp3CompletePath]];
+    }else{
+        //由于caf格式是_audioRecorder创建的时候必须的格式，然后caf无法在其他播放，所以改下文件格式到通用的mp3
+
+            //转换音乐
+            [self audio_PCMtoMP3];
+            //转换完成删除原始录音文件
+            [JH_FileManager deleteFile:[self getCafCompletePath]];
+        //由于audio关联路径需要先移除audio
+        self.audioRecorder = nil;
+    }
+    
+    
+}
+
+#pragma mark - caf转mp3
+- (void)audio_PCMtoMP3
+{
+    
+    @try {
+        int read, write;
+        
+        FILE *pcm = fopen([[self getCafCompletePath] cStringUsingEncoding:1], "rb");  //source 被转换的音频文件位置
+        fseek(pcm, 4*1024, SEEK_CUR);                                   //skip file header
+        FILE *mp3 = fopen([[self getMp3CompletePath] cStringUsingEncoding:1], "wb");  //output 输出生成的Mp3文件位置
+        
+        const int PCM_SIZE = 8192;
+        const int MP3_SIZE = 8192;
+        short int pcm_buffer[PCM_SIZE*2];
+        unsigned char mp3_buffer[MP3_SIZE];
+        
+        lame_t lame = lame_init();
+        lame_set_in_samplerate(lame, 11025.0);
+        lame_set_VBR(lame, vbr_default);
+        lame_init_params(lame);
+        
+        do {
+            read = fread(pcm_buffer, 2*sizeof(short int), PCM_SIZE, pcm);
+            if (read == 0)
+                write = lame_encode_flush(lame, mp3_buffer, MP3_SIZE);
+            else
+                write = lame_encode_buffer_interleaved(lame, pcm_buffer, read, mp3_buffer, MP3_SIZE);
+            
+            fwrite(mp3_buffer, write, 1, mp3);
+            
+        } while (read != 0);
+        
+        lame_close(lame);
+        fclose(mp3);
+        fclose(pcm);
+    }
+    @catch (NSException *exception) {
+        NSLog(@"%@",[exception description]);
+    }
+    @finally {
+        NSLog(@"MP3生成成功: %@",[self getMp3CompletePath]);
+    }
+    
+}
+
+
+
 -(NSArray *)buttonImages{
     return @[
              @"录音",

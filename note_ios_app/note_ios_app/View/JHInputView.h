@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 //用于调出系统相册和相机的代理
 @protocol JH_ChatSendDelegate <NSObject>
+-(void)JHsendMessageWithAudioDir:(NSString *)dir;
 -(void)JHsendMessageWithText:(NSString *)text;
 -(void)JHsendMessageWithLocationWithLatitude:(double)latitude withlongitude:(double)longitude;
 -(void)JHsendMessageWithImage:(UIImagePickerController *)picker;
 @end
 
 @interface JHInputView : UIView<UITextViewDelegate>
+@property(nonatomic,copy)NSString *userId;
 //输入框
 @property(nonatomic,strong)UITextView *textView;
 //发送按钮

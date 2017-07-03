@@ -93,6 +93,9 @@
 		A99CBD951F04DCF6009B3964 /* JH_PrivateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A99CBD941F04DCF6009B3964 /* JH_PrivateHelper.m */; };
 		A99CBD981F04DDDF009B3964 /* JH_CommonInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = A99CBD971F04DDDF009B3964 /* JH_CommonInterface.m */; };
 		A99CBD9B1F04DE4E009B3964 /* JHAlertControllerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A99CBD9A1F04DE4E009B3964 /* JHAlertControllerTool.m */; };
+		A9B1D0301F0A11F800DFD624 /* JHChatVoiceBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B1D02F1F0A11F800DFD624 /* JHChatVoiceBaseView.m */; };
+		A9B1D0331F0A35B400DFD624 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A9B1D0311F0A35B400DFD624 /* pause.png */; };
+		A9B1D0341F0A35B400DFD624 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = A9B1D0321F0A35B400DFD624 /* play.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -289,6 +292,10 @@
 		A99CBD971F04DDDF009B3964 /* JH_CommonInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_CommonInterface.m; sourceTree = "<group>"; };
 		A99CBD991F04DE4E009B3964 /* JHAlertControllerTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHAlertControllerTool.h; sourceTree = "<group>"; };
 		A99CBD9A1F04DE4E009B3964 /* JHAlertControllerTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHAlertControllerTool.m; sourceTree = "<group>"; };
+		A9B1D02E1F0A11F800DFD624 /* JHChatVoiceBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatVoiceBaseView.h; sourceTree = "<group>"; };
+		A9B1D02F1F0A11F800DFD624 /* JHChatVoiceBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatVoiceBaseView.m; sourceTree = "<group>"; };
+		A9B1D0311F0A35B400DFD624 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		A9B1D0321F0A35B400DFD624 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 		DBF618F96F45F01FD5E45D73 /* Pods-note_ios_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-note_ios_app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-note_ios_app/Pods-note_ios_app.debug.xcconfig"; sourceTree = "<group>"; };
 		FA8AC8B80F125B5155B5CDFB /* libPods-note_ios_app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-note_ios_app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -680,6 +687,8 @@
 				A98A1D9E1F06476E009E9A06 /* JHChatVoiceView.h */,
 				A98A1D9F1F06476E009E9A06 /* JHChatVoiceView.m */,
 				A98A1DA11F06477A009E9A06 /* JHChatVoiceView.xib */,
+				A9B1D02E1F0A11F800DFD624 /* JHChatVoiceBaseView.h */,
+				A9B1D02F1F0A11F800DFD624 /* JHChatVoiceBaseView.m */,
 			);
 			name = Friend;
 			sourceTree = "<group>";
@@ -754,6 +763,8 @@
 		A998D22E1F0241B5002608D2 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				A9B1D0311F0A35B400DFD624 /* pause.png */,
+				A9B1D0321F0A35B400DFD624 /* play.png */,
 				A98A1D981F063F27009E9A06 /* 正在录音.png */,
 				A98A1D991F063F27009E9A06 /* 暂停录音.png */,
 				A98A1D9A1F063F27009E9A06 /* 点击录音.png */,
@@ -887,6 +898,8 @@
 				A998D2301F0241BE002608D2 /* p1.jpg in Resources */,
 				A98A1D9C1F063F27009E9A06 /* 暂停录音.png in Resources */,
 				A998D2341F024225002608D2 /* button_pic_r@2x.png in Resources */,
+				A9B1D0331F0A35B400DFD624 /* pause.png in Resources */,
+				A9B1D0341F0A35B400DFD624 /* play.png in Resources */,
 				A98A1DA21F06477A009E9A06 /* JHChatVoiceView.xib in Resources */,
 				47D84DB21E51464E009C6C2A /* JHChatFriendCell.xib in Resources */,
 				A98A1D9D1F063F27009E9A06 /* 点击录音.png in Resources */,
@@ -978,6 +991,7 @@
 				47B830651DC4529700969523 /* JHLoginVC.m in Sources */,
 				47D84DBB1E5146B6009C6C2A /* JHChatFriendRowModel.m in Sources */,
 				A98A1D941F05E985009E9A06 /* JHImageViewerWindow.m in Sources */,
+				A9B1D0301F0A11F800DFD624 /* JHChatVoiceBaseView.m in Sources */,
 				47D84DD51E51B25B009C6C2A /* JHChatMessageViewModel.m in Sources */,
 				473231AC1DC47AFD00C890D0 /* ThemeButton.m in Sources */,
 				47A56B911E5407E000A86F34 /* JH_ChatMessageHelper.m in Sources */,

@@ -47,6 +47,7 @@
         for (UIView *view in cell.contentView.subviews) {
             [view removeFromSuperview];
         }
+        cell.messageModel = model;
         return cell;
     }else if (model.message_type == MessageTypeImage) {
         static NSString *identifier = @"JHChatBaseCellImage";
@@ -112,7 +113,7 @@
         return rect.size.height+26+masTop+20;
         
     }else if (model.message_type == MessageTypeVoice) {
-        return 50;
+        return 30+26+masTop+20;
     }else if (model.message_type == MessageTypeImage) {
         //根据路径获取图片
         //获取图片
@@ -126,7 +127,7 @@
     }else if (model.message_type == MessageTypeLocation){
         return JHSCREENWIDTH/2*2/3+26+masTop+20;
     }
-    return 50;
+    return 30+26+masTop+20;
 }
 
 @end

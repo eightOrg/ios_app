@@ -33,6 +33,7 @@ const static CGFloat inputViewHeight=90;
     }];
     _inputView = [[JHInputView alloc] initWithFrame:CGRectMake(0, self.view.bottom-inputViewHeight-JH_NavigationHeight, self.view.frame.size.width, inputViewHeight)];
     _inputView.sendDelegate = self;
+    _inputView.userId  = [NSString stringWithFormat:@"%lld",self.viewModel.recentMessage.recentMessage_user.user_id];
     [self.view addSubview:_inputView];
     
     [self _freshData];
@@ -147,6 +148,21 @@ const static CGFloat inputViewHeight=90;
 }
 
 /**
+ 发送录音
+
+ @param dir 录音路径
+ */
+-(void)JHsendMessageWithAudioDir:(NSString *)dir{
+    NSString *userId = [NSString stringWithFormat:@"%lld",self.viewModel.recentMessage.recentMessage_user.user_id];
+    NSString *userName = self.viewModel.recentMessage.recentMessage_user.user_name;
+    NSDate *now = [NSDate date];
+    NSString *time = [NSString stringWithFormat:@"%ld",(long)[now timeIntervalSince1970]];
+    [self.viewModel addAudioMediaMessage:dir isSelf:YES userId:userId userName:userName time:time type:MessageTypeVoice];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.viewModel.messageList.count-1 inSection:0]] withRowAnimation:0];
+    [self.view endEditing:YES];
+    [self scrollTableViewToBottom];
+}
+/**
  发送文字信息
  */
 -(void)JHsendMessageWithText:(NSString *)text{
@@ -158,7 +174,7 @@ const static CGFloat inputViewHeight=90;
     [self.viewModel addTextMessage:text isSelf:YES userId:userId userName:userName time:time type:MessageTypeText];
     [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.viewModel.messageList.count-1 inSection:0]] withRowAnimation:0];
     [self.view endEditing:YES];
-//    [self.view resignFirstResponder];
+    
 }
 /**
  发送定位

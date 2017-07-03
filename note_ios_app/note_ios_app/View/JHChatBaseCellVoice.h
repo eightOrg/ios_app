@@ -7,8 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 #import "JH_ChatMessageHelper.h"
-@interface JHChatBaseCellVoice : UITableViewCell
+@interface JHChatBaseCellVoice : UITableViewCell<AVAudioPlayerDelegate>
 @property(nonatomic,strong) M_MessageList *messageModel;
+@property (nonatomic,strong) AVAudioPlayer *audioPlayer; //播放
+@property (strong, nonatomic) UIButton *playButton;
+
+@property (strong, nonatomic) UIProgressView *progressView;
+@property (strong, nonatomic) UILabel *progressLabel;
+@property (strong, nonatomic) NSTimer *progressTimer;
+@property (strong, nonatomic) UIView *cachedMediaView;
 @end

@@ -90,6 +90,16 @@
     
 }
 /**
+ 添加录音message
+ */
+- (void)addAudioMediaMessage:(NSString *)path isSelf:(BOOL )isSelf userId:(NSString *)userId userName:(NSString *)userName time:(NSString *)time type:(MessageType )type{
+    
+    //将录音地址存入数据库
+    [self _setMessageDictionary:[NSString stringWithFormat:@"/%@/%@.mp3",userId,path] isPath:YES isSelf:isSelf userId:userId userName:userName time:time  type:type];
+    
+}
+
+/**
  添加文字信息
  */
 - (void)addTextMessage:(NSString *)text isSelf:(BOOL )isSelf userId:(NSString *)userId userName:(NSString *)userName time:(NSString *)time type:(MessageType )type{
