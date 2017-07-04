@@ -86,6 +86,9 @@
 		A98A3FD91ED920EB005768B6 /* JHChatBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FD71ED920EB005768B6 /* JHChatBaseController.m */; };
 		A98A3FE01ED924A0005768B6 /* JHChatBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FDF1ED924A0005768B6 /* JHChatBaseViewModel.m */; };
 		A98A3FE31ED924FD005768B6 /* JHChatBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FE21ED924FD005768B6 /* JHChatBaseCell.m */; };
+		A99713FD1F0BAF27005F85EA /* JHAnalyseControlAnalyseNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A99713FC1F0BAF27005F85EA /* JHAnalyseControlAnalyseNode.m */; };
+		A99714031F0BB53C005F85EA /* UIViewController+JHswizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = A99714021F0BB53C005F85EA /* UIViewController+JHswizzling.m */; };
+		A99714051F0BBF92005F85EA /* analyse.json in Resources */ = {isa = PBXBuildFile; fileRef = A99714041F0BBF92005F85EA /* analyse.json */; };
 		A998D2301F0241BE002608D2 /* p1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A998D22F1F0241BE002608D2 /* p1.jpg */; };
 		A998D2321F0241F7002608D2 /* button_pic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A998D2311F0241F7002608D2 /* button_pic@2x.png */; };
 		A998D2341F024225002608D2 /* button_pic_r@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A998D2331F024225002608D2 /* button_pic_r@2x.png */; };
@@ -282,6 +285,11 @@
 		A98A3FDF1ED924A0005768B6 /* JHChatBaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseViewModel.m; sourceTree = "<group>"; };
 		A98A3FE11ED924FD005768B6 /* JHChatBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseCell.h; sourceTree = "<group>"; };
 		A98A3FE21ED924FD005768B6 /* JHChatBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseCell.m; sourceTree = "<group>"; };
+		A99713FB1F0BAF27005F85EA /* JHAnalyseControlAnalyseNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHAnalyseControlAnalyseNode.h; sourceTree = "<group>"; };
+		A99713FC1F0BAF27005F85EA /* JHAnalyseControlAnalyseNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHAnalyseControlAnalyseNode.m; sourceTree = "<group>"; };
+		A99714011F0BB53C005F85EA /* UIViewController+JHswizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JHswizzling.h"; sourceTree = "<group>"; };
+		A99714021F0BB53C005F85EA /* UIViewController+JHswizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JHswizzling.m"; sourceTree = "<group>"; };
+		A99714041F0BBF92005F85EA /* analyse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = analyse.json; sourceTree = "<group>"; };
 		A998D22F1F0241BE002608D2 /* p1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = p1.jpg; sourceTree = "<group>"; };
 		A998D2311F0241F7002608D2 /* button_pic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_pic@2x.png"; sourceTree = "<group>"; };
 		A998D2331F024225002608D2 /* button_pic_r@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_pic_r@2x.png"; sourceTree = "<group>"; };
@@ -536,6 +544,7 @@
 		47B830501DC4504600969523 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A99713F01F0B841F005F85EA /* JHDataAnalyse */,
 				4720F72F1E559CFC0011D677 /* Tool */,
 				473231A61DC46E6D00C890D0 /* Header */,
 				473231A71DC46E6D00C890D0 /* Theme */,
@@ -760,6 +769,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A99713F01F0B841F005F85EA /* JHDataAnalyse */ = {
+			isa = PBXGroup;
+			children = (
+				A99714041F0BBF92005F85EA /* analyse.json */,
+				A99714011F0BB53C005F85EA /* UIViewController+JHswizzling.h */,
+				A99714021F0BB53C005F85EA /* UIViewController+JHswizzling.m */,
+				A99713FB1F0BAF27005F85EA /* JHAnalyseControlAnalyseNode.h */,
+				A99713FC1F0BAF27005F85EA /* JHAnalyseControlAnalyseNode.m */,
+			);
+			path = JHDataAnalyse;
+			sourceTree = "<group>";
+		};
 		A998D22E1F0241B5002608D2 /* Image */ = {
 			isa = PBXGroup;
 			children = (
@@ -889,6 +910,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47D84DCF1E51AB18009C6C2A /* JHChatMessageCell.xib in Resources */,
+				A99714051F0BBF92005F85EA /* analyse.json in Resources */,
 				47B830281DC44AB500969523 /* LaunchScreen.storyboard in Resources */,
 				47B830251DC44AB500969523 /* Assets.xcassets in Resources */,
 				4766FC421E5E950200F2221E /* JHMapLocationVC.xib in Resources */,
@@ -983,6 +1005,7 @@
 				A933D9F31ED6C217005584E2 /* JH_NetWorking.m in Sources */,
 				47B830681DC46BD800969523 /* JHRegisterVC.m in Sources */,
 				47F1FD9B1DD9EF060096A1AF /* JHBaseTextField.m in Sources */,
+				A99714031F0BB53C005F85EA /* UIViewController+JHswizzling.m in Sources */,
 				47D84DB81E5146A8009C6C2A /* JHChatFriendSectionModel.m in Sources */,
 				A94FBEAB1ED9746C00AA5763 /* JHChatBaseCellLocation.m in Sources */,
 				478F69691DC8C0B3001E9569 /* JHSlideView.m in Sources */,
@@ -990,6 +1013,7 @@
 				478F69661DC8BF4D001E9569 /* JHBaseRootVC.m in Sources */,
 				47B830651DC4529700969523 /* JHLoginVC.m in Sources */,
 				47D84DBB1E5146B6009C6C2A /* JHChatFriendRowModel.m in Sources */,
+				A99713FD1F0BAF27005F85EA /* JHAnalyseControlAnalyseNode.m in Sources */,
 				A98A1D941F05E985009E9A06 /* JHImageViewerWindow.m in Sources */,
 				A9B1D0301F0A11F800DFD624 /* JHChatVoiceBaseView.m in Sources */,
 				47D84DD51E51B25B009C6C2A /* JHChatMessageViewModel.m in Sources */,

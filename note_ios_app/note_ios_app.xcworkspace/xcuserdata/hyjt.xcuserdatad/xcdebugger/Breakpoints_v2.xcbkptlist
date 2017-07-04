@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "note_ios_app/View/JHInputView.m"
-            timestampString = "520766368.565683"
+            filePath = "note_ios_app/Utils/JHDataAnalyse/UIViewController+JHswizzling.m"
+            timestampString = "520864384.760329"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "340"
-            endingLineNumber = "340"
-            landmarkName = "-startRecordNotice"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "-JH_swizzlingViewDidDisAppear"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

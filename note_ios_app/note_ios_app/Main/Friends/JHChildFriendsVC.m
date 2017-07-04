@@ -24,6 +24,8 @@ static CGFloat headerHeight = 40;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    
     _viewModel = [[JHChatFriendViewModel alloc] init];
     [_viewModel JH_loadTableDataWithData:nil :^{
          [self.view addSubview:self.tableView];

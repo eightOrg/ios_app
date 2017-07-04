@@ -1,0 +1,22 @@
+{
+    "viewController":{
+        "JHChatBaseController":"聊天主页面",
+        "JHMapLocationVC":"定位"
+    },
+    "event":{
+        "JHInputView":{
+            "0":{
+                "class":"JHInputView",
+                "event":"_additionButtonAction",
+                "tag":"0",
+                "name":"录音"
+            },
+            "1":{
+                "class":"JHInputView",
+                "event":"_additionButtonAction",
+                "tag":"1",
+                "name":"相册"
+            }
+        }
+    }
+}

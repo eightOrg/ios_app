@@ -7,6 +7,7 @@
 //
 
 #import "JHInputView.h"
+#import "JH_PrivateHelper.h"
 #import "JHMapLocationVC.h"
 #import "JHChatVoiceBaseView.h"
 #import <AVFoundation/AVFoundation.h>
@@ -224,7 +225,15 @@
  从相册中获取相片
  */
 -(void)_getImageDatafromLibraryOrCamera:(UIImagePickerControllerSourceType )sourceType{
-    
+    if (sourceType == UIImagePickerControllerSourceTypeCamera) {
+        if (![JH_PrivateHelper checkCameraAuthorizationStatus]) {
+            return;
+        }
+    }else{
+        if (![JH_PrivateHelper checkPhotoLibraryAuthorizationStatus]) {
+            return;
+        }
+    }
     //相册资源
     UIImagePickerControllerSourceType type = sourceType;
     
@@ -232,6 +241,8 @@
     //    //开启编辑
     //    _picker.allowsEditing = YES;
     picker.sourceType    = type;
+   
+    
     if ([self.sendDelegate respondsToSelector:@selector(JHsendMessageWithImage:)]) {
         [self.sendDelegate JHsendMessageWithImage:picker];
     }
