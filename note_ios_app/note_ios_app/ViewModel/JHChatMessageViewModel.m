@@ -53,17 +53,19 @@
         NSArray *sortDesc = @[[[NSSortDescriptor alloc] initWithKey:@"message_time" ascending:YES]];
         NSArray *sortSetArray = [user.user_message sortedArrayUsingDescriptors:sortDesc];
         M_MessageList *lastMessage = [sortSetArray lastObject];
-        
-        NSDictionary *oneMessageDic = @{
-                                        @"name":user.user_name,
-                                        @"resentMessage":lastMessage.message_text,
-                                        @"time":[NSString changeTimeIntervalToMinute:@(recentMessage.recent_message_time)],
-                                        @"number":[[NSString alloc] initWithFormat:@"%lld",recentMessage.recent_message_num],
-                                        @"portrail":user.user_portrail==nil?@"p0.jpg":user.user_portrail,
-                                        @"type":@(lastMessage.message_type),
-                                        };
-        
-        [list addObject:oneMessageDic];
+        if (lastMessage) {
+            
+            NSDictionary *oneMessageDic = @{
+                                            @"name":user.user_name,
+                                            @"resentMessage":lastMessage.message_text,
+                                            @"time":[NSString changeTimeIntervalToMinute:@(recentMessage.recent_message_time)],
+                                            @"number":[[NSString alloc] initWithFormat:@"%lld",recentMessage.recent_message_num],
+                                            @"portrail":user.user_portrail==nil?@"p0.jpg":user.user_portrail,
+                                            @"type":@(lastMessage.message_type),
+                                            };
+            
+            [list addObject:oneMessageDic];
+        }
         
     }
     

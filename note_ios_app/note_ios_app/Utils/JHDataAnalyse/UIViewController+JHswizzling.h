@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "JH_AnalyseDataHelper.h"
 @interface UIViewController (JHswizzling)
 
 @end

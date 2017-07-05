@@ -15,9 +15,8 @@
 #import "UserInfoManager.h"
 #import "MBProgressHUD+MyInterface.h"
 #import <UIKit/UIKit.h>
-#import "UIImage+ChangeToSize.h"
 #import "UIViewExt.h"
 #import "NSString+ChangeTime.h"
 #import "JH_CommonInterface.h"
-
+#import "UIImage+Util.h"
 #endif /* Common_h */

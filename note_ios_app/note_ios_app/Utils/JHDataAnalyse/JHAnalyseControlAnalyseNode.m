@@ -24,17 +24,31 @@
     NSString *methodName = NSStringFromSelector(action);
     NSString *className = [NSString stringWithUTF8String: object_getClassName(target)];
     UIControl *sender = (UIControl *)self;
+    //第一层，视图ClassName
     NSDictionary *data = [[JHAnalyseControlAnalyseNode class]getJsonData];
     if ([[data allKeys]containsObject:className]) {
-        NSString *tag = [NSString stringWithFormat:@"%ld",sender.tag];
+        //第二层，Action
         NSDictionary *class = data[className];
-        if([[class allKeys]containsObject:tag]){
-            NSDictionary *oneAction = class[tag];
-            NSLog(@"mtthodName=%@,className=%@,tag=%@",methodName,oneAction[@"name"],tag);
+        if([[class allKeys]containsObject:methodName]){
+            NSDictionary *action = class[methodName];
+            
+            NSString *tag = [NSString stringWithFormat:@"%ld",sender.tag];
+            if([[action allKeys]containsObject:tag]){
+                NSDictionary *oneAction = action[tag];
+                NSLog(@"mtthodName=%@,className=%@,classRealName=%@tag=%@",methodName,className,oneAction[@"name"],tag);
+                //组合数据并存入数据库
+                NSDictionary *eventDic = @{@"eventClass":oneAction[@"name"],
+                                           @"eventCodeName":className,
+                                           @"eventCount":@"1",
+                                           @"eventDate":@"时间暂时不需要",
+                                           @"eventName":methodName,
+                                           @"eventTag":tag,
+                                           @"eventUser":@"jianghong",
+                                           };
+                [JH_AnalyseDataHelper _AnalyseWithData:eventDic withType:AnalyseTypeEvent];
+            }
         }
-        
-    };
-    
+    }
     
     [self JHhook_sendAction:action to:target forEvent:event];
     

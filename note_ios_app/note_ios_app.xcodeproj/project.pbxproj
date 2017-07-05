@@ -68,12 +68,15 @@
 		A933D9F01ED6C1F0005584E2 /* JHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9EF1ED6C1F0005584E2 /* JHWebViewController.m */; };
 		A933D9F31ED6C217005584E2 /* JH_NetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9F21ED6C217005584E2 /* JH_NetWorking.m */; };
 		A933D9FC1ED6C315005584E2 /* MBProgressHUD+MyInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9FB1ED6C315005584E2 /* MBProgressHUD+MyInterface.m */; };
-		A933D9FF1ED6C47C005584E2 /* UIImage+ChangeToSize.m in Sources */ = {isa = PBXBuildFile; fileRef = A933D9FE1ED6C47C005584E2 /* UIImage+ChangeToSize.m */; };
 		A933DA021ED6C4FC005584E2 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = A933DA011ED6C4FC005584E2 /* UIViewExt.m */; };
+		A94B44CC1F0D115000EF0E21 /* EventAnalyseData+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A94B44CA1F0D115000EF0E21 /* EventAnalyseData+CoreDataProperties.m */; };
 		A94FBEA21ED972DC00AA5763 /* JHChatBaseCellText.m in Sources */ = {isa = PBXBuildFile; fileRef = A94FBEA11ED972DC00AA5763 /* JHChatBaseCellText.m */; };
 		A94FBEA51ED9745000AA5763 /* JHChatBaseCellVoice.m in Sources */ = {isa = PBXBuildFile; fileRef = A94FBEA41ED9745000AA5763 /* JHChatBaseCellVoice.m */; };
 		A94FBEA81ED9745D00AA5763 /* JHChatBaseCellImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A94FBEA71ED9745D00AA5763 /* JHChatBaseCellImage.m */; };
 		A94FBEAB1ED9746C00AA5763 /* JHChatBaseCellLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = A94FBEAA1ED9746C00AA5763 /* JHChatBaseCellLocation.m */; };
+		A9824EE11F0CD23B00442454 /* UIImage+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A9824EE01F0CD23B00442454 /* UIImage+Util.m */; };
+		A9824EE41F0CE18800442454 /* JH_AnalyseDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A9824EE31F0CE18800442454 /* JH_AnalyseDataHelper.m */; };
+		A9824EF01F0CE97B00442454 /* ViewControllerAnalyseData+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A9824EEC1F0CE97B00442454 /* ViewControllerAnalyseData+CoreDataProperties.m */; };
 		A982906C1F02464A00787735 /* JHInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A982906B1F02464A00787735 /* JHInputView.m */; };
 		A98A1D941F05E985009E9A06 /* JHImageViewerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A1D931F05E985009E9A06 /* JHImageViewerWindow.m */; };
 		A98A1D971F05E99D009E9A06 /* JH_RuntimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A1D961F05E99D009E9A06 /* JH_RuntimeTool.m */; };
@@ -253,10 +256,12 @@
 		A933D9F21ED6C217005584E2 /* JH_NetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_NetWorking.m; sourceTree = "<group>"; };
 		A933D9FA1ED6C315005584E2 /* MBProgressHUD+MyInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MyInterface.h"; sourceTree = "<group>"; };
 		A933D9FB1ED6C315005584E2 /* MBProgressHUD+MyInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MyInterface.m"; sourceTree = "<group>"; };
-		A933D9FD1ED6C47C005584E2 /* UIImage+ChangeToSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ChangeToSize.h"; sourceTree = "<group>"; };
-		A933D9FE1ED6C47C005584E2 /* UIImage+ChangeToSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ChangeToSize.m"; sourceTree = "<group>"; };
 		A933DA001ED6C4FC005584E2 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
 		A933DA011ED6C4FC005584E2 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
+		A94B44C71F0D115000EF0E21 /* EventAnalyseData+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EventAnalyseData+CoreDataClass.h"; sourceTree = "<group>"; };
+		A94B44C81F0D115000EF0E21 /* EventAnalyseData+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EventAnalyseData+CoreDataClass.m"; sourceTree = "<group>"; };
+		A94B44C91F0D115000EF0E21 /* EventAnalyseData+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EventAnalyseData+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A94B44CA1F0D115000EF0E21 /* EventAnalyseData+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EventAnalyseData+CoreDataProperties.m"; sourceTree = "<group>"; };
 		A94FBEA01ED972DC00AA5763 /* JHChatBaseCellText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseCellText.h; sourceTree = "<group>"; };
 		A94FBEA11ED972DC00AA5763 /* JHChatBaseCellText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseCellText.m; sourceTree = "<group>"; };
 		A94FBEA31ED9745000AA5763 /* JHChatBaseCellVoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseCellVoice.h; sourceTree = "<group>"; };
@@ -265,6 +270,14 @@
 		A94FBEA71ED9745D00AA5763 /* JHChatBaseCellImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseCellImage.m; sourceTree = "<group>"; };
 		A94FBEA91ED9746C00AA5763 /* JHChatBaseCellLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseCellLocation.h; sourceTree = "<group>"; };
 		A94FBEAA1ED9746C00AA5763 /* JHChatBaseCellLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseCellLocation.m; sourceTree = "<group>"; };
+		A9824EDF1F0CD23B00442454 /* UIImage+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Util.h"; sourceTree = "<group>"; };
+		A9824EE01F0CD23B00442454 /* UIImage+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Util.m"; sourceTree = "<group>"; };
+		A9824EE21F0CE18800442454 /* JH_AnalyseDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_AnalyseDataHelper.h; sourceTree = "<group>"; };
+		A9824EE31F0CE18800442454 /* JH_AnalyseDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_AnalyseDataHelper.m; sourceTree = "<group>"; };
+		A9824EE91F0CE97B00442454 /* ViewControllerAnalyseData+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewControllerAnalyseData+CoreDataClass.h"; sourceTree = "<group>"; };
+		A9824EEA1F0CE97B00442454 /* ViewControllerAnalyseData+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewControllerAnalyseData+CoreDataClass.m"; sourceTree = "<group>"; };
+		A9824EEB1F0CE97B00442454 /* ViewControllerAnalyseData+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewControllerAnalyseData+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A9824EEC1F0CE97B00442454 /* ViewControllerAnalyseData+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewControllerAnalyseData+CoreDataProperties.m"; sourceTree = "<group>"; };
 		A982906A1F02464A00787735 /* JHInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHInputView.h; sourceTree = "<group>"; };
 		A982906B1F02464A00787735 /* JHInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHInputView.m; sourceTree = "<group>"; };
 		A98A1D921F05E985009E9A06 /* JHImageViewerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHImageViewerWindow.h; sourceTree = "<group>"; };
@@ -409,6 +422,16 @@
 				47A56B8D1E5404CE00A86F34 /* JH_ChatMessageManager.m */,
 				47A56B8F1E5407E000A86F34 /* JH_ChatMessageHelper.h */,
 				47A56B901E5407E000A86F34 /* JH_ChatMessageHelper.m */,
+				A94B44C71F0D115000EF0E21 /* EventAnalyseData+CoreDataClass.h */,
+				A94B44C81F0D115000EF0E21 /* EventAnalyseData+CoreDataClass.m */,
+				A94B44C91F0D115000EF0E21 /* EventAnalyseData+CoreDataProperties.h */,
+				A94B44CA1F0D115000EF0E21 /* EventAnalyseData+CoreDataProperties.m */,
+				A9824EE91F0CE97B00442454 /* ViewControllerAnalyseData+CoreDataClass.h */,
+				A9824EEA1F0CE97B00442454 /* ViewControllerAnalyseData+CoreDataClass.m */,
+				A9824EEB1F0CE97B00442454 /* ViewControllerAnalyseData+CoreDataProperties.h */,
+				A9824EEC1F0CE97B00442454 /* ViewControllerAnalyseData+CoreDataProperties.m */,
+				A9824EE21F0CE18800442454 /* JH_AnalyseDataHelper.h */,
+				A9824EE31F0CE18800442454 /* JH_AnalyseDataHelper.m */,
 			);
 			path = "CoreData&SQL";
 			sourceTree = "<group>";
@@ -529,8 +552,8 @@
 		47B8304F1DC4504600969523 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				A933D9FD1ED6C47C005584E2 /* UIImage+ChangeToSize.h */,
-				A933D9FE1ED6C47C005584E2 /* UIImage+ChangeToSize.m */,
+				A9824EDF1F0CD23B00442454 /* UIImage+Util.h */,
+				A9824EE01F0CD23B00442454 /* UIImage+Util.m */,
 				A933D9FA1ED6C315005584E2 /* MBProgressHUD+MyInterface.h */,
 				A933D9FB1ED6C315005584E2 /* MBProgressHUD+MyInterface.m */,
 				47AF3B111E5450BC0018DA66 /* NSString+ChangeTime.h */,
@@ -1014,6 +1037,7 @@
 				47B830651DC4529700969523 /* JHLoginVC.m in Sources */,
 				47D84DBB1E5146B6009C6C2A /* JHChatFriendRowModel.m in Sources */,
 				A99713FD1F0BAF27005F85EA /* JHAnalyseControlAnalyseNode.m in Sources */,
+				A9824EF01F0CE97B00442454 /* ViewControllerAnalyseData+CoreDataProperties.m in Sources */,
 				A98A1D941F05E985009E9A06 /* JHImageViewerWindow.m in Sources */,
 				A9B1D0301F0A11F800DFD624 /* JHChatVoiceBaseView.m in Sources */,
 				47D84DD51E51B25B009C6C2A /* JHChatMessageViewModel.m in Sources */,
@@ -1028,6 +1052,8 @@
 				47B830581DC4518B00969523 /* JHBaseTabBar.m in Sources */,
 				A933D9F01ED6C1F0005584E2 /* JHWebViewController.m in Sources */,
 				474A325A1E52A7B5008FD632 /* JH_JSQBaseChatModel.m in Sources */,
+				A9824EE41F0CE18800442454 /* JH_AnalyseDataHelper.m in Sources */,
+				A94B44CC1F0D115000EF0E21 /* EventAnalyseData+CoreDataProperties.m in Sources */,
 				A933D9FC1ED6C315005584E2 /* MBProgressHUD+MyInterface.m in Sources */,
 				47A56B8E1E5404CE00A86F34 /* JH_ChatMessageManager.m in Sources */,
 				47D84DD21E51AB4E009C6C2A /* JHChatMessageItem.m in Sources */,
@@ -1041,10 +1067,10 @@
 				478F695F1DC8BC1E001E9569 /* JHChildFriendsVC.m in Sources */,
 				4766FC411E5E950200F2221E /* JHMapLocationVC.m in Sources */,
 				A94FBEA21ED972DC00AA5763 /* JHChatBaseCellText.m in Sources */,
-				A933D9FF1ED6C47C005584E2 /* UIImage+ChangeToSize.m in Sources */,
 				47D84DD81E51B2FC009C6C2A /* JHChatMessageModel.m in Sources */,
 				A933D9ED1ED6C192005584E2 /* JH_SearchView.m in Sources */,
 				A933D9EA1ED6C174005584E2 /* JHActionSheet.m in Sources */,
+				A9824EE11F0CD23B00442454 /* UIImage+Util.m in Sources */,
 				A982906C1F02464A00787735 /* JHInputView.m in Sources */,
 				47A56B551E53FAAA00A86F34 /* JH_ChatCoreData.xcdatamodeld in Sources */,
 				A98A3FD91ED920EB005768B6 /* JHChatBaseController.m in Sources */,

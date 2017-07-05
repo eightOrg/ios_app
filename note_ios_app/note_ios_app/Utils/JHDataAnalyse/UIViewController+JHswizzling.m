@@ -64,7 +64,14 @@ static NSDate *startDate;
             //计算时间差
             NSDate *endDate = [NSDate date];
             NSTimeInterval duration = [endDate timeIntervalSinceDate:startDate];
-            NSLog(@"统计打点出现 : %@ time : %f 时长", [self getJsonData][str] ,duration);
+            NSLog(@"统计打点出现 : %@ time : %f 时长", data[str] ,duration);
+            //组合数据并存入数据库
+            NSDictionary *vcDic = @{@"viewControllerCodeName":str,
+                                       @"viewControllerName":data[str],
+                                       @"viewControllerTime":[NSString stringWithFormat:@"%f",duration],
+                                       };
+            [JH_AnalyseDataHelper _AnalyseWithData:vcDic withType:AnalyseTypeViewController];
+            
         }
     }
     

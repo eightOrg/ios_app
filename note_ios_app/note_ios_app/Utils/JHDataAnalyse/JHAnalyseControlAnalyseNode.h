@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "JH_AnalyseDataHelper.h"
 @interface JHAnalyseControlAnalyseNode : NSObject
 
 @end

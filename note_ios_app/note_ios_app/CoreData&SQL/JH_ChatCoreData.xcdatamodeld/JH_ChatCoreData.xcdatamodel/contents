@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="EventAnalyseData" representedClassName="EventAnalyseData" syncable="YES" codeGenerationType="class">
+        <attribute name="eventClass" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventCodeName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="eventDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventTag" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventUser" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="M_MessageList" representedClassName="M_MessageList" syncable="YES" codeGenerationType="class">
         <attribute name="message_isSelf" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="message_isShowTime" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -21,9 +30,16 @@
         <relationship name="user_message" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="M_MessageList" inverseName="message_user" inverseEntity="M_MessageList" syncable="YES"/>
         <relationship name="user_recentMessage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="M_RecentMessage" inverseName="recentMessage_user" inverseEntity="M_RecentMessage" syncable="YES"/>
     </entity>
+    <entity name="ViewControllerAnalyseData" representedClassName="ViewControllerAnalyseData" syncable="YES" codeGenerationType="class">
+        <attribute name="viewControllerCodeName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="viewControllerName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="viewControllerTime" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <elements>
+        <element name="EventAnalyseData" positionX="9" positionY="99" width="128" height="150"/>
         <element name="M_MessageList" positionX="0" positionY="45" width="128" height="150"/>
         <element name="M_RecentMessage" positionX="-36" positionY="9" width="128" height="90"/>
         <element name="M_UserInfo" positionX="27" positionY="72" width="128" height="120"/>
+        <element name="ViewControllerAnalyseData" positionX="0" positionY="90" width="128" height="90"/>
     </elements>
 </model>
