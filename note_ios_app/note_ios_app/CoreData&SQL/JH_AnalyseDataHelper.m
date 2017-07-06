@@ -34,6 +34,7 @@
         if ([vcModel.viewControllerName isEqualToString:vcName]) {
             //更新时长数据
             vcModel.viewControllerTime = vcModel.viewControllerTime + [data[@"viewControllerTime"] floatValue];
+            vcModel.viewControllerDate = data[@"viewControllerDate"];
             [[JH_ChatMessageManager sharedInstance] saveContext]; //保存
             return;
         }
@@ -64,6 +65,7 @@
         if ([vcModel.eventName isEqualToString:eventName]) {
             //更新点击次数数据
             vcModel.eventCount = vcModel.eventCount + [data[@"eventCount"] integerValue];
+            vcModel.eventDate = data[@"eventDate"];
             [[JH_ChatMessageManager sharedInstance] saveContext]; //保存
             return;
         }

@@ -36,12 +36,21 @@
             if([[action allKeys]containsObject:tag]){
                 NSDictionary *oneAction = action[tag];
                 NSLog(@"mtthodName=%@,className=%@,classRealName=%@tag=%@",methodName,className,oneAction[@"name"],tag);
+                //使用当前时间表示最后操作时间
+                NSDate *date = [NSDate date];
+                
+                NSTimeZone *zone = [NSTimeZone systemTimeZone];
+                
+                NSInteger interval = [zone secondsFromGMTForDate: date];
+                
+                NSDate *localeDate = [date  dateByAddingTimeInterval: interval];
+                
                 //组合数据并存入数据库
-                NSDictionary *eventDic = @{@"eventClass":oneAction[@"name"],
-                                           @"eventCodeName":className,
+                NSDictionary *eventDic = @{@"eventClass":className,
+                                           @"eventCodeName":methodName,
                                            @"eventCount":@"1",
-                                           @"eventDate":@"时间暂时不需要",
-                                           @"eventName":methodName,
+                                           @"eventDate":[NSString stringWithFormat:@"%@",localeDate],
+                                           @"eventName":oneAction[@"name"],
                                            @"eventTag":tag,
                                            @"eventUser":@"jianghong",
                                            };

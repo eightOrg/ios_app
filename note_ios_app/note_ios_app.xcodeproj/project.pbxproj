@@ -76,7 +76,6 @@
 		A94FBEAB1ED9746C00AA5763 /* JHChatBaseCellLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = A94FBEAA1ED9746C00AA5763 /* JHChatBaseCellLocation.m */; };
 		A9824EE11F0CD23B00442454 /* UIImage+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A9824EE01F0CD23B00442454 /* UIImage+Util.m */; };
 		A9824EE41F0CE18800442454 /* JH_AnalyseDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A9824EE31F0CE18800442454 /* JH_AnalyseDataHelper.m */; };
-		A9824EF01F0CE97B00442454 /* ViewControllerAnalyseData+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A9824EEC1F0CE97B00442454 /* ViewControllerAnalyseData+CoreDataProperties.m */; };
 		A982906C1F02464A00787735 /* JHInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A982906B1F02464A00787735 /* JHInputView.m */; };
 		A98A1D941F05E985009E9A06 /* JHImageViewerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A1D931F05E985009E9A06 /* JHImageViewerWindow.m */; };
 		A98A1D971F05E99D009E9A06 /* JH_RuntimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A1D961F05E99D009E9A06 /* JH_RuntimeTool.m */; };
@@ -89,6 +88,7 @@
 		A98A3FD91ED920EB005768B6 /* JHChatBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FD71ED920EB005768B6 /* JHChatBaseController.m */; };
 		A98A3FE01ED924A0005768B6 /* JHChatBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FDF1ED924A0005768B6 /* JHChatBaseViewModel.m */; };
 		A98A3FE31ED924FD005768B6 /* JHChatBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A98A3FE21ED924FD005768B6 /* JHChatBaseCell.m */; };
+		A99095261F0DDB4300BC53DD /* ViewControllerAnalyseData+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A99095241F0DDB4300BC53DD /* ViewControllerAnalyseData+CoreDataProperties.m */; };
 		A99713FD1F0BAF27005F85EA /* JHAnalyseControlAnalyseNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A99713FC1F0BAF27005F85EA /* JHAnalyseControlAnalyseNode.m */; };
 		A99714031F0BB53C005F85EA /* UIViewController+JHswizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = A99714021F0BB53C005F85EA /* UIViewController+JHswizzling.m */; };
 		A99714051F0BBF92005F85EA /* analyse.json in Resources */ = {isa = PBXBuildFile; fileRef = A99714041F0BBF92005F85EA /* analyse.json */; };
@@ -274,10 +274,6 @@
 		A9824EE01F0CD23B00442454 /* UIImage+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Util.m"; sourceTree = "<group>"; };
 		A9824EE21F0CE18800442454 /* JH_AnalyseDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JH_AnalyseDataHelper.h; sourceTree = "<group>"; };
 		A9824EE31F0CE18800442454 /* JH_AnalyseDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JH_AnalyseDataHelper.m; sourceTree = "<group>"; };
-		A9824EE91F0CE97B00442454 /* ViewControllerAnalyseData+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewControllerAnalyseData+CoreDataClass.h"; sourceTree = "<group>"; };
-		A9824EEA1F0CE97B00442454 /* ViewControllerAnalyseData+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewControllerAnalyseData+CoreDataClass.m"; sourceTree = "<group>"; };
-		A9824EEB1F0CE97B00442454 /* ViewControllerAnalyseData+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewControllerAnalyseData+CoreDataProperties.h"; sourceTree = "<group>"; };
-		A9824EEC1F0CE97B00442454 /* ViewControllerAnalyseData+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewControllerAnalyseData+CoreDataProperties.m"; sourceTree = "<group>"; };
 		A982906A1F02464A00787735 /* JHInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHInputView.h; sourceTree = "<group>"; };
 		A982906B1F02464A00787735 /* JHInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHInputView.m; sourceTree = "<group>"; };
 		A98A1D921F05E985009E9A06 /* JHImageViewerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHImageViewerWindow.h; sourceTree = "<group>"; };
@@ -298,6 +294,10 @@
 		A98A3FDF1ED924A0005768B6 /* JHChatBaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseViewModel.m; sourceTree = "<group>"; };
 		A98A3FE11ED924FD005768B6 /* JHChatBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChatBaseCell.h; sourceTree = "<group>"; };
 		A98A3FE21ED924FD005768B6 /* JHChatBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChatBaseCell.m; sourceTree = "<group>"; };
+		A99095211F0DDB4300BC53DD /* ViewControllerAnalyseData+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewControllerAnalyseData+CoreDataClass.h"; sourceTree = "<group>"; };
+		A99095221F0DDB4300BC53DD /* ViewControllerAnalyseData+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewControllerAnalyseData+CoreDataClass.m"; sourceTree = "<group>"; };
+		A99095231F0DDB4300BC53DD /* ViewControllerAnalyseData+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewControllerAnalyseData+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A99095241F0DDB4300BC53DD /* ViewControllerAnalyseData+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewControllerAnalyseData+CoreDataProperties.m"; sourceTree = "<group>"; };
 		A99713FB1F0BAF27005F85EA /* JHAnalyseControlAnalyseNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHAnalyseControlAnalyseNode.h; sourceTree = "<group>"; };
 		A99713FC1F0BAF27005F85EA /* JHAnalyseControlAnalyseNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHAnalyseControlAnalyseNode.m; sourceTree = "<group>"; };
 		A99714011F0BB53C005F85EA /* UIViewController+JHswizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JHswizzling.h"; sourceTree = "<group>"; };
@@ -422,14 +422,14 @@
 				47A56B8D1E5404CE00A86F34 /* JH_ChatMessageManager.m */,
 				47A56B8F1E5407E000A86F34 /* JH_ChatMessageHelper.h */,
 				47A56B901E5407E000A86F34 /* JH_ChatMessageHelper.m */,
+				A99095211F0DDB4300BC53DD /* ViewControllerAnalyseData+CoreDataClass.h */,
+				A99095221F0DDB4300BC53DD /* ViewControllerAnalyseData+CoreDataClass.m */,
+				A99095231F0DDB4300BC53DD /* ViewControllerAnalyseData+CoreDataProperties.h */,
+				A99095241F0DDB4300BC53DD /* ViewControllerAnalyseData+CoreDataProperties.m */,
 				A94B44C71F0D115000EF0E21 /* EventAnalyseData+CoreDataClass.h */,
 				A94B44C81F0D115000EF0E21 /* EventAnalyseData+CoreDataClass.m */,
 				A94B44C91F0D115000EF0E21 /* EventAnalyseData+CoreDataProperties.h */,
 				A94B44CA1F0D115000EF0E21 /* EventAnalyseData+CoreDataProperties.m */,
-				A9824EE91F0CE97B00442454 /* ViewControllerAnalyseData+CoreDataClass.h */,
-				A9824EEA1F0CE97B00442454 /* ViewControllerAnalyseData+CoreDataClass.m */,
-				A9824EEB1F0CE97B00442454 /* ViewControllerAnalyseData+CoreDataProperties.h */,
-				A9824EEC1F0CE97B00442454 /* ViewControllerAnalyseData+CoreDataProperties.m */,
 				A9824EE21F0CE18800442454 /* JH_AnalyseDataHelper.h */,
 				A9824EE31F0CE18800442454 /* JH_AnalyseDataHelper.m */,
 			);
@@ -1022,6 +1022,7 @@
 			files = (
 				47B8301D1DC44AB500969523 /* AppDelegate.m in Sources */,
 				A98A3FE31ED924FD005768B6 /* JHChatBaseCell.m in Sources */,
+				A99095261F0DDB4300BC53DD /* ViewControllerAnalyseData+CoreDataProperties.m in Sources */,
 				A94FBEA81ED9745D00AA5763 /* JHChatBaseCellImage.m in Sources */,
 				476BE2C51E56C9C900D41377 /* UserInfoManager.m in Sources */,
 				47D84DB11E51464E009C6C2A /* JHChatFriendCell.m in Sources */,
@@ -1037,7 +1038,6 @@
 				47B830651DC4529700969523 /* JHLoginVC.m in Sources */,
 				47D84DBB1E5146B6009C6C2A /* JHChatFriendRowModel.m in Sources */,
 				A99713FD1F0BAF27005F85EA /* JHAnalyseControlAnalyseNode.m in Sources */,
-				A9824EF01F0CE97B00442454 /* ViewControllerAnalyseData+CoreDataProperties.m in Sources */,
 				A98A1D941F05E985009E9A06 /* JHImageViewerWindow.m in Sources */,
 				A9B1D0301F0A11F800DFD624 /* JHChatVoiceBaseView.m in Sources */,
 				47D84DD51E51B25B009C6C2A /* JHChatMessageViewModel.m in Sources */,

@@ -46,13 +46,13 @@ const static CGFloat inputViewHeight=90;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
--(void)viewDidAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     
     [[IQKeyboardManager sharedManager] setEnable:NO];
 }
--(void)viewDidDisappear:(BOOL)animated {
+-(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[IQKeyboardManager sharedManager] setEnable:YES];
 }

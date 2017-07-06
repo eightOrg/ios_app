@@ -47,7 +47,7 @@ static NSDate *startDate;
         
         if(![str containsString:@"UI"]){
             startDate = [NSDate  date];
-            NSLog(@"统计打点出现 : %@ time : %@", [self getJsonData][str] ,startDate);
+//            NSLog(@"统计打点出现 : %@ time : %@", [self getJsonData][str] ,startDate);
         }
     }
     
@@ -63,13 +63,20 @@ static NSDate *startDate;
         if(![str containsString:@"UI"]){
             //计算时间差
             NSDate *endDate = [NSDate date];
+            NSTimeZone *zone = [NSTimeZone systemTimeZone];
+            
+            NSInteger interval = [zone secondsFromGMTForDate: endDate];
+            
+            NSDate *localeDate = [endDate  dateByAddingTimeInterval: interval];
+            
             NSTimeInterval duration = [endDate timeIntervalSinceDate:startDate];
             NSLog(@"统计打点出现 : %@ time : %f 时长", data[str] ,duration);
             //组合数据并存入数据库
             NSDictionary *vcDic = @{@"viewControllerCodeName":str,
-                                       @"viewControllerName":data[str],
-                                       @"viewControllerTime":[NSString stringWithFormat:@"%f",duration],
-                                       };
+                                    @"viewControllerName":data[str],
+                                    @"viewControllerTime":[NSString stringWithFormat:@"%f",duration],
+                                    @"viewControllerDate":[NSString stringWithFormat:@"%@",localeDate]
+                                    };
             [JH_AnalyseDataHelper _AnalyseWithData:vcDic withType:AnalyseTypeViewController];
             
         }

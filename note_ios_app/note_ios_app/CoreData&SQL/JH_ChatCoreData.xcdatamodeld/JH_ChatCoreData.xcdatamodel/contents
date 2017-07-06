@@ -32,6 +32,7 @@
     </entity>
     <entity name="ViewControllerAnalyseData" representedClassName="ViewControllerAnalyseData" syncable="YES" codeGenerationType="class">
         <attribute name="viewControllerCodeName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="viewControllerDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="viewControllerName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="viewControllerTime" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
@@ -40,6 +41,6 @@
         <element name="M_MessageList" positionX="0" positionY="45" width="128" height="150"/>
         <element name="M_RecentMessage" positionX="-36" positionY="9" width="128" height="90"/>
         <element name="M_UserInfo" positionX="27" positionY="72" width="128" height="120"/>
-        <element name="ViewControllerAnalyseData" positionX="0" positionY="90" width="128" height="90"/>
+        <element name="ViewControllerAnalyseData" positionX="0" positionY="90" width="128" height="105"/>
     </elements>
 </model>
