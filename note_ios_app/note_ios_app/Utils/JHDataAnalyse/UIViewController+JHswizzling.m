@@ -42,25 +42,29 @@ static NSDate *startDate;
     
     NSString *str = [NSString stringWithFormat:@"%@", self.class];
     // 我们在这里加一个判断，将系统的UIViewController的对象剔除掉
-    NSDictionary *data = [self getJsonData];
-    if ([[data allKeys]containsObject:str]) {
-        
-        if(![str containsString:@"UI"]){
-            startDate = [NSDate  date];
-//            NSLog(@"统计打点出现 : %@ time : %@", [self getJsonData][str] ,startDate);
-        }
-    }
+    if(![str containsString:@"UI"]){
     
+        NSDictionary *data = [self getJsonData];
+        if ([[data allKeys]containsObject:str]) {
+#warning 存在present视图的时候先走appear再disappear，考虑到时间较短这里可以加个简单的延迟,否则startDate被篡改
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    
+                    startDate = [NSDate  date];
+                });
+                //            NSLog(@"统计打点出现 : %@ time : %@", [self getJsonData][str] ,startDate);
+        }
+        
+    }
     [self JH_swizzlingViewDidAppear];
 }
 
 // 我们自己实现的方法，也就是和self的viewDidDisAppear方法进行交换的方法。
 - (void)JH_swizzlingViewDidDisAppear{
     NSString *str = [NSString stringWithFormat:@"%@", self.class];
-    // 我们在这里加一个判断，将系统的UIViewController的对象剔除掉
-    NSDictionary *data = [self getJsonData];
-    if ([[data allKeys]containsObject:str]) {
-        if(![str containsString:@"UI"]){
+    if(![str containsString:@"UI"]){
+        // 我们在这里加一个判断，将系统的UIViewController的对象剔除掉
+        NSDictionary *data = [self getJsonData];
+        if ([[data allKeys]containsObject:str]) {
             //计算时间差
             NSDate *endDate = [NSDate date];
             NSTimeZone *zone = [NSTimeZone systemTimeZone];
@@ -70,7 +74,7 @@ static NSDate *startDate;
             NSDate *localeDate = [endDate  dateByAddingTimeInterval: interval];
             
             NSTimeInterval duration = [endDate timeIntervalSinceDate:startDate];
-            NSLog(@"统计打点出现 : %@ time : %f 时长", data[str] ,duration);
+            NSLog(@"视图消失 : %@ time : %f 时长", data[str] ,duration);
             //组合数据并存入数据库
             NSDictionary *vcDic = @{@"viewControllerCodeName":str,
                                     @"viewControllerName":data[str],
@@ -81,6 +85,7 @@ static NSDate *startDate;
             
         }
     }
+    
     
     [self JH_swizzlingViewDidDisAppear];
 }
