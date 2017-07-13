@@ -8,8 +8,10 @@
 
 #import "JHChatBaseController.h"
 #import "JHInputView.h"
+#import "JHMapLocationVC.h"
 #import <IQKeyboardManager.h>
-@interface JHChatBaseController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,JH_ChatSendDelegate>
+#import "JHImageViewerWindow.h"
+@interface JHChatBaseController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,JH_ChatSendDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)JHInputView *inputView;
 @end
@@ -31,6 +33,7 @@ const static CGFloat inputViewHeight=90;
     }];
     _inputView = [[JHInputView alloc] initWithFrame:CGRectMake(0, self.view.bottom-inputViewHeight-JH_NavigationHeight, self.view.frame.size.width, inputViewHeight)];
     _inputView.sendDelegate = self;
+    _inputView.userId  = [NSString stringWithFormat:@"%lld",self.viewModel.recentMessage.recentMessage_user.user_id];
     [self.view addSubview:_inputView];
     
     [self _freshData];
@@ -43,17 +46,45 @@ const static CGFloat inputViewHeight=90;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
--(void)viewDidAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     
     [[IQKeyboardManager sharedManager] setEnable:NO];
 }
--(void)viewDidDisappear:(BOOL)animated {
+-(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[IQKeyboardManager sharedManager] setEnable:YES];
 }
 
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    if (picker.sourceType==UIImagePickerControllerSourceTypeCamera) {
+        [self _sendImage:image];
+        [picker dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+        return;
+    }
+    WeakSelf
+    //增加图片选择确定的视图
+    JHImageViewerWindow *imageWindows = [[JHImageViewerWindow alloc] initWithFrame:CGRectMake(0, 0, JHSCREENWIDTH, JHSCREENHEIGHT) WithImage:image];
+    [imageWindows _setCancelAndCertainButton];
+    [picker.view addSubview:imageWindows];
+    
+    [imageWindows setBlock:^(UIImage *img){
+        
+        [picker dismissViewControllerAnimated:YES completion:nil];
+        [weakSelf _sendImage:image];
+        
+    }];
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+    
+}
 #pragma mark - UI (creatSubView and layout)
 -(UITableView *)tableView{
     if (_tableView==nil) {
@@ -81,7 +112,30 @@ const static CGFloat inputViewHeight=90;
  选中
  */
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [_viewModel disSelectRowWithIndexPath:indexPath WithHandle:^{
+    WeakSelf
+    [_viewModel disSelectRowWithIndexPath:indexPath WithHandle:^(id result){
+        M_MessageList *message = weakSelf.viewModel.messageList[indexPath.row];
+        if ([result isEqual:@(MessageTypeLocation)]) {
+            NSArray *locationArr = [message.message_text componentsSeparatedByString:@"/"];
+            
+            CLLocation *location = [[CLLocation alloc] initWithLatitude:[locationArr[0] doubleValue] longitude:[locationArr[1] doubleValue]];
+            JHMapLocationVC *locationVC = [[JHMapLocationVC alloc] init];
+            locationVC.userLocation = location;
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:locationVC];
+            [weakSelf.navigationController presentViewController:nav animated:YES completion:^{
+                
+            }];
+        }else if ([result isEqual:@(MessageTypeImage)]){
+            //获取图片
+            NSString *documentPath = [JH_FileManager getDocumentPath];
+            NSString *imagePath = message.message_path;
+            
+            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@%@",documentPath,imagePath]];
+            JHImageViewerWindow *imageWindow = [[JHImageViewerWindow alloc] initWithFrame:CGRectMake(0, 0, JHSCREENWIDTH, JHSCREENHEIGHT) WithImage:image];
+            [imageWindow _setOneTapDismissGesture];
+            [imageWindow _setDoubleTapGesture];
+            [weakSelf.navigationController.view addSubview:imageWindow];
+        }
         
     }];
     
@@ -94,6 +148,21 @@ const static CGFloat inputViewHeight=90;
 }
 
 /**
+ 发送录音
+
+ @param dir 录音路径
+ */
+-(void)JHsendMessageWithAudioDir:(NSString *)dir{
+    NSString *userId = [NSString stringWithFormat:@"%lld",self.viewModel.recentMessage.recentMessage_user.user_id];
+    NSString *userName = self.viewModel.recentMessage.recentMessage_user.user_name;
+    NSDate *now = [NSDate date];
+    NSString *time = [NSString stringWithFormat:@"%ld",(long)[now timeIntervalSince1970]];
+    [self.viewModel addAudioMediaMessage:dir isSelf:YES userId:userId userName:userName time:time type:MessageTypeVoice];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.viewModel.messageList.count-1 inSection:0]] withRowAnimation:0];
+    [self.view endEditing:YES];
+    [self scrollTableViewToBottom];
+}
+/**
  发送文字信息
  */
 -(void)JHsendMessageWithText:(NSString *)text{
@@ -105,9 +174,56 @@ const static CGFloat inputViewHeight=90;
     [self.viewModel addTextMessage:text isSelf:YES userId:userId userName:userName time:time type:MessageTypeText];
     [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.viewModel.messageList.count-1 inSection:0]] withRowAnimation:0];
     [self.view endEditing:YES];
-//    [self.view resignFirstResponder];
+    
 }
+/**
+ 发送定位
+ */
+-(void)JHsendMessageWithLocationWithLatitude:(double)latitude withlongitude:(double)longitude{
+    NSString *userId = [NSString stringWithFormat:@"%lld",self.viewModel.recentMessage.recentMessage_user.user_id];
+    NSString *userName = self.viewModel.recentMessage.recentMessage_user.user_name;
+    NSDate *now = [NSDate date];
+    NSString *time = [NSString stringWithFormat:@"%ld",(long)[now timeIntervalSince1970]];
+    NSString *locationStr = [NSString stringWithFormat:@"%f/%f",latitude,longitude];
+    WeakSelf
+    [self.viewModel addLocationMessage:locationStr isSelf:YES userId:userId userName:userName time:time type:MessageTypeLocation completionBlock:^{
+        
+        [weakSelf.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.viewModel.messageList.count-1 inSection:0]] withRowAnimation:0];
+    }];
+    [self.view endEditing:YES];
+    [self scrollTableViewToBottom];
+}
+/**
+ 发送图片信息
+ */
+-(void)JHsendMessageWithImage:(UIImagePickerController *)picker{
+    picker.delegate = self;
+    [self presentViewController:picker animated:YES completion:^{
+        
+    }];
+    
+    
+}
+
 #pragma mark - utilMethod
+
+/**
+ 发送图片
+
+ @param image UIImage
+ */
+-(void)_sendImage:(UIImage *)image{
+    NSString *userId = [NSString stringWithFormat:@"%lld",self.viewModel.recentMessage.recentMessage_user.user_id];
+    NSString *userName = self.viewModel.recentMessage.recentMessage_user.user_name;
+    NSDate *now = [NSDate date];
+    NSString *time = [NSString stringWithFormat:@"%ld",(long)[now timeIntervalSince1970]];
+    
+    [self.viewModel addPhotoMediaMessage:image isSelf:YES userId:userId userName:userName time:time type: MessageTypeImage];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.viewModel.messageList.count-1 inSection:0]] withRowAnimation:0];
+    [self.view endEditing:YES];
+    [self scrollTableViewToBottom];
+}
+
 /**
  *  当键盘改变了frame(位置和尺寸)的时候调用
  */

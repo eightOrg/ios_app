@@ -20,6 +20,15 @@
 #define APPDELEGATE (AppDelegate *)[UIApplication sharedApplication].delegate
 #define WeakSelf __weak typeof(self) weakSelf = self;
 
+#define kTipAlert(_S_, ...) UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:(_S_), ##__VA_ARGS__] preferredStyle:UIAlertControllerStyleAlert];UIAlertAction *alert = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:nil];[alertController addAction:alert];[[JH_CommonInterface presentingVC] presentViewController:alertController animated:YES completion:nil];
+
+#define JHdispatch_async_main_safe(block)\
+if ([NSThread isMainThread]) {\
+block();\
+} else {\
+dispatch_async(dispatch_get_main_queue(), block);\
+}
+
 #define FONT_MEDIUM @"PingFangSC-Medium"
 #define FONT_REGULAR @"PingFangSC-Regular"
 #define FONT_SEMIBOLD @"PingFangSC-Semibold"
@@ -56,5 +65,7 @@
 #define COLOR_c00000 HEXRGB(0xc00000)
 //默认动画时间
 #define JH_UIViewAnimation 0.3
+#define LEFT_WITH (JHSCREENWIDTH>750?55:52.5)
+#define RIGHT_WITH (JHSCREENWIDTH>750?89:73)
 
 #endif /* Attribute_h */

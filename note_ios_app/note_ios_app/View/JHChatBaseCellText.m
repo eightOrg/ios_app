@@ -7,8 +7,7 @@
 //
 
 #import "JHChatBaseCellText.h"
-#define LEFT_WITH (JHSCREENWIDTH>750?55:52.5)
-#define RIGHT_WITH (JHSCREENWIDTH>750?89:73)
+
 @implementation JHChatBaseCellText
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -52,7 +51,7 @@
         }];
         
     }
-
+    
     UIImageView *contextBack=[[UIImageView alloc] init];
     contextBack.userInteractionEnabled=YES;
     
@@ -66,7 +65,7 @@
                                                         attributes:attributes
                    
                                                            context:nil];
-
+    
     
     if (_messageModel.message_isSelf==MessageSenderTypeReceived) {
         UIImageView *logoImage=[[UIImageView alloc] init];
@@ -74,31 +73,31 @@
         logoImage.image = [UIImage imageNamed:@"button_pic_r@2x"];
         //        [logoImage setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:DEF_ICON]];
         [self.contentView addSubview:logoImage];
-
+        
         contextBack.frame=CGRectMake(LEFT_WITH, masTop, rect.size.width+26, rect.size.height+26);
         contextBack.image=[[UIImage imageNamed:@"wechatback1"] stretchableImageWithLeftCapWidth:10 topCapHeight:25];
         [self.contentView addSubview:contextBack];
-
+        
         UILabel *textMessageLabel= [self textMessageLabelWithFrame:CGRectMake(LEFT_WITH+12, masTop+14, rect.size.width, rect.size.height) textFont:textFont];
         
         [self.contentView addSubview:textMessageLabel];
         
-   
+        
     }else if (_messageModel.message_isSelf==MessageSenderTypeSend) {
         
         UIImageView *logoImage=[[UIImageView alloc] init];
         logoImage.frame=CGRectMake(JHSCREENWIDTH-10-40, masTop, 40, 40);
         logoImage.image = [UIImage imageNamed:@"button_pic@2x"];
-//        [logoImage setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:DEF_ICON]];
+        //        [logoImage setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:DEF_ICON]];
         [self.contentView addSubview:logoImage];
-  
+        
         contextBack.frame=CGRectMake(JHSCREENWIDTH-(rect.size.width+26)-LEFT_WITH, masTop, rect.size.width+26, rect.size.height+26);
         contextBack.image=[[UIImage imageNamed:@"wechatback2"] stretchableImageWithLeftCapWidth:10 topCapHeight:25];
         [self.contentView addSubview:contextBack];
         
         
         UILabel *textMessageLabel= [self textMessageLabelWithFrame:CGRectMake(JHSCREENWIDTH-(rect.size.width+26)-LEFT_WITH+12, masTop+14, rect.size.width, rect.size.height) textFont:textFont];
-
+        
         [self.contentView addSubview:textMessageLabel];
         
     }
@@ -118,5 +117,4 @@
     textMessageLabel.text=_messageModel.message_text;
     return textMessageLabel;
 }
-
 @end

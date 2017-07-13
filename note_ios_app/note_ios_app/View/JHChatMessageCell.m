@@ -7,12 +7,7 @@
 //
 
 #import "JHChatMessageCell.h"
-typedef enum : NSUInteger {
-    MessageTypeText,
-    MessageTypePhoto,
-    MessageTypeAudio,
-    MessageTypeLocation
-} MessageType;
+#import "JH_ChatMessageHelper.h"
 @implementation JHChatMessageCell
 
 - (void)awakeFromNib {
@@ -34,17 +29,16 @@ typedef enum : NSUInteger {
 -(void)_setChatMessageModel:(JHChatMessageItem *)item{
     self.labName.text = item.name;
     self.labTime.text = item.time;
-    self.labMessage.text = item.resentMessage;
-    self.labNumber.text = item.number;
+    self.labNumber.text = [item.number isEqualToString:@"0"]?@"":item.number;
     switch (item.type) {
         case MessageTypeText:
-            
+                self.labMessage.text = item.resentMessage;
             break;
-        case MessageTypePhoto:
-            self.labMessage.text = @"[图片信息]";
-            break;
-        case MessageTypeAudio:
+        case MessageTypeVoice:
             self.labMessage.text = @"[语音信息]";
+            break;
+        case MessageTypeImage:
+            self.labMessage.text = @"[图片信息]";
             break;
         case MessageTypeLocation:
             self.labMessage.text = @"[位置信息]";

@@ -42,9 +42,10 @@
     CGFloat height = [JHChatBaseCell tableHeightWithModel:_messageList[indexPath.row]];
     return height;
 }
--(void)disSelectRowWithIndexPath:(NSIndexPath *)indexPath WithHandle:(void (^)())completionBlock{
+-(void)disSelectRowWithIndexPath:(NSIndexPath *)indexPath WithHandle:(void (^)(id result))completionBlock{
+    M_MessageList *message = _messageList[indexPath.row];
     
-    completionBlock();
+    completionBlock(@(message.message_type));
 }
 #pragma mark - 数据处理
 /**
@@ -63,7 +64,7 @@
                           @"user":@{
                                   @"id":userId,
                                   @"name":userName,
-                                  @"potrail":isSelf?@"":@"",
+                                  @"potrail":isSelf?@"1":@"0",
                                   @"messages":@[
                                           @{
                                               @"time":time,
@@ -88,9 +89,60 @@
     [self sendNotificationForDataFresh];
     
 }
-//添加文字信息
+/**
+ 添加录音message
+ */
+- (void)addAudioMediaMessage:(NSString *)path isSelf:(BOOL )isSelf userId:(NSString *)userId userName:(NSString *)userName time:(NSString *)time type:(MessageType )type{
+    
+    //将录音地址存入数据库
+    [self _setMessageDictionary:[NSString stringWithFormat:@"/%@/%@.mp3",userId,path] isPath:YES isSelf:isSelf userId:userId userName:userName time:time  type:type];
+    
+}
+
+/**
+ 添加文字信息
+ */
 - (void)addTextMessage:(NSString *)text isSelf:(BOOL )isSelf userId:(NSString *)userId userName:(NSString *)userName time:(NSString *)time type:(MessageType )type{
     //存储数据库
     [self _setMessageDictionary:text isPath:NO isSelf:isSelf userId:userId userName:userName time:time type:MessageTypeText];
+}
+/**
+ 添加定位信息(123/123)中间分隔为“/”
+ */
+- (void)addLocationMessage:(NSString *)locationString isSelf:(BOOL )isSelf userId:(NSString *)userId userName:(NSString *)userName time:(NSString *)time type:(MessageType )type completionBlock:(void (^)())completion{
+    //将locationString分解
+//    NSArray *locationArray = [locationString componentsSeparatedByString:@"/"];
+//    
+    //存储数据库
+    [self _setMessageDictionary:locationString isPath:NO isSelf:isSelf userId:userId userName:userName time:time type:MessageTypeLocation];
+    
+    completion();
+    
+}
+/**
+ 添加图片message
+ */
+- (void)addPhotoMediaMessage:(UIImage *)image isSelf:(BOOL )isSelf userId:(NSString *)userId userName:(NSString *)userName time:(NSString *)time type:(MessageType )type{
+
+    //将图片存入本地
+    [self _writePhoto:image isSelf:isSelf userId:userId userName:userName time:time type:type];
+    
+}
+/**
+ 存储图片，利用userId和时间戳构成一个图片地址
+ */
+-(void)_writePhoto :(UIImage *)image isSelf:(BOOL )isSelf userId:(NSString *)userId userName:(NSString *)userName time:(NSString *)time type:(MessageType )type{
+    
+    NSString *douumentPath = [JH_FileManager getDocumentPath];
+    NSString *dirPath = userId;
+    [JH_FileManager creatDir:[NSString stringWithFormat:@"%@/%@",douumentPath,dirPath]];
+    //设置一个图片的存储路径
+    NSString *imagePath = [douumentPath stringByAppendingString:[NSString stringWithFormat:@"/%@/%@.jpg",dirPath,time]];
+    //把图片直接保存到指定的路径（同时应该把图片的路径imagePath存起来，下次就可以直接用来取）
+    [UIImageJPEGRepresentation(image, 1.0) writeToFile:imagePath atomically:YES];
+    
+    //将图片地址存入数据库
+    [self _setMessageDictionary:[NSString stringWithFormat:@"/%@/%@.jpg",userId,time] isPath:YES isSelf:isSelf userId:userId userName:userName time:time  type:type];
+    
 }
 @end

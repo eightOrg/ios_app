@@ -20,7 +20,7 @@
     
     //启动之前的一些设置
     [self _startApplication];
-    
+    NSLog(@"%@",NSHomeDirectory());
     return YES;
 }
 

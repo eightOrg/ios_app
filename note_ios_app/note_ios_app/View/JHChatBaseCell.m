@@ -11,6 +11,7 @@
 @implementation JHChatBaseCell
 #define LEFT_WITH (JHSCREENWIDTH>750?55:52.5)
 #define RIGHT_WITH (JHSCREENWIDTH>750?89:73)
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     
@@ -46,6 +47,7 @@
         for (UIView *view in cell.contentView.subviews) {
             [view removeFromSuperview];
         }
+        cell.messageModel = model;
         return cell;
     }else if (model.message_type == MessageTypeImage) {
         static NSString *identifier = @"JHChatBaseCellImage";
@@ -57,6 +59,7 @@
         for (UIView *view in cell.contentView.subviews) {
             [view removeFromSuperview];
         }
+        cell.messageModel = model;
         return cell;
     }else if (model.message_type == MessageTypeLocation){
         static NSString *identifier = @"JHChatBaseCellLocation";
@@ -68,6 +71,7 @@
         for (UIView *view in cell.contentView.subviews) {
             [view removeFromSuperview];
         }
+        cell.messageModel = model;
         return cell;
     }
     
@@ -77,7 +81,7 @@
 +(CGFloat)tableHeightWithModel:(M_MessageList *)model{
     CGFloat masTop=10;
     
-    if (!model.message_isShowTime) {
+    if (model.message_isShowTime) {
         
         masTop=37;
         
@@ -109,13 +113,21 @@
         return rect.size.height+26+masTop+20;
         
     }else if (model.message_type == MessageTypeVoice) {
-        return 50;
+        return 30+26+masTop+20;
     }else if (model.message_type == MessageTypeImage) {
-        return 150;
+        //根据路径获取图片
+        //获取图片
+        NSString *documentPath = [JH_FileManager getDocumentPath];
+        NSString *imagePath = model.message_path;
+        
+        UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@%@",documentPath,imagePath]];
+        CGSize imageSize = [JH_CommonInterface imageShowSize:image];
+        return imageSize.height+26+masTop+20;
+        
     }else if (model.message_type == MessageTypeLocation){
-        return 100;
+        return JHSCREENWIDTH/2*2/3+26+masTop+20;
     }
-    return 50;
+    return 30+26+masTop+20;
 }
 
 @end

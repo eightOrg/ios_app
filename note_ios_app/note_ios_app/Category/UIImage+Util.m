@@ -1,14 +1,59 @@
 //
-//  UIImage+ChangeToSize.m
-//  haoqibaoyewu
+//  UIImage+Util.m
+//  carFinance
 //
-//  Created by hyjt on 16/7/15.
-//  Copyright © 2016年 jianghong. All rights reserved.
+//  Created by hyjt on 2017/7/5.
+//  Copyright © 2017年 haoyungroup. All rights reserved.
 //
 
-#import "UIImage+ChangeToSize.h"
+#import "UIImage+Util.h"
 
-@implementation UIImage (ChangeToSize)
+@implementation UIImage (Util)
+
+/**
+ UIImage使用颜色生成
+ 
+ @param color UIColor
+ @param rect 大小
+ @return 图片
+ */
++ (UIImage *)imageWithColor:(UIColor *)color withRect:(CGRect )rect
+{
+    
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, [[UIScreen mainScreen] scale]);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
+/**
+ 将第一张图绘制到第二张中间
+ @param firstImage 上边的图（直接获取原始大小）
+ @param secondImage 下边的图
+ @param rect 下边大小
+ @return 图片
+ */
++(UIImage *)combineWithFirstImage:(UIImage *)firstImage  secondImage:(UIImage *)secondImage byRect:(CGRect)rect{
+    
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, [[UIScreen mainScreen] scale]);
+    [secondImage drawInRect:rect];
+    CGFloat width = firstImage.size.width;
+    CGFloat height = firstImage.size.height;
+    //将第一个图绘制到中间
+    [firstImage drawInRect:CGRectMake(rect.origin.x+(rect.size.width-width)/2, rect.origin.y+(rect.size.height-height)/2, width, height)];
+    UIImage* imagez = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return imagez;
+    
+}
 /**
  *  图片缩放
  *  @param image 传入图片
@@ -34,7 +79,7 @@
     UIGraphicsEndImageContext();
     // 返回新的改变大小后的图片
     return scaledImage;
-   
+    
 }
 /**
  *  将图片变成圆形
@@ -71,7 +116,7 @@
     UIGraphicsEndImageContext();
     
     return newImage;
-
+    
 }
 /**
  *  等比例缩放图片
@@ -158,15 +203,19 @@
     }
     return data;
 }
-//直接按照比例压缩
+
+/**
+ 按比例压缩图片至指定最大容量
+
+ @param image 原始图片
+ @param size 指定大小
+ @return 图片Data数据
+ */
 +(NSData *)compressOriginalImageOnece:(UIImage *)image toMaxDataSizeKBytes:(CGFloat)size{
     NSData * data = UIImageJPEGRepresentation(image, 1.0);
     CGFloat dataKBytes = data.length/1000.0;
-    if (size<dataKBytes) {
-        CGFloat maxQuality = size/dataKBytes;
-        data = UIImageJPEGRepresentation(image, maxQuality);
-    }
+    CGFloat maxQuality = size/dataKBytes;
+    data = UIImageJPEGRepresentation(image, maxQuality);
     return data;
 }
-
 @end

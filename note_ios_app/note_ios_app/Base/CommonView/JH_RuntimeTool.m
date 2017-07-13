@@ -57,7 +57,9 @@
         }
     }];
 
-    [nav pushViewController:instance animated:YES];
+    UIViewController *vc = instance;
+    vc.hidesBottomBarWhenPushed = YES;
+    [nav pushViewController:vc animated:YES];
     
 }
 /**
@@ -122,8 +124,9 @@
         [mutableList addObject:[NSString stringWithUTF8String: protocolName]];
     }
     
+    free(protocolList);
     return [NSArray arrayWithArray:mutableList];
-
+    
 }
 
 /**
@@ -140,6 +143,7 @@
         Protocol *protocol = protocolList[i];
         class_addProtocol(class, protocol);
     }
+    free(protocolList);
 }
 /**
  获取类名

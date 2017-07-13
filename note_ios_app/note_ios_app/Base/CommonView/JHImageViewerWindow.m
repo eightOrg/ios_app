@@ -99,6 +99,14 @@
     }];
 }
 /**
+ 设置单点消失事件
+ */
+-(void)_setOneTapDismissGesture{
+
+    _tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_cancelAction)];
+    [self addGestureRecognizer:_tap];
+}
+/**
  设置单点事件
  */
 -(void)_setOneTapGesture{
@@ -230,7 +238,7 @@
     UIButton *cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 20, 50, 40)];
     [cancelButton setTitle:@"取消" forState:0];
     [cancelButton setTitleColor:[UIColor whiteColor] forState:0];
-    [cancelButton addTarget:self action:@selector(_cancelAction) forControlEvents:UIControlEventTouchUpInside];
+    [cancelButton addTarget:self action:@selector(_tapAction) forControlEvents:UIControlEventTouchUpInside];
     [_navView addSubview:cancelButton];
     //确定按钮
     UIButton *certainButton = [[UIButton alloc] initWithFrame:CGRectMake(self.bounds.size.width-50, 20, 50, 40)];
